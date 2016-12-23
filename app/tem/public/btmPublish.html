@@ -1,0 +1,12 @@
+<div class="btm-pay-box" ng-if="publishdata.show">
+    <div class="btm-pay-mark" ng-click="publishdata.close()"></div>
+    <div class="btm-pay">
+        <form action="" class="p16" name="msg_board">
+            <h4>我想对<span class="c-red">Ta</span>说</h4>
+            <textarea class="box w-full h144 publish-textarea p16" placeholder="最多可发表300字" maxlength="300" required oninvalid="setCustomValidity('请输入想对Ta说的内容')" oninput="setCustomValidity('')" name="" id="board"></textarea>
+            <div class="ta-r">
+                <button class="btn bg-blue" ng-click="publishdata.publish()">发表</button>
+            </div>
+        </form>
+    </div>
+</div>

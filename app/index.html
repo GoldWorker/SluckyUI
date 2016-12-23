@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html ng-app="unburdenWall" ng-controller="dispatcher">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>小北表白墙</title>
+    <script src="./js/angular-1.5.7.min.js"></script>
+    <script src="./js/angular-ui-router.min.js"></script>
+    <script src="./js/main.js"></script>
+    <link rel="stylesheet" href="./css/normalize.css">
+</head>
+<style>
+@font-face {
+    /* font-properties */
+    font-family: noto;
+    src: url('./font/NotoSansPhagsPa-Regular.ttf');
+}
+
+body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    background-color: rgba(236, 239, 241, 1);
+    font: normal 100%/1.4 noto;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.h-lb {
+    left: 0;
+    bottom: 0;
+}
+
+.list li {
+    list-style: none;
+}
+
+.publish-textarea {
+    resize: none;
+    border: solid 1px #ccc;
+}
+
+.bg-icon {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    /*right: 32px;*/
+    bottom: 0;
+    line-height: 0;
+    font-size: 216px;
+    color: #fff;
+    z-index: -1;
+}
+</style>
+
+<body>
+    <!-- icon -->
+    <div class="d-n">
+        <svg>
+            <symbol id="icon-spinner11" viewBox="0 0 16 16">
+                <title>spinner11</title>
+                <path class="path1" d="M16 6h-6l2.243-2.243c-1.133-1.133-2.64-1.757-4.243-1.757s-3.109 0.624-4.243 1.757c-1.133 1.133-1.757 2.64-1.757 4.243s0.624 3.109 1.757 4.243c1.133 1.133 2.64 1.757 4.243 1.757s3.109-0.624 4.243-1.757c0.095-0.095 0.185-0.192 0.273-0.292l1.505 1.317c-1.466 1.674-3.62 2.732-6.020 2.732-4.418 0-8-3.582-8-8s3.582-8 8-8c2.209 0 4.209 0.896 5.656 2.344l2.343-2.344v6z"></path>
+            </symbol>
+            <symbol id="icon-quill" viewBox="0 0 16 16">
+                <title>quill</title>
+                <path class="path1" d="M0 16c2-6 7.234-16 16-16-4.109 3.297-6 11-9 11s-3 0-3 0l-3 5h-1z"></path>
+            </symbol>
+            <symbol id="icon-heart" viewBox="0 0 31.7 19.947" xml:space="preserve">
+                <path d="M3.618,0.789l0.265,2.036l-0.16-0.077L1.961,0l0.353,2.692L0,4.111l3.244-0.359l0.161,0.076L1.656,4.902L4.9,4.543
+    l2.746,1.31C7.715,5.466,7.832,5.11,7.983,4.78L5.378,3.538C5.378,3.538,3.618,0.789,3.618,0.789z M31.7,15.595l-2.331-3.636
+    l0.267,2.035L25.27,11.91c0.764-1.163,1.327-2.302,1.489-3.298c0.281-1.716,0.033-3.099-0.738-4.11
+    c-0.777-1.021-2.011-1.607-3.773-1.795c-0.142-0.016-0.291-0.023-0.442-0.023c-1.526,0-3.254,0.738-4.261,2.136
+    c-1.008-1.397-2.735-2.136-4.259-2.136c-0.153,0-0.301,0.008-0.444,0.023C11.08,2.895,9.846,3.481,9.069,4.502
+    C8.899,4.723,8.76,4.964,8.643,5.221c-0.154,0.328-0.269,0.684-0.339,1.07C8.18,6.979,8.188,7.753,8.328,8.612
+    c0.684,4.169,8.402,10.859,8.73,11.145c0.149,0.128,0.333,0.19,0.519,0.19s0.372-0.064,0.522-0.193
+    c0.207-0.18,3.371-2.946,5.826-6.01l-6.05-2.886c0.299-0.234,0.699-0.522,1.02-0.747l5.725,2.73
+    c0.002-0.002,0.004-0.005,0.006-0.007l4.531,2.162l-1.749,1.073L31.7,15.595z" />
+            </symbol>
+        </svg>
+    </div>
+    <div class="bg-icon">
+        <svg class="icon">
+            <use xlink:href="#icon-heart"></use>
+        </svg>
+    </div>
+    <!-- appbar -->
+    <div class="p-r img-box">
+        <!-- <img src="./images/index_bar.jpg" alt=""> -->
+        <img id="appbar_img" src="./images/index_bar.jpg" alt="">
+        <div class="p-a h-lb c-text-w">
+            <h3 class="pl16 pt16">你是我的...</h3>
+            <h3 class="pl16 pb16">Tell What Your Think</h3>
+        </div>
+    </div>
+    <!-- list -->
+    <ul class="list">
+        <li class="flex-box pt16" ng-repeat="msg in msgs">
+            <div>
+                <div class="circle56 mlr16"><img ng-src="{{this.msg.src}}" ng-init="person_icon(this.msg)" alt=""></div>
+            </div>
+            <div class="flex1 bor-b b-grey pb32 pr8">
+                <h5 ng-bind="msg.createtime"></h5>
+                <p ng-bind="msg.content"></p>
+            </div>
+        </li>
+    </ul>
+    <!-- loading -->
+    <div class="ta-c pt32" ng-show="loading" ng-init="loading=true;"><img src="./images/loadingA.gif" alt=""></div>
+    <!-- btm-btn -->
+    <div class="bottomtool ta-r">
+        <button class="btn-round40 bg-blue mb16 mr16" ng-click="open_btm_bool()">
+            <svg class="icon">
+                <use xlink:href="#icon-quill"></use>
+            </svg>
+        </button>
+        <button class="btn-round40 bg-blue mb16 mr16" ng-click="refresh()">
+            <svg class="icon">
+                <use xlink:href="#icon-spinner11"></use>
+            </svg>
+        </button>
+    </div>
+    <!-- btm-tool -->
+    <div btm-publish publishdata="publishdata"></div>
+</body>
+
+</html>
