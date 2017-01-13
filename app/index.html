@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html ng-app="unburdenWall" ng-controller="dispatcher">
+<html>
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <title>小北表白墙</title>
-    <script src="./js/angular-1.5.7.min.js"></script>
-    <script src="./js/angular-ui-router.min.js"></script>
-    <script src="./js/main.js"></script>
-    <link rel="stylesheet" href="./css/normalize.css">
+    <title>slucky</title>
+    <link rel="stylesheet" href="./css/slucky.css">
 </head>
 <style>
-@font-face {
-    /* font-properties */
+/*@font-face {
     font-family: noto;
     src: url('./font/NotoSansPhagsPa-Regular.ttf');
 }
@@ -26,103 +22,255 @@ body {
     font: normal 100%/1.4 noto;
     font-size: 14px;
     color: #2c3e50;
-}
-
-.h-lb {
-    left: 0;
-    bottom: 0;
-}
-
-.list li {
-    list-style: none;
-}
-
-.publish-textarea {
-    resize: none;
-    border: solid 1px #ccc;
-}
-
-.bg-icon {
-    position: fixed;
-    width: 100%;
-    text-align: center;
-    /*right: 32px;*/
-    bottom: 0;
-    line-height: 0;
-    font-size: 216px;
-    color: #fff;
-    z-index: -1;
-}
+}*/
 </style>
 
 <body>
-    <!-- icon -->
     <div class="d-n">
         <svg>
-            <symbol id="icon-spinner11" viewBox="0 0 16 16">
-                <title>spinner11</title>
-                <path class="path1" d="M16 6h-6l2.243-2.243c-1.133-1.133-2.64-1.757-4.243-1.757s-3.109 0.624-4.243 1.757c-1.133 1.133-1.757 2.64-1.757 4.243s0.624 3.109 1.757 4.243c1.133 1.133 2.64 1.757 4.243 1.757s3.109-0.624 4.243-1.757c0.095-0.095 0.185-0.192 0.273-0.292l1.505 1.317c-1.466 1.674-3.62 2.732-6.020 2.732-4.418 0-8-3.582-8-8s3.582-8 8-8c2.209 0 4.209 0.896 5.656 2.344l2.343-2.344v6z"></path>
-            </symbol>
-            <symbol id="icon-quill" viewBox="0 0 16 16">
-                <title>quill</title>
-                <path class="path1" d="M0 16c2-6 7.234-16 16-16-4.109 3.297-6 11-9 11s-3 0-3 0l-3 5h-1z"></path>
-            </symbol>
-            <symbol id="icon-heart" viewBox="0 0 31.7 19.947" xml:space="preserve">
-                <path d="M3.618,0.789l0.265,2.036l-0.16-0.077L1.961,0l0.353,2.692L0,4.111l3.244-0.359l0.161,0.076L1.656,4.902L4.9,4.543
-    l2.746,1.31C7.715,5.466,7.832,5.11,7.983,4.78L5.378,3.538C5.378,3.538,3.618,0.789,3.618,0.789z M31.7,15.595l-2.331-3.636
-    l0.267,2.035L25.27,11.91c0.764-1.163,1.327-2.302,1.489-3.298c0.281-1.716,0.033-3.099-0.738-4.11
-    c-0.777-1.021-2.011-1.607-3.773-1.795c-0.142-0.016-0.291-0.023-0.442-0.023c-1.526,0-3.254,0.738-4.261,2.136
-    c-1.008-1.397-2.735-2.136-4.259-2.136c-0.153,0-0.301,0.008-0.444,0.023C11.08,2.895,9.846,3.481,9.069,4.502
-    C8.899,4.723,8.76,4.964,8.643,5.221c-0.154,0.328-0.269,0.684-0.339,1.07C8.18,6.979,8.188,7.753,8.328,8.612
-    c0.684,4.169,8.402,10.859,8.73,11.145c0.149,0.128,0.333,0.19,0.519,0.19s0.372-0.064,0.522-0.193
-    c0.207-0.18,3.371-2.946,5.826-6.01l-6.05-2.886c0.299-0.234,0.699-0.522,1.02-0.747l5.725,2.73
-    c0.002-0.002,0.004-0.005,0.006-0.007l4.531,2.162l-1.749,1.073L31.7,15.595z" />
+            <symbol id="icon-test" viewBox="0 0 16 16">
+                <title>test</title>
+                <path class="path1" d="M16 9.226l-8-6.21-8 6.21v-2.532l8-6.21 8 6.21zM14 9v6h-4v-4h-4v4h-4v-6l6-4.5z"></path>
             </symbol>
         </svg>
     </div>
-    <div class="bg-icon">
-        <svg class="icon">
-            <use xlink:href="#icon-heart"></use>
-        </svg>
-    </div>
-    <!-- appbar -->
-    <div class="p-r img-box">
-        <!-- <img src="./images/index_bar.jpg" alt=""> -->
-        <img id="appbar_img" src="./images/index_bar.jpg" alt="">
-        <div class="p-a h-lb c-text-w">
-            <h3 class="pl16 pt16">你是我的...</h3>
-            <h3 class="pl16 pb16">Tell What Your Think</h3>
+    <!-- button -->
+    <div>
+        <button class="btn btn-s">Button-s</button>
+        <button class="btn btn-m">Button-m</button>
+        <button class="btn btn-l">Button-l</button>
+        <button class="btn btn-tp">Button-l</button>
+        <button class="btn btn-m btn-hollow ">btn-hollow</button>
+        <button class="btn-round-s">
+            <svg class="icon icon-test">
+                <use xlink:href="#icon-test"></use>
+            </svg>
+        </button>
+        <button class="btn-round-m">
+            <svg class="icon icon-test">
+                <use xlink:href="#icon-test"></use>
+            </svg>
+        </button>
+        <div class="d-il w144">
+            <button class="btn btn-full">btn-full</button>
+        </div>
+        <button class="btn btn-m btn-gif-wait">购买</button>
+        <button class="btn btn-m btn-gif-bingo"></button>
+        <div class="btn-group">
+            <button class="btn btn-m">1</button>
+            <button class="btn btn-m">2</button>
+            <button class="btn btn-m">3</button>
+            <button class="btn btn-m">...</button>
+            <button class="btn btn-m">></button>
         </div>
     </div>
-    <!-- list -->
-    <ul class="list">
-        <li class="flex-box pt16" ng-repeat="msg in msgs">
-            <div>
-                <div class="circle56 mlr16"><img ng-src="{{this.msg.src}}" ng-init="person_icon(this.msg)" alt=""></div>
-            </div>
-            <div class="flex1 bor-b b-grey pb32 pr8">
-                <h5 ng-bind="msg.createtime"></h5>
-                <p ng-bind="msg.content"></p>
-            </div>
-        </li>
-    </ul>
-    <!-- loading -->
-    <div class="ta-c pt32" ng-show="loading" ng-init="loading=true;"><img src="./images/loadingA.gif" alt=""></div>
-    <!-- btm-btn -->
-    <div class="bottomtool ta-r">
-        <button class="btn-round40 bg-blue mb16 mr16" ng-click="open_btm_bool()">
-            <svg class="icon">
-                <use xlink:href="#icon-quill"></use>
-            </svg>
-        </button>
-        <button class="btn-round40 bg-blue mb16 mr16" ng-click="refresh()">
-            <svg class="icon">
-                <use xlink:href="#icon-spinner11"></use>
-            </svg>
-        </button>
+    <!-- img -->
+    <div>
+        <img src="./images/bg_test.jpg" alt="" class="img-rounded bg-tran">
+        <img src="./images/bg_test.jpg" alt="" class="img-circle bg-tran">
+        <img src="./images/bg_test.jpg" alt="" class="img-thumbnail">
     </div>
-    <!-- btm-tool -->
-    <div btm-publish publishdata="publishdata"></div>
-</body>
+    <!-- input -->
+    <div>
+        <p>Normalize</p>
+        <div class="checkbox-box-normalize">
+            <input id="checkbox_normalize" type="checkbox" name="c_n">
+            <span class="checkbox-hook ta-c"><span class="checkbox-hook-in fs12 op0 lh0">✓</span></span>
+            <label for="checkbox_normalize" class="p-r z10">复选框A</label>
+        </div>
+        <div class="checkbox-box-normalize">
+            <input id="checkbox_normalize1" type="checkbox" name="c_n1">
+            <span class="checkbox-hook ta-c"><span class="checkbox-hook-in fs12 op0 lh0">✓</span></span>
+            <label for="checkbox_normalize1" class="p-r z10">B</label>
+        </div>
+        <!-- imgstyle -->
+        <p>imgstyle</p>
+        <div class="checkbox-box-imgstyle mt16">
+            <input id="c_i" type="checkbox" name="c_i" class="d-n">
+            <label for="c_i" class="checkbox-imgstyle">
+                <img src="./images/bg_test.jpg" alt="">
+                <p class="m0">Title</p>
+                <div class="checkbox-mark"><span>✓</span></div>
+            </label>
+        </div>
+        <!-- papertoggle -->
+        <p>papertoggle</p>
+        <div class="checkbox-box-papertoggle w288 shadow">
+            <input id="isSelectPackage" type="checkbox" class="d-n">
+            <label for="isSelectPackage" class="checkbox-papertoggle flex-box">
+                <div class="checkbox-imgbox">
+                    <img src="./images/bg_test.jpg" alt="">
+                </div>
+                <div class="flex1 lh16 pl16">
+                    <p class="bor-b b-divider-b pb8 mb8">
+                        TEST
+                        <svg class="icon f-r">
+                            <use xlink:href="#icon-arrow-right"></use>
+                        </svg>
+                    </p>
+                    <span class="c-hint-b fs12">亲子实惠，难得一夏。</span>
+                </div>
+                <div class="checkbox-mark">
+                    <span>✓</span>
+                    <p>已选择</p>
+                </div>
+            </label>
+        </div>
+        <!-- switch-normalize -->
+        <p>switch-normalize</p>
+        <div class="switch-box-normalize">
+            <label for="switch-input" class="switch-mark-click"></label>
+            <input type="checkbox" value="1" id="switch-input">
+            <div>
+                <i class="switch-move"></i>
+                <span class="switch-horizon"></span>
+            </div>
+        </div>
+        <!-- radio -->
+        <p>radio-normalize</p>
+        <div class="radio-box-normalize">
+            <input id="isManagerPlant1" type="radio" name="managerPlant" class="d-n">
+            <div class="radio-out">
+                <i class="radio-in"></i>
+            </div>
+            <label for="isManagerPlant1">next</label>
+        </div>
+        <div class="radio-box-normalize">
+            <input id="isManagerPlant2" type="radio" name="managerPlant" class="d-n">
+            <div class="radio-out">
+                <i class="radio-in"></i>
+            </div>
+            <label for="isManagerPlant2">cancel</label>
+        </div>
+        <p>count</p>
+        <div class="input-count">
+            <div class="reduce c-cyan b-cyan">
+                <!-- <span>-</span> -->
+                <button>-</button>
+            </div>
+            <input type="text" value="0" id="adult" class="man-num">
+            <div class="plus c-cyan b-cyan">
+                <!-- <span>+</span> -->
+                <button>+</button>
+            </div>
+        </div>
+        <p>select</p>
+        <div class="select-box-normalize">
+            <i class="select-tri-t tri-t"></i>
+            <i class="select-tri-b tri-b"></i>
+            <label for="select" class="select-in"></label>
+            <select name="" id="select">
+                <option value="">qasd</option>
+                <option value="">qasd</option>
+            </select>
+        </div>
+        <p>textarea</p>
+        <textarea name="" id="" cols="30" rows="10" class="textarea"></textarea>
+        <p>range</p>
+        <div class="range-box-mater">
+            <input type="range" class="w144" value="0" max="2" />
+        </div>
+        <div class="range-box-ios">
+            <input type="range" class="w144" value="0" max="2" />
+        </div>
+        <!-- form -->
+        <p>Form</p>
+        <input type="text" name="user_name" id="user_name" class="input input-normal" maxlength="15" placeholder="输入你的姓名" autofocus required oninvalid="setCustomValidity('不能为空喔')" oninput="setCustomValidity('')">
+        <input type="text" name="user_name" id="user_name" class="input-s input-normal" maxlength="15" placeholder="输入你的姓名" autofocus required oninvalid="setCustomValidity('不能为空喔')" oninput="setCustomValidity('')">
+        <div class="input pt8">
+            <label for="" class="fs12 c-grey">Name:</label>
+            <br/>
+            <input type="text" class="input-down" placeholder="Input your name" maxlength="15" required oninvalid="setCustomValidity('不能为空喔')" oninput="setCustomValidity('')">
+            <br/>
+            <span class="input-ps fs12">hint!</span>
+        </div>
+        <div class="fileup-container">
+            <div class="fileup">
+                <label for="input-file" class="fileup-in btn btn-m c-text-w bg-orange">点击选择</label>
+                <input type="file" id="input-file">
+            </div>
+            <img src="" alt="">
+        </div>
+        <div class="search-box-normalize">
+            <input type="text" class="input input-normal">
+            <button class="btn btn-m bg-blue c-text-w">搜索</button>
+        </div>
+    </div>
+    <div>
+        <ul class="paper menu m16" id="menu">
+            <li class="menu-flag">
+                <a href="#">asd</a>
+                <ul class="paper menu">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </li>
+            <li class="menu-flag">
+                <a href="#">dddddd</a>
+                <ul class="paper menu">
+                    <li class="menu-flag">
+                        <a href="#">zxcxzc</a>
+                        <ul class="paper menu">
+                            <li class="menu-flag">
+                                <a href="#">zxcxzc</a>
+                                <ul class="paper menu">
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">qwf</a></li>
+                            <li><a href="#">cvvf</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">qwf</a></li>
+                    <li><a href="#">cvvf</a></li>
+                </ul>
+            </li>
+            <li><a href="#">zxcxzc</a></li>
+            <li><a href="#">qwf</a></li>
+            <li class="menu-flag">
+                <a href="#">cvvf</a>
+                <ul class="paper menu">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- slidebar -->
+    <div class="slidebar-box-normalize">
+        <input type="checkbox" id="slidebar-switch" class="d-n">
+        <div class="slidebar bg-purple">
+            <label for="slidebar-switch" class="slidebar-tool lh56 plr16">
+                <span class="mr16">返回</span>
+                <svg class="icon icon16" id="slidebar_in">
+                    <use xlink:href="#icon-test"></use>
+                </svg>
+                <div id="slidebar_out">
+                    <svg class="icon icon16" id="slidebar_out">
+                        <use xlink:href="#icon-test"></use>
+                    </svg>
+                </div>
+            </label>
+            <details class="slide-down">
+                <summary class="pl16 c-text-w">农场管理员</summary>
+                <ul class="menu">
+                    <li><a>发布土地</a></li>
+                    <li><a>发布种子方案</a></li>
+                    <li><a>发布服务包</a></li>
+                </ul>
+            </details>
+            <ul class="menu">
+                <li><a>发布土地</a></li>
+                <li><a>发布种子方案</a></li>
+                <li><a>发布服务包</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- font -->
+    <!-- color -->
 
 </html>
