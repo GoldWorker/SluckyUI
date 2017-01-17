@@ -1216,13 +1216,19 @@ table th[class*="col-"] {
 
 .slidebar-box-normalize > input[type="checkbox"]:checked + .slidebar + .mark-b {
   display: block;
-  background-color: rgba(0, 0, 0, 0.3);
-  animation: slideIn 0.9s;
-  -moz-animation: slideIn 0.9s;
+  animation-name: slideIn;
+  -moz-animation-name: slideIn;
   /* Firefox */
-  -webkit-animation: slideIn 0.9s;
+  -webkit-animation-name: slideIn;
   /* Safari and Chrome */
-  -o-animation: slideIn 0.9s;
+  -o-animation-name: slideIn;
+  /* Opera */
+  animation-duration: 0.6s;
+  -moz-animation-duration: 0.6s;
+  /* Firefox */
+  -webkit-animation-duration: 0.6s;
+  /* Safari and Chrome */
+  -o-animation-duration: 0.6s;
   /* Opera */ }
 
 @media (max-width: 768px) {
@@ -1234,6 +1240,12 @@ table th[class*="col-"] {
     opacity: 0; }
   100% {
     opacity: 1; } }
+
+@keyframes slideOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 /*--------------------------------------------details-------------------------------------------*/
 .slide-down > summary {
@@ -1505,6 +1517,9 @@ table th[class*="col-"] {
   top: 0;
   left: 0;
   z-index: 9; }
+
+.mark-b {
+  background-color: rgba(0, 0, 0, 0.3); }
 
 .mark-w {
   background-color: rgba(255, 255, 255, 0.3); }
