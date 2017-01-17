@@ -5,12 +5,6 @@
  * @date    2016-03-30 21:11:59
  * @version $Id$
  */
-/*-------------------------------------------
-	var
---------------------------------------------*/
-/*-------------------------------------------
-	mixin
---------------------------------------------*/
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 @-webkit-viewport {
   width: device-width; }
@@ -1438,7 +1432,7 @@ table th[class*="col-"] {
 /*-------------------------------
     usually styles
 ---------------------------------*/
-.shadow, .btn-s, .btn-m, .btn-l, .btn-full, .btn-round, .btn-round-s, .btn-round-m, .btn-round-l, .switch-box-normalize .switch-move, .range-box-ios input[type="range"]::-webkit-slider-thumb, .range-box-mater input[type="range"], .range-box-mater input[type="range"]::-webkit-slider-thumb, .slidebar, .hr, .paper, .paper-b, .paper-tp, .paper-style {
+.shadow, .btn-s, .btn-m, .btn-l, .btn-full, .btn-round, .btn-round-s, .btn-round-m, .btn-round-l, .switch-box-normalize .switch-move, .range-box-ios input[type="range"]::-webkit-slider-thumb, .range-box-mater input[type="range"], .range-box-mater input[type="range"]::-webkit-slider-thumb, .slidebar, .hr, .paper, .paper-b, .paper-tp, .paper-style, .hint-box-nor {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 4px 0 rgba(0, 0, 0, 0.08), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 4px 0 rgba(0, 0, 0, 0.08), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
 
@@ -2504,6 +2498,16 @@ figure > img {
   border: solid 1px red;
   background-color: transparent;
   border-radius: 2px; }
+
+.hint-box-nor {
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 16px;
+  border-left: solid 5px; }
 
 .bg-blue {
   background-color: #3498db; }
