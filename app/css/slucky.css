@@ -1178,14 +1178,15 @@ table th[class*="col-"] {
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: -300px;
   height: 100%;
   z-index: 49; }
   .slidebar > .slidebar-tool {
     display: block;
-    cursor: pointer; }
+    cursor: pointer;
+    position: relative; }
     .slidebar > .slidebar-tool:hover {
       color: #2c3e50 !important; }
     .slidebar > .slidebar-tool #slidebar_in {
@@ -1199,7 +1200,11 @@ table th[class*="col-"] {
         margin: 8px;
         border: solid 1px rgba(0, 0, 0, 0.12); }
 
+.slidebar-box-normalize .mark-b {
+  display: none; }
+
 .slidebar-box-normalize > input[type="checkbox"]:checked + .slidebar {
+  position: fixed;
   left: 0px !important; }
   .slidebar-box-normalize > input[type="checkbox"]:checked + .slidebar > .slidebar-tool {
     text-align: right;
@@ -1209,9 +1214,26 @@ table th[class*="col-"] {
     .slidebar-box-normalize > input[type="checkbox"]:checked + .slidebar > .slidebar-tool #slidebar_out {
       display: none; }
 
+.slidebar-box-normalize > input[type="checkbox"]:checked + .slidebar + .mark-b {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.9s;
+  -moz-animation: slideIn 0.9s;
+  /* Firefox */
+  -webkit-animation: slideIn 0.9s;
+  /* Safari and Chrome */
+  -o-animation: slideIn 0.9s;
+  /* Opera */ }
+
 @media (max-width: 768px) {
   .slidebar {
     display: none; } }
+
+@keyframes slideIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 /*--------------------------------------------details-------------------------------------------*/
 .slide-down > summary {
@@ -1482,10 +1504,7 @@ table th[class*="col-"] {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 10; }
-
-.mark-b {
-  background-color: rgba(0, 0, 0, 0.3); }
+  z-index: 9; }
 
 .mark-w {
   background-color: rgba(255, 255, 255, 0.3); }
