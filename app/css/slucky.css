@@ -1174,6 +1174,20 @@ table th[class*="col-"] {
   font-weight: bold;
   cursor: pointer; }
 
+.toastlists-normalize-box {
+  position: fixed;
+  float: right;
+  top: 0;
+  right: 0; }
+
+.toastlist > div {
+  float: right;
+  margin: 8px 8px 0px 0px; }
+
+.toastlist > div > div {
+  padding: 8px 32px 8px 8px;
+  color: #fff; }
+
 .slidebar {
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;

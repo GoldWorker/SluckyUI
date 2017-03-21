@@ -43,7 +43,7 @@ gulp.task('browser', ['sass'], function() {
             directory: true,
             // index: 'main_page.html'
         },
-        port: 80
+        port: 802
     });
     gulp.watch("./app/sass/**/*.scss", ['sass']);
     // gulp.watch("app/*.html").on('change', reload);
