@@ -1,0 +1,167 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Flyteng
+ * @date    2016-03-30 21:11:59
+ * @version $Id$
+ */
+//	var of self
+@import './_varConfig.scss';
+// mixin
+@import './mixin/_mixin.scss';
+
+//reset
+@import './_normalize.scss';
+// -----------------------------------------------------
+//  button
+//  ----------------------------------------------------
+@import './_button.scss';
+// -----------------------------------------------------
+//  img
+//  ----------------------------------------------------
+@import './_img.scss';
+// -----------------------------------------------------
+//  table
+//  ----------------------------------------------------
+@import './_tables.scss';
+// -----------------------------------------------------
+//  input
+//  ----------------------------------------------------
+@import './_input.scss';
+// -----------------------------------------------------
+//  menu
+//  ----------------------------------------------------
+@import './_menu.scss';
+// -----------------------------------------------------
+//  msg
+//  ----------------------------------------------------
+@import './_alertMsg.scss';
+// -----------------------------------------------------
+// slidebar
+@import './_slideBar.scss';
+// -----------------------------------------------------
+// summary
+@import './_summary.scss';
+// -----------------------------------------------------
+//  bottomTool
+//  ----------------------------------------------------
+@import './_bottomTool.scss';
+// -----------------------------------------------------
+//  bottomTool
+//  ----------------------------------------------------
+@import './_geometry.scss';
+// -----------------------------------------------------
+//  bottomTool
+//  ----------------------------------------------------
+@import './_nav.scss';
+//  bottomTool
+//  ----------------------------------------------------
+@import './_tab.scss';
+//  bottomTool
+//  ----------------------------------------------------
+@import './_icon.scss';
+//  bottomTool
+//  ----------------------------------------------------
+@import './_base.scss';
+//  bottomTool
+//  ----------------------------------------------------
+@import './_hack.scss';
+// -----------------------------------------------------
+//  _color
+//  ----------------------------------------------------
+@import './_3dtransform.scss';
+//  _color
+//  ----------------------------------------------------
+@import './_layout.scss';
+// -----------------------------------------------------
+//  _color
+//  ----------------------------------------------------
+@import './_color.scss';
+
+
+
+/* ------------------------------------------
+  RESET
+--------------------------------------------- */
+// body, div,
+// h1, h2, h3, h4, h5, h6,
+// p, blockquote, pre, dl, dt, dd, ol, ul, li, hr,
+// fieldset, form, label, legend, th, td,
+// article, aside, figure, footer, header, hgroup, menu, nav, section,
+// summary, hgroup {
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+// }
+// a:active,
+// a:hover {
+//   outline: 0;
+// }
+// @-webkit-viewport { width: device-width; }
+// @-moz-viewport { width: device-width; }
+// @-ms-viewport { width: device-width; }
+// @-o-viewport { width: device-width; }
+// @viewport { width: device-width; }
+// template{
+// 	display: none;
+// }
+// @media (max-width: 768px){
+// 	body{
+// 		padding-top:56px;
+// 		padding-bottom: 56px;
+// 	}
+// }
+// @media (min-width: 768px){
+// 	body{
+// 		padding-bottom: 56px;
+// 	}
+// }
+
+
+// .loading{
+// 	@extend .ptb16;
+// 	display: none;
+// 	text-align: center;
+// }
+// .loading-all{
+// 	position: absolute;
+// 	top: 0;
+// 	bottom: 0;
+// 	left: 0;
+// 	right: 0;
+// 	margin: auto;
+// 	width: 300px;
+// 	height: 100px;
+// 	text-align: center;
+// 	z-index: 999;
+// }
+// .announcement{
+// 	display: inline-block;
+// 	width: 100%;
+// 	line-height: 32px;
+// 	vertical-align: middle;
+// 	&>div{
+// 	}
+// }
+// .announcement-in{
+// 	&>div:first-child{
+// 			width: 36px;
+// 			vertical-align: middle;
+// 		}
+// 	&>div{
+// 		&>svg{
+// 			color: #fff;
+// 		}
+// 		&:last-child{
+// 			line-height: 0;
+// 			&>p{
+// 				@include ellip-def();
+// 			}
+// 			&>marquee{
+// 				line-height: 32px;
+// 			}
+// 		}
+// 	}
+// }
+
+

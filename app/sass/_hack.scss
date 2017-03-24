@@ -1,0 +1,35 @@
+/*-------------------------------
+    hacking
+---------------------------------*/
+.inline_hack{
+    word-spacing: $w_space;
+}
+.inline_re{
+    word-spacing: normal;
+}
+
+.ellip1{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.ellip2{
+    @include ellip(2);
+}
+.ellip3{
+    @include ellip(3);
+}
+
+.j-l{
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
+	line-height: 0;
+}
+.j-box{
+	text-align: justify;
+	line-height: 0;
+}
+.center{
+	margin:0 auto;
+}

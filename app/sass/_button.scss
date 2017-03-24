@@ -1,0 +1,151 @@
+//Button
+
+.btn-group {
+    @extend .pl4;
+    display: inline-block;
+}
+
+.btn {
+    @include bor-r();
+    @include alink();               
+    border: none;
+    cursor: pointer;
+}
+
+.btn-disable {
+    background-color: $base_color !important;
+    color: $grey_d;
+    cursor: default;
+}
+
+.btn-s {
+    @extend .shadow;
+    @extend .plr8;
+    @extend .ptb4;
+}
+
+.btn-m {
+    @extend .shadow;
+    @extend .plr16;
+    @extend .ptb8;
+}
+
+.btn-l {
+    @extend .shadow;
+    @extend .plr32;
+    @extend .ptb16;
+}
+
+.btn-flex {
+    @extend .ptb8;
+    @extend .btn;
+    display: block;
+}
+
+.btn-full{
+    @extend .shadow;
+    @extend .ptb8;
+    @extend .btn;
+    @include box_sizing();
+    display: block;
+    width: 100%;
+}
+
+.btn-tp {
+    @include tp();
+    @include animate();
+    // color: $blue_d;
+    &:hover {
+        color: $yellow_d;
+    }
+    outline: none;
+}
+
+//镂空按钮
+.btn-hollow {
+    @extend .btn;
+    @include tp();
+    @include animate();
+    border: solid 1px;
+    &:hover {
+        color: $yellow_d;
+    }
+}
+
+.btn-round {
+    @include bor-r(50%);
+    @extend .shadow;
+    display: inline-block;
+    text-align: center;
+    color: $text_w;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-round-s {
+    @extend .btn-round;
+    height: 40px;
+    width: 40px;
+    line-height: 10px;
+    font-size: 20px;
+}
+
+.btn-round-m {
+    @extend .btn-round;
+    height: 56px;
+    width: 56px;
+    line-height: 16px;
+    font-size: 28px;
+}
+
+.btn-round-m {
+    @extend .btn-round;
+    height: 56px;
+    width: 56px;
+    line-height: 16px;
+    font-size: 28px;
+}
+
+.btn-round-l {
+    @extend .btn-round;
+    height: 56px;
+    width: 56px;
+    line-height: 16px;
+    font-size: 28px;
+}
+
+.btn-round-l {
+    @extend .btn-round;
+    height: 112px;
+    width: 112px;
+    line-height: 46px;
+    font-size: 28px;
+}
+
+.menu-f {
+    display: inline-block;
+    position: relative;
+    line-height: 0;
+    &>ul {
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 888;
+    }
+    &>svg {
+        cursor: pointer;
+    }
+}
+
+.btn-gif-wait {
+    color: transparent!important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../images/loading@1x.gif);
+}
+
+.btn-gif-bingo::after {
+    content: "完成";
+}
+

@@ -1,0 +1,84 @@
+.slidebar {
+    @extend .shadow;
+    @include animate();
+    position: absolute;
+    top: 0;
+    left: -300px;
+    height: 100%;
+    z-index: 49;
+    &>.slidebar-tool {
+        display: block;
+        cursor: pointer;
+        position: relative;
+        &:hover {
+            color: rgba(44, 62, 80, 1) !important;
+        }
+        & #slidebar_in {
+            display: none;
+        }
+        & #slidebar_out {
+            position: fixed;
+            top: 0;
+            left: 0;
+            &>svg {
+                padding: 4px;
+                margin: 8px;
+                border: solid 1px $divider_b;
+            }
+        }
+    }
+}
+
+.slidebar-box-normalize {
+    & .mark-b {
+        display: none;
+    }
+}
+
+.slidebar-box-normalize {
+    &>input[type="checkbox"]:checked + .slidebar {
+        position: fixed;
+        left: 0px !important;
+        &>.slidebar-tool {
+            text-align: right;
+            color: #fff;
+            & #slidebar_in {
+                display: inline;
+            }
+            & #slidebar_out {
+                display: none;
+            }
+        }
+    }
+    &>input[type="checkbox"]:checked + .slidebar + .mark-b {
+        display: block;
+        @include animate_name(slideIn);
+        @include animate_duration(0.6s);
+    }
+}
+
+@media (max-width: 768px) {
+    .slidebar {
+        display: none;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        // background-color: blue;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        // background-color: blue;
+    }
+}

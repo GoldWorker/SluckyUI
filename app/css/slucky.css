@@ -1062,8 +1062,8 @@ table th[class*="col-"] {
 
 .menu > li > a {
   display: inline-block;
-  width: 100%;
-  box-sizing: border-box;
+  word-break: keep-all;
+  white-space: nowrap;
   padding-left: 16px;
   padding-right: 56px;
   line-height: 48px;

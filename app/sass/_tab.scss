@@ -1,0 +1,51 @@
+.tab-box-normalize {
+    position: relative;
+    display: inline-block;
+}
+
+.tab-contrl {
+    height: 48px;
+    background-color: #fff;
+    &>label {
+        display: inline-block;
+        box-sizing: border-box;
+        cursor: pointer;
+        z-index: 1;
+    }
+}
+
+.tab-container {
+    display: inline-block;
+    &>.tab-toggle {
+        width: 100%;
+        z-index: -1;
+        &>.tab-decoration {
+            float: left;
+            padding-left: 16px;
+            padding-right: 32px;
+            height: 48px;
+            line-height: 48px;
+        }
+        &>.tab-content {
+            @include box_sizing();
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0 !important;
+            top: 48px;
+            padding-top: 48px;
+            height: 100%;
+            background-color: rgba(241, 241, 241, 1);
+            z-index: -1;
+        }
+    }
+    &>input[type="radio"] {
+        display: none;
+    }
+    &>input[type="radio"]:checked + .tab-toggle> .tab-decoration{
+        background-color: rgba(241, 241, 241, 1);
+    }
+    &>input[type="radio"]:checked + .tab-toggle> .tab-content {
+        display: block;
+    }
+}

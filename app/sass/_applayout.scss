@@ -1,0 +1,39 @@
+/*
+    appbar
+ */
+.appbar{
+    // @include box_sizing();
+    @extend .flex-box;
+    @extend .shadow;
+    position: relative;
+    line-height: 48px;
+    padding-right: 0;
+    padding-left: 0;
+    z-index:888;
+}
+@media (max-width: 768px){
+    .appbar{
+        position: fixed;
+        top:0;
+    }
+}
+.appbar p{
+    margin-bottom: 0;
+}
+.appbar a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.appbar svg{
+    cursor: pointer;
+}
+
+.b-tool{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    -webkit-box-shadow: -1px -1px 2px rgba(149,165,166,1);
+    box-shadow: -1px -1px 2px rgba(149,165,166,1);
+    z-index: 999;
+}
