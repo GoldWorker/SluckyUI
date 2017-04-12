@@ -8,6 +8,11 @@
     width:144px;
     height: 144px;    
 }
+.img-rounded-s{
+    @include bor-r();
+    width:56px;
+    height: 56px;    
+}
 .img-circle{
     width:144px;
     height: 144px;

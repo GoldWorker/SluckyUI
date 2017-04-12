@@ -5,6 +5,12 @@
     display: inline-block;
 }
 
+.btn-normal{
+    @extend .ptb8;
+    @extend .plr8;
+    @extend .btn;
+}
+
 .btn {
     @include bor-r();
     @include alink();               

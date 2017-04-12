@@ -34,6 +34,52 @@ body {
             </symbol>
         </svg>
     </div>
+    <!-- comment -->
+    <div class="publish-comment-box m16">
+        <p class="pl8 bor-l b-blue">评论</p>
+        <textarea name="" id="" class="publish-comment-input textarea" placeholder="输入内容。。。。。。"></textarea>
+        <div class="publish-comment-tool bg-divider-b">
+            <div class="ta-r">
+                <button class="publish-btn btn btn-normal bg-blue c-text-w">发表</button>
+            </div>
+        </div>
+    </div>
+    <div class="comment-normalize-box">
+        <figure class="user-info-comment">
+            <img src="./images/bg_test.jpg" alt="" class="img-rounded-s bg-tran">
+            <figcaption class="ta-c">Test asd qwe</figcaption>
+        </figure>
+        <div class="comment-content mr16">
+            <p>asdasdasd</p>
+            <ul class="reply-normalize-box bg-divider-b">
+                <li>
+                    <span class="user-info-reply">A</span>:
+                    <span class="reply-content">hello</span>
+                </li>
+                <li>
+                    <span class="user-info-reply">B</span>:
+                    <span class="reply-content">world</span>
+                </li>
+            </ul>
+            <div class="ta-r c-blue">
+                <label for="comment-toggle" class="btn btn-tp">回复</label>
+            </div>
+            <input type="checkbox" id="comment-toggle" class="single-toggle">
+            <div class="single-toggle-target">
+                <div class="publish-comment-box m16">
+                    <textarea name="" id="" class="publish-comment-input textarea" placeholder="输入内容。。。。。。"></textarea>
+                    <div class="publish-comment-tool bg-divider-b">
+                        <div>
+                            <label for="comment-toggle" class="btn btn-normal bg-grey c-text-w publish-close">关闭</label>
+                        </div>
+                        <div class="ta-r">
+                            <button class="publish-btn btn btn-normal bg-blue c-text-w">回复</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- toastlists -->
     <div class="toastlists-normalize-box">
         <div class="toastlist">
