@@ -1199,7 +1199,7 @@ table th[class*="col-"] {
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: -300px;
   height: 100%;
@@ -1225,7 +1225,6 @@ table th[class*="col-"] {
   display: none; }
 
 .slidebar-box-normalize > input[type="checkbox"]:checked + .slidebar {
-  position: fixed;
   left: 0px !important; }
   .slidebar-box-normalize > input[type="checkbox"]:checked + .slidebar > .slidebar-tool {
     text-align: right;
@@ -1259,12 +1258,16 @@ table th[class*="col-"] {
 @keyframes slideIn {
   0% {
     opacity: 0; }
+  50% {
+    opacity: 0.5; }
   100% {
     opacity: 1; } }
 
 @keyframes slideOut {
   0% {
     opacity: 1; }
+  50% {
+    opacity: 0.5; }
   100% {
     opacity: 0; } }
 
