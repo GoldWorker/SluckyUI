@@ -1,0 +1,567 @@
+//color
+$title_b:#fafafa; //标题栏背景色
+$side_b:#f4f4f4; //描边 & 模块分割底色
+$side_strong:#cacaca; //按钮描边
+$placeholder_b:#cccccc; //input 级别的提示
+$divider_b: #E5E5E5; //divider分割线
+$hint_b: #888888; //hint & disable
+$icon_b: #666666; //icon & secondary
+$text_b: #222222; //text
+$divider_w: rgba(white, .12); //divider
+$hint_w: rgba(white, .3); //hint disable
+$icon_w: rgba(white, .7); //icon secondary
+$text_w: rgb(255, 255, 255); //text
+$tp: rgba(0, 0, 0, 0);
+//mei
+$mei_red:#e74c75;
+$mei_blue: #318FE2;
+//status
+$success_green:#03b266;
+$fail_red:#ff4444;
+$warn_yellow:#fc7e36;
+$disable:#898183;
+//shadow
+$shadow_color: 0 2px 2px 0 rgba(0, 0, 0, 0.05),
+0 1px 4px 0 rgba(0, 0, 0, 0.08),
+0 3px 1px -2px rgba(0, 0, 0, 0.2);
+//paper
+$paper_color: #fff;
+//size
+$w_space: -5px;
+// ---------------------------模板------------------------
+@import './mixin/_mixin.scss';
+@mixin cicle($size:28px) {
+    flex-shrink: 0;
+    display: inline-block;
+    width: $size;
+    height: $size;
+    border-radius: 100%; // border: solid 1px #ccc;
+    overflow: hidden;
+    >img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@mixin square($size:28px) {
+    flex-shrink: 0;
+    display: inline-block;
+    width: $size;
+    height: $size;
+    overflow: hidden;
+    >img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@mixin paper($radius) {
+    background: $paper_color;
+    border-radius: $radius;
+}
+
+@mixin flex($scale:1) {
+    display: block;
+    flex: $scale;
+}
+
+@mixin animate($time:0.3s) {
+    transition: all $time;
+}
+
+@mixin shadow($color) {
+    box-shadow: $color;
+}
+
+//限制一行的情况需要另外处理
+@mixin ellip($row:2) {
+    display: -webkit-box;
+    overflow: hidden;
+    box-orient: vertical;
+    -webkit-line-clamp: $row;
+    -webkit-box-orient: vertical;
+}
+
+@mixin btn($size:0px) {
+    display: inline-block;
+    border-radius: $size;
+    text-align: center;
+    cursor: pointer;
+    &:disabled {
+        background-color: $disable !important;
+    }
+    &:active {
+        opacity: .8;
+    }
+}
+
+//RESET
+@import '_normalize.scss';
+// ----------------------------------基础布局样式----------------------------------------
+$space: 2;
+@for $i from 0 to 32 {
+    $p_var: $i*$space;
+    .p#{$p_var} {
+        padding: $p_var * 1px;
+    }
+    .pl#{$p_var} {
+        padding-left: $p_var * 1px;
+    }
+    .pr#{$p_var} {
+        padding-right: $p_var * 1px;
+    }
+    .pt#{$p_var} {
+        padding-top: $p_var * 1px;
+    }
+    .pb#{$p_var} {
+        padding-bottom: $p_var * 1px;
+    }
+    .ptb#{$p_var} {
+        padding-top: $p_var * 1px;
+        padding-bottom: $p_var * 1px;
+    }
+    .plr#{$p_var} {
+        padding-left: $p_var * 1px;
+        padding-right: $p_var * 1px;
+    }
+}
+
+@for $i from 0 to 32 {
+    $p_var: $i*$space;
+    .m#{$p_var} {
+        margin: $p_var * 1px;
+    }
+    .ml#{$p_var} {
+        margin-left: $p_var * 1px;
+    }
+    .mr#{$p_var} {
+        margin-right: $p_var * 1px;
+    }
+    .mt#{$p_var} {
+        margin-top: $p_var * 1px;
+    }
+    .mb#{$p_var} {
+        margin-bottom: $p_var * 1px;
+    }
+    .mtb#{$p_var} {
+        margin-top: $p_var * 1px;
+        margin-bottom: $p_var * 1px;
+    }
+    .mlr#{$p_var} {
+        margin-left: $p_var * 1px;
+        margin-right: $p_var * 1px;
+    }
+}
+
+// display系列
+.d-il {
+    display: inline-block;
+}
+
+.d-b {
+    display: block;
+}
+
+.d-i {
+    display: inline;
+}
+
+.d-n {
+    display: none;
+}
+
+.d-f {
+    display: flex;
+}
+
+// 宽度系列
+.w-full {
+    width: 100%;
+}
+
+// 高度系列
+.h48 {
+    height: 48px;
+}
+
+.h56 {
+    height: 56px;
+}
+
+// 居中系列
+.ta-r {
+    text-align: right;
+}
+
+.ta-l {
+    text-align: left;
+}
+
+.ta-c {
+    text-align: center;
+}
+
+.ta-j {
+    text-align: justify;
+}
+
+.va-t {
+    vertical-align: top;
+}
+
+.va-m {
+    vertical-align: middle;
+}
+
+.va-b {
+    vertical-align: bottom;
+}
+
+// 定位系列
+.pos-a {
+    position: absolute;
+}
+
+.pos-r {
+    position: relative;
+}
+
+.pos-f {
+    position: fixed;
+}
+
+// flex布局系列
+.flex1 {
+    @include flex();
+}
+
+.flex2 {
+    @include flex(2);
+}
+
+.flex3 {
+    @include flex(3);
+}
+
+.flex4 {
+    @include flex(4)
+}
+
+.ac {
+    align-items: center;
+}
+
+.fd {
+    flex-direction: column;
+}
+
+.jc {
+    justify-content: space-between;
+}
+
+.jc-c {
+    justify-content: center;
+}
+
+.s0 {
+    flex-shrink: 0;
+}
+
+// 字体系列
+.fs0 {
+    font-size: 0px;
+}
+
+.fs10 {
+    font-size: 10px;
+}
+
+.fs12 {
+    font-size: 12px;
+}
+
+.fs14 {
+    font-size: 14px;
+}
+
+.fs16 {
+    font-size: 16px;
+}
+
+.fs18 {
+    font-size: 18px;
+}
+
+.fs20 {
+    font-size: 20px;
+}
+
+.fs24 {
+    font-size: 24px;
+}
+
+.fs34 {
+    font-size: 34px;
+}
+
+.fs45 {
+    font-size: 45px;
+}
+
+.fs56 {
+    font-size: 56px;
+}
+
+// 边框系列
+.bor {
+    border: solid 1px;
+}
+
+.bor-t {
+    border-top: solid 1px;
+}
+
+.bor-b {
+    border-bottom: solid 1px;
+}
+
+.bor-l {
+    border-left: solid 1px;
+}
+
+.bor-r {
+    border-right: solid 1px;
+}
+
+// 层级系列
+.z-1 {
+    z-index: -1;
+}
+
+.z1 {
+    z-index: 1;
+}
+
+.z10 {
+    z-index: 10;
+}
+
+.z99 {
+    z-index: 99;
+}
+
+.z500 {
+    z-index: 500;
+}
+
+//lineHeight
+.lh48 {
+    line-height: 48px;
+}
+
+// 背景系列
+.bg-w {
+    background-color: #fff;
+}
+
+.bg-module {
+    background-color: #f4f4f4; //模块分割底色
+}
+
+.bg-title {
+    background-color: #fafafa; //title 底色
+}
+
+.bg-disable {
+    background-color: $disable;
+}
+
+.tp {
+    background-color: transparent;
+}
+
+//渐变色
+.bg-mei-red {
+    background-image: linear-gradient(-117deg, #D5466C 0%, #FA5B52 100%);
+}
+
+.bg-mei-yel {
+    background-image: linear-gradient(-138deg, #FCB719 0%, #F6A346 100%);
+}
+
+// 颜色系列
+.c-divider-b {
+    color: $divider_b;
+} //divider
+.c-hint-b {
+    color: $hint_b;
+} //hint disable
+.c-icon-b {
+    color: $icon_b;
+} //icon secondary
+.c-text-b {
+    color: $text_b;
+} //text
+.c-divider-w {
+    color: $divider_w;
+} //divider
+.c-hint-w {
+    color: $hint_w;
+} //hint disable
+.c-icon-w {
+    color: $icon_w;
+} //icon secondary
+.c-text-w {
+    color: $text_w;
+} //text
+.c-blue {
+    color: $mei_blue;
+}
+
+// 状态色
+.c-success {
+    color: $success_green;
+}
+
+.c-fail {
+    color: $fail_red;
+}
+
+.c-warn {
+    color: $warn_yellow;
+}
+
+.c-placeholder {
+    color: $placeholder_b;
+}
+
+//美业色
+.c-red {
+    color: $mei_red;
+}
+
+.b-side {
+    border-color: $side_b;
+}
+
+.b-side-s {
+    border-color: $side_strong;
+}
+
+// ---------------------------------常用模块----------------------------
+// 用于全屏居中（容器）
+.center-fullscreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.box {
+    box-sizing: border-box;
+}
+
+.shadow {
+    @include shadow($shadow_color)
+}
+
+.cicle36 {
+    @include cicle(36px)
+}
+
+.square48 {
+    @include square(48px)
+}
+
+.square56 {
+    @include square(56px)
+}
+
+.square72 {
+    @include square(72px)
+}
+
+.paper {
+    @include paper(3px)
+}
+
+.paper6 {
+    @include paper(6px)
+}
+
+//文字限制几多行后就出现省略号
+.ellip1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ellip2 {
+    @include ellip(2);
+}
+
+.ellip3 {
+    @include ellip(3);
+}
+
+.ov-a {
+    overflow: auto
+}
+
+.ov-h {
+    overflow: hidden;
+}
+
+//inline button 边距跟字体大小自己调
+//美业常用的红色按钮
+.btn-mei {
+    @include btn(100px);
+    @extend .bg-mei-red;
+    border: none;
+    color: $text_w;
+}
+
+//美业常用的白色按钮
+.btn-w {
+    @include btn(100px);
+    @extend .bg-w; // border-color: $side_strong;
+    color: $icon_b;
+    position: relative;
+    &:before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        bottom: -50%;
+        left: -50%;
+        right: -50%;
+        transform: scale(0.5);
+        border-style: solid;
+        border-width: 1px;
+        border-color: $side_strong;
+        border-radius: 100px;
+    }
+}
+
+//美业常用的红色镂空按钮
+.btn-hollow {
+    @include btn(100px);
+    @extend .tp;
+    @extend .bor;
+    border-color: $mei_red;
+    color: $mei_red;
+}
+
+//美业常用镂空tag
+.tag-hollow {
+    @extend .tp;
+    @extend .bor;
+    border-color: $mei_red;
+    color: $mei_red;
+}
+
+@import './_input.scss';
+@import './_alertMsg.scss';
