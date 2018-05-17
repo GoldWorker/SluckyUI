@@ -11,7 +11,7 @@ const webpack = require("webpack")
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    // devtool:'source-map',
+    // devtool: 'source-map',
     //入口配置
     entry: path.resolve(__dirname, 'src', 'index.js'),
     //出口配置
@@ -57,9 +57,19 @@ module.exports = {
             },
             {
                 test: /\.(jpg|png|gif|svg)$/,
-                use: 'url-loader',
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            mimetype: 'image/png',
+                            fallback: 'responsive-loader',
+                            quality: 85
+                        },
+                    }
+                ],
                 include: path.join(__dirname, './src'),
-                exclude: /node_modules/
+                exclude: /node_modules/,
             },
             {
                 test: /\.(eot|ttf|woff)$/,
@@ -106,7 +116,16 @@ module.exports = {
             }
         }),
         require('autoprefixer'),
-        // new UglifyjsWebpackPlugin(),//压缩js
+        new UglifyjsWebpackPlugin({
+            sourceMap: true,
+            uglifyOptions:{
+                warnings: false,
+                output: {
+                    comments: false,
+                    beautify: false,
+                }
+            }
+        }),//压缩js
         sassExtract,
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),//用户名替代id,更新组件时在控制台输出组件的路径而不是数字ID，用在开发模式
