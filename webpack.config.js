@@ -62,9 +62,9 @@ module.exports = {
                         loader: 'url-loader',
                         options: {
                             limit: 8192,
-                            mimetype: 'image/png',
-                            fallback: 'responsive-loader',
-                            quality: 85
+                            // mimetype: 'image/png',
+                            // fallback: 'responsive-loader',
+                            // quality: 100
                         },
                     }
                 ],
@@ -101,7 +101,9 @@ module.exports = {
     },
     //插件
     plugins: [
-        new CleanWebpackPlugin('dist'),//打包前先清空
+        new CleanWebpackPlugin('dist', {
+            "exclude": ['.git']
+        }),//打包前先清空
         new MiniCssExtractPlugin({
             filename: "slucky.css",
         }),
@@ -116,16 +118,16 @@ module.exports = {
             }
         }),
         require('autoprefixer'),
-        new UglifyjsWebpackPlugin({
-            sourceMap: true,
-            uglifyOptions:{
-                warnings: false,
-                output: {
-                    comments: false,
-                    beautify: false,
-                }
-            }
-        }),//压缩js
+        // new UglifyjsWebpackPlugin({
+        //     sourceMap: true,
+        //     uglifyOptions: {
+        //         warnings: false,
+        //         output: {
+        //             comments: false,
+        //             beautify: false,
+        //         }
+        //     }
+        // }),//压缩js
         sassExtract,
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),//用户名替代id,更新组件时在控制台输出组件的路径而不是数字ID，用在开发模式

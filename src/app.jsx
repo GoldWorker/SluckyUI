@@ -10,6 +10,7 @@ import 'antd/lib/date-picker/style/css';
 moment.locale('zh-cn');
 import covBg from './images/bg_test.jpg'
 import validator from './lib/validator'
+import QRCode from 'qrcode.react';
 
 class App extends Component {
 	constructor(props) {
@@ -22,8 +23,10 @@ class App extends Component {
 				date: ""
 			},
 			cov: {},
+			imgSave: {},
 			result: {},
 			dialogOpen: false,
+			loading: false
 		}
 		validator.config = {
 			name: ['isEmpty', 'isName'],
@@ -33,9 +36,10 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		console.log(this.refs.cov)
+		console.log(this.refs.qrcode)
+		// console.log(this.refs.qrcode.toDataURL("image/png"));
 		console.log(covBg)
-		this.setState({ cov: this.refs.cov })
+		this.setState({ cov: this.refs.cov, imgSave: this.refs.imgSave })
 	}
 
 	handleImgChange(id) {
@@ -60,9 +64,9 @@ class App extends Component {
 			result: validator.validate(this.state.data)
 		})
 		if (validator.isSubmit()) {
-			let cov = this.state.cov
-			cov.width = 315;
-			cov.height = 430;
+			let { cov } = this.state
+			cov.width = 844;
+			cov.height = 1288;
 			const { imgTem } = this.state.data
 			this.filterImg(imgTem, cov);
 			this.setState({
@@ -79,78 +83,113 @@ class App extends Component {
 		})
 	}
 
+	clearCanvas(cov) {
+		let { imgSave } = this.state;
+		let ctx = cov.getContext("2d");
+		ctx.clearRect(0, 0, cov.width, cov.height);
+		imgSave.src = cov.toDataURL("image/png")
+	}
+
 	filterImg(imgTem, cov) {
+		let { imgSave } = this.state;
 		let imgObj = new Image();
 		let context = cov.getContext('2d');
-		context.font = '10px Arial'
+		context.font = '30px Arial'
 		context.fillStyle = '#000'
 		const { name, college, date } = this.state.data
+		this.clearCanvas(cov)
+		this.setState({
+			loading: true
+		})
 		switch (imgTem) {
 			case 'm1':
 				imgObj.src = require('./images/t5.jpg');
 				imgObj.onload = () => {
-					context.drawImage(imgObj, 0, 0, 315, 430);
-					context.fillText(name, 73, 310)
-					context.fillText(date, 73, 340)
-					context.fillText('北京理工大学珠海学院', 73, 325)
-					context.fillText(college, 180, 325)
+					context.drawImage(imgObj, 0, 0, 844, 1288);
+					context.fillText(name, 197, 937)
+					context.fillText(date, 197, 1018)
+					context.fillText('北京理工大学珠海学院', 197, 978)
+					context.fillText(college, 516, 978)
+					imgSave.src = cov.toDataURL("image/png")
+					this.setState({
+						loading: false
+					})
 				}
 				break;
 			case 'm2':
 				imgObj.src = require('./images/t3.jpg');
 				imgObj.onload = () => {
-					context.drawImage(imgObj, 0, 0, 315, 430);
+					context.drawImage(imgObj, 0, 0, 844, 1288);
 					context.fillStyle = '#fff'
-					context.font = '14px Arial'
-					context.fillText(name, 56, 155)
-					context.fillText(college, 108, 155)
-					context.font = '22px Arial'
-					context.fillText(date, 56, 182)
-					context.font = '16px Arial'
-					context.fillText('北京理工大学珠海学院', 34, 233)
+					context.font = '40px Arial'
+					context.fillText(name, 151, 465)
+					context.fillText(college, 292, 465)
+					context.font = '60px Arial'
+					context.fillText(date, 151, 546)
+					context.font = '40px Arial'
+					context.fillText('北京理工大学珠海学院', 92, 700)
+					imgSave.src = cov.toDataURL("image/png")
+					this.setState({
+						loading: false
+					})
 				}
-
 				break;
 			case 'm3':
 				imgObj.src = require('./images/t2.jpg');
 				imgObj.onload = () => {
-					context.drawImage(imgObj, 0, 0, 315, 430);
-					context.fillText(name, 32, 260)
-					context.fillText(date, 32, 276)
-					context.fillText(college, 32, 305)
-					context.fillText('北京理工大学珠海学院', 32, 321)
+					context.drawImage(imgObj, 0, 0, 844, 1288);
+					context.fillText(name, 86, 772)
+					context.fillText(date, 86, 815)
+					context.fillText(college, 86, 894)
+					context.fillText('北京理工大学珠海学院', 86, 937)
+					imgSave.src = cov.toDataURL("image/png")
+					this.setState({
+						loading: false
+					})
 				}
 				break;
 			case 'm4':
 				imgObj.src = require('./images/t1.jpg');
 				imgObj.onload = () => {
-					context.drawImage(imgObj, 0, 0, 315, 430);
+					context.drawImage(imgObj, 0, 0, 844, 1288);
 					context.textAlign = "center"
-					context.fillText(name, 150, 270)
-					context.fillText(date, 150, 286)
-					context.fillText(college, 150, 315)
-					context.fillText('北京理工大学珠海学院', 150, 331)
+					context.fillText(name, 405, 826)
+					context.fillText(date, 405, 872)
+					context.fillText(college, 405, 944)
+					context.fillText('北京理工大学珠海学院', 405, 994)
+					imgSave.src = cov.toDataURL("image/png")
+					this.setState({
+						loading: false
+					})
 				}
 				break;
 			case 'm5':
 				imgObj.src = require('./images/t4.jpg');
 				imgObj.onload = () => {
-					context.drawImage(imgObj, 0, 0, 315, 430);
+					context.drawImage(imgObj, 0, 0, 844, 1288);
 					context.textAlign = "center"
-					context.fillText(name, 150, 215)
-					context.fillText(date, 150, 232)
-					context.fillText(college, 150, 260)
-					context.fillText('北京理工大学珠海学院', 150, 276)
+					context.fillText(name, 405, 680)
+					context.fillText(date, 405, 724)
+					context.fillText(college, 405, 802)
+					context.fillText('北京理工大学珠海学院', 405, 845)
+					imgSave.src = cov.toDataURL("image/png")
+					this.setState({
+						loading: false
+					})
 				}
 				break;
 			default:
 				imgObj.src = require('./images/t5.jpg');
 				imgObj.onload = () => {
-					context.drawImage(imgObj, 0, 0, 315, 430);
-					context.fillText(name, 73, 310)
-					context.fillText(date, 73, 340)
-					context.fillText(college, 73, 325)
-					context.fillText('北京理工大学珠海学院', 135, 325)
+					context.drawImage(imgObj, 0, 0, 844, 1288);
+					context.fillText(name, 197, 937)
+					context.fillText(date, 197, 1018)
+					context.fillText('北京理工大学珠海学院', 197, 978)
+					context.fillText(college, 516, 978)
+					imgSave.src = cov.toDataURL("image/png")
+					this.setState({
+						loading: false
+					})
 				}
 		}
 	}
@@ -166,10 +205,23 @@ class App extends Component {
 		})
 	}
 
+	handleSaveImg() {
+		let { cov } = this.state;
+		// let { imgSave } = this.state;
+		console.log(imgSave, 'asdfasdf');
+		// let img = cov.toDataURL("image/png").replace("image/png", "image/octet-stream");
+		// imgSave.src = cov.toDataURL("image/png")
+		// location = img
+	}
+
 	render() {
 		const { name, college, date } = this.state.result
+		const { loading } = this.state
 		return (
 			<div>
+				<div className="">
+					<QRCode ref="qrcode" value="http://facebook.github.io/react/" />
+				</div>
 				{/* by flyTeng 695508580@qq.com 至所有即将毕业的朋友 */}
 				<div className="pl8 pt8 c-hint-b">先选择想要的Style~</div>
 				<div className="d-f s0 ov-a m8">
@@ -228,8 +280,17 @@ class App extends Component {
 				</div>
 				<div className="dialog-mark d-n ac jc-c fd" style={this.state.dialogOpen ? { 'display': 'flex' } : {}}>
 					<p className="fs16 c-text-w ta-c mb8">长按图片保存</p>
-					<canvas className="shadow" ref="cov" />
-					<button onClick={() => this.handleDialogClose()} className="btn-w bor ptb4 plr16 mt16">返回</button>
+					<canvas className="shadow d-n" ref="cov" />
+					{loading ? (<div className="icon-box">
+						<div className="yu-icon">
+							<div className="spinner"></div>
+						</div>
+					</div>) : null}
+					<img ref="imgSave" style={{ width: '315px', height: '430px' }} />
+					<div className="ta-c">
+						{/* <button onClick={() => this.handleSaveImg()} className="btn-w bor ptb4 plr16 mt16 mr8">保存邀请书</button> */}
+						<button onClick={() => this.handleDialogClose()} className="btn-w bor ptb4 plr16 mt16">返回</button>
+					</div>
 				</div>
 			</div>
 		)
