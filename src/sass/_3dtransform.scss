@@ -1,0 +1,159 @@
+input[name='card-ctrl'] {
+    display: none;
+}
+
+label[for='card_front'] {
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+label[for='card_back'] {
+    border-bottom-color: #26a597;
+}
+
+input[id='card_front']:checked+div>label[for='card_front'] {
+    border-bottom-color: #26a597;
+}
+
+input[id='card_front']:checked+div>label[for='card_back'] {
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.card-select-box {
+    text-align: center;
+    margin: 16px;
+}
+
+.card-select {
+    display: inline-block;
+    padding: 8px;
+    cursor: pointer;
+    // -webkit-transition: all 0.8s;
+    // -o-transition: all 0.8s;
+    transition: all 0.3s;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.card-select>img {
+    width: 72px;
+}
+
+.t3d-container {
+    // width: 288px;
+    // height: 400px;
+    // margin: auto;
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    // top: 0;
+    // bottom: 0;
+    perspective: 800px;
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -ms-perspective: 800px;
+    -o-perspective: 800px;
+}
+
+#card {
+    width: 100%;
+    height: 100%; // position: absolute;
+    // color: #fff;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transition: all .6s;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+#card figure {
+    margin: 0;
+    display: block; // position: absolute;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: all .6s;
+    // -webkit-transition: all 1s;
+    // -moz-transition: all 1s;
+    // -ms-transition: all 1s;
+    // -o-transition: all 1s;
+    // transform-origin: 100%;
+}
+
+figure>img {
+    width: 100%;
+}
+
+/*.card-ischecked:checked + #card {
+    -webkit-transform: rotateY( 180deg);
+    -moz-transform: rotateY( 180deg);
+    -ms-transform: rotateY( 180deg);
+    -o-transform: rotateY( 180deg);
+    transform: rotateY( 180deg);
+}*/
+
+/*.tran-btn:checked + #card {
+    -webkit-transform: rotateY( 180deg);
+    -moz-transform: rotateY( 180deg);
+    -ms-transform: rotateY( 180deg);
+    -o-transform: rotateY( 180deg);
+    transform: rotateY( 180deg);
+}
+*/
+
+.card-ischecked:checked+#card .back {
+    // -webkit-transform: rotateY( 0deg);
+    // -moz-transform: rotateY( 0deg);
+    // -ms-transform: rotateY( 0deg);
+    // -o-transform: rotateY( 0deg);
+    transform: rotateX( 0deg);
+    position: relative !important;
+}
+
+.card-ischecked:checked+#card .front {
+    // -webkit-transform: rotateY( -180deg);
+    // -moz-transform: rotateY( -180deg);
+    // -ms-transform: rotateY( -180deg);
+    // -o-transform: rotateY( -180deg);
+    transform: rotateX( -180deg);
+        // transform: perspective(1000px) translate3d(0, 50vh, 0) rotate3d(1, 0, 0, 30deg) scaleY(0.6);
+    position: absolute;
+}
+
+#card .front {
+    /*background: red;*/
+    position: relative;
+}
+
+#card .back {
+    /*background: blue;*/
+    // -webkit-transform: rotateY( 180deg);
+    // -moz-transform: rotateY( 180deg);
+    // -ms-transform: rotateY( 180deg);
+    // -o-transform: rotateY( 180deg);
+    transform: rotateX( 180deg);
+    position: absolute;
+}
+
+.input-inner {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: solid 1px red;
+    background-color: rgba(0, 0, 0, 0.0);
+    border-radius: 2px;
+}
