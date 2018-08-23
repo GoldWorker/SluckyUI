@@ -1,4 +1,4 @@
-//color
+//color-mei
 $title_b:#fafafa; //标题栏背景色
 $side_b:#f4f4f4; //描边 & 模块分割底色
 $side_strong:#cacaca; //按钮描边
@@ -11,7 +11,8 @@ $divider_w: rgba(white, .12); //divider
 $hint_w: rgba(white, .3); //hint disable
 $icon_w: rgba(white, .7); //icon secondary
 $text_w: rgb(255, 255, 255); //text
-$tp: rgba(0, 0, 0, 0);
+//color-ji
+// $title_b:#f7f7f7;
 //mei
 $mei_red:#e74c75;
 $mei_blue: #318FE2;
@@ -26,10 +27,10 @@ $shadow_color: 0 2px 2px 0 rgba(0, 0, 0, 0.05),
 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 //paper
 $paper_color: #fff;
-//size
-$w_space: -5px;
+//ji
+$ji_green:#26a597;
+$theme_color:$ji_green;
 // ---------------------------模板------------------------
-@import './mixin/_mixin.scss';
 @mixin cicle($size:28px) {
     flex-shrink: 0;
     display: inline-block;
@@ -88,6 +89,7 @@ $w_space: -5px;
     text-align: center;
     cursor: pointer;
     &:disabled {
+        cursor: not-allowed;
         background-color: $disable !important;
     }
     &:active {
@@ -95,11 +97,9 @@ $w_space: -5px;
     }
 }
 
-//RESET
-@import '_normalize.scss';
 // ----------------------------------基础布局样式----------------------------------------
 $space: 2;
-@for $i from 0 to 32 {
+@for $i from 0 to 64 {
     $p_var: $i*$space;
     .p#{$p_var} {
         padding: $p_var * 1px;
@@ -126,7 +126,7 @@ $space: 2;
     }
 }
 
-@for $i from 0 to 32 {
+@for $i from 0 to 64 {
     $p_var: $i*$space;
     .m#{$p_var} {
         margin: $p_var * 1px;
@@ -151,6 +151,18 @@ $space: 2;
         margin-left: $p_var * 1px;
         margin-right: $p_var * 1px;
     }
+}
+//position
+.p-r {
+    position: relative;
+}
+//overflow
+.ov-h {
+    overflow: hidden;
+}
+
+.ov-a{
+    overflow: auto;
 }
 
 // display系列
@@ -217,10 +229,6 @@ $space: 2;
     vertical-align: bottom;
 }
 
-.v-h{
-    visibility: hidden;
-}
-
 // 定位系列
 .pos-a {
     position: absolute;
@@ -255,16 +263,16 @@ $space: 2;
     align-items: center;
 }
 
-.fd {
-    flex-direction: column;
-}
-
-.jc {
+.jc-b {
     justify-content: space-between;
 }
 
-.jc-c {
+.jc {
     justify-content: center;
+}
+
+.jc-r {
+    justify-content: flex-end;
 }
 
 .s0 {
@@ -393,6 +401,31 @@ $space: 2;
     background-image: linear-gradient(-138deg, #FCB719 0%, #F6A346 100%);
 }
 
+.bg-blue {
+    background-color: $mei_blue;
+}
+
+.bg-theme-red {
+    background-color: $ji_green;
+}
+
+.bg-theme {
+    background-color: $theme_color;
+}
+
+// 状态色
+.bg-success {
+    background-color: $theme_color !important;
+}
+
+.bg-fail {
+    background-color: $fail_red;
+}
+
+.bg-warn {
+    background-color: $warn_yellow;
+}
+
 // 颜色系列
 .c-divider-b {
     color: $divider_b;
@@ -439,9 +472,13 @@ $space: 2;
     color: $placeholder_b;
 }
 
-//美业色
+//极光色
 .c-red {
     color: $mei_red;
+}
+
+.c-theme {
+    color: $theme_color;
 }
 
 .b-side {
@@ -450,6 +487,14 @@ $space: 2;
 
 .b-side-s {
     border-color: $side_strong;
+}
+
+.op0 {
+    opacity: 0;
+}
+
+.ov-h{
+    overflow: hidden;
 }
 
 // ---------------------------------常用模块----------------------------
@@ -512,24 +557,21 @@ $space: 2;
     @include ellip(3);
 }
 
-.ov-a {
-    overflow: auto
-}
-
-.ov-h {
-    overflow: hidden;
-}
-
 //inline button 边距跟字体大小自己调
-//美业常用的红色按钮
-.btn-mei {
+.btn {
+    @include btn(3px);
+    border: none;
+}
+
+//极光常用的绿色按钮
+.btn-n {
     @include btn(100px);
-    @extend .bg-mei-red;
+    @extend .bg-theme-red;
     border: none;
     color: $text_w;
 }
 
-//美业常用的白色按钮
+//极光常用的白色按钮
 .btn-w {
     @include btn(100px);
     @extend .bg-w; // border-color: $side_strong;
@@ -550,22 +592,43 @@ $space: 2;
     }
 }
 
-//美业常用的红色镂空按钮
+//极光常用的红色镂空按钮
 .btn-hollow {
     @include btn(100px);
     @extend .tp;
     @extend .bor;
-    border-color: $mei_red;
-    color: $mei_red;
+    border-color: $theme_color;
+    color: $theme_color;
+    cursor: pointer;
 }
 
-//美业常用镂空tag
+//极光常用镂空tag
 .tag-hollow {
     @extend .tp;
     @extend .bor;
-    border-color: $mei_red;
-    color: $mei_red;
+    border-color: $theme_color;
+    color: $theme_color;
+    cursor: pointer;
 }
 
+//极光常用纯文字tag
+.tag-text {
+    @extend .tp;
+    border: none;
+    color: $theme_color;
+    cursor: pointer;
+}
+
+.height-limit-screen {
+    max-height: 700px;
+    overflow-y: scroll;
+}
+
+@import './_varConfig.scss';
+@import './mixin/_mixin.scss';
+@import './_tab.scss';
 @import './_input.scss';
 @import './_alertMsg.scss';
+@import './_geometry.scss';
+@import './_3dtransform.scss';
+@import './_progress.scss';
