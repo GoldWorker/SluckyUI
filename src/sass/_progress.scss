@@ -1,0 +1,46 @@
+.progress-loading {
+    display: block;
+    width: 100%;
+    /* height: 3px; */
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0);
+    transition: all .3s;
+}
+
+.progress-loading::-moz-progress-bar {
+    background: rgba(255, 255, 255, 0);
+}
+
+.progress-loading::-webkit-progress-bar {
+    background: rgba(255, 255, 255, 0);
+}
+
+.progress-loading::-webkit-progress-value {
+    background: rgba(31, 181, 172, .3);
+}
+
+.progress-loading::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    /* bottom: 0; */
+    left: -100%;
+    width: 24px;
+    height: 200%;
+    background: rgba(255, 255, 255, .3);
+    transform: rotate(40deg);
+    animation: MoveF 2s infinite;
+}
+
+
+@keyframes MoveF {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 200%;
+    }
+}
