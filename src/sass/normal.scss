@@ -27,6 +27,8 @@ $shadow_color: 0 2px 2px 0 rgba(0, 0, 0, 0.05),
 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 //paper
 $paper_color: #fff;
+//size
+$w_space: -5px;
 //ji
 $ji_green:#26a597;
 $theme_color:$ji_green;
@@ -152,16 +154,18 @@ $space: 2;
         margin-right: $p_var * 1px;
     }
 }
+
 //position
 .p-r {
     position: relative;
 }
+
 //overflow
 .ov-h {
     overflow: hidden;
 }
 
-.ov-a{
+.ov-a {
     overflow: auto;
 }
 
@@ -229,6 +233,10 @@ $space: 2;
     vertical-align: bottom;
 }
 
+.v-h {
+    visibility: hidden;
+}
+
 // 定位系列
 .pos-a {
     position: absolute;
@@ -261,6 +269,10 @@ $space: 2;
 
 .ac {
     align-items: center;
+}
+
+.fd {
+    flex-direction: column;
 }
 
 .jc-b {
@@ -491,10 +503,6 @@ $space: 2;
 
 .op0 {
     opacity: 0;
-}
-
-.ov-h{
-    overflow: hidden;
 }
 
 // ---------------------------------常用模块----------------------------

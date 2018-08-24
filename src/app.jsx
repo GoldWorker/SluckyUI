@@ -276,7 +276,7 @@ class App extends Component {
 				{date ? (<span className="input-ps fs12 pl8" style={this.handleValid(date.isValid, { 'display': 'none' }, { 'display': 'inline-block', 'opacity': '1' })}>{date.message.map((str) => (str + " "))}</span>
 				) : null}
 				<div className="plr8 mtb8">
-					<button className="btn-mei ptb8 w-full" onClick={() => this.handleOutImg()}>生成</button>
+					<button className="btn-n ptb8 w-full" onClick={() => this.handleOutImg()}>生成</button>
 				</div>
 				<div className="dialog-mark d-n ac jc-c fd" style={this.state.dialogOpen ? { 'display': 'flex' } : {}}>
 					<p className="fs16 c-text-w ta-c mb8">长按图片保存</p>
