@@ -1,10 +1,12 @@
 import "./sass/normal.scss";
 import "./fixed.scss";
-import React from 'react';  
+import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app'
+import Demo1 from './demo1'
+import { HashRouter, BrowserRouter, Route, Switch } from 'react-router-dom';
 
-if(module.hot) {
+if (module.hot) {
     module.hot.accept()
 }
 
@@ -22,6 +24,11 @@ if(module.hot) {
 // }
 
 ReactDOM.render(
-    <App/>,
+    <BrowserRouter>
+        <Switch>
+            <Route exact path='/' component={App} />
+            <Route path='/demo1' component={Demo1} />
+        </Switch>
+    </BrowserRouter>,
     document.getElementById('root')
 )
