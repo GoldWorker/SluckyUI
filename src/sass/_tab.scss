@@ -134,8 +134,11 @@
     display: inline-block;
     .tab-contrl {
         height: 48px;
+        z-index: 1;
         &>label {
-            display: inline-block;
+            position: relative;
+            left: 500px;
+            display: block;
             box-sizing: border-box;
             cursor: pointer;
             z-index: 1;
