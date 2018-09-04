@@ -97,6 +97,34 @@ $theme_color:$ji_green;
     &:active {
         opacity: .8;
     }
+    outline: none !important;
+    &:focus {
+        outline: none !important;
+    }
+}
+
+@mixin hoverWave($color:$theme_color) {
+    position: relative;
+    overflow: hidden;
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -100%;
+        transform: scale(0);
+        width: 100%;
+        height: 100%;
+        border-radius: 1000px;
+        background-color: rgba($color:$color, $alpha: .1);
+        transition: all .3s;
+    }
+    &:hover {
+        &:after {
+            transform: scale(3.5);
+            left: -100%;
+            right: unset;
+        }
+    }
 }
 
 // ----------------------------------基础布局样式----------------------------------------
@@ -269,6 +297,14 @@ $space: 2;
 
 .ac {
     align-items: center;
+}
+
+.ai-b {
+    align-items: baseline;
+}
+
+.fw {
+    flex-wrap: wrap
 }
 
 .fd {
@@ -574,6 +610,7 @@ $space: 2;
 //极光常用的绿色按钮
 .btn-n {
     @include btn(100px);
+    @include hoverWave($side_b);
     @extend .bg-theme-red;
     border: none;
     color: $text_w;
@@ -603,6 +640,7 @@ $space: 2;
 //极光常用的红色镂空按钮
 .btn-hollow {
     @include btn(100px);
+    @include hoverWave();
     @extend .tp;
     @extend .bor;
     border-color: $theme_color;
@@ -612,6 +650,8 @@ $space: 2;
 
 //极光常用镂空tag
 .tag-hollow {
+    @include btn();
+    @include hoverWave();
     @extend .tp;
     @extend .bor;
     border-color: $theme_color;
@@ -621,6 +661,8 @@ $space: 2;
 
 //极光常用纯文字tag
 .tag-text {
+    @include btn();
+    @include hoverWave();
     @extend .tp;
     border: none;
     color: $theme_color;
