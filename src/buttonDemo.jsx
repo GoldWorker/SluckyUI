@@ -2,8 +2,6 @@ import React, {Component} from 'react'
 import ReactDOMServer from 'react-dom/server';
 import ReactMarkdown from 'react-markdown'
 import Highlight from 'react-highlight'
-import "../node_modules/highlight.js/styles/tomorrow.css";
-import ReactDOM from 'react-dom';
 
 export default class ButtonDemo extends Component {
     render() {
@@ -37,7 +35,7 @@ export default class ButtonDemo extends Component {
 ` + '```';
         return (
             <div className="d-f ac fw">
-                <div className="btn p-r m32 ptb6 svgMutiLine plr16">
+                <button className="btn p-r m32 ptb6 svgMutiLine plr16 tp">
                     <svg
                         className="btn-svgMutiLine"
                         viewBox="0 0 180 64"
@@ -46,10 +44,10 @@ export default class ButtonDemo extends Component {
                         <rect className="shape"></rect>
                     </svg>
                     <div>SluckyUI</div>
-                </div>
-                <div className="btn p-r m32 ptb6 regularLineMove plr16">SluckyUI</div>
-                <div className="btn p-r m32 ptb6 regularShadowScale plr16">SluckyUI</div>
-                <div className="btn p-r m32 ptb6 regularShadowMove plr16">SluckyUI</div>
+                </button>
+                <button className="btn p-r m32 ptb6 regularLineMove plr16 tp">SluckyUI</button>
+                <button className="btn p-r m32 ptb6 regularShadowScale plr16 tp">SluckyUI</button>
+                <button className="btn p-r m32 ptb6 regularShadowMove plr16 tp">SluckyUI</button>
                 <button className="btn-n ptb6 plr16 m32">SluckyUI</button>
                 <button className="btn-w bor b-side ptb6 plr16 m32">SluckyUI</button>
                 <button className="btn-hollow ptb6 plr16 m32">SluckyUI</button>

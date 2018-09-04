@@ -424,6 +424,10 @@ $space: 2;
     background-color: #fff;
 }
 
+.bg-b{
+    background-color: rgba($color:black, $alpha: .8);
+}
+
 .bg-module {
     background-color: #f4f4f4; //模块分割底色
 }
@@ -683,3 +687,6 @@ $space: 2;
 @import './_geometry.scss';
 @import './_3dtransform.scss';
 @import './_progress.scss';
+@import './_nav.scss';
+@import './_menu.scss';
+@import './_icon.scss';

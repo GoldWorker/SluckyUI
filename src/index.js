@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import App from './app'
 import Demo1 from './demo1'
 import { HashRouter, BrowserRouter, Route, Switch } from 'react-router-dom';
+import "../node_modules/highlight.js/styles/tomorrow.css";
 
 if (module.hot) {
     module.hot.accept()
