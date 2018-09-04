@@ -1,0 +1,50 @@
+/*
+	nav
+*/
+
+.nav {
+	display: flex;
+	position: relative;
+	padding-left: 0;
+	padding-left: 32px;
+	z-index: 1;
+}
+
+.nav>li{
+	display: inline-block;
+	position: relative;
+	list-style: none;
+	// transition: all 0.3s;
+}
+.nav>li:hover>ul{
+	display: block !important;
+}
+.nav>li:hover{
+	background-color: rgba(241,241,241,1);
+	color: $text-b;
+}
+.nav>li>a{
+	display: inline-block;
+	width: 100%;
+	padding-left: 16px;
+	padding-right: 32px;
+	box-sizing :border-box;
+	line-height: 48px;
+	text-decoration: none;
+	color: inherit;
+	text-align: left;
+}
+.nav>li>ul{
+	display: none;
+	position: absolute;
+	left: 0;
+	margin: 0;
+}
+
+.nav-flag>svg{
+	position: absolute;
+	right: 8px;
+	top: 0px;
+	height: 48px;
+	line-height: 48px;
+}

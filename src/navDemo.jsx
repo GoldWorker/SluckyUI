@@ -133,8 +133,6 @@ const demoString = '``` html' + `
         </ul>
     </li>
 </nav>
-
-
 ` + '```';
         return (
             <div>
