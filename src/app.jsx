@@ -7,6 +7,9 @@ export default class App extends Component {
         return (
             <div>
                 <div className="m32">
+                    <span className="fs24">SluckyUI</span> doc For React
+                </div>
+                <div className="m32">
                     <div className="tab-box-tb w-full">
                         <div className="tab-contrl">
                             <input type="radio" id="tab_1" name="tab" defaultChecked/>
