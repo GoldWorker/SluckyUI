@@ -26,8 +26,7 @@
         .spinner {
             width: 60px;
             height: 60px;
-            background-color: #67CF22;
-
+            background-color: #000;
             margin: 100px auto;
             -webkit-animation: rotateplane 1.2s infinite ease-in-out;
             animation: rotateplane 1.2s infinite ease-in-out;
@@ -64,10 +63,89 @@
         <div class="icon-box">
             <div class="yu-icon">
                 <div class="spinner"></div>
-                <p>稍等片刻，毕业邀请书努力准备中</p>
+                <p>Slucky UI</p>
             </div>
         </div>
     </div>
+    <style>
+        .progress-loading-g {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: rgba(0, 0, 0, .8);
+        }
+
+        .progress-loading-g::-moz-progress-bar {
+            background: rgba(0, 0, 0, .8);
+        }
+
+        .progress-loading-g::-webkit-progress-bar {
+            background: rgba(0, 0, 0, .8);
+            ;
+        }
+
+        .progress-loading-g::-webkit-progress-value {
+            background: #fff;
+        }
+    </style>
+    <progress max="100" value="" class="progress-loading-g" id="progress_loading"></progress>
+    <script>
+        (function () {
+            var $ = function (id) {
+                return document.getElementById(id)
+            }
+            var progress = $('progress_loading');
+            var _timer;
+
+            autoAdd(80, 100);
+            /**
+             * 加载进度模拟
+             * @param  {[int]}   tar      [目标值]
+             * @param  {[int]}   delay    [时间间隔]
+             * @param  {Function} callback [description]
+             * @return {[type]}            [description]
+             */
+            function autoAdd(tar, delay, callback) {
+                clearInterval(_timer);
+                // 随机量偏移值
+                _interval = Math.ceil(Math.random() * 5);
+                var bool = Math.floor(Math.random() * 2);
+                var tarOffset = Math.ceil(Math.random() * 10);
+                if (bool) {
+                    tar += tarOffset;
+                } else {
+                    tar -= tarOffset;
+                }
+                if (tar > 100) {
+                    tar = 100;
+                }
+
+                _timer = setInterval(function () {
+                    if (progress.value < tar) {
+                        progress.value += _interval;
+                    } else {
+                        progress.value = tar;
+                        clearInterval(_timer);
+                        callback && callback();
+                    }
+                }, delay);
+            }
+
+            window.onload = function () {
+                console.log("onload")
+                autoAdd(100, 10, function () {
+                    var _disTimer;
+                    clearTimeout(_disTimer);
+                    _disTimer = setTimeout(function () {
+                        progress.style.display = "none";
+                    }, 1000);
+                });
+            }
+        })();
+    </script>
 </body>
 
 </html>

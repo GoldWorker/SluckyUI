@@ -49,7 +49,7 @@
 
 .slidebar-box-normalize {
     &>input[type="checkbox"]:checked + .slidebar {
-        // position: fixed;
+        // position: relative;
         left: 0px !important;
         &>.slidebar-tool {
             text-align: right;
