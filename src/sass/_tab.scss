@@ -133,7 +133,7 @@
     position: relative;
     display: inline-block;
     .tab-contrl {
-        height: 48px;
+        height: 100%;
         z-index: 1;
         &>label {
             position: relative;
@@ -159,7 +159,7 @@
             opacity: 1;
         }
         &>input[type="radio"]:checked+label+.tab-content {
-            top: 48px; // left: 0;
+            top: 100%; // left: 0;
             // display: block;
             visibility: visible;
             opacity: 1;

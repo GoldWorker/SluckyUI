@@ -1,15 +1,39 @@
 import React, {Component} from 'react'
+import ReactDOM from 'react-dom';
 import NavDemo from "./component/navDemo";
 import LoadingDemo from "./component/loadingDemo";
 import ButtonDemo from "./component/buttonDemo";
-import PopupDemo from "./component/popupDemo";
+import {PopupDemo, Dialog, Toast, ToastTest} from "./component/popupDemo";
 import Transfrom3DDemo from "./component/transfrom3DDemo";
 import FormDemo from "./component/formDemo";
 import ColorDemo from "./component/colorDemo";
 import ImageDemo from "./component/imageDemo";
 import TableDemo from "./component/tableDemo";
 export default class App extends Component {
+    constructor() {
+        super()
+        this.count = 0
+        this.state = {
+            toggle: false
+        }
+    }
+
+    hendleClickToast() {
+        this
+            .refs
+            .toast
+            .add(this.count++)
+    }
+
+    handleClickToggle() {
+        this.setState({
+            toggle: !this.state.toggle
+        })
+    }
+
     render() {
+        // const portalContainer = document.getElementById('dialog');
+
         return (
             <div className="d-f">
                 <div className="slidebar-box-normalize slidebar-hover-b">
@@ -73,7 +97,8 @@ export default class App extends Component {
                                 </label>
 
                                 <div className="tab-content w-full">
-                                    <NavDemo/>
+                                    <NavDemo/> {/* {ReactDOM.createPortal(
+                                        <NavDemo/>, portalContainer)} */}
                                 </div>
 
                                 <input type="radio" id="tab_3" name="tab"/>
@@ -100,7 +125,14 @@ export default class App extends Component {
                                     <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">Popup</span>
                                 </label>
                                 <div className="tab-content w-full">
-                                    <PopupDemo/>
+                                    {/* <PopupDemo/> */}
+                                    <Dialog open={this.state.toggle}>
+                                        asdf123
+                                    </Dialog>
+                                    <Toast ref="toast"/> {/* <Toast data={this.state.toastList} toggle={this.state.toastToggle}/> */}
+                                    <button onClick={() => this.handleClickToggle()}>Toggle</button>
+                                    <button onClick={() => this.hendleClickToast()}>Add</button>
+                                    <button>asdf</button>
                                 </div>
 
                                 <input type="radio" id="tab_5" name="tab"/>
