@@ -125,22 +125,43 @@ export default class App extends Component {
                                     <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">Popup</span>
                                 </label>
                                 <div className="tab-content w-full">
-                                    {/* <PopupDemo/> */}
                                     <Dialog open={this.state.toggle} onClose={() => this.setState({toggle: false})}>
                                         <div>
-                                            <p>Title</p>
-                                            <div>Content,Content,Content,Content,撒旦发射点发撒打发阿斯蒂芬阿斯蒂芬撒旦阀手动阀阿斯蒂阀手动阀手动阀阿斯蒂富士达发的萨芬阿斯蒂芬阿斯蒂芬阿三阀手动发</div>
+                                            <p>Your Title</p>
+                                            <div>Breaking news, sport, TV, radio and a whole lot more. The BBC informs,
+                                                educates and entertains - wherever you are, whatever your age.Visit BBC News for
+                                                up-to-the-minute news, breaking news, video, audio and feature stories. BBC News
+                                                provides trusted World and UK news as well as local and ...</div>
                                             <div className="ta-r pt8">
-                                                <button className="tag-text ptb6 plr16" onClick={() => this.setState({toggle: false})}>cancel</button>
+                                                <button
+                                                    className="tag-text ptb6 plr16"
+                                                    onClick={() => this.setState({toggle: false})}>cancel</button>
                                                 <button className="tag-text ptb6 plr16">ok</button>
                                             </div>
                                         </div>
                                     </Dialog>
-                                    
-                                    <Toast ref="toast"/> {/* <Toast data={this.state.toastList} toggle={this.state.toastToggle}/> */}
-                                    <button className="tag-text ptb6 plr16 m32" onClick={() => this.setState({toggle: true})}>OpenDialog</button>
-                                    <button className="tag-text ptb6 plr16 m32" onClick={() => this.hendleClickToast()}>Add</button>
-                                    <button>asdf</button>
+
+                                    <Toast ref="toast"/>
+                                    <button
+                                        className="tag-text ptb6 plr16 m32"
+                                        onClick={() => this.setState({toggle: true})}>OpenDialog</button>
+                                    <button
+                                        className="tag-text ptb6 plr16 m32"
+                                        onClick={() => this.hendleClickToast()}>AddMessage</button>
+
+                                    <div className="pop-box">
+                                        <div className="bor-b b-theme pop-toggle plr4">
+                                            <span className="c-theme">?</span>
+                                            <div className="pop-main-r pl8">
+                                                <div className="pop-content p24 bg-b ta-l shadow fs14">
+                                                    <pre className="c-text-w fs18">Title</pre>
+                                                    <pre className="c-text-w">TV, radio and a whole lot more. The BBC informs</pre>
+                                                    <pre className="c-text-w">TV, radio and a whole lot more. The BBC informs</pre>
+                                                    <pre className="c-text-w">TV, radio and a whole lot more. The BBC informs</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <input type="radio" id="tab_5" name="tab"/>

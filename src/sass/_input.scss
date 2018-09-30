@@ -32,14 +32,56 @@
     }
 }
 
+//Demo: checkbox-box-status
+//<div class="checkbox-box-status">
+//     <input type="checkbox" id="ttab_1" name="ttab" checked>
+//     <label for="ttab_1">
+//         <span class="ptb8 plr16 d-il">1</span>
+//     </label>
+//     <input type="checkbox" id="ttab_3" name="ttab">
+//     <label for="ttab_3">
+//         <span class="ptb8 plr16 d-il">2</span>
+//     </label>
+//     <input type="checkbox" id="ttab_2" name="ttab">
+//     <label for="ttab_2">
+//         <span class="ptb8 plr16 d-il">3</span>
+//     </label>
+//</div>
+.checkbox-box-status {
+    position: relative;
+    display: inline-block;
+    border: 1px $theme_color solid;
+    border-radius: 3px;
+    font-size: 0;
+    overflow: hidden;
+    &>label {
+        display: inline-block;
+        box-sizing: border-box;
+        position: relative;
+        margin-bottom: 0;
+        z-index: 1;
+        transition: all .3s;
+        font-size: 14px;
+        color: $icon_b;
+        cursor: pointer;
+    }
+    &>input[type="checkbox"] {
+        display: none;
+    }
+    &>input[type="checkbox"]:checked+label {
+        background-color: $theme_color; // color: $theme_color;
+        color: #fff; // border-bottom: 1px $theme_color solid;
+    }
+}
+
 // checkbox-box-imgstyle
 .checkbox-box-imgstyle {
     display: inline-block;
     & .checkbox-imgstyle {
         position: relative;
         display: inline-block;
-        // width: 90px;
-        // height: 90px;
+        width: 90px;
+        height: 90px;
         overflow: hidden;
         z-index: 10;
         &:hover {
@@ -102,7 +144,7 @@
             @include bor-r(50%);
         }
     }
-    & input:checked+.checkbox-imgstyle>.checkbox-mark {
+    & input[type="checkbox"]:checked+.checkbox-imgstyle>.checkbox-mark {
         opacity: 1 !important;
     }
 }
@@ -175,8 +217,8 @@
 }
 
 .checkbox-box-fontstyle {
-    .checkbox-fontstyle{
-        .fontstyle-sign{
+    .checkbox-fontstyle {
+        .fontstyle-sign {
             padding-left: 2px;
             opacity: 0;
         }
@@ -317,7 +359,29 @@
     position: relative;
 }
 
-.input-hint{
+.input-search {
+    &:focus-within .input-option {
+        // display: block;
+        visibility: visible;
+    }
+    & .input-option {
+        // display: none;
+        visibility: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        &>li {
+            transition: background-color .3s;
+            cursor: pointer;
+        }
+        &>li:hover {
+            background-color: $color_input_def;
+        }
+    }
+}
+
+.input-hint {
     position: absolute;
 }
 
@@ -346,8 +410,7 @@
 
 .input-down {
     @extend .ptb8;
-    margin: 0;
-    // margin-bottom: -2px;
+    margin: 0; // margin-bottom: -2px;
     border: none;
     border-bottom: solid 2px $color_input_def;
     background-color: transparent;

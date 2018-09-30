@@ -112,18 +112,21 @@
 .pop-box {
     display: inline-block;
     position: relative;
-    // z-index: 100;
     .pop-main {
         display: none;
-        position: absolute;
-        // bottom: 105%;
+        position: absolute; // bottom: 105%;
         // left: 0;
-        right: 100%;
+        right: 95%;
         top: 0;
         border-radius: 2px;
         z-index: 99;
         animation: toast-fade-in .3s;
-        .pop-content{}
+        .pop-content {}
+    }
+    .pop-main-r {
+        @extend .pop-main;
+        right: unset;
+        left: 95%;
     }
     .pop-toggle {
         &:hover .pop-main {
