@@ -81,9 +81,16 @@ export class Dialog extends React.Component {
                 <div className="dialog-mark"></div>
                 <div className="dialog-box d-f ac jc">
                     <span>
-                        <div className="dialog paper fade-scale">
+                        <div className="dialog paper fade-scale mlr64">
                             <div className="ta-r">
-                                <div className="mt4 mr4 ptb4 plr8" onClick={() => this.props.onClose()}>X</div>
+                                <div className="mt4 mr4 pt4 plr8 ta-r">
+                                    <div
+                                        className="d-il"
+                                        onClick={() => this.props.onClose()}
+                                        style={{
+                                        cursor: 'pointer'
+                                    }}>X</div>
+                                </div>
                             </div>
                             <div>
                                 <div className="dialog-content ta-l">

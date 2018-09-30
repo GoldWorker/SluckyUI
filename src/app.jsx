@@ -127,19 +127,19 @@ export default class App extends Component {
                                 <div className="tab-content w-full">
                                     {/* <PopupDemo/> */}
                                     <Dialog open={this.state.toggle} onClose={() => this.setState({toggle: false})}>
-                                        <div className="p16">
+                                        <div>
                                             <p>Title</p>
-                                            <div>Content</div>
-                                            <div className="ta-r">
-                                                <button onClick={() => this.setState({toggle: false})}>cancel</button>
-                                                <button>ok</button>
+                                            <div>Content,Content,Content,Content,撒旦发射点发撒打发阿斯蒂芬阿斯蒂芬撒旦阀手动阀阿斯蒂阀手动阀手动阀阿斯蒂富士达发的萨芬阿斯蒂芬阿斯蒂芬阿三阀手动发</div>
+                                            <div className="ta-r pt8">
+                                                <button className="tag-text ptb6 plr16" onClick={() => this.setState({toggle: false})}>cancel</button>
+                                                <button className="tag-text ptb6 plr16">ok</button>
                                             </div>
                                         </div>
                                     </Dialog>
                                     
                                     <Toast ref="toast"/> {/* <Toast data={this.state.toastList} toggle={this.state.toastToggle}/> */}
-                                    <button onClick={() => this.setState({toggle: true})}>OpenDialog</button>
-                                    <button onClick={() => this.hendleClickToast()}>Add</button>
+                                    <button className="tag-text ptb6 plr16 m32" onClick={() => this.setState({toggle: true})}>OpenDialog</button>
+                                    <button className="tag-text ptb6 plr16 m32" onClick={() => this.hendleClickToast()}>Add</button>
                                     <button>asdf</button>
                                 </div>
 
