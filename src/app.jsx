@@ -126,11 +126,19 @@ export default class App extends Component {
                                 </label>
                                 <div className="tab-content w-full">
                                     {/* <PopupDemo/> */}
-                                    <Dialog open={this.state.toggle}>
-                                        asdf123
+                                    <Dialog open={this.state.toggle} onClose={() => this.setState({toggle: false})}>
+                                        <div className="p16">
+                                            <p>Title</p>
+                                            <div>Content</div>
+                                            <div className="ta-r">
+                                                <button onClick={() => this.setState({toggle: false})}>cancel</button>
+                                                <button>ok</button>
+                                            </div>
+                                        </div>
                                     </Dialog>
+                                    
                                     <Toast ref="toast"/> {/* <Toast data={this.state.toastList} toggle={this.state.toastToggle}/> */}
-                                    <button onClick={() => this.handleClickToggle()}>Toggle</button>
+                                    <button onClick={() => this.setState({toggle: true})}>OpenDialog</button>
                                     <button onClick={() => this.hendleClickToast()}>Add</button>
                                     <button>asdf</button>
                                 </div>

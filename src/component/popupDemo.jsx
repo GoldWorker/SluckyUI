@@ -44,42 +44,64 @@ export class PopupDemo extends Component {
 export class Dialog extends React.Component {
     constructor() {
         super(...arguments);
-        this.create()
+        const doc = window.document;
+        this.node = doc.createElement('div')
+    }
+
+    createPortalContainer() {
+        console.log(this.node, 'createPortalContainer');
+        const doc = window.document;
+
+        doc
+            .body
+            .appendChild(this.node);
+
+        console.log(this.node, 'createPortalContainer');
+    }
+
+    clearPortalContainer() {
+        const doc = window.document;
+        if (doc.body.contains(this.node)) {
+            doc
+                .body
+                .removeChild(this.node);
+            // this.node = null
+        }
     }
 
     render() {
         if (!this.props.open) {
-            this.clear()
+            // this.clearPortalContainer()
         } else {
-            this.create()
+            this.createPortalContainer()
         }
         return this.props.open
             ? createPortal(
-                <div className="dialog">
-                {this.props.children}
+                <div className="fadeIn p-r z1">
+                <div className="dialog-mark"></div>
+                <div className="dialog-box d-f ac jc">
+                    <span>
+                        <div className="dialog paper fade-scale">
+                            <div className="ta-r">
+                                <div className="mt4 mr4 ptb4 plr8" onClick={() => this.props.onClose()}>X</div>
+                            </div>
+                            <div>
+                                <div className="dialog-content ta-l">
+                                    {this.props.children}
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </div>
             </div>, //塞进传送门的JSX
                     this.node //传送门的另一端DOM node
             )
             : null
     }
 
-    create() {
-        const doc = window.document;
-        this.node = doc.createElement('div');
-        doc
-            .body
-            .appendChild(this.node);
-    }
-
-    clear() {
-        window
-            .document
-            .body
-            .removeChild(this.node);
-    }
-
     componentWillUnmount() {
-        this.clear()
+        console.log('componentWillUnmount');
+        this.clearPortalContainer()
     }
 }
 
@@ -90,7 +112,7 @@ export class Toast extends React.Component {
             list: [],
             toggle: false
         }
-        this.create()
+        this.createPortalContainer()
         this.timer = undefined
     }
 
@@ -123,7 +145,7 @@ export class Toast extends React.Component {
         console.log(content, 'add succ');
     }
 
-    create() {
+    createPortalContainer() {
         const doc = window.document;
         this.node = doc.createElement('div');
         doc
@@ -131,7 +153,7 @@ export class Toast extends React.Component {
             .appendChild(this.node);
     }
 
-    clear() {
+    clearPortalContainer() {
         window
             .document
             .body
@@ -159,6 +181,6 @@ export class Toast extends React.Component {
     }
 
     componentWillUnmount() {
-        this.clear()
+        this.clearPortalContainer()
     }
 }

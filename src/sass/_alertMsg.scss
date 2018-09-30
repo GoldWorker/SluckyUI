@@ -23,7 +23,7 @@
     left: 0;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 49;
+    z-index: 99;
 }
 
 .dialog-box {
@@ -127,12 +127,12 @@
 }
 
 .fadeIn {
-    // animation: slideIn .3s; // left: 0; 
-    display: block; // z-index: 9 !important;
+    animation: slideIn .3s;
+    display: block;
     opacity: 1;
-    // .fade-scale {
-    //     animation: fade-scale .3s;
-    // }
+    .fade-scale {
+        animation: fade-scale .3s;
+    }
 }
 
 .fadeOut {
