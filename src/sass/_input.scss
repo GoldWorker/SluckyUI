@@ -240,13 +240,12 @@
 
 //switch
 .switch-box-normalize {
-    @include bor-r(16px);
+    // @include bor-r(16px);
     @include animate();
     display: inline-block;
     position: relative;
     width: 40px !important;
-    height: 16px;
-    border: solid 1px $color_input_def;
+    height: 18px; // border: solid 1px $color_input_def;
     text-align: center;
 }
 
@@ -280,7 +279,7 @@
     top: -3px;
     width: 80%;
     height: 8px;
-    background-color: $color_input_main;
+    background-color: rgba($color:$color_input_main, $alpha: .6);
 }
 
 .switch-box-normalize input {
