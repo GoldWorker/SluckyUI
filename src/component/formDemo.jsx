@@ -116,6 +116,35 @@ export default class FormDemo extends Component {
                     </div>
                 </div>
                 <textarea name="" id="" cols="50" rows="6" className="textarea"></textarea>
+                <div className="checkbox-box-imgstyle mt16">
+                    <input id="c_i" type="checkbox" name="c_i" className="d-n" />
+                    <label htmlFor="c_i" className="checkbox-imgstyle">
+                        <img src={require('../images/bg_test.jpg')} alt="" />
+                        <p className="m0">Title</p>
+                        <div className="checkbox-mark"><span>✓</span></div>
+                    </label>
+                </div>
+                <div className="checkbox-box-papertoggle w288 shadow">
+                    <input id="isSelectPackage" type="checkbox" className="d-n" />
+                    <label htmlFor="isSelectPackage" className="checkbox-papertoggle d-f">
+                        <div className="checkbox-imgbox">
+                            <img src={require("../images/bg_test.jpg")} alt="" />
+                        </div>
+                        <div className="flex1 lh16 pl16">
+                            <p className="bor-b b-divider-b pb8 mb8">
+                                TEST
+	                            <svg className="icon f-r">
+                                    <use xlinkHref="#icon-arrow-right"></use>
+                                </svg>
+                            </p>
+                            <span className="c-hint-b fs12">亲子实惠，难得一夏。</span>
+                        </div>
+                        <div className="checkbox-mark">
+                            <span>✓</span>
+                            <p>已选择</p>
+                        </div>
+                    </label>
+                </div>
             </div>
         )
     }
