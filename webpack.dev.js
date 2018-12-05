@@ -91,7 +91,8 @@ module.exports = {
             hash: true,//防止缓存
             title: "slucky",
             minify: {
-                removeAttributeQuotes: true//压缩 去掉引号
+                removeAttributeQuotes: true,//压缩 去掉引号
+                // collapseWhitespace:true
             }
         }),
         require('autoprefixer'),
