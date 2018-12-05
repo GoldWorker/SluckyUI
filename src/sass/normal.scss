@@ -424,7 +424,7 @@ $space: 2;
     background-color: #fff;
 }
 
-.bg-b{
+.bg-b {
     background-color: rgba($color:black, $alpha: .8);
 }
 
@@ -438,6 +438,34 @@ $space: 2;
 
 .bg-disable {
     background-color: $disable;
+}
+
+.bg-placeholder {
+    background-color: $placeholder_b
+}
+
+.bg-divider {
+    background-color: $divider_b
+}
+
+.bg-hint {
+    background-color: $hint_b
+}
+
+.bg-icon {
+    background-color: $icon_b
+}
+
+.bg-text {
+    background-color: $text_b
+}
+
+.bg-side {
+    background-color: $side_b
+}
+
+.bg-side-s {
+    background-color: $side_strong
 }
 
 .tp {
@@ -541,7 +569,7 @@ $space: 2;
     border-color: $side_strong;
 }
 
-.b-theme{
+.b-theme {
     border-color: $theme_color;
 }
 
