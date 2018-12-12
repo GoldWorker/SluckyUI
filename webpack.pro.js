@@ -37,7 +37,36 @@ module.exports = {
                     }
                 },
                 exclude: /node_modules/
-            }, {
+            }, 
+            {
+                test: /\.svg$/,
+                include: [path.resolve(__dirname, 'src/icons')],
+                use: [
+                    {
+                        loader: 'svg-sprite-loader',
+                        options: {
+                            symbolId: 'icon-[name]'
+                        }
+                    },
+                    'svg-fill-loader', {
+                        loader: 'svgo-loader',
+                        options: {
+                            plugins: [
+                                {
+                                    removeTitle: true
+                                }, {
+                                    convertColors: {
+                                        shorthex: false
+                                    }
+                                }, {
+                                    convertPathData: false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
                 test: /\.(jpg|png|gif|svg)$/,
                 use: [
                     {
@@ -51,7 +80,10 @@ module.exports = {
                     }
                 ],
                 include: path.join(__dirname, './src'),
-                exclude: /node_modules/
+                exclude: [
+                    path.resolve(__dirname, 'src/icons'),
+                    path.resolve(__dirname, '/node_modules/')
+                ]
             }, {
                 test: /\.(eot|ttf|woff)$/,
                 use: 'file-loader'
