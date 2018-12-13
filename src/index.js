@@ -31,10 +31,10 @@ if (module.hot) {
 const store = getStore()
 ReactDOM.render(
     <Provider store={store}>
-    <BrowserRouter>
+    <HashRouter>
         <Switch>
             <Route exact path='/' component={App}/>
             <Route path='/demo1' component={Demo1}/>
         </Switch>
-    </BrowserRouter>
+    </HashRouter>
 </Provider>, document.getElementById('root'))

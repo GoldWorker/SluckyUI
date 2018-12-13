@@ -9,6 +9,7 @@ import FormDemo from "./component/formDemo";
 import ColorDemo from "./component/colorDemo";
 import ImageDemo from "./component/imageDemo";
 import TableDemo from "./component/tableDemo";
+import TodoList from "./component/todoList/highorder-todoList";
 export default class App extends Component {
     constructor() {
         super()
@@ -87,6 +88,7 @@ export default class App extends Component {
                         <span className="fs24">SluckyUI</span>
                         doc For React 1874©
                     </div>
+                    <TodoList/>
                     <div className="m32">
                         <div className="tab-box-tb w-full">
                             <div className="tab-contrl">

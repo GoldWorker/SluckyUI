@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const sassExtract = new ExtractTextWebapckPlugin('./slucky.css');
 const UglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// 图表分析
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // const Autoprefixer = require('autoprefixer')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
