@@ -16,6 +16,10 @@ const req = require.context('./icons', false, /\.svg$/)
 requireAll(req)
 // import './icons/dev.svg';
 
+// 管理api接口
+import __API__ from './config.js'
+window.__API__ = __API__
+
 if (module.hot) {
     module
         .hot

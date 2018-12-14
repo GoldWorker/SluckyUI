@@ -10,6 +10,8 @@ import ColorDemo from "./component/colorDemo";
 import ImageDemo from "./component/imageDemo";
 import TableDemo from "./component/tableDemo";
 import TodoList from "./component/todoList/highorder-todoList";
+import HighorderArticle from "./component/article/highorder-article";
+import HighorderMessage from "./component/message/highorder-message";
 export default class App extends Component {
     constructor() {
         super()
@@ -89,6 +91,8 @@ export default class App extends Component {
                         doc For React 1874©
                     </div>
                     <TodoList/>
+                    <HighorderArticle/>
+                    <HighorderMessage/>
                     <div className="m32">
                         <div className="tab-box-tb w-full">
                             <div className="tab-contrl">
