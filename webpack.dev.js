@@ -109,14 +109,27 @@ module.exports = {
     devServer: { //配置此静态文件服务器，可以用来预览打包后项目
         contentBase: path.resolve(__dirname, 'dist'), //开发服务运行时的文件根目录
         host: 'localhost', //主机地址
-        port: 9090, //端口号
+        // public: 'www.brandf.cn',
+        port: 80, //端口号
         // compress: true,//开发服务器是否启动gzip等压缩
         historyApiFallback: true,
+        disableHostCheck: true,
         hot: true,
         inline: true,
         overlay: { //当有编译错误或者警告的时候显示一个全屏overlay
             errors: true,
             warnings: true
-        }
+        },
+        // proxy: {
+        //     '/api': {
+        //         target: 'https://www.brandf.cn',
+        //         pathRewrite: {
+        //             '^/api': ''
+        //         },
+        //         ignorePath: true,
+        //         changeOrigin: true,
+        //         secure: false
+        //     }
+        // }
     }
 }

@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     // devtool: 'source-map',
     //入口配置
-    entry: path.resolve(__dirname, 'src', 'index.js'),
+    entry: path.resolve(__dirname, 'src', 'index.jsx'),
     //出口配置
     output: {
         path: path.resolve(__dirname, 'dist'),

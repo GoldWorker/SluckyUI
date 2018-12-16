@@ -93,19 +93,13 @@
 }
 
 .toastlist>div {
-    float: right;
-    margin: 8px 8px 0px 0px;
-    // animation: toast-fade-in .3s;
-}
-
-.toastlist>div>div {
     padding: 8px 32px 8px 8px;
     color: #fff;
     opacity: .9;
     border-radius: 3px;
-    margin-bottom: 8px;
+    float: right;
+    margin: 8px 8px 0px 0px;
     animation: toast-fade-in .3s;
-    // overflow: hidden;
 }
 
 // pop tips
