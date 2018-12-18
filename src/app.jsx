@@ -9,7 +9,6 @@ import FormDemo from "./component/formDemo";
 import ColorDemo from "./component/colorDemo";
 import ImageDemo from "./component/imageDemo";
 import TableDemo from "./component/tableDemo";
-import HighorderArticle from "./component/article/highorder-article";
 
 export default class App extends Component {
     constructor() {
@@ -44,7 +43,7 @@ export default class App extends Component {
                         doc For React 1874©
                     </div>
                     {/* <TodoList/> */}
-                    <HighorderArticle />
+                    {/* <HighorderArticle /> */}
                     
                     <div className="m32">
                         <div className="tab-box-tb w-full">
