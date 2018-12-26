@@ -10,6 +10,7 @@ import {getStore} from './store.js'
 import "../node_modules/highlight.js/styles/tomorrow.css";
 import Global from "./component/global";
 import HighorderArticle from "./component/article/highorder-article";
+import HighorderArticlePublish from "./component/articlePublish/highorder-articlePublish";
 
 const requireAll = requireContext => requireContext
     .keys()
@@ -42,6 +43,7 @@ ReactDOM.render(
                 <Route exact path='/' component={App}/>
                 <Route path='/demo1' component={Demo1}/>
                 <Route path='/article' component={HighorderArticle}/>
+                <Route path='/edit' component={HighorderArticlePublish}/>
             </Switch>
         </div>
     </HashRouter>

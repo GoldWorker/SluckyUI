@@ -9,10 +9,10 @@
 import fetch from 'isomorphic-fetch'
 import {
 	pushInQueue
-} from '../message/data-message.js'
+} from '../message/data-message'
 import {
 	addReducer
-} from '../store.js'
+} from '../../store'
 
 const postSuccess = (data) => {
 	return {
