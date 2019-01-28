@@ -5,15 +5,15 @@
     // left: 50%;
     // transform: translate(-50%, -50%);
     list-style: none;
-    &>li {
+    &>nav {
         position: relative;
-        padding: 20px; // font-size: 24px;
+        // padding: 20px; // font-size: 24px;
         color: #000;
         line-height: 1;
         transition: 0.1s all linear;
         cursor: pointer;
     }
-    &>li::before {
+    &>nav::before {
         content: "";
         position: absolute;
         top: 0;
@@ -23,19 +23,30 @@
         border-bottom: 1px solid #000;
         transition: 0.1s all linear;
     }
-    &>li:hover::before {
+    &>nav:hover::before {
         width: 100%;
         top: 0;
         left: 0; // transition-delay: 0.1s;
         border-bottom-color: #000;
         z-index: -1;
     }
-    &>li:hover~li::before {
+    &>nav:hover~nav::before {
         left: 0;
     }
-    &>li:active {
-        background: #000;
+    &>nav:active {
+        // background: #000;
         color: #000;
+    }
+    .nav-item{
+        display: inline-block;
+        color: inherit;
+        padding: 20px;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+    }
+    .nav-item-active{
+        color: $theme_color;
     }
 }
 
@@ -46,7 +57,7 @@
         top: -15%;
         width: 100%;
         height: 130%;
-        color: #000;
+        color: $theme_color;
         &>rect {
             position: absolute;
             left: 0; // top: -10%;
@@ -56,18 +67,18 @@
     }
     .shape {
         fill: transparent;
-        stroke-width: 1px;
-        stroke: #000;
+        stroke-width: 2px;
+        stroke: $theme_color;
         stroke-dasharray: 140 400;
         stroke-dashoffset: -265;
-        transition: all 1s;
+        transition: all .8s;
     }
     &:hover {
         .shape {
-            stroke: #000;
+            stroke: $theme_color;
             stroke-dasharray: 50 0;
             stroke-dashoffset: 0;
-            stroke-width: 1px;
+            stroke-width: 2px;
         }
         .btn-svgMutiLine {
             opacity: 1;

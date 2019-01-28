@@ -4,8 +4,8 @@ import {
 import {
 	fetchCommentData,
 	publishReply
-} from './data-comment.js'
-import commentShow from './display-commentShow.js'
+} from './data-comment'
+import commentShow from './display-commentShow'
 
 const mapStateToProps = (state) => {
 	return {

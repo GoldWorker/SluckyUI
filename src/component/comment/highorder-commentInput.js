@@ -3,8 +3,8 @@ import {
 } from 'react-redux'
 import {
 	publishComment
-} from './data-comment.js'
-import CommentInput from './display-commentInput.js'
+} from './data-comment'
+import CommentInput from './display-commentInput'
 
 const mapStateToProps = (state) => {
 	return {}

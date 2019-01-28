@@ -390,7 +390,7 @@
     background-color: $tp_color;
     letter-spacing: 1px;
     &:focus {
-        outline: $outline_color auto 5px;
+        outline: $outline_color auto 1px;
     }
 }
 
@@ -403,7 +403,7 @@
     @extend .plr8;
     @extend .ptb4; // border: solid 1px;
     &:hover {
-        outline: $outline_color auto 5px;
+        outline: $outline_color auto 1px;
     }
 }
 
@@ -667,7 +667,7 @@
     resize: none;
     letter-spacing: 1px;
     &:focus {
-        outline: $outline_color auto 5px;
+        outline: $outline_color auto 1px;
     }
 }
 
@@ -699,7 +699,7 @@
     border-width: 1px;
     border-color: $color_input_main; // border:none;
     &:focus {
-        // outline: $outline_color auto 5px;
+        // outline: $outline_color auto 1px;
     }
 }
 

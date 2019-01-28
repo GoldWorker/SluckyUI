@@ -1,0 +1,62 @@
+.publish-comment-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.publish-comment-input {
+    height: 144px;
+    resize: none;
+}
+
+.publish-comment-tool {
+    display: flex;
+    align-items: baseline;
+}
+
+.publish-comment-tool>div {
+	flex: 1;
+}
+
+.comment-normalize-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-info-comment {}
+
+.user-info-comment>figcaption {
+    width: 56px;
+}
+
+.user-info-comment>img {}
+
+.comment-content {
+    flex: 1;
+}
+
+.reply-normalize-box {
+    position: relative;
+    list-style: none;
+    padding-bottom: 4px;
+    padding-left: 16px;
+}
+
+.reply-normalize-box:before {
+    content: ' ';
+    position: absolute;
+    top: -16px;
+    left: 16px;
+    border: solid 8px;
+    border-color: transparent transparent #dddddd transparent;
+}
+
+.reply-normalize-box>li {
+    padding-top: 4px
+}
+
+.user-info-reply {}
+
+.reply-content {
+    flex: 1;
+}

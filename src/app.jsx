@@ -38,7 +38,7 @@ export default class App extends Component {
         return (
             <div className="d-f">
                 <div>
-                    <div className="m32 pt32">
+                    <div className="p32">
                         <span className="fs24">SluckyUI</span>
                         doc For React 1874©
                     </div>

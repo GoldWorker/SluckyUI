@@ -2,9 +2,8 @@ import React, {
 	Component,
 	PropTypes
 } from 'react'
-import {
-	Link
-} from 'react-router'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 
 class ArticleItem extends Component {
 	handleDate(date) {
@@ -18,10 +17,10 @@ class ArticleItem extends Component {
 			hits,
 			id
 		} = this.props.article
-		let routerPath = "/" + id
+		let routerPath = "/article?id=" + id
 		return (
-			<div className="bor-b b-divider-b article-detail-box">
-				{/* <span className="m8"><Link className="c-blue" to={routerPath}>{title}</Link></span> */}
+			<div className="bor-b b-side-s article-detail-box">
+				<span className="m8"><Link className="c-theme" to={routerPath}>{title}</Link></span>
 				<div className="article-detail m4 c-icon-b">
 					<span className=" mr8">日期:</span>
 					<span className="mr24">{this.handleDate(date)}</span>

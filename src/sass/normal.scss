@@ -762,17 +762,21 @@ $space: 2;
     }
 }
 
-@import './_varConfig.scss';
-@import './mixin/_mixin.scss';
-@import './_tab.scss';
-@import './_input.scss';
-@import './_alertMsg.scss';
-@import './_newBalance.scss';
-@import './_geometry.scss';
-@import './_3dtransform.scss';
-@import './_progress.scss';
-@import './_loading.scss';
-@import './_nav.scss';
-@import './_menu.scss';
-@import './_icon.scss';
-@import './_slideBar.scss';
+@import './_varConfig';
+@import './mixin/_mixin';
+@import './_tab';
+@import './_input';
+@import './_alertMsg';
+@import './_newBalance';
+@import './_geometry';
+@import './_3dtransform';
+@import './_progress';
+@import './_loading';
+@import './_nav';
+@import './_menu';
+@import './_icon';
+@import './_slideBar';
+@import './comment';
+@import './img';
+@import './toggler';
+@import './bug.scss'

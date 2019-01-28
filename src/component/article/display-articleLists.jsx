@@ -13,6 +13,7 @@ class ArticleLists extends Component {
 			counter: 0,
 			_interval: 10
 		}
+		console.log(this.props);
 	}
 	nextPage() {
 		return this.state.counter += this.state._interval
@@ -60,7 +61,7 @@ class ArticleLists extends Component {
 					})
 				}	
 				<div className="ta-c">
-					<button className="btn btn-m bg-blue m16 c-text-w" onClick={this.handleClick.bind(this)}>加载更多</button>
+					<button className="tag-text m16 plr16 ptb6" onClick={this.handleClick.bind(this)}>加载更多</button>
 				</div>
 			</div>
 		)

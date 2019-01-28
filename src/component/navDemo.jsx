@@ -148,13 +148,13 @@ export default class NavDemo extends Component {
                 </div>
 
                 <div className="m32">
-                    <ul className="nav-normal">
-                        <li>A</li>
-                        <li>B</li>
-                        <li>123</li>
-                        <li>adf</li>
-                        <li>Aadfs1233</li>
-                    </ul>
+                    <div className="nav-normal">
+                        <nav className="plr8 pb8">A</nav>
+                        <nav className="plr8 pb8">B</nav>
+                        <nav className="plr8 pb8">123</nav>
+                        <nav className="plr8 pb8">adf</nav>
+                        <nav className="plr8 pb8">Aadfs1233</nav>
+                    </div>
                 </div>
 
                 <div className="m32">

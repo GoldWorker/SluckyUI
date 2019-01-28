@@ -1,7 +1,7 @@
 import {
 	connect
 } from 'react-redux';
-import LoginInfo from './display-loginInfo.js'
+import LoginInfo from './display-loginInfo'
 import {
 	loginWindowToggle,
 	logout

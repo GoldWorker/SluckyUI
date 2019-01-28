@@ -2,7 +2,7 @@ import {
 	connect
 } from 'react-redux'
 import publishArticle from './data-articlePublish.js'
-import ArticleEditer from './display-articlePublish.js'
+import ArticleEditer from './display-articlePublish'
 
 const mapStateToProps = (state) => {
 	return {}
