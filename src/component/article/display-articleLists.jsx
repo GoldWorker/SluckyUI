@@ -2,7 +2,8 @@ import React, {
 	Component
 } from 'react'
 import ArticleItem from './display-articleItem.jsx'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import { CSSTransitionGroup } from 'react-transition-group'
 
 class ArticleLists extends Component {
 	constructor(props) {
@@ -48,7 +49,7 @@ class ArticleLists extends Component {
 				{
 					Array.prototype.map.call(this.props.lists,(elem, index) => {
 						return (
-							<ReactCSSTransitionGroup
+							<CSSTransitionGroup
 								transitionName="example"
 								transitionAppear={true}
 								transitionAppearTimeout={500}
@@ -56,7 +57,7 @@ class ArticleLists extends Component {
 								transitionLeave={false}
 								key={index}>
 								<ArticleItem article={elem} key={index}/>
-							 </ReactCSSTransitionGroup>
+							 </CSSTransitionGroup>
 							)
 					})
 				}	

@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 class ArticleItem extends Component {
 	handleDate(date) {
 		// console.log(date)
-		return date.split('T')[0]
+		return date
 	}
 	render() {
 		const {

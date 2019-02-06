@@ -9,12 +9,6 @@ import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 export default class Global extends Component {
     constructor(props){
         super(props)
-        this.state={
-            toggle:false
-        }
-    }
-    handleClickOpen(){
-        this.setState({toggle:true})
     }
     render() {
         return (
@@ -27,10 +21,7 @@ export default class Global extends Component {
                 </div>
                 <Slidebar/>
                 <HighorderMessage/>
-                <HighorderLoginWindow />
-                
-
-                
+                <HighorderLoginWindow />                
             </div>
         )
     }

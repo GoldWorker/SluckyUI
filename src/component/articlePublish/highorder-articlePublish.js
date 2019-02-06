@@ -1,17 +1,27 @@
 import {
-	connect
+    connect
 } from 'react-redux'
-import publishArticle from './data-articlePublish.js'
+import {
+    publishArticle,
+    putArticle
+} from './data-articlePublish.js'
+import {
+    fetchArticleOne
+} from "../articleDetail/data-articleDetail";
 import ArticleEditer from './display-articlePublish'
 
 const mapStateToProps = (state) => {
-	return {}
+    return {
+        item: state.articleDetailReducer.item,
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		handlePublicClick: (art) => dispatch(publishArticle(art))
-	}
+    return {
+        handlePublicClick: (art) => dispatch(publishArticle(art)),
+        handleClickUpdate: (art) => dispatch(putArticle(art)),
+        fetchData: (id) => dispatch(fetchArticleOne(id))
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticleEditer)

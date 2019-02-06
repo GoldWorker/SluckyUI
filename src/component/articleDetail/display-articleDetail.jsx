@@ -5,11 +5,13 @@ import cookie from 'react-cookie'
 import CommentShow from '../comment/highorder-commentShow.js'
 import CommentInput from '../comment/highorder-commentInput.js'
 import Markdown from 'react-markdown'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import { CSSTransitionGroup } from 'react-transition-group'
 import Moment from 'moment';
 import ReactMarkdown from 'react-markdown'
 import Highlight from 'react-highlight'
 import ReactDOMServer from 'react-dom/server';
+import { Link } from "react-router-dom";
 
 // article show in markdown
 class ArticleDetail extends Component {
@@ -17,19 +19,18 @@ class ArticleDetail extends Component {
 		super(props)
 		this.params = new URLSearchParams(location.search)
 		this.artId = this.params.get('id')
-		console.log(this.params.get('id'), this.props);
+		// console.log(this.params.get('id'), this.props);
 	}
 	componentDidMount() {
-		console.log(this.props)
-
+		console.log('componentDidMount',this.props)
 		const {
 			handleFetchArticle
 		} = this.props
 		// this.artId = this.props.params.id
 		handleFetchArticle(this.artId)
 	}
+
 	render() {
-		console.log(this.props.children)
 		const {
 			id,
 			title,
@@ -42,7 +43,7 @@ class ArticleDetail extends Component {
 		} = this.props
 		return (
 			<div>
-				<ReactCSSTransitionGroup
+				<CSSTransitionGroup
 					transitionName="example"
 					transitionAppear={true}
 					transitionAppearTimeout={500}
@@ -57,8 +58,8 @@ class ArticleDetail extends Component {
 									<span className="c-theme mr8">日期:</span>
 									<span className="mr24">{Moment(date).format('YYYY-MM-DD HH:mm:ss')}</span>
 								</div>
-								<div className="article-handle">
-									<button style={isLogined ? {} : { display: 'none' }} className="btn-n plr16 ptb6 mr8" onClick={handleDeleteClick.bind(this, this.artId)}>编辑</button>
+								<div className="article-handle d-f ac">
+									<div style={isLogined ? {} : { display: 'none' }} className="d-il"><Link className="btn plr16 ptb6 bg-theme c-text-w mr8" to={`/edit?id=${this.artId}`}>编辑</Link></div>
 									<button style={isLogined ? {} : { display: 'none' }} className="btn plr16 ptb6 bg-fail c-text-w" onClick={handleDeleteClick.bind(this, this.artId)}>删除</button>
 								</div>
 							</div>
@@ -72,7 +73,7 @@ class ArticleDetail extends Component {
 					</div>
 					<CommentInput id={this.artId} />
 					<CommentShow id={this.artId} />
-				</ReactCSSTransitionGroup>
+				</CSSTransitionGroup>
 			</div>
 		)
 	}

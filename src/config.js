@@ -6,6 +6,7 @@ const __API__ = {
 	articleAll: __PATH__ + "/article/all",
 	articleOnce: __PATH__ + "/article/once/",
 	articleEdit: __PATH__ + "/article",
+	articleUpdate: __PATH__ + "/article",
 	articlePage: __PATH__ + "/article/page/",
 	login: __PATH__ + "/users/login",
 	logout: __PATH__ + "/users/logout",
