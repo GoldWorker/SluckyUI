@@ -17,11 +17,11 @@ export default class Global extends Component {
                     <nav><NavLink exact to="/" className="nav-item" activeClassName="nav-item-active">首页</NavLink></nav>
                     <nav><NavLink to="/edit" className="nav-item" activeClassName="nav-item-active">编辑</NavLink></nav>
                     <nav><NavLink to="/articleList" className="nav-item" activeClassName="nav-item-active">文章</NavLink></nav>
-                    <HighorderLoginInfo />
+                    {/* <HighorderLoginInfo /> */}
                 </div>
                 <Slidebar/>
                 <HighorderMessage/>
-                <HighorderLoginWindow />                
+                {/* <HighorderLoginWindow />                 */}
             </div>
         )
     }

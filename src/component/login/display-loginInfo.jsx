@@ -52,11 +52,11 @@ class LoginInfo extends Component {
 		)
 	}
 }
-// LoginInfo.defaultProps = {
-// 	userInfo: cookie.load('token') ? JSON.parse(localStorage.getItem("userInfo")) : {
-// 		msg: "",
-// 		name: ""
-// 	}
-// }
+LoginInfo.defaultProps = {
+	userInfo: cookie.load('token') ? JSON.parse(localStorage.getItem("userInfo")) : {
+		msg: "",
+		name: ""
+	}
+}
 
 export default LoginInfo
