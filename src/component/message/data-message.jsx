@@ -70,4 +70,4 @@ const messageReducer = (state = [], action) => {
 	}
 }
 
-addReducer(messageReducer)
+addReducer(messageReducer,'messageReducer')

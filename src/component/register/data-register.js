@@ -108,4 +108,4 @@ const registerReducer = (state = {}, action) => {
 	}
 }
 
-addReducer(registerReducer)
+addReducer(registerReducer, 'registerReducer')

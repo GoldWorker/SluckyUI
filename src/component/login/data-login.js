@@ -135,4 +135,4 @@ const loginReducer = (state = {
     }
 }
 
-addReducer(loginReducer)
+addReducer(loginReducer, 'loginReducer')

@@ -89,4 +89,4 @@ const articleDetailReducer = (state = {
 	}
 }
 
-addReducer(articleDetailReducer)
+addReducer(articleDetailReducer,'articleDetailReducer')

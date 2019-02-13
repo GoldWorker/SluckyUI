@@ -22,4 +22,4 @@ const markReducer = (state = {
 	}
 }
 
-addReducer(markReducer)
+addReducer(markReducer, 'markReducer')

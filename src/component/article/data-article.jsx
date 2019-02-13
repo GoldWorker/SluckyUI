@@ -146,4 +146,4 @@ const articleListsReducer = (state = {
 	}
 }
 
-addReducer(articleListsReducer)
+addReducer(articleListsReducer,'articleListsReducer')

@@ -170,4 +170,4 @@ const commentReducer = (state = {
 	}
 }
 
-addReducer(commentReducer)
+addReducer(commentReducer,'commentReducer')

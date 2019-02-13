@@ -7,13 +7,13 @@ const initReducer = (state = {}, action) => {
     return state
 }
 
-var reducers = {
+const reducers = {
     initReducer
 }
 
-const addReducer = (reducer) => {
-    reducers[reducer.name] = reducer
-    console.log(reducers)
+const addReducer = (reducer,name) => {
+    reducers[name] = reducer
+    console.log(reducers,reducer.name)
 }
 
 const updateReducer = (store) => {

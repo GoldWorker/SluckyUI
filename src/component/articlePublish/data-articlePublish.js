@@ -133,4 +133,4 @@ const articlePublicReducer = (state = {
     }
 }
 
-addReducer(articlePublicReducer)
+addReducer(articlePublicReducer, 'articlePublicReducer')
