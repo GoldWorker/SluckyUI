@@ -9,6 +9,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 // const Autoprefixer = require('autoprefixer')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require("webpack")
+const ENV_CONF = require("./environment/pro.env.ts")
 //构建前删除dist目录 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -114,6 +115,9 @@ module.exports = {
     },
     //插件
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(ENV_CONF)
+        }),
         new BundleAnalyzerPlugin(),
         new CleanWebpackPlugin('dist', {
             verbose: false,
@@ -157,10 +161,6 @@ module.exports = {
         }),
         // sassExtract,
         new webpack.HotModuleReplacementPlugin(),
-        // new webpack.NamedModulesPlugin(),//用户名替代id,更新组件时在控制台输出组件的路径而不是数字ID，用在开发模式
-        new webpack.HashedModuleIdsPlugin(), // 用在生产模式
-        // new CleanWebpackPlugin(['dist','build'],{     verbose:false,
-        // exclude:['img']//不删除img静态资源 }),
-        
+        new webpack.HashedModuleIdsPlugin()
     ]
 }

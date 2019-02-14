@@ -1,5 +1,5 @@
 const __PORT__ = "8010"
-const __PATH__ = "http://www.brandf.cn:" + __PORT__
+const __PATH__ = `${process.env.domain}:` + __PORT__
 
 const __API__ = {
 	weiboHostList: __PATH__ + "/crawler/weibo",

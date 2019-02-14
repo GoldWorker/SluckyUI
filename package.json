@@ -29,7 +29,8 @@
     "react-router-dom": "^4.2.2",
     "react-transition-group": "^1.2.1",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "webpack-merge": "^4.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^8.5.0",
