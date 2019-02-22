@@ -3,13 +3,9 @@ import React, {
 	PropTypes
 } from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import Moment from 'moment';
 
 class ArticleItem extends Component {
-	handleDate(date) {
-		// console.log(date)
-		return date
-	}
 	render() {
 		const {
 			title,
@@ -19,13 +15,15 @@ class ArticleItem extends Component {
 		} = this.props.article
 		let routerPath = "/article?id=" + id
 		return (
-			<div className="bor-b b-side-s article-detail-box">
+			<div className="bor-b b-side-s d-f jc-b ac">
 				<span className="m8"><Link className="c-theme" to={routerPath}>{title}</Link></span>
-				<div className="article-detail m4 c-icon-b">
-					<span className=" mr8">日期:</span>
-					<span className="mr24">{this.handleDate(date)}</span>
-					<span className=" mr8">热度:</span>
-					<span className="mr24">{hits}℃</span>
+				<div className="m4 c-icon-b">
+					<div className="d-il w96">
+						<span className="mr8">热度:</span>
+						<span className="mr24">{hits}℃</span>
+					</div>
+					<span className="mr8">日期:</span>
+					<span className="mr8">{Moment(date).format('YYYY-MM-DD HH:mm:ss')}</span>
 				</div>
 			</div>
 		)

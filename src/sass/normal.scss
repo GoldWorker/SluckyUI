@@ -136,7 +136,7 @@ $theme_color:$ji_green;
 
 // ----------------------------------基础布局样式----------------------------------------
 $space: 2;
-@for $i from 0 to 64 {
+@for $i from 0 to 128 {
     $p_var: $i*$space;
     .p#{$p_var} {
         padding: $p_var * 1px;
@@ -163,7 +163,7 @@ $space: 2;
     }
 }
 
-@for $i from 0 to 64 {
+@for $i from 0 to 128 {
     $p_var: $i*$space;
     .m#{$p_var} {
         margin: $p_var * 1px;
@@ -187,6 +187,20 @@ $space: 2;
     .mlr#{$p_var} {
         margin-left: $p_var * 1px;
         margin-right: $p_var * 1px;
+    }
+}
+
+@for $i from 0 to 8 {
+    $w_var: $i*32;
+    .w#{$w_var} {
+        width: $w_var * 1px;
+    }
+}
+
+@for $i from 0 to 8 {
+    $h_var: $i*32;
+    .h#{$h_var} {
+        height: $h_var * 1px;
     }
 }
 
@@ -232,6 +246,18 @@ $space: 2;
 // 宽度系列
 .w-full {
     width: 100%;
+}
+
+.w288{
+    width: 288px;
+}
+
+.w64{
+    width: 64px;
+}
+
+.w128{
+    width: 128px;
 }
 
 // 高度系列

@@ -76,6 +76,23 @@ export default class FormDemo extends Component {
                         </div>
                     </div>
                 </div>
+
+                <div className="m32 d-f ac">
+                    <div className="checkbox-box-soild mr16">
+                        <input id="checkbox_box_1" type="checkbox" name="c_n" />
+                        <span className="checkbox-hook ta-c">
+                            <span className="checkbox-hook-in fs12 op0"></span>
+                        </span>
+                        <label htmlFor="checkbox_box_1" className="p-r z10"></label>
+                    </div>
+                    <div className="checkbox-box-soild mr16">
+                        <input id="checkbox_box_2" type="checkbox" name="c_n" />
+                        <span className="checkbox-hook ta-c">
+                            <span className="checkbox-hook-in fs12 op0"></span>
+                        </span>
+                        <label htmlFor="checkbox_box_2" className="p-r z10"></label>
+                    </div>
+                </div>
                 <div>
                     <div className="radio-box-normalize d-il pr16">
                         <input

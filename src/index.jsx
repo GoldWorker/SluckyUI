@@ -12,6 +12,7 @@ import Global from "./component/global";
 import HighorderArticle from "./component/article/highorder-article";
 import HighorderArticlePublish from "./component/articlePublish/highorder-articlePublish";
 import HighorderArticleDetail from "./component/articleDetail/highorder-articleDetail";
+import HighorderRegister from "./component/register/highorder-register";
 
 const requireAll = requireContext => requireContext
     .keys()
@@ -46,6 +47,7 @@ ReactDOM.render(
                     <Route path='/article' component={HighorderArticleDetail}/>
                     <Route path='/articlelist' component={HighorderArticle} />
                     <Route path='/edit' component={HighorderArticlePublish} />
+                    <Route path='/register' component={HighorderRegister} />
                 </Switch>
             </div>
         </BrowserRouter>

@@ -32,6 +32,47 @@
     }
 }
 
+.checkbox-box-soild {
+    display: inline-block;
+    position: relative;
+    & .checkbox-hook {
+        display: inline-block;
+        width: 20px;
+        // line-height: 13px;
+        height: 20px;
+        border: solid 2px rgba(0, 0, 0, 0.12);
+        -webkit-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+    & input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        z-index: 10;
+        opacity: 0;
+        cursor: pointer;
+    }
+    & .checkbox-hook-in{
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: $theme_color;
+        margin: 2px;
+    }
+    & input[type='checkbox']:checked+.checkbox-hook {
+        border-color: $theme_color;
+    }
+    & input[type='checkbox']:checked+.checkbox-hook>.checkbox-hook-in {
+        opacity: 1 !important;
+    }
+    & label {
+        cursor: pointer;
+    }
+}
+
 //Demo: checkbox-box-status
 //<div class="checkbox-box-status">
 //     <input type="checkbox" id="ttab_1" name="ttab" checked>
@@ -190,7 +231,7 @@
         top: 0;
         left: 0;
         width: 90px;
-        height: 100%; // line-height: 45px;
+        height: 100%; // line-height: 41px;
         text-align: center;
         padding-top: 16px; // vertical-align: middle;
         background-color: rgba(0, 0, 0, 0.5);
@@ -240,7 +281,7 @@
 
 //switch
 .switch-box-normalize {
-    // @include bor-r(16px);
+    // @include bor-r(18px);
     @include animate();
     display: inline-block;
     position: relative;
@@ -279,7 +320,8 @@
     top: -3px;
     width: 80%;
     height: 8px;
-    background-color: rgba($color:$color_input_main, $alpha: .6);
+    background-color: $color_input_main;
+    opacity: .6;
 }
 
 .switch-box-normalize input {
@@ -359,6 +401,7 @@
 }
 
 .input-search {
+    position: relative;
     &:focus-within .input-option {
         // display: block;
         visibility: visible;
@@ -370,6 +413,7 @@
         top: 100%;
         left: 0;
         width: 100%;
+        z-index: 9;
         &>li {
             transition: background-color .3s;
             cursor: pointer;
@@ -713,6 +757,7 @@
 }
 
 .select-box-down>select {
+    @include disableOutline();
     position: relative;
     padding: 8px 16px 8px 0px;
     margin: 0;
@@ -720,7 +765,12 @@
     min-width: 192px;
     border: none;
     border-bottom: solid 2px $color_input_def;
+    border-radius: 0 !important;
+    background-color: transparent !important;
     transition: border-bottom .3s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     &:focus {
         border-bottom-color: $color_input_main;
     }
@@ -731,7 +781,7 @@
 .select-tri-b {
     position: absolute;
     right: 7px;
-    border-width: 5px;
+    border-width: 1px;
     z-index: 9;
 }
 

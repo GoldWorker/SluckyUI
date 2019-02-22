@@ -13,11 +13,12 @@ export default class Global extends Component {
     render() {
         return (
             <div>
-                {console.log('process.env', process, process.env)}
+                {/* {console.log('process.env', process, process.env)} */}
                 <div className="nav-normal bor-b b-side pr16">
                     <nav><NavLink exact to="/" className="nav-item" activeClassName="nav-item-active">首页</NavLink></nav>
                     <nav><NavLink to="/edit" className="nav-item" activeClassName="nav-item-active">编辑</NavLink></nav>
                     <nav><NavLink to="/articleList" className="nav-item" activeClassName="nav-item-active">文章</NavLink></nav>
+                    <nav><NavLink to="/register" className="nav-item" activeClassName="nav-item-active">成为Sluckyer</NavLink></nav>
                     <HighorderLoginInfo />
                 </div>
                 <Slidebar />
