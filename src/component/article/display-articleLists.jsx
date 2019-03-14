@@ -23,7 +23,9 @@ class ArticleLists extends Component {
 	// 首屏加载
 	componentDidMount() {
 		// window.addEventListener('scroll', this.handleScroll.bind(this))
-		this.initialComponent()
+		// this.initialComponent()
+		const { fetchArticle } = this.props
+		fetchArticle()
 	}
 
 	// componentWillUnmount() {
@@ -41,13 +43,13 @@ class ArticleLists extends Component {
 	// 	}
 	// }
 	handleClick() {
-		this.fetchArticleByPage(this.nextPage())
+		this.fetchArticle(this.nextPage())
 	}
 	render() {
 		return (
 			<div className="m16">
 				{
-					Array.prototype.map.call(this.props.lists,(elem, index) => {
+					Array.prototype.map.call(this.props.lists, (elem, index) => {
 						return (
 							<CSSTransitionGroup
 								transitionName="example"
@@ -56,14 +58,14 @@ class ArticleLists extends Component {
 								transitionEnter={false}
 								transitionLeave={false}
 								key={index}>
-								<ArticleItem article={elem} key={index}/>
-							 </CSSTransitionGroup>
-							)
+								<ArticleItem article={elem} key={index} />
+							</CSSTransitionGroup>
+						)
 					})
-				}	
-				<div className="ta-c">
+				}
+				{/* <div className="ta-c">
 					<button className="tag-text m16 plr16 ptb6" onClick={this.handleClick.bind(this)}>加载更多</button>
-				</div>
+				</div> */}
 			</div>
 		)
 	}

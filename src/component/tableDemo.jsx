@@ -7,7 +7,7 @@ export default class TableDemo extends Component {
     render() {
         return (
             <div>
-                
+                table
             </div>
         )
     }
