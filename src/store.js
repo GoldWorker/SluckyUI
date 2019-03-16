@@ -3,13 +3,7 @@ import {createStore, applyMiddleware, compose, combineReducers} from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import {createLogger} from 'redux-logger'
 
-const initReducer = (state = {}, action) => {
-    return state
-}
-
-const reducers = {
-    initReducer
-}
+const reducers = {}
 
 const addReducer = (reducer,name) => {
     reducers[name] = reducer
@@ -17,7 +11,6 @@ const addReducer = (reducer,name) => {
 }
 
 const updateReducer = (store) => {
-    // console.log("RED")
     store.replaceReducer(combineReducers(reducers))
 }
 
