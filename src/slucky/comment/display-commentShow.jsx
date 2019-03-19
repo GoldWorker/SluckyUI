@@ -38,7 +38,7 @@ class CommentShow extends Component {
 						return(
 								<div className="comment-normalize-box bor-b b-side-s plr16 mb16" key={index}>
 							        <figure className="user-info-comment">
-							            <img src={require("../../images/bg_test.jpg")} alt="" className="img-rounded-s bg-tran"/>
+							            <img src={require("./images/bg_test.jpg")} alt="" className="img-rounded-s bg-tran"/>
 							            <figcaption className="ta-c">{elem.name}</figcaption>
 							        </figure>
 							        <div className="comment-content pl16">

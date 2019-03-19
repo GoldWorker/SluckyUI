@@ -22,16 +22,28 @@ module.exports = {
             use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'sass-loader']
         }, {
             test: /.jsx$/, //使用loader的目标文件。这里是.jsx
-            loader: 'babel-loader'
-        }, {
-            test: /\.js/,
             use: {
                 loader: 'babel-loader',
                 query: {
                     presets: ["env", "stage-0"]
                 }
             },
-            exclude: /node_modules/
+            include: [
+                path.resolve(__dirname, 'src/'),
+                path.resolve(__dirname, 'node_modules/slucky/')
+            ]
+        }, {
+            test: /\.js$/,
+            use: {
+                loader: 'babel-loader',
+                query: {
+                    presets: ["env", "stage-0"]
+                }
+            },
+            exclude: /node_modules/,
+            include: [
+                path.resolve(__dirname, 'node_modules/slucky/')
+            ]
         }, {
             test: /\.svg$/,
             include: [path.resolve(__dirname, 'src/icons')],
@@ -63,13 +75,17 @@ module.exports = {
             use: [{
                 loader: 'url-loader'
             }],
-            include: path.join(__dirname, './src'),
+            include: [
+                path.join(__dirname, 'src/'),
+                path.join(__dirname, 'node_modules/slucky/')
+            ],
             exclude: [
-                path.resolve(__dirname, 'src/icons'),
-                path.resolve(__dirname, '/node_modules/')
+                path.resolve(__dirname, 'src/icons/'),
+                // path.resolve(__dirname, 'node_modules/')
             ]
         }, {
             test: /\.(eot|ttf|woff)$/,
+            exclude: /node_modules/,
             use: 'file-loader'
         }, {
             test: /\.(html|htm)$/,

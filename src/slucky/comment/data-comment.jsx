@@ -17,10 +17,10 @@
 import fetch from 'isomorphic-fetch'
 import {
 	pushInQueue
-} from '../message/data-message.jsx'
+} from '../message/data-message'
 import {
 	addReducer
-} from '../../store'
+} from '../store'
 
 const receiveDataSuccess = (data) => {
 	return {

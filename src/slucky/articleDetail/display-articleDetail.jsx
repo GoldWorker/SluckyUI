@@ -2,8 +2,8 @@ import React, {
 	Component,
 } from 'react'
 import cookie from 'react-cookie'
-import CommentShow from '../comment/highorder-commentShow.js'
-import CommentInput from '../comment/highorder-commentInput.js'
+import CommentShow from '../comment/highorder-commentShow'
+import CommentInput from '../comment/highorder-commentInput'
 import Markdown from 'react-markdown'
 // import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { CSSTransitionGroup } from 'react-transition-group'

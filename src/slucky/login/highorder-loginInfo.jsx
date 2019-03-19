@@ -5,7 +5,7 @@ import LoginInfo from './display-loginInfo'
 import {
 	loginWindowToggle,
 	logout
-} from './data-login.js'
+} from './data-login'
 
 
 const mapStateToProps = (state) => {

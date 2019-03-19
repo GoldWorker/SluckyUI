@@ -2,10 +2,10 @@ import fetch from 'isomorphic-fetch'
 import cookie from 'react-cookie'
 import {
     pushInQueue
-} from '../message/data-message.jsx'
+} from '../message/data-message'
 import {
     addReducer
-} from '../../store'
+} from '../store'
 // state = {
 // 	isLogined: bool,
 // 	isToggle:bool,

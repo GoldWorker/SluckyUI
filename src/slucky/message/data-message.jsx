@@ -11,7 +11,7 @@
 // }
 import {
 	addReducer
-} from '../../store.js'
+} from '../store.jsx'
 
 const shiftMsg = (msgQueue) => {
 	return {

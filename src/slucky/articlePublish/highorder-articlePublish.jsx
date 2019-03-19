@@ -4,7 +4,7 @@ import {
 import {
     publishArticle,
     putArticle
-} from './data-articlePublish.js'
+} from './data-articlePublish'
 import {
     fetchArticleOne
 } from "../articleDetail/data-articleDetail";

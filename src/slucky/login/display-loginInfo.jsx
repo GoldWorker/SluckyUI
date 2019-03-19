@@ -3,8 +3,6 @@ import React, {
 	PropTypes
 } from 'react'
 import cookie from 'react-cookie'
-import LoginWindow from './display-loginWindow.js'
-import DialogWindow from '../dialog/display-dialogWindow.js'
 import { Dialog } from "../popupDemo";
 
 class LoginInfo extends Component {

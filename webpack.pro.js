@@ -29,7 +29,8 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'sass-loader']
             }, {
                 test: /.jsx$/, //使用loader的目标文件。这里是.jsx
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+                exclude: /node_modules/
             }, {
                 test: /\.js/,
                 use: {

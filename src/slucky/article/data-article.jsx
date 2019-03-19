@@ -4,7 +4,7 @@ import {
 } from '../message/data-message.jsx'
 import {
 	addReducer
-} from '../../store.js'
+} from '../store'
 // 成功拉取数据
 // state init:
 // {

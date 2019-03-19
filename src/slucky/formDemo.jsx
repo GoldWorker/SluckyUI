@@ -136,7 +136,7 @@ export default class FormDemo extends Component {
                 <div className="checkbox-box-imgstyle mt16">
                     <input id="c_i" type="checkbox" name="c_i" className="d-n" />
                     <label htmlFor="c_i" className="checkbox-imgstyle">
-                        <img src={require('../images/bg_test.jpg')} alt="" />
+                        <img src={require('./images/bg_test.jpg')} alt="" />
                         <p className="m0">Title</p>
                         <div className="checkbox-mark"><span>✓</span></div>
                     </label>
@@ -145,7 +145,7 @@ export default class FormDemo extends Component {
                     <input id="isSelectPackage" type="checkbox" className="d-n" />
                     <label htmlFor="isSelectPackage" className="checkbox-papertoggle d-f">
                         <div className="checkbox-imgbox">
-                            <img src={require("../images/bg_test.jpg")} alt="" />
+                            <img src={require("./images/bg_test.jpg")} alt="" />
                         </div>
                         <div className="flex1 lh16 pl16">
                             <p className="bor-b b-divider-b pb8 mb8">

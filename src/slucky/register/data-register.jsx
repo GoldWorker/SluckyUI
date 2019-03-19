@@ -8,7 +8,7 @@ import {
 } from '../message/data-message'
 import {
 	addReducer
-} from '../../store'
+} from '../store'
 
 const verifyEmailSuccess = (data) => {
 	return {

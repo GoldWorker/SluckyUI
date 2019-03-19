@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
-import NavDemo from "./component/navDemo";
-import LoadingDemo from "./component/loadingDemo";
-import ButtonDemo from "./component/buttonDemo";
-import { PopupDemo, Dialog, Toast, ToastTest } from "./component/popupDemo";
-import Transfrom3DDemo from "./component/transfrom3DDemo";
-import FormDemo from "./component/formDemo";
-import ColorDemo from "./component/colorDemo";
-import ImageDemo from "./component/imageDemo";
-import TableDemo from "./component/tableDemo";
+import NavDemo from "./slucky/navDemo";
+import LoadingDemo from "./slucky/loadingDemo";
+import ButtonDemo from "./slucky/buttonDemo";
+import { PopupDemo, Dialog, Toast, ToastTest } from "./slucky/popupDemo";
+import Transfrom3DDemo from "./slucky/transfrom3DDemo";
+import FormDemo from "./slucky/formDemo";
+import ColorDemo from "./slucky/colorDemo";
+import ImageDemo from "./slucky/imageDemo";
+import TableDemo from "./slucky/tableDemo";
 
 export default class App extends Component {
     constructor() {

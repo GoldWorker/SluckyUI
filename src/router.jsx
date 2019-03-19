@@ -1,14 +1,14 @@
 import Loadable from 'react-loadable';
 import React from 'react';
 import { Route, Switch, Router } from 'react-router-dom';
-import { updateReducer } from './store.js'
+import { updateReducer } from 'slucky/store'
 
 const Loading = () => {
     return <div>Loading...</div>;
 }
 const HighorderArticle = (store) => {
     return Loadable({
-        loader: () => import('./component/article/highorder-article'),
+        loader: () => import('slucky/article/highorder-article'),
         loading: Loading,
         render(loaded, props) {
             let Component = loaded.default;
@@ -20,7 +20,7 @@ const HighorderArticle = (store) => {
 
 const HighorderArticlePublish = (store) => {
     return Loadable({
-        loader: () => import('./component/articlePublish/highorder-articlePublish'),
+        loader: () => import('slucky/articlePublish/highorder-articlePublish'),
         loading: Loading,
         render(loaded, props) {
             let Component = loaded.default;
@@ -32,7 +32,7 @@ const HighorderArticlePublish = (store) => {
 
 const HighorderArticleDetail = (store) => {
     return Loadable({
-        loader: () => import('./component/articleDetail/highorder-articleDetail'),
+        loader: () => import('slucky/articleDetail/highorder-articleDetail'),
         loading: Loading,
         render(loaded, props) {
             let Component = loaded.default;
@@ -44,7 +44,7 @@ const HighorderArticleDetail = (store) => {
 
 const HighorderRegister = (store) => {
     return Loadable({
-        loader: () => import('./component/register/highorder-register'),
+        loader: () => import('slucky/register/highorder-register'),
         loading: Loading,
         render(loaded, props) {
             let Component = loaded.default;
