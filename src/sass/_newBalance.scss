@@ -5,6 +5,8 @@
     // left: 50%;
     // transform: translate(-50%, -50%);
     list-style: none;
+    position: relative;
+    z-index: 10;
     &>nav {
         position: relative;
         // padding: 20px; // font-size: 24px;

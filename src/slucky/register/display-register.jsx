@@ -62,22 +62,22 @@ class Register extends Component {
 	}
 	render() {
 		return (
-			<div className="d-f jc ptb128">
-				{/* <div className="register-mark"></div> */}
+			<div className="register-container">
+				<div className="register-mark"></div>
 				<ReactCSSTransitionGroup
 								transitionName="example"
 								transitionAppear={true}
 								transitionAppearTimeout={500}
 								transitionEnter={false}
 								transitionLeave={false}>
-					<form className="paper p32 register-item svgMutiLine p-r" key="registerForm">
-						<svg
+					<form className="paper shadow p32 register-item svgMutiLine p-r" key="registerForm">
+						{/* <svg
 							className="btn-svgMutiLine"
 							viewBox="0 0 240 360"
 							version="1.1"
 							xmlns="http://www.w3.org/2000/svg">
 							<rect className="shape"></rect>
-    					</svg>
+    					</svg> */}
 						<p className="ta-c mb4 mt0"><strong>注册</strong></p>
 						
 						<ValidSearchInput btnText="发送" handleInputChange={this.handleInputChange.bind(this,'email')} handleBtnClick={this.handleEmailSend.bind(this)} name='邮箱' placeholder="
