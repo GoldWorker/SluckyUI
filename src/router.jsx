@@ -4,7 +4,19 @@ import { Route, Switch, Router } from 'react-router-dom';
 import { updateReducer } from 'slucky/store'
 
 const Loading = () => {
-    return <div>Loading...</div>;
+    return <div class="loading-container">
+        <div class="loading-box">
+            <div class="loader">
+                <div class="face">
+                    <div class="circle"></div>
+                </div>
+                <div class="face">
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <span class="font-logo">Slucky UI</span>
+        </div>
+    </div>;
 }
 const HighorderArticle = (store) => {
     return Loadable({
