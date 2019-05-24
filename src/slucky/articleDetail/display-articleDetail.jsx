@@ -49,8 +49,8 @@ class ArticleDetail extends Component {
 					transitionAppearTimeout={500}
 					transitionEnter={false}
 					transitionLeave={false}>
-					<div className="markdown-shower-box">
-						<div className="markdown-shower-banner">
+					<div className="d-f jc" >
+						<div style={{ width: 1000 + 'px' }}>
 							<div className="hint-box-nor m16 article-detail-box">
 								<div className="article-detail">
 									<span className="c-theme mr8">标题:</span>
@@ -63,18 +63,16 @@ class ArticleDetail extends Component {
 									<button style={isLogined ? {} : { display: 'none' }} className="btn plr16 ptb6 bg-fail c-text-w" onClick={handleDeleteClick.bind(this, this.artId)}>删除</button>
 								</div>
 							</div>
-						</div>
-						<div className="d-f jc">
-							<div className="mt16" style={{ width: 1000 + 'px' }}>
+							<div className="mt16">
 								{/* <Markdown source={content} /> */}
 								<Highlight innerHTML={true}>
 									{ReactDOMServer.renderToStaticMarkup(<ReactMarkdown source={content} />)}
 								</Highlight>
 							</div>
+							<CommentInput id={this.artId} />
+							<CommentShow id={this.artId} />
 						</div>
 					</div>
-					<CommentInput id={this.artId} />
-					<CommentShow id={this.artId} />
 				</CSSTransitionGroup>
 			</div>
 		)
