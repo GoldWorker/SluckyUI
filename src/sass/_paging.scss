@@ -1,0 +1,62 @@
+.btn-paging {
+    cursor: pointer;
+    border-radius: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #d9d9d9;
+    background-color: #fff;
+    margin-right: 8px;
+    font-family: Arial;
+    outline: 0;
+}
+
+.btn-active {
+    background-color: #26a597;
+    border-color: #26a597;
+    color: #fff;
+}
+
+.arrow-left:before {
+    /* content: "\E697"; */
+    content: '«';
+    display: block;
+    font-size: 14px;
+    font-size: 8px \9;
+    -webkit-transform: scale(1) rotate(0deg);
+    -ms-transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+    zoom: 1;
+    display: block;
+    height: 26px;
+    line-height: 26px;
+    font-family: "iconfont";
+    text-align: center;
+}
+
+.arrow-right:after {
+    /* content: "\E6A7"; */
+    content: '»';
+    display: block;
+    font-size: 14px;
+    font-size: 8px \9;
+    -webkit-transform: scale(1) rotate(0deg);
+    -ms-transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+    zoom: 1;
+    display: block;
+    height: 26px;
+    line-height: 26px;
+    font-family: "iconfont";
+    text-align: center;
+}

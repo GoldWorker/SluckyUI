@@ -5,7 +5,7 @@ export default class Slidebar extends Component {
         return (
             <div>
                 <div className="slidebar-box-normalize slidebar-hover-b">
-                    <input type="checkbox" id="slidebar-switch" className="d-n"/>
+                    <input type="checkbox" id="slidebar-switch" className="d-n" defaultChecked/>
                     <div className="slidebar bg-b">
                         <label htmlFor="slidebar-switch" className="slidebar-tool p16 d-f ac jc-r">
                             <span className="mr16">返回</span>
@@ -17,12 +17,12 @@ export default class Slidebar extends Component {
                                     <use xlinkHref="#icon-test"></use>
                                 </svg> */}
                                 <div className="d-il p8 plr16 m8 shadow bg-b c-text-w">
-                                    菜单
+                                    {/* 菜单 */}
                                 </div>
                             </div>
                         </label>
                         <details className="slide-down">
-                            <summary className="pl16 c-text-w ptb16">农场管理员</summary>
+                            <summary className="pl16 c-text-w ptb16">菜单列表导航栏</summary>
                             <ul className="menu">
                                 <li>
                                     <a>发布土地</a>
@@ -37,13 +37,13 @@ export default class Slidebar extends Component {
                         </details>
                         <ul className="menu">
                             <li>
-                                <a>发布土地</a>
+                                <a>按钮</a>
                             </li>
                             <li>
-                                <a>发布种子方案</a>
+                                <a>弹窗</a>
                             </li>
                             <li>
-                                <a>发布服务包</a>
+                                <a>表单</a>
                             </li>
                         </ul>
                     </div>

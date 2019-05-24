@@ -22,7 +22,7 @@ class ArticleDetail extends Component {
 		// console.log(this.params.get('id'), this.props);
 	}
 	componentDidMount() {
-		console.log('componentDidMount',this.props)
+		console.log('componentDidMount', this.props)
 		const {
 			handleFetchArticle
 		} = this.props
@@ -64,11 +64,13 @@ class ArticleDetail extends Component {
 								</div>
 							</div>
 						</div>
-						<div className="markdown-shower-content m16">
-							{/* <Markdown source={content} /> */}
-							<Highlight innerHTML={true}>
-								{ReactDOMServer.renderToStaticMarkup(<ReactMarkdown source={content} />)}
-							</Highlight>
+						<div className="d-f jc">
+							<div className="mt16" style={{ width: 1000 + 'px' }}>
+								{/* <Markdown source={content} /> */}
+								<Highlight innerHTML={true}>
+									{ReactDOMServer.renderToStaticMarkup(<ReactMarkdown source={content} />)}
+								</Highlight>
+							</div>
 						</div>
 					</div>
 					<CommentInput id={this.artId} />

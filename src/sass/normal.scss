@@ -190,14 +190,14 @@ $space: 2;
     }
 }
 
-@for $i from 0 to 8 {
+@for $i from 0 to 17 {
     $w_var: $i*32;
     .w#{$w_var} {
         width: $w_var * 1px;
     }
 }
 
-@for $i from 0 to 8 {
+@for $i from 0 to 17 {
     $h_var: $i*32;
     .h#{$h_var} {
         height: $h_var * 1px;
@@ -348,7 +348,7 @@ $space: 2;
     flex-wrap: wrap
 }
 
-.fd {
+.fd-c {
     flex-direction: column;
 }
 
@@ -445,6 +445,10 @@ $space: 2;
 
 .z1 {
     z-index: 1;
+}
+
+.z9 {
+    z-index: 10;
 }
 
 .z10 {
@@ -805,4 +809,7 @@ $space: 2;
 @import './comment';
 @import './img';
 @import './toggler';
-@import './bug.scss'
+@import './bug.scss';
+@import './_slideBar.v2';
+@import './table';
+@import './paging';

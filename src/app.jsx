@@ -8,28 +8,11 @@ import Transfrom3DDemo from "./slucky/transfrom3DDemo";
 import FormDemo from "./slucky/formDemo";
 import ColorDemo from "./slucky/colorDemo";
 import ImageDemo from "./slucky/imageDemo";
-import TableDemo from "./slucky/tableDemo";
+import { TableDemo } from "./slucky/tableDemo";
 
 export default class App extends Component {
     constructor() {
         super()
-        this.count = 0
-        this.state = {
-            toggle: false
-        }
-    }
-
-    hendleClickToast() {
-        this
-            .refs
-            .toast
-            .add(this.count++)
-    }
-
-    handleClickToggle() {
-        this.setState({
-            toggle: !this.state.toggle
-        })
     }
 
     render() {
@@ -39,30 +22,28 @@ export default class App extends Component {
             <div className="d-f">
                 <div>
                     <div className="p32">
-                        <span className="fs24">SluckyUI</span>
-                        doc For React 1874©
+                        <span className="fs24">SluckyUI </span>
+                        The seed for Components 1874©
                     </div>
-                    {/* <TodoList/> */}
-                    {/* <HighorderArticle /> */}
-                    
-                    <div className="m32">
+
+                    <div className="plr32">
                         <div className="tab-box-tb w-full">
                             <div className="tab-contrl">
                                 <input type="radio" id="tab_1" name="tab" defaultChecked />
                                 <label className="mr8" htmlFor="tab_1">
                                     <div className="radio-out"></div>
-                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">Nav</span>
+                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">菜单列表导航栏Nav</span>
                                 </label>
 
-                                <div className="tab-content w-full">
-                                    <NavDemo /> {/* {ReactDOM.createPortal(
-                                        <NavDemo/>, portalContainer)} */}
+
+                                <div className="tab-content w-full pt32">
+                                    <NavDemo />
                                 </div>
 
                                 <input type="radio" id="tab_3" name="tab" />
                                 <label className="mr8" htmlFor="tab_3">
                                     <div className="radio-out"></div>
-                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">Button</span>
+                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">按钮Button</span>
                                 </label>
                                 <div className="tab-content w-full">
                                     <ButtonDemo />
@@ -71,7 +52,7 @@ export default class App extends Component {
                                 <input type="radio" id="tab_2" name="tab" />
                                 <label className="mr8" htmlFor="tab_2">
                                     <div className="radio-out"></div>
-                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">NewBanlance</span>
+                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">加载状态Loading</span>
                                 </label>
                                 <div className="tab-content w-full">
                                     <LoadingDemo />
@@ -80,52 +61,16 @@ export default class App extends Component {
                                 <input type="radio" id="tab_4" name="tab" />
                                 <label className="mr8" htmlFor="tab_4">
                                     <div className="radio-out"></div>
-                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">Popup</span>
+                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">弹框Popup</span>
                                 </label>
                                 <div className="tab-content w-full">
-                                    <Dialog open={this.state.toggle} onClose={() => this.setState({ toggle: false })}>
-                                        <div>
-                                            <p>Your Title</p>
-                                            <div>Breaking news, sport, TV, radio and a whole lot more. The BBC informs,
-                                                educates and entertains - wherever you are, whatever your age.Visit BBC News for
-                                                up-to-the-minute news, breaking news, video, audio and feature stories. BBC News
-                                                provides trusted World and UK news as well as local and ...</div>
-                                            <div className="ta-r pt8">
-                                                <button
-                                                    className="tag-text ptb6 plr16"
-                                                    onClick={() => this.setState({ toggle: false })}>cancel</button>
-                                                <button className="tag-text ptb6 plr16">ok</button>
-                                            </div>
-                                        </div>
-                                    </Dialog>
-
-                                    <Toast ref="toast" />
-                                    <button
-                                        className="tag-text ptb6 plr16 m32"
-                                        onClick={() => this.setState({ toggle: true })}>OpenDialog</button>
-                                    <button
-                                        className="tag-text ptb6 plr16 m32"
-                                        onClick={() => this.hendleClickToast()}>AddMessage</button>
-
-                                    <div className="pop-box">
-                                        <div className="bor-b b-theme pop-toggle plr4">
-                                            <span className="c-theme">?</span>
-                                            <div className="pop-main-r pl8">
-                                                <div className="pop-content p24 bg-b ta-l shadow fs14">
-                                                    <pre className="c-text-w fs18">Title</pre>
-                                                    <pre className="c-text-w">TV, radio and a whole lot more. The BBC informs</pre>
-                                                    <pre className="c-text-w">TV, radio and a whole lot more. The BBC informs</pre>
-                                                    <pre className="c-text-w">TV, radio and a whole lot more. The BBC informs</pre>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <PopupDemo />
                                 </div>
 
                                 <input type="radio" id="tab_5" name="tab" />
                                 <label className="mr8" htmlFor="tab_5">
                                     <div className="radio-out"></div>
-                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">Transfrom3D</span>
+                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">3D效果Transfrom3D</span>
                                 </label>
                                 <div className="tab-content w-full">
                                     <Transfrom3DDemo />
@@ -134,7 +79,7 @@ export default class App extends Component {
                                 <input type="radio" id="tab_6" name="tab" />
                                 <label className="mr8" htmlFor="tab_6">
                                     <div className="radio-out"></div>
-                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">Form</span>
+                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">表单Form</span>
                                 </label>
                                 <div className="tab-content w-full">
                                     <FormDemo />
@@ -143,7 +88,7 @@ export default class App extends Component {
                                 <input type="radio" id="tab_7" name="tab" />
                                 <label className="mr8" htmlFor="tab_7">
                                     <div className="radio-out"></div>
-                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">Color</span>
+                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">颜色标准Color</span>
                                 </label>
                                 <div className="tab-content w-full">
                                     <ColorDemo />
@@ -152,7 +97,7 @@ export default class App extends Component {
                                 <input type="radio" id="tab_8" name="tab" />
                                 <label className="mr8" htmlFor="tab_8">
                                     <div className="radio-out"></div>
-                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">Table</span>
+                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">表格&分页Table&paging</span>
                                 </label>
                                 <div className="tab-content w-full">
                                     <TableDemo />
@@ -161,7 +106,7 @@ export default class App extends Component {
                                 <input type="radio" id="tab_9" name="tab" />
                                 <label className="mr8" htmlFor="tab_9">
                                     <div className="radio-out"></div>
-                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">Image</span>
+                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">图片相关Image</span>
                                 </label>
                                 <div className="tab-content w-full">
                                     <ImageDemo />

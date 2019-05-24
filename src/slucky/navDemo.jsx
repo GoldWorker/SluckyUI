@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import ReactDOMServer from 'react-dom/server';
 import ReactMarkdown from 'react-markdown'
 import Highlight from 'react-highlight'
@@ -147,20 +147,20 @@ export default class NavDemo extends Component {
                     </svg>
                 </div>
 
-                <div className="m32">
+                <div className="mb32">
                     <div className="nav-normal">
-                        <nav className="plr8 pb8">A</nav>
-                        <nav className="plr8 pb8">B</nav>
-                        <nav className="plr8 pb8">123</nav>
-                        <nav className="plr8 pb8">adf</nav>
-                        <nav className="plr8 pb8">Aadfs1233</nav>
+                        <nav className="plr8 pb8">阿尔法</nav>
+                        <nav className="plr8 pb8">贝塔</nav>
+                        <nav className="plr8 pb8">伽玛</nav>
+                        <nav className="plr8 pb8">欧米伽</nav>
+                        <nav className="plr8 pb8">西格玛</nav>
                     </div>
                 </div>
 
-                <div className="m32">
+                <div className="mb32">
                     <nav className="nav bor b-side bg-b c-text-w fw">
                         <li className="nav-flag">
-                            <a href="#">asd</a>
+                            <a href="#">阿尔法</a>
                             <svg className="icon icon-test">
                                 <use xlinkHref="#icon-test"></use>
                             </svg>
@@ -177,7 +177,7 @@ export default class NavDemo extends Component {
                             </ul>
                         </li>
                         <li className="nav-flag">
-                            <a href="#">dddddd</a>
+                            <a href="#">贝塔</a>
                             <svg className="icon icon-test">
                                 <use xlinkHref="#icon-test"></use>
                             </svg>
@@ -216,13 +216,13 @@ export default class NavDemo extends Component {
                             </ul>
                         </li>
                         <li>
-                            <a href="#">zxcxzc</a>
+                            <a href="#">欧米伽</a>
                         </li>
                         <li>
-                            <a href="#">qwf</a>
+                            <a href="#">西格玛</a>
                         </li>
                         <li className="nav-flag">
-                            <a href="#">cvvf</a>
+                            <a href="#">BR&F</a>
                             <svg className="icon icon-test">
                                 <use xlinkHref="#icon-test"></use>
                             </svg>
@@ -280,88 +280,85 @@ export default class NavDemo extends Component {
                     </nav>
                 </div>
 
-                <div className="m32">
+                <div className="mb32">
                     <ul className="paper menu bor b-side m16">
                         <li className="menu-flag">
-                            <a href="#">安徽</a>
+                            <a href="#">阿尔法</a>
                             <ul className="paper menu bor b-side">
                                 <li>
-                                    <a href="#">1</a>
+                                    <a href="#">连海平</a>
                                 </li>
                                 <li>
-                                    <a href="#">2</a>
+                                    <a href="#">共潮生</a>
                                 </li>
                                 <li>
-                                    <a href="#">3</a>
+                                    <a href="#">千万里</a>
                                 </li>
                             </ul>
                         </li>
                         <li className="menu-flag">
-                            <a href="#">秦莞尔</a>
+                            <a href="#">贝塔</a>
                             <ul className="paper menu bor b-side">
                                 <li className="menu-flag">
-                                    <a href="#">春风十里</a>
+                                    <a href="#">无月明</a>
                                     <ul className="paper menu bor b-side">
                                         <li className="menu-flag">
-                                            <a href="#">十里桃花</a>
+                                            <a href="#">绕芳甸</a>
                                             <ul className="paper menu bor b-side">
                                                 <li>
-                                                    <a href="#">1</a>
+                                                    <a href="#">皆似霰</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">2</a>
+                                                    <a href="#">不觉飞</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">3</a>
+                                                    <a href="#">看不见</a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="#">暗色</a>
+                                            <a href="#">无纤尘</a>
                                         </li>
                                         <li>
-                                            <a href="#">朝歌</a>
+                                            <a href="#">孤月轮</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#">长安城</a>
+                                    <a href="#">初见月</a>
                                 </li>
                                 <li>
-                                    <a href="#">南海郡</a>
+                                    <a href="#">初照人</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#">让他有意义</a>
+                            <a href="#">伽马</a>
                         </li>
                         <li>
-                            <a href="#">培养台湾</a>
+                            <a href="#">欧米伽</a>
                         </li>
                         <li className="menu-flag">
-                            <a href="#">大富大贵</a>
+                            <a href="#">西格玛</a>
                             <ul className="paper menu bor b-side">
                                 <li>
-                                    <a href="#">1</a>
+                                    <a href="#">无穷已</a>
                                 </li>
                                 <li>
-                                    <a href="#">2</a>
-                                </li>
-                                <li>
-                                    <a href="#">3</a>
+                                    <a href="#">望相似</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </div>
 
-                
-
-                <div className="m32 fs12">
+                <details className="pb16 mb16 bor-b b-side-s">
+                    <summary className="btn-n pl8 pr64 ptb8">显示Demo代码</summary>
                     <Highlight innerHTML={true}>
-                        {ReactDOMServer.renderToStaticMarkup(<ReactMarkdown source={demoString}/>)}
+                        {ReactDOMServer.renderToStaticMarkup(<ReactMarkdown source={demoString} />)}
                     </Highlight>
-                </div>
+                </details>
+
             </div>
         )
     }

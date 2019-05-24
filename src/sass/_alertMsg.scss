@@ -93,20 +93,21 @@
     z-index: 9;
 }
 
-.toastlist>div {
-    padding: 8px 32px 8px 8px;
-    color: #fff;
-    opacity: .9;
-    border-radius: 3px;
+.toastlist .toast-item {
     float: right;
-    margin: 8px 8px 0px 0px;
+    margin: 24px 24px 0px 0px;
     animation: toast-fade-in .3s;
+    // color: #fff;
+    border-radius: 3px;
+    padding: 16px 24px 16px 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 // pop tips
 .pop-box {
     display: inline-block;
     position: relative;
+
     .pop-main {
         display: none;
         position: absolute; // bottom: 105%;
@@ -116,13 +117,16 @@
         border-radius: 2px;
         z-index: 99;
         animation: toast-fade-in .3s;
+
         .pop-content {}
     }
+
     .pop-main-r {
         @extend .pop-main;
         right: unset;
         left: 95%;
     }
+
     .pop-toggle {
         &:hover .pop-main {
             display: block;
@@ -134,6 +138,7 @@
     animation: slideIn .3s;
     display: block;
     opacity: 1;
+
     .fade-scale {
         animation: fade-scale .3s;
     }
@@ -148,9 +153,11 @@
         // display: block !important;
         opacity: 0; // transform:translateY(20px)
     }
+
     50% {
         opacity: 0.5;
     }
+
     100% {
         opacity: 1; // background-color: blue;
         // transform:translateY(0px)
@@ -163,10 +170,12 @@
         left: 0; // transform:translateY(0px);
         opacity: 1;
     }
+
     50% {
         left: 0; // transform: scaleZ(0.7);
         opacity: 0.7;
     }
+
     100% {
         left: 0; // transform: scaleZ(0);
         // transform:translateY(-60px);
@@ -179,6 +188,7 @@
     0% {
         transform: scale(1.1, 1.1);
     }
+
     100% {
         transform: scale(1);
     }
