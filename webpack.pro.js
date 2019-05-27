@@ -15,8 +15,7 @@ const ENV_CONF = require("./environment/pro.env.ts")
 module.exports = {
     //module.rules 加载loaders
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
             },
@@ -27,6 +26,10 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'sass-loader']
+            }, {
+                test: /\.less$/,
+                exclude: /node_modules/,
+                use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'less-loader']
             }, {
                 test: /.jsx$/, //使用loader的目标文件。这里是.jsx
                 loader: 'babel-loader',
@@ -40,12 +43,11 @@ module.exports = {
                     }
                 },
                 exclude: /node_modules/
-            }, 
+            },
             {
                 test: /\.svg$/,
                 include: [path.resolve(__dirname, 'src/icons')],
-                use: [
-                    {
+                use: [{
                         loader: 'svg-sprite-loader',
                         options: {
                             symbolId: 'icon-[name]'
@@ -54,34 +56,30 @@ module.exports = {
                     'svg-fill-loader', {
                         loader: 'svgo-loader',
                         options: {
-                            plugins: [
-                                {
-                                    removeTitle: true
-                                }, {
-                                    convertColors: {
-                                        shorthex: false
-                                    }
-                                }, {
-                                    convertPathData: false
+                            plugins: [{
+                                removeTitle: true
+                            }, {
+                                convertColors: {
+                                    shorthex: false
                                 }
-                            ]
+                            }, {
+                                convertPathData: false
+                            }]
                         }
                     }
                 ]
             },
             {
                 test: /\.(jpg|png|gif|svg)$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 8192,
-                            mimetype: 'image/png',
-                            fallback: 'responsive-loader',
-                            quality: 100
-                        }
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192,
+                        mimetype: 'image/png',
+                        fallback: 'responsive-loader',
+                        quality: 100
                     }
-                ],
+                }],
                 include: path.join(__dirname, './src'),
                 exclude: [
                     path.resolve(__dirname, 'src/icons'),
@@ -125,7 +123,9 @@ module.exports = {
             watch: true,
             "exclude": ['.git']
         }), //打包前先清空
-        new MiniCssExtractPlugin({filename: "slucky.css"}),
+        new MiniCssExtractPlugin({
+            filename: "slucky.css"
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'index.html'), //模板
             filename: 'index.html',
@@ -133,7 +133,7 @@ module.exports = {
             hash: true, //防止缓存
             title: "slucky",
             minify: {
-                removeAttributeQuotes: true,//压缩 去掉引号
+                removeAttributeQuotes: true, //压缩 去掉引号
                 collapseWhitespace: true,
                 removeComments: true,
                 removeRedundantAttributes: true,

@@ -83,7 +83,7 @@
     "find love"
   ],
   "scripts": {
-    "dev": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production"
+    "dev": "webpack-dev-server --open --mode development --env dev",
+    "build": "webpack --mode production --env pro"
   }
 }
