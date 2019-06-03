@@ -24,6 +24,8 @@ export default class App extends Component {
                     <div className="p32">
                         <span className="fs24">SluckyUI </span>
                         The seed for Components 1874©
+                        <a href="https://www.npmjs.com/search?q=slucky" target="_brank"><img className="w32 ml16 mr8" src={require("./images/npm.jpeg")} alt=""/></a>
+                        <a href=""><img className="w32" src={require("./images/github.jpeg")} alt=""/></a>
                     </div>
 
                     <div className="plr32">

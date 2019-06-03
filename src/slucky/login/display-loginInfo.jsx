@@ -3,7 +3,7 @@ import React, {
 	PropTypes
 } from 'react'
 import cookie from 'react-cookie'
-import { Dialog } from "../popupDemo";
+import { Dialog } from "../component/dialog";
 
 class LoginInfo extends Component {
 	constructor(props) {

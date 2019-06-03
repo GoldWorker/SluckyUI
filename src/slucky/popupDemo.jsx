@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 import ReactMarkdown from 'react-markdown'
 import Highlight from 'react-highlight'
+import { Dialog } from "./component/dialog";
 
 export class PopupDemo extends Component {
     constructor() {
@@ -125,76 +126,39 @@ export class PopupDemo extends Component {
 }
 
 // https://zhuanlan.zhihu.com/p/29880992
-export class Dialog extends React.Component {
-    constructor() {
-        super(...arguments);
-        const doc = window.document;
-        this.node = doc.createElement('div')
-    }
+// export class Dialog extends React.Component {
+//     constructor() {
+//         super(...arguments);
+//     }
 
-    createPortalContainer() {
-        console.log(this.node, 'createPortalContainer');
-        const doc = window.document;
-
-        doc
-            .body
-            .appendChild(this.node);
-
-        console.log(this.node, 'createPortalContainer');
-    }
-
-    clearPortalContainer() {
-        const doc = window.document;
-        if (doc.body.contains(this.node)) {
-            doc
-                .body
-                .removeChild(this.node);
-            // this.node = null
-        }
-    }
-
-    render() {
-        if (!this.props.open) {
-            // this.clearPortalContainer()
-        } else {
-            this.createPortalContainer()
-        }
-        return this.props.open
-            ? createPortal(
-                <div className="fadeIn p-r z10">
-                    <div className="dialog-mark"></div>
-                    <div className="dialog-box d-f ac jc">
-                        <span>
-                            <div className="dialog paper fade-scale mlr64">
-                                <div className="ta-r">
-                                    <div className="mt4 mr4 pt4 plr8 ta-r">
-                                        <div
-                                            className="d-il"
-                                            onClick={() => this.props.onClose()}
-                                            style={{
-                                                cursor: 'pointer'
-                                            }}>X</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="dialog-content ta-l">
-                                        {this.props.children}
-                                    </div>
-                                </div>
-                            </div>
-                        </span>
-                    </div>
-                </div>, //塞进传送门的JSX
-                this.node //传送门的另一端DOM node
-            )
-            : null
-    }
-
-    componentWillUnmount() {
-        console.log('componentWillUnmount');
-        this.clearPortalContainer()
-    }
-}
+//     render() {
+//         const tar = this.props.open ? (<div className="fadeIn p-r z10">
+//             <div className="dialog-mark"></div>
+//             <div className="dialog-box d-f ac jc">
+//                 <span>
+//                     <div className="dialog paper fade-scale mlr64">
+//                         <div className="ta-r">
+//                             <div className="mt4 mr4 pt4 plr8 ta-r">
+//                                 <div
+//                                     className="d-il"
+//                                     onClick={() => this.props.onClose()}
+//                                     style={{
+//                                         cursor: 'pointer'
+//                                     }}>X</div>
+//                             </div>
+//                         </div>
+//                         <div>
+//                             <div className="dialog-content ta-l">
+//                                 {this.props.children}
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </span>
+//             </div>
+//         </div>) : null
+//         return createPortal(tar, document.body)//传送门的另一端DOM node
+//     }
+// }
 
 export class Toast extends React.Component {
     constructor() {
