@@ -1,4 +1,4 @@
-import "./sass/normal.scss";
+import "slucky/sass/normal.scss";
 import "./fixed.scss";
 import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom';

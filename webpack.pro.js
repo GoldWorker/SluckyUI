@@ -24,8 +24,12 @@ module.exports = {
             // ['css-loader', 'postcss-loader', 'sass-loader']     }) },
             {
                 test: /\.scss$/,
-                exclude: /node_modules/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'sass-loader']
+                // exclude: /node_modules/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'sass-loader'],
+                include: [
+                    path.join(__dirname, 'src/'),
+                    path.join(__dirname, 'node_modules/slucky/sass/')
+                ],
             }, {
                 test: /\.less$/,
                 exclude: /node_modules/,

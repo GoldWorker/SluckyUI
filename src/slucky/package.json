@@ -1,6 +1,6 @@
 {
   "name": "slucky",
-  "version": "0.0.8",
+  "version": "0.0.13",
   "description": "sluckyUI component base on react",
   "main": "index.jsx",
   "directories": {
@@ -16,5 +16,6 @@
     "slucky"
   ],
   "author": "Flyteng",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {}
 }

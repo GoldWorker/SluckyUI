@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { createPortal } from 'react-dom';
-
 export class Dialog extends Component {
     constructor() {
         super(...arguments);

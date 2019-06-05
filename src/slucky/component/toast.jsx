@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { createPortal } from 'react-dom';
 export class Toast extends React.Component {
     constructor() {
         super(...arguments);

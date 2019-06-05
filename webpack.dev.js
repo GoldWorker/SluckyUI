@@ -24,8 +24,12 @@ module.exports = {
             use: ['style-loader', 'css-loader']
         }, {
             test: /\.scss$/,
-            exclude: /node_modules/,
-            use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'sass-loader']
+            // exclude: /node_modules/,
+            use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'sass-loader'],
+            include: [
+                path.join(__dirname, 'src/'),
+                path.join(__dirname, 'node_modules/slucky/sass/')
+            ],
         }, {
             test: /.jsx$/, //使用loader的目标文件。这里是.jsx
             use: {

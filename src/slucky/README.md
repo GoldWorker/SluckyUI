@@ -2,7 +2,89 @@
 
 [Blog & Doc](http://www.brandf.cn)
 
-## How to work
+## Description
+
+SluckyUI的理念是打造一个组件种子库，所有组件使用纯css去实现，所有直接去用这个库去构建UI是没问题的，目的是能够以最小代价进行二次开发成适用于各个框架的组件库，如React，Angular，Vue
+
+SluckyUI's idea is to create a component library where all components are implemented using pure CSS, so it's no problem to directly use this library to build uis. The goal is to be able to redevelop the libraries suitable for various frameworks, such as React, Angular and Vue, at the minimum cost
+
+> SluckyUI 已经将一些必须要用框架才能更好地实现的功能封装成React组件，如表格，弹窗等
+
+## How to Use SluckyUI for React
+
+```
+import { Dialog, Toast, Table, Paging } from 'slucky';
+
+...
+const dataconf = [{
+    title: 'ID',
+    name: 'id',
+    width: '25%'
+}, {
+    title: '姓名',
+    name: 'name',
+    width: '25%'
+}, {
+    title: '身高',
+    name: 'height',
+    width: '25%'
+}, {
+    title: '',
+    width: '25%',
+    name: 'action2',
+    type: 'action',
+    handles: [
+        {
+            name: '配置',
+            btnType: 'text',
+            handle: (data) => {
+                alert('配置')
+                console.log(data);
+            }
+        }, {
+            name: '备注',
+            btnType: 'text',
+            handle: (data) => {
+                alert('备注')
+                console.log(data);
+            }
+        }]
+}]
+
+const dataset = [{
+    id: 1,
+    name: 'Apple',
+    height: 178
+}, {
+    id: 2,
+    name: 'Boy',
+    height: 177
+}, {
+    id: 3,
+    name: 'Cat',
+    height: 176
+}]
+
+const pageInfo = {
+    total: 119,
+    maxToShow: 20
+}
+
+handleChangePage = (currentPage) => {
+    console.log(currentPage);
+}
+
+<Table dataconf={dataconf} dataset={dataset} />
+<Paging pageInfo={pageInfo} onAction={this.handleChangePage} />
+
+```
+
+> 如果要直接用SluckyUI的其他组件，直接前往 http://www.brandf.cn 复制相应组件的代码即可
+
+> If you want to use other components of SluckyUI directly, go directly to http://www.brandf.cn and copy the code of the corresponding component
+
+
+## How to Config
 Step 1
 ```
 npm i -d slucky
@@ -10,6 +92,8 @@ npm i -d slucky
 Step 2
 ```
 //webpack config
+
+// handle component
 {
     test: /.jsx$/,
     use: {
@@ -21,13 +105,24 @@ Step 2
     include: [
         path.resolve(__dirname, 'node_modules/slucky/')
     ]
-},{
+},
+// handle image
+{
     test: /\.(jpg|png|gif|svg)$/,
     use: [{
         loader: 'url-loader'
     }],
     include: [
         path.join(__dirname, 'node_modules/slucky/')
+    ]
+},
+// handle style
+{
+    test: /\.scss$/,
+    use: ['sass-loader'],
+    include: [
+        path.join(__dirname, 'src/'),
+        path.join(__dirname, 'node_modules/slucky/sass/')
     ]
 }
 ```
