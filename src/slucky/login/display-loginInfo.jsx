@@ -3,7 +3,7 @@ import React, {
 	PropTypes
 } from 'react'
 import cookie from 'react-cookie'
-import { Dialog } from "../component/dialog";
+import { Dialog } from "slucky";
 
 class LoginInfo extends Component {
 	constructor(props) {

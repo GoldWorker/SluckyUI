@@ -4,7 +4,7 @@ import React, {
 } from 'react'
 import LoginForm from './display-loginForm'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import { Dialog } from "../popupDemo";
+import { Dialog } from "slucky";
 class LoginWindow extends Component {
 	constructor(props) {
 		super(props)
