@@ -27,15 +27,15 @@
 }
 
 #slidebar_out {
-    background-color: #fff;
+    // background-color: #fff;
     font-size: 28px;
     border-radius: 2px;
     color: #34495e;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 4px 0 rgba(0, 0, 0, 0.08), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    // box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 4px 0 rgba(0, 0, 0, 0.08), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 .slidebar {
-    display: none;
+    // display: none;
     background-color: rgba(0, 0, 0, .8);
 }
 
@@ -43,9 +43,9 @@
     color: #fff !important;
 }
 
-.slidebar>.slidebar-tool:hover {
-    color: #fff !important;
-}
+// .slidebar>.slidebar-tool:hover {
+//     color: #fff !important;
+// }
 
 .slidebar-menu>li>a {
     color: #fff;
