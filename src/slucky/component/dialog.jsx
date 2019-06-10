@@ -34,8 +34,26 @@ export class Dialog extends Component {
     }
 }
 
-Dialog.model = () => {
-    const component = <Dialog open={true} onClose={}/>
+Dialog.model = ({ content, onOk, title }) => {
+    const closeDialog = (onOk) => {
+        onOk && onOk()
+        ReactDOM.render(React.cloneElement(component, { open: false }), div)
+        ReactDOM.unmountComponentAtNode(div)
+        div.remove()
+    }
+    const component = <Dialog open={true} onClose={closeDialog}>
+        {
+            title && <p>{title}</p>
+        }
+        <div>{content}</div>
+        <div className="ta-r pt8">
+            <button className="tag-text ptb6 plr16" onClick={() => closeDialog()}>取消</button>
+            {
+                onOk && <button className="tag-text ptb6 plr16" onClick={() => closeDialog(onOk)}>确认</button>
+            }
+        </div>
+    </Dialog>
+
     const div = document.createElement('div')
     document.body.append(div)
     ReactDOM.render(component, div)

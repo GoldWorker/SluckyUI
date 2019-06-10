@@ -90,7 +90,7 @@ export class PopupDemo extends Component {
                         </div>
                     </div>
                 </Dialog>
-                <button className="btn-n" onClick={() => {console.log(Dialog.model())}}>OPEN</button>
+                <button className="btn-n" onClick={() => Dialog.model({ content: 123, onOk: () => { }, title: 'Tips' })}>Open Dialog</button>
 
                 <Toast ref="toast" />
                 <button
