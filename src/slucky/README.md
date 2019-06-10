@@ -1,4 +1,4 @@
-## SluckyUI for React
+## SluckyUI
 
 [Blog & Doc](http://www.brandf.cn)
 
@@ -10,7 +10,21 @@ SluckyUI's idea is to create a component library where all components are implem
 
 > SluckyUI 已经将一些必须要用框架才能更好地实现的功能封装成React组件，如表格，弹窗等
 
-## How to Use SluckyUI for React
+## Install
+
+```
+npm i slucky
+```
+
+## How to use SluckyUI
+
+```
+import "slucky/sass/normal.scss";
+```
+
+> 这时就可以使用除二次开发外的SluckyUI组件了，直接前往 http://www.brandf.cn 复制相应组件的代码即可
+
+## How to use SluckyUI for React
 
 ```
 import { Dialog, Toast, Table, Paging } from 'slucky';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createPortal } from 'react-dom';
+import ReactDOM from 'react-dom';
 export class Dialog extends Component {
     constructor() {
         super(...arguments);
@@ -30,10 +30,13 @@ export class Dialog extends Component {
                 </span>
             </div>
         </div>) : null
-        return createPortal(tar, document.body)//传送门的另一端DOM node
+        return ReactDOM.createPortal(tar, document.body)//传送门的另一端DOM node
     }
 }
 
-export const model = () => { 
-    
+Dialog.model = () => {
+    const component = <Dialog open={true} onClose={}/>
+    const div = document.createElement('div')
+    document.body.append(div)
+    ReactDOM.render(component, div)
 }
