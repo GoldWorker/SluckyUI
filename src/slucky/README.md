@@ -27,6 +27,8 @@ import "slucky/sass/normal.scss";
 ## How to use SluckyUI for React
 
 ```
+// ex: 
+// a table and paging demo
 import { Dialog, Toast, Table, Paging } from 'slucky';
 
 ...

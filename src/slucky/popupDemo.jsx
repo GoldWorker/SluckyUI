@@ -13,15 +13,6 @@ export class PopupDemo extends Component {
         }
     }
 
-    hendleClickToast() {
-        this
-            .refs
-            .toast
-            .add({
-                content: `内容${this.count++}`
-            })
-    }
-
     handleClickToggle() {
         this.setState({
             toggle: !this.state.toggle
@@ -29,6 +20,67 @@ export class PopupDemo extends Component {
     }
 
     render() {
+        const useString = '``` jsx' + `
+// Style1：使用函数式直接调用
+
+import { Dialog, Toast } from 'slucky'
+ReactDOM.render(
+    <div>
+        <button
+        className="tag-text ptb6 plr16 m32"
+        onClick={() => Toast.add({
+            content: '内容'
+        })}>弹出消息提示</button>
+
+        <button 
+            className="btn-n" 
+            onClick={() => Dialog.model({ 
+                content: 123, 
+                onOk: () => { }, 
+                title: 'Tips' 
+            })}>Open Dialog</button>
+    </div>,
+    document.body
+)
+
+//------------------------------------
+// Style2：使用组件去调用
+class demo extends Component {
+    constructor() {
+        super()
+        this.state = {
+            toggle: false
+        }
+    }
+    handleClickToggle() {
+        this.setState({
+            toggle: !this.state.toggle
+        })
+    }
+    render() {
+        return (
+            <div>
+                <Dialog open={this.state.toggle} onClose={() => this.setState({ toggle: false })}>
+                    <div>
+                        <p>Your Title</p>
+                        <div>Breaking news, sport, TV, radio and a whole lot more. The BBC informs,
+                            educates and entertains - wherever you are, whatever your age.Visit BBC News for
+                            up-to-the-minute news, breaking news, video, audio and feature stories. BBC News
+                            provides trusted World and UK news as well as local and ...</div>
+                        <div className="ta-r pt8">
+                            <button
+                                className="tag-text ptb6 plr16"
+                                onClick={() => this.setState({ toggle: false })}>cancel</button>
+                            <button className="tag-text ptb6 plr16">ok</button>
+                        </div>
+                    </div>
+                </Dialog>
+            </div>
+        )
+    }
+}
+
+`
         const demoString = '``` html' + `
  <div className="fadeIn p-r z10">
     <div className="dialog-mark"></div>
@@ -118,7 +170,14 @@ export class PopupDemo extends Component {
                 </div>
 
                 <details className="pb16 mb16 bor-b b-side-s">
-                    <summary className="btn-n pl8 pr64 ptb8">显示Demo代码</summary>
+                    <summary className="btn-n pl8 pr64 ptb8">显示使用例子</summary>
+                    <Highlight innerHTML={true}>
+                        {ReactDOMServer.renderToStaticMarkup(<ReactMarkdown source={useString} />)}
+                    </Highlight>
+                </details>
+
+                <details className="pb16 mb16 bor-b b-side-s">
+                    <summary className="btn-n pl8 pr64 ptb8">显示样式代码</summary>
                     <Highlight innerHTML={true}>
                         {ReactDOMServer.renderToStaticMarkup(<ReactMarkdown source={demoString} />)}
                     </Highlight>
@@ -127,5 +186,6 @@ export class PopupDemo extends Component {
         )
     }
 }
+
 
 
