@@ -7524,7 +7524,7 @@
     min-width: 480px; } }
 
 .dialog-content {
-  padding: 8px 24px 16px 24px; }
+  padding: 8px 24px 10px 24px; }
 
 .dialog-select {
   line-height: 32px; }
@@ -8248,7 +8248,7 @@ figure > img {
   display: inline-block !important; }
 
 .menu > li:hover {
-  background-color: #666; }
+  background-color: #ccc; }
 
 .menu > li > a {
   display: inline-block;
