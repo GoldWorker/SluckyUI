@@ -92,13 +92,16 @@ export class PopupDemo extends Component {
                 </Dialog>
                 <button className="btn-n" onClick={() => Dialog.model({ content: 123, onOk: () => { }, title: 'Tips' })}>Open Dialog</button>
 
-                <Toast ref="toast" />
+                {/* <Toast ref="toast" /> */}
+
                 <button
                     className="tag-text ptb6 plr16 m32"
                     onClick={() => this.setState({ toggle: true })}>弹出对话框</button>
                 <button
                     className="tag-text ptb6 plr16 m32"
-                    onClick={() => this.hendleClickToast()}>弹出消息提示</button>
+                    onClick={() => Toast.add({
+                        content: `内容${this.count++}`
+                    })}>弹出消息提示</button>
 
                 <div className="pop-box">
                     <div className="pop-toggle plr4">

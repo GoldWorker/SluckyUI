@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { createPortal } from 'react-dom';
+import ReactDOM from 'react-dom';
+
+var toastRef = ''
 export class Toast extends React.Component {
     constructor() {
         super(...arguments);
@@ -107,4 +110,17 @@ export class Toast extends React.Component {
     componentWillUnmount() {
         this.clearPortalContainer()
     }
+}
+
+Toast.add = ({ title, content, status }) => {
+    //保持一个实例
+    if (!document.getElementById('slucky_toast')) {
+        toastRef = React.createRef()
+        const component = <Toast ref={toastRef} />
+        const div = document.createElement('div')
+        div.id = 'slucky_toast'
+        document.body.append(div)
+        ReactDOM.render(component, div)
+    }
+    toastRef.current.add({ title, content, status })
 }

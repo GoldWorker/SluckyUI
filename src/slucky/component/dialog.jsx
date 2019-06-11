@@ -34,7 +34,7 @@ export class Dialog extends Component {
     }
 }
 
-Dialog.model = ({ content, onOk, title }) => {
+Dialog.model = ({ content, onOk, title, footer }) => {
     const closeDialog = (onOk) => {
         onOk && onOk()
         ReactDOM.render(React.cloneElement(component, { open: false }), div)
@@ -46,12 +46,16 @@ Dialog.model = ({ content, onOk, title }) => {
             title && <p>{title}</p>
         }
         <div>{content}</div>
-        <div className="ta-r pt8">
-            <button className="tag-text ptb6 plr16" onClick={() => closeDialog()}>取消</button>
-            {
-                onOk && <button className="tag-text ptb6 plr16" onClick={() => closeDialog(onOk)}>确认</button>
-            }
-        </div>
+        {
+            !footer && (
+                <div className="ta-r pt8">
+                    <button className="tag-text ptb6 plr16" onClick={() => closeDialog()}>取消</button>
+                    {
+                        onOk && <button className="tag-text ptb6 plr16" onClick={() => closeDialog(onOk)}>确认</button>
+                    }
+                </div>
+            )
+        }
     </Dialog>
 
     const div = document.createElement('div')
