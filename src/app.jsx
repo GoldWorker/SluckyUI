@@ -19,14 +19,21 @@ export default class App extends Component {
         // const portalContainer = document.getElementById('dialog');
 
         return (
-            <div className="d-f">
+            <div className="d-f jc">
                 <div>
-                    <div className="p32">
-                        <span className="fs24">SluckyUI </span>
+                    <div className="p-a pt16 pl32">
+                        <span className="fs24"></span>
                         The seed for Components 1874©
-                        <a href="https://www.npmjs.com/search?q=slucky" target="_brank"><img className="w32 ml16 mr8" src={require("./images/npm.jpeg")} alt=""/></a>
-                        <a href="https://github.com/GoldWorker/SluckyUI" target="_brank"><img className="w32" src={require("./images/github.jpeg")} alt=""/></a>
+                        <a href="https://www.npmjs.com/search?q=slucky" target="_brank"><img className="w32 ml16 mr8" src={require("./images/npm.jpeg")} alt="" /></a>
+                        <a href="https://github.com/GoldWorker/SluckyUI" target="_brank"><img className="w32" src={require("./images/github.jpeg")} alt="" /></a>
                     </div>
+                    <svg className="fullscreen p-r" style={{ top: -58 + 'px' }}>
+                        <use xlinkHref="#icon-sluckyUILogo2"></use>
+                    </svg>
+                    {/* <svg className="">
+                        <use xlinkHref="#icon-brandfLogo"></use>
+                    </svg> */}
+
 
                     <div className="plr32">
                         <div className="tab-box-tb w-full">
