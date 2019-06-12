@@ -24,16 +24,18 @@ export default class App extends Component {
                 <div className="p-r">
                     <div className="p-a pt16 pl32 z1" style={{ right: 0 }}>
                         <span className="fs24"></span>
-                        The seed for Components 1874©
+                        The seed of Components 1874©
                         <a href="https://www.npmjs.com/search?q=slucky" target="_brank"><img className="w32 ml16 mr8" src={require("./images/npm.jpeg")} alt="" /></a>
                         <a href="https://github.com/GoldWorker/SluckyUI" target="_brank"><img className="w32" src={require("./images/github.jpeg")} alt="" /></a>
                     </div>
                     <svg className="fullscreen p-r" style={{ top: -58 + 'px' }}>
                         <use xlinkHref="#icon-sluckyUILogo2"></use>
                     </svg>
-                    {/* <svg className="">
-                        <use xlinkHref="#icon-brandfLogo"></use>
-                    </svg> */}
+                    <div className="ta-c p-r topdown">
+                        <svg className="icon icon48">
+                            <use xlinkHref="#icon-down"></use>
+                        </svg>
+                    </div>
 
 
                     <div className="plr32">

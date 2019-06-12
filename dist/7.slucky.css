@@ -8941,5 +8941,25 @@ figure > img {
   transition: all .3s ease-in;
   top: 0; }
 
+.topdown {
+  -webkit-animation: topdown 1.6s linear infinite;
+          animation: topdown 1.6s linear infinite; }
+
+@-webkit-keyframes topdown {
+  0% {
+    top: -116px; }
+  50% {
+    top: -136px; }
+  100% {
+    top: -116px; } }
+
+@keyframes topdown {
+  0% {
+    top: -116px; }
+  50% {
+    top: -136px; }
+  100% {
+    top: -116px; } }
+
 
 /*# sourceMappingURL=7.slucky.css.map*/
