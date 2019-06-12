@@ -19,9 +19,10 @@ export default class App extends Component {
         // const portalContainer = document.getElementById('dialog');
 
         return (
-            <div className="d-f jc">
-                <div>
-                    <div className="p-a pt16 pl32">
+            <div className="d-f jc ">
+
+                <div className="p-r">
+                    <div className="p-a pt16 pl32 z1" style={{ right: 0 }}>
                         <span className="fs24"></span>
                         The seed for Components 1874©
                         <a href="https://www.npmjs.com/search?q=slucky" target="_brank"><img className="w32 ml16 mr8" src={require("./images/npm.jpeg")} alt="" /></a>
