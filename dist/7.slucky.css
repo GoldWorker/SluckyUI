@@ -6350,6 +6350,13 @@
   top: 0;
   left: 0; }
 
+.fullscreen {
+  width: 100%;
+  height: 100vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden; }
+
 .box, .checkbox-papertoggle .checkbox-mark {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
