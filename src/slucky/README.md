@@ -100,29 +100,16 @@ handleChangePage = (currentPage) => {
 > If you want to use other components of SluckyUI directly, go directly to http://www.brandf.cn and copy the code of the corresponding component
 
 
-## How to Config
+## How to config
 Step 1
 ```
 npm i -d slucky
 ```
 Step 2
 ```
-//webpack config
-
-// handle component
-{
-    test: /.jsx$/,
-    use: {
-        loader: 'babel-loader',
-        query: {
-            presets: ["env", "stage-0"]
-        }
-    },
-    include: [
-        path.resolve(__dirname, 'node_modules/slucky/')
-    ]
-},
-// handle image
+// webpack config
+// 处理图片，一些高阶组件包含示例图片，如果你没有引用， 则忽略这条配置
+// Handle images, Some higher-order components contain sample images. If you do not have a reference, ignore this configuration
 {
     test: /\.(jpg|png|gif|svg)$/,
     use: [{
@@ -132,7 +119,8 @@ Step 2
         path.join(__dirname, 'node_modules/slucky/')
     ]
 },
-// handle style
+// 处理样式，sluckyUI的基础样式库，必须配置
+// Handle styles, sluckyUI's base style library, must be configured
 {
     test: /\.scss$/,
     use: ['sass-loader'],

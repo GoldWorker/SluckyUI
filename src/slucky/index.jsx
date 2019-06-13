@@ -1,7 +1,4 @@
-import { Dialog } from "./component/dialog";
-import { Paging } from "./component/paging";
-import { Table } from "./component/table";
-import { Toast } from "./component/toast";
+import { Dialog, Paging, Table, Toast } from "./src/index";
 
 export {
     Dialog, Paging, Table, Toast

@@ -38,10 +38,7 @@ module.exports = {
                     presets: ["env", "stage-0"]
                 }
             },
-            include: [
-                path.resolve(__dirname, 'src/'),
-                path.resolve(__dirname, 'node_modules/slucky/')
-            ]
+            exclude: /node_modules/
         }, {
             test: /\.js$/,
             use: {
@@ -51,9 +48,9 @@ module.exports = {
                 }
             },
             exclude: /node_modules/,
-            include: [
-                path.resolve(__dirname, 'node_modules/slucky/')
-            ]
+            // include: [
+            //     path.resolve(__dirname, 'node_modules/slucky/')
+            // ]
         }, {
             test: /\.svg$/,
             include: [path.resolve(__dirname, 'src/icons')],

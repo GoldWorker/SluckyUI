@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
-import NavDemo from "./slucky/navDemo";
-import LoadingDemo from "./slucky/loadingDemo";
-import ButtonDemo from "./slucky/buttonDemo";
-import { PopupDemo, Dialog, Toast, ToastTest } from "./slucky/popupDemo";
-import Transfrom3DDemo from "./slucky/transfrom3DDemo";
-import FormDemo from "./slucky/formDemo";
-import ColorDemo from "./slucky/colorDemo";
-import ImageDemo from "./slucky/imageDemo";
-import { TableDemo } from "./slucky/tableDemo";
-
+import NavDemo from "slucky/dist/navDemo";
+import LoadingDemo from "slucky/dist/loadingDemo";
+import ButtonDemo from "slucky/dist/buttonDemo";
+import { PopupDemo } from "slucky/dist/popupDemo";
+import Transfrom3DDemo from "slucky/dist/transfrom3DDemo";
+import FormDemo from "slucky/dist/formDemo";
+import ColorDemo from "slucky/dist/colorDemo";
+import ImageDemo from "slucky/dist/imageDemo";
+import { TableDemo } from "slucky/dist/tableDemo";
+import { Toast } from "slucky"
 export default class App extends Component {
     constructor() {
         super()
@@ -17,7 +17,7 @@ export default class App extends Component {
 
     render() {
         // const portalContainer = document.getElementById('dialog');
-
+        console.log(Toast);
         return (
             <div className="d-f jc ">
 
