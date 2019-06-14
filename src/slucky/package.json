@@ -17,7 +17,8 @@
         "react",
         "ui",
         "component",
-        "slucky"
+        "slucky",
+        "sluckyUI"
     ],
     "author": "Flyteng",
     "license": "ISC",

@@ -19,7 +19,7 @@ export default class App extends Component {
         // const portalContainer = document.getElementById('dialog');
         console.log(Toast);
         return (
-            <div className="d-f jc ">
+            <div className="d-f jc">
 
                 <div className="p-r">
                     <div className="p-a pt16 pl32 z1" style={{ right: 0 }}>

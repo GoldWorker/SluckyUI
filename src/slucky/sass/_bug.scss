@@ -70,9 +70,11 @@
     .nav {
         display: none;
     }
+
     .slidebar {
         display: block;
     }
+
     #demo-canvas {
         display: none;
     }
@@ -130,6 +132,10 @@
     justify-content: space-between;
 }
 
+.article-container {
+    width: 1000px;
+}
+
 .article-detail-box {
     display: flex;
     justify-content: space-between;
@@ -139,6 +145,9 @@
 @media (max-width: 768px) {
     .article-detail-box {
         flex-direction: column;
+    }
+    .article-container {
+        width: 100% !important;
     }
 }
 

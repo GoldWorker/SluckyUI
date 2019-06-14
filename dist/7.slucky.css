@@ -8649,6 +8649,9 @@ figure > img {
       -ms-flex-pack: justify;
           justify-content: space-between; }
 
+.article-container {
+  width: 1000px; }
+
 .article-detail-box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8665,7 +8668,9 @@ figure > img {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
-            flex-direction: column; } }
+            flex-direction: column; }
+  .article-container {
+    width: 100% !important; } }
 
 .progress-loading {
   display: block;

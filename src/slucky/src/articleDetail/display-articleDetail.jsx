@@ -50,7 +50,7 @@ class ArticleDetail extends Component {
 					transitionEnter={false}
 					transitionLeave={false}>
 					<div className="d-f jc" >
-						<div style={{ width: 1000 + 'px' }}>
+						<div className="article-container">
 							<div className="hint-box-nor mtb16 article-detail-box">
 								<div className="article-detail">
 									<span className="c-theme mr8">标题:</span>
