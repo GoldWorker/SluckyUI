@@ -8650,7 +8650,8 @@ figure > img {
           justify-content: space-between; }
 
 .article-container {
-  width: 1000px; }
+  width: 100%;
+  max-width: 1000px; }
 
 .article-detail-box {
   display: -webkit-box;
@@ -8670,7 +8671,8 @@ figure > img {
         -ms-flex-direction: column;
             flex-direction: column; }
   .article-container {
-    width: 100% !important; } }
+    padding-left: 16px;
+    padding-right: 16px; } }
 
 .progress-loading {
   display: block;
