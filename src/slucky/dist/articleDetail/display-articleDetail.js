@@ -104,7 +104,7 @@ var ArticleDetail = function (_Component) {
 						{ className: 'd-f jc' },
 						_react2.default.createElement(
 							'div',
-							{ style: { width: 1000 + 'px' } },
+							{ className: 'article-container' },
 							_react2.default.createElement(
 								'div',
 								{ className: 'hint-box-nor mtb16 article-detail-box' },
