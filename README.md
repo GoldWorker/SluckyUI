@@ -2,6 +2,10 @@
 
 [Blog & Doc](http://www.brandf.cn)
 
+## 维护与开发
+
+本项目是一个高效的React前端架构，slucky相关的组件开发可以在src/slucky目录下进行，相关的文档可以归纳到相关的demo文件中。
+
 ## Description
 
 SluckyUI的理念是打造一个组件种子库，所有组件使用纯css去实现，所有直接去用这个库去构建UI是没问题的，目的是能够以最小代价进行二次开发成适用于各个框架的组件库，如React，Angular，Vue
