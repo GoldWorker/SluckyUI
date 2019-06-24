@@ -1,26 +1,27 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
-import NavDemo from "slucky/dist/navDemo";
-import LoadingDemo from "slucky/dist/loadingDemo";
-import ButtonDemo from "slucky/dist/buttonDemo";
-import { PopupDemo } from "slucky/dist/popupDemo";
-import Transfrom3DDemo from "slucky/dist/transfrom3DDemo";
-import FormDemo from "slucky/dist/formDemo";
-import ColorDemo from "slucky/dist/colorDemo";
-import ImageDemo from "slucky/dist/imageDemo";
-import { TableDemo } from "slucky/dist/tableDemo";
+import NavDemo from "slucky/src/navDemo";
+import LoadingDemo from "slucky/src/loadingDemo";
+import ButtonDemo from "slucky/src/buttonDemo";
+import { PopupDemo } from "slucky/src/popupDemo";
+import Transfrom3DDemo from "slucky/src/transfrom3DDemo";
+import FormDemo from "slucky/src/formDemo";
+import ColorDemo from "slucky/src/colorDemo";
+import ImageDemo from "slucky/src/imageDemo";
+import { TableDemo } from "slucky/src/tableDemo";
 import { Toast } from "slucky"
+
 export default class App extends Component {
     constructor() {
-        super()
+        super();
     }
 
     render() {
         // const portalContainer = document.getElementById('dialog');
-        console.log(Toast);
+        // console.log(Toast);
         return (
             <div className="d-f jc">
-
+                
                 <div className="p-r">
                     <div className="p-a pt16 pl32 z1" style={{ right: 0 }}>
                         <span className="fs24"></span>

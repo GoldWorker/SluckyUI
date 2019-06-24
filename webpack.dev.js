@@ -38,7 +38,11 @@ module.exports = {
                     presets: ["env", "stage-0"]
                 }
             },
-            exclude: /node_modules/
+            // exclude: /node_modules/
+            include: [
+                path.resolve(__dirname, 'src/'),
+                path.resolve(__dirname, 'node_modules/slucky/')
+            ]
         }, {
             test: /\.js$/,
             use: {

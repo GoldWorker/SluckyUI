@@ -1,5 +1,5 @@
-import { Dialog, Paging, Table, Toast } from "./src/index";
+import { Dialog, Paging, Table, Toast, Input, Validator } from "./src/index";
 
 export {
-    Dialog, Paging, Table, Toast
+    Dialog, Paging, Table, Toast, Input, Validator
 }

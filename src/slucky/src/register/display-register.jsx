@@ -1,7 +1,7 @@
 import React, {
 	Component
 } from 'react'
-import validator from '../lib/validator.js'
+import validator from '../lib/validator_es5'
 import ValidInput from './display-validInput'
 import ValidSearchInput from './display-validSearchInput'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'

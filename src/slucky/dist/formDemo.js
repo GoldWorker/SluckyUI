@@ -22,6 +22,8 @@ var _reactHighlight = require('react-highlight');
 
 var _reactHighlight2 = _interopRequireDefault(_reactHighlight);
 
+var _validatorDemo = require('./validatorDemo');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36,12 +38,13 @@ var FormDemo = function (_Component) {
     function FormDemo() {
         _classCallCheck(this, FormDemo);
 
-        return _possibleConstructorReturn(this, (FormDemo.__proto__ || Object.getPrototypeOf(FormDemo)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (FormDemo.__proto__ || Object.getPrototypeOf(FormDemo)).call(this));
     }
 
     _createClass(FormDemo, [{
         key: 'render',
         value: function render() {
+            var demoStringValidator = '``` jsx' + '\nclass ValidatorDemo extends Component {\n    constructor() {\n        super()\n        this.state = {\n            name: \'\',\n            email: \'\',\n            password: \'\'\n        }\n        this.Validator = new Validator()\n        Validator.types.isEmptyTest = {\n            validate(value) {\n                return value !== \'\';\n            },\n            instruction: \'\u4E0D\u4E3A\u7A7A\u81EA\u5B9A\u4E49\u6821\u9A8C\'\n        };\n        this.Validator.config = {\n            name: [\'isEmpty\', \'isEmptyTest\'],\n            email: [\'isEmpty\', \'isEmptyTest\'],\n            password: [\'isEmpty\', \'isInt\', \'isEmptyTest\']\n        };\n    }\n        \n    handelClickSubmit = () => {\n        //isSubmit\u53EA\u68C0\u6D4B\n        if (this.Validator.isSubmit(this.state)) {\n            Toast.add(\'ok\')\n        } else {\n            Toast.add({\n                content: \'vali fail\',\n                status: \'fail\'\n            })\n        }\n        //\u66F4\u65B0\u6821\u9A8C\u4FE1\u606F\n        this.forceUpdate();\n    }\n        \n    render() {\n        return (\n            <div className="bor b-side p32 mtb32">\n                <div className="d-f ac mb24">\n                    <div className="w96 s0">\n                    <label htmlFor="name">Name:</label>\n                    </div>\n                    <Inputs id="name" onChange={(name) => { this.setState({ name }) }} error={() => this.Validator.formatRes(\'name\')} />\n                </div>\n                <div className="d-f ac mb24">\n                    <div className="w96 s0">\n                    <label htmlFor="email">Email:</label>\n                    </div>\n                    <Inputs id="email" onChange={(email) => { this.setState({ email }) }} error={() => this.Validator.formatRes(\'email\')} />\n                </div>\n                <div className="d-f ac mb24">\n                    <div className="w96 s0">\n                    <label htmlFor="password">Password:</label>\n                    </div>\n                    <Inputs id="password" onChange={(password) => { this.setState({ password }) }} error={() => this.Validator.formatRes(\'password\')} />\n                </div>\n                <div className="w384 ta-c">\n                    <button className="btn-n ml8 plr16 ptb8" onClick={this.handelClickSubmit}>\u6821\u9A8C\u8868\u5355</button>\n                </div>\n            </div>\n        )\n    }\n}\n        ';
             var demoStringInput = '``` html' + '\n\n<div className="d-f ac mb32">\n    <div className="w96 s0">\u8868\u5355Key\uFF1A</div>\n    <div>\n        <input\n            type="text"\n            className="input-normal w384"\n            maxLength="100"\n            placeholder="placeholder" />\n        <div className="fs12 c-fail p-a pt2">\u663E\u793A\u9519\u8BEF\u63D0\u793A</div>\n    </div>\n</div>\n\n<div className="d-f ac mb32">\n    <div>\n        <label htmlFor="" className="pb4 mb0 fs12 d-b">\u8868\u5355Key\uFF1A</label>\n            <input\n                type="text"\n                className="input-down w384"\n                maxLength="100"\n                placeholder="placeholder" />\n        <div className="fs12 c-fail p-a pt2">\u663E\u793A\u9519\u8BEF\u63D0\u793A</div>\n    </div>\n</div>\n\n<div className="d-f ac mb32">\n    <div className="input-search-down">\n        <label htmlFor="" className="pb4 mb0 fs12 d-b">\u8868\u5355Key\uFF1A</label>\n            <input\n                type="text"\n                className="input-down w384"\n                placeholder="placeholder"\n                maxLength="50" />\n            <div className="fs12 c-fail p-a pt2">\u663E\u793A\u9519\u8BEF\u63D0\u793A</div>\n            <ul className="input-option paper bor b-side fs12 p0" scrollbar=\'normal\'>\n                <li className="p4 bor-b b-side d-f jc-b">Apple</li>\n                <li className="p4 bor-b b-side d-f jc-b">Boy</li>\n                <li className="p4 bor-b b-side d-f jc-b">Cat</li>\n            </ul>\n    </div>\n</div>\n\n<div className="d-f ac mb32">\n    <div className="input-search-normal d-f ac">\n        <input\n            type="text"\n            className="input-normal w384"\n            placeholder="placeholder" />\n        <button className="fs12 btn-n ptb8 mr2 plr16">\u641C\u7D22</button>\n    </div>\n</div>\n';
 
             var demoStringUpload = '``` html' + '\n<div className="mb32">\n    <div className="fileup-container">\n        <div className="fileup">\n            <label htmlFor="input-file" className="fileup-in btn ptb4 plr16 c-text-w bg-theme">\u70B9\u51FB\u9009\u62E9</label>\n            <input type="file" id="input-file" />\n        </div>\n        <img src="" alt="" />\n    </div>\n</div>\n\n<div className="mb32">\n    <div className="upload-hollow">\n        <label htmlFor="input-file"></label>\n        <div className="upload-mark d-f ac jc fs24 fd-c">\n            <span>+</span>\n            <span className="fs14">\u663E\u793A\u5EFA\u8BAE\u6587\u6848</span>\n        </div>\n        <p className="fs12 c-fail p-a pt2">\u663E\u793A\u9519\u8BEF\u63D0\u793A</p>\n        <div className="fileup-container">\n            <div className="fileup">\n                <input type="file" id="input-file" name="sdkFile" />\n                {/* <span className="file-upload-tooltip tooltip-style">\u663E\u793A\u6587\u4EF6\u540D</span> */}\n            </div>\n        </div>\n        <img alt="" />\n    </div>\n</div>\n';
@@ -53,10 +56,29 @@ var FormDemo = function (_Component) {
             var demoStringRadio = '``` html' + '\n<div className="radio-box-normalize d-il pr16">\n    <input\n        id="isCallbackReport1"\n        type="radio"\n        name="managerCallbackReport"\n        defaultChecked\n        className="d-n" />\n    <label className="m0" htmlFor="isCallbackReport1">\n        <div className="radio-out">\n            <i className="radio-in"></i>\n        </div>\n        <span className="pl8">SluckyUI\u662F\u7EC4\u4EF6\u5E93\u79CD\u5B50</span>\n    </label>\n</div>\n\n<div className="radio-box-normalize d-il pr16">\n    <input\n        id="isCallbackReport2"\n        type="radio"\n        name="managerCallbackReport"\n        className="d-n" />\n    <label className="m0" htmlFor="isCallbackReport2">\n        <div className="radio-out">\n            <i className="radio-in"></i>\n        </div>\n        <span className="pl8">SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6</span>\n    </label>\n</div>\n';
 
             var demoStringTextarea = '``` html' + '\n<textarea name="" id="" cols="50" rows="6" className="textarea"></textarea>\n';
-
             return _react2.default.createElement(
                 'div',
                 null,
+                _react2.default.createElement(
+                    'p',
+                    { className: 'bor-l b-theme pl8 fs18 mt32' },
+                    '\u8868\u5355\u6821\u9A8C Validator'
+                ),
+                _react2.default.createElement(_validatorDemo.ValidatorDemo, null),
+                _react2.default.createElement(
+                    'details',
+                    { className: 'pb16 mb16 bor-b b-side-s' },
+                    _react2.default.createElement(
+                        'summary',
+                        { className: 'btn-n pl8 pr64 ptb8' },
+                        '\u663E\u793ADemo\u4EE3\u7801'
+                    ),
+                    _react2.default.createElement(
+                        _reactHighlight2.default,
+                        { innerHTML: true },
+                        _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoStringValidator }))
+                    )
+                ),
                 _react2.default.createElement(
                     'p',
                     { className: 'bor-l b-theme pl8 fs18' },
@@ -686,7 +708,23 @@ var FormDemo = function (_Component) {
                         _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoStringTextarea }))
                     )
                 )
-            );
+            )
+            // <div>
+            //     <div className="d-f ac mb32">
+            //         <div>
+            //             <label htmlFor="" className="pb4 mb0 fs12 d-b">表单Key：</label>
+            //             <input
+            //                 onChange={(e) => { this.setState({ name: e.target.value }) }}
+            //                 type="text"
+            //                 className="input-down w384"
+            //                 maxLength="100"
+            //                 placeholder="placeholder" />
+            //             <div className="fs12 c-fail p-a pt2">显示错误提示</div>
+            //             {console.log(this.state)}
+            //         </div>
+            //     </div>
+            // </div>
+            ;
         }
     }]);
 

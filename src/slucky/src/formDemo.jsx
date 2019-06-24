@@ -2,10 +2,80 @@ import React, { Component } from 'react'
 import ReactDOMServer from 'react-dom/server';
 import ReactMarkdown from 'react-markdown'
 import Highlight from 'react-highlight'
+import { ValidatorDemo } from "./validatorDemo";
 
 export default class FormDemo extends Component {
+    constructor() {
+        super()
+    }
 
     render() {
+        const demoStringValidator = '``` jsx' + `
+class ValidatorDemo extends Component {
+    constructor() {
+        super()
+        this.state = {
+            name: '',
+            email: '',
+            password: ''
+        }
+        this.Validator = new Validator()
+        Validator.types.isEmptyTest = {
+            validate(value) {
+                return value !== '';
+            },
+            instruction: '不为空自定义校验'
+        };
+        this.Validator.config = {
+            name: ['isEmpty', 'isEmptyTest'],
+            email: ['isEmpty', 'isEmptyTest'],
+            password: ['isEmpty', 'isInt', 'isEmptyTest']
+        };
+    }
+        
+    handelClickSubmit = () => {
+        //isSubmit只检测
+        if (this.Validator.isSubmit(this.state)) {
+            Toast.add('ok')
+        } else {
+            Toast.add({
+                content: 'vali fail',
+                status: 'fail'
+            })
+        }
+        //更新校验信息
+        this.forceUpdate();
+    }
+        
+    render() {
+        return (
+            <div className="bor b-side p32 mtb32">
+                <div className="d-f ac mb24">
+                    <div className="w96 s0">
+                    <label htmlFor="name">Name:</label>
+                    </div>
+                    <Inputs id="name" onChange={(name) => { this.setState({ name }) }} error={() => this.Validator.formatRes('name')} />
+                </div>
+                <div className="d-f ac mb24">
+                    <div className="w96 s0">
+                    <label htmlFor="email">Email:</label>
+                    </div>
+                    <Inputs id="email" onChange={(email) => { this.setState({ email }) }} error={() => this.Validator.formatRes('email')} />
+                </div>
+                <div className="d-f ac mb24">
+                    <div className="w96 s0">
+                    <label htmlFor="password">Password:</label>
+                    </div>
+                    <Inputs id="password" onChange={(password) => { this.setState({ password }) }} error={() => this.Validator.formatRes('password')} />
+                </div>
+                <div className="w384 ta-c">
+                    <button className="btn-n ml8 plr16 ptb8" onClick={this.handelClickSubmit}>校验表单</button>
+                </div>
+            </div>
+        )
+    }
+}
+        `
         const demoStringInput = '``` html' + `
 
 <div className="d-f ac mb32">
@@ -264,10 +334,17 @@ Breaking news, sport, TV, radio and a whole lot more. The BBC informs, educates 
         const demoStringTextarea = '``` html' + `
 <textarea name="" id="" cols="50" rows="6" className="textarea"></textarea>
 `
-
-
         return (
             <div>
+                <p className="bor-l b-theme pl8 fs18 mt32">表单校验 Validator</p>
+                <ValidatorDemo />
+                <details className="pb16 mb16 bor-b b-side-s">
+                    <summary className="btn-n pl8 pr64 ptb8">显示Demo代码</summary>
+                    <Highlight innerHTML={true}>
+                        {ReactDOMServer.renderToStaticMarkup(<ReactMarkdown source={demoStringValidator} />)}
+                    </Highlight>
+                </details>
+
                 <p className="bor-l b-theme pl8 fs18">输入框 Input</p>
 
                 <div className="d-f ac mb32">
@@ -561,6 +638,21 @@ Breaking news, sport, TV, radio and a whole lot more. The BBC informs, educates 
                 </details>
 
             </div>
+            // <div>
+            //     <div className="d-f ac mb32">
+            //         <div>
+            //             <label htmlFor="" className="pb4 mb0 fs12 d-b">表单Key：</label>
+            //             <input
+            //                 onChange={(e) => { this.setState({ name: e.target.value }) }}
+            //                 type="text"
+            //                 className="input-down w384"
+            //                 maxLength="100"
+            //                 placeholder="placeholder" />
+            //             <div className="fs12 c-fail p-a pt2">显示错误提示</div>
+            //             {console.log(this.state)}
+            //         </div>
+            //     </div>
+            // </div>
         )
     }
 }

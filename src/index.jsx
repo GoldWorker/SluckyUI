@@ -6,9 +6,9 @@ import Loadable from 'react-loadable';
 import Demo1 from './demo1'
 import { HashRouter, BrowserRouter, Route, Switch, Router } from 'react-router-dom';
 import { Provider, connect } from 'react-redux'
-import { getStore } from 'slucky/dist/store'
+import { getStore } from 'slucky/src/store'
 import "../node_modules/highlight.js/styles/tomorrow.css";
-import Global from "slucky/dist/global";
+import Global from "slucky/src/global";
 import RenderRouter from './router'
 // import App from './app'
 // import HighorderArticle from "./component/article/highorder-article";

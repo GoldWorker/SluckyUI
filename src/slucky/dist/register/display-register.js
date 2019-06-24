@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _validator = require('../lib/validator.js');
+var _validator_es = require('../lib/validator_es5');
 
-var _validator2 = _interopRequireDefault(_validator);
+var _validator_es2 = _interopRequireDefault(_validator_es);
 
 var _displayValidInput = require('./display-validInput');
 
@@ -52,7 +52,7 @@ var Register = function (_Component) {
 			},
 			result: {}
 		};
-		_validator2.default.config = {
+		_validator_es2.default.config = {
 			email: ['isEmpty', 'isEmail'],
 			emailVerifyCode: ['isEmpty'],
 			name: ['isName', 'isEmpty'],
@@ -78,12 +78,12 @@ var Register = function (_Component) {
 		value: function handleFormConfirm(e) {
 			e.preventDefault();
 			var data = this.state.data;
-			var result = _validator2.default.validate(data);
+			var result = _validator_es2.default.validate(data);
 			this.setState({
 				result: result
 			});
 			console.log(this.state.result);
-			if (_validator2.default.isSubmit()) {
+			if (_validator_es2.default.isSubmit()) {
 				this.registerConfirm(this.state.data);
 			}
 		}
@@ -91,7 +91,7 @@ var Register = function (_Component) {
 		key: 'handleEmailSend',
 		value: function handleEmailSend() {
 			var email = this.state.data.email;
-			var res = _validator2.default.validateOne('email', email);
+			var res = _validator_es2.default.validateOne('email', email);
 			this.setState({
 				result: {
 					email: res
