@@ -3,6 +3,49 @@ import React, { Component } from 'react'
 export class Table extends Component {
     constructor() {
         super()
+        this.checkboxList = []
+        this.isAllSelect = false
+    }
+
+    handleCheckboxChange(data, i, checked, callback) {
+        console.log(checked);
+        // data.checked = checked
+        if (checked) {
+            this
+                .checkboxList
+                .push(data);
+        } else {
+            this
+                .checkboxList
+                .forEach((elem, index) => {
+                    if (JSON.stringify(data) === JSON.stringify(elem)) {
+                        this
+                            .checkboxList
+                            .splice(index, 1);
+                    }
+                });
+        }
+        callback(this.checkboxList);
+    }
+
+    handleCheckboxTieleChange(e, callback) {
+        this.isAllSelect = e.target.checked;
+        if (this.isAllSelect) {
+            this.checkboxList = [...this.props.dataset];
+            this.props.dataset.map((item) => {
+                return {
+                    ...item,
+                    checked: true
+                }
+            })
+            console.log(this.props.dataset)
+            this.forceUpdate()
+        } else {
+            this.checkboxList = [];
+        }
+        console.log(this.checkboxList, e.target.checked);
+        this.forceUpdate()
+        callback(this.checkboxList);
     }
 
     handleDisplay(callback, data, i) {
@@ -38,6 +81,22 @@ export class Table extends Component {
                         <div className={['bg-title d-f ac', this.props.fixTitle ? 'table-fix' : ''].join(' ')}>
                             {
                                 this.props.dataconf.map((conf, i) => {
+                                    // 全选选项
+                                    if (conf.checkbox) {
+                                        return <div key={i} className="ptb16 plr6 d-il ta-c table-title s0" style={{ 'width': conf.width }}></div>
+                                        return (
+                                            <div key={i} className="ptb16 plr6 d-il ta-c table-title s0" style={{ 'width': conf.width }}>
+                                                <div className="checkbox-box-normalize">
+                                                    <input id="checkbox_normalize_title" type="checkbox" name="c_n"
+                                                        checked={this.isAllSelect} onChange={(e) => this.handleCheckboxTieleChange(e, conf.handle, this.props.dataset)} />
+                                                    <span className="checkbox-hook ta-c">
+                                                        <span className="checkbox-hook-in fs12 op0">✓</span>
+                                                    </span>
+                                                    <label htmlFor="checkbox_normalize_title" className="p-r z10"></label>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
                                     return (
                                         !conf.checkbox && conf.title ? <div className="ptb16 d-il ta-c table-title s0" style={{ 'width': conf.width }} key={i}>{conf.title}</div> : null
                                     )
@@ -70,26 +129,31 @@ export class Table extends Component {
                                                                 {/* 复杂情况，有多种handle */}
                                                                 {
                                                                     conf.handles ? (
-                                                                        conf.handles.map((handleItem, j) => {
-                                                                            return (
-                                                                                this.handleDisplay(handleItem.display, data, i) ? (
-                                                                                    <div className="pop-box" key={j}>
-                                                                                        <div className={['pop-toggle ptb4 mlr4', this.handleClass(handleItem.btnType)].join(' ')} onClick={() => handleItem.handle && handleItem.handle(data, i)}>
-                                                                                            <span>{handleItem.name}</span>
-                                                                                            {
-                                                                                                handleItem.pipe ? (
-                                                                                                    <div className="pop-main pr8" style={{ 'minWidth': handleItem.width }}>
-                                                                                                        <div className="pop-content paper bor b-side ptb16 plr12 shadow c-text-b">
-                                                                                                            {handleItem.pipe(data, i)}
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                ) : null
-                                                                                            }
-                                                                                        </div>
-                                                                                    </div>
-                                                                                ) : null
-                                                                            )
-                                                                        })
+                                                                        Table.handleActions(this, conf.handles, data, i)
+                                                                    ) : null
+                                                                }
+                                                                {/* Pipe */}
+                                                                {
+                                                                    conf.pipe ? (
+                                                                        <span className="p-r z10">{conf.pipe(data, i)}</span>
+                                                                    ) : null
+                                                                }
+                                                                {/* Textarea */}
+                                                                {
+                                                                    conf.textarea ? (
+                                                                        <textarea rows="4" className="textarea w-full" value={data[conf.name]} readonly></textarea>
+                                                                    ) : null
+                                                                }
+                                                                {/* Progress */}
+                                                                {
+                                                                    conf.progress && conf.progress(data) ? (
+                                                                        Table.handleProgress(data, conf)
+                                                                    ) : null
+                                                                }
+                                                                {/* checkbox */}
+                                                                {
+                                                                    conf.checkbox ? (
+                                                                        Table.handleCheckbox(this, data, i, conf)
                                                                     ) : null
                                                                 }
                                                             </div>
@@ -107,4 +171,55 @@ export class Table extends Component {
             </div >
         )
     }
+}
+
+Table.handleActions = (self_this, handles, data, i) => {
+    return handles.map((handleItem, j) => {
+        return (
+            self_this.handleDisplay(handleItem.display, data, i) ? (
+                <div className="pop-box" key={j}>
+                    <div className={['pop-toggle ptb4 mlr4', self_this.handleClass(handleItem.btnType)].join(' ')} onClick={() => handleItem.handle && handleItem.handle(data, i)}>
+                        <span>{handleItem.name}</span>
+                        {
+                            handleItem.pipe ? (
+                                <div className="pop-main pr8" style={{ 'minWidth': handleItem.width }}>
+                                    <div className="pop-content paper bor b-side ptb16 plr12 shadow c-text-b">
+                                        {handleItem.pipe(data, i)}
+                                    </div>
+                                </div>
+                            ) : null
+                        }
+                    </div>
+                </div>
+            ) : null
+        )
+    })
+}
+
+Table.handleProgress = (data, conf) => {
+    return (
+        <div className="d-il">
+            {
+                !conf.pipe ? (
+                    <span className="p-r z10">{data[conf.name]}</span>
+                ) : null
+            }
+            <progress max="100" value={conf.progress && conf.progress(data)}
+                className="progress-loading"></progress>
+        </div>
+    )
+}
+
+Table.handleCheckbox = (self_this, data, i, conf) => {
+    return (
+        <div className="checkbox-box-normalize">
+            <input id={'checkbox_normalize_table' + i} type="checkbox" name="c_n"
+                // checked={data.checked}
+                onChange={(e) => self_this.handleCheckboxChange(data, i, e.target.checked, conf.handle)} />
+            <span className="checkbox-hook ta-c">
+                <span className="checkbox-hook-in fs12 op0">✓</span>
+            </span>
+            <label htmlFor={'checkbox_normalize_table' + i} className="p-r z10"></label>
+        </div>
+    )
 }

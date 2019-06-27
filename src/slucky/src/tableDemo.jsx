@@ -76,17 +76,35 @@ class TableDemo extends Component {
 }
 `
         const dataconf = [{
+            title: '',
+            width: '10%',
+            checkbox: true,
+            handle: (list) => {
+                console.log(list)
+            }
+        },
+        {
+            title: 'progress',
+            name: 'progress',
+            width: '20%',
+            progress:()=>{
+                return 50
+            },
+            pipe:()=>{
+                return `${50}%`
+            }
+        }, {
             title: 'ID',
             name: 'id',
-            width: '25%'
+            width: '15%'
         }, {
             title: '姓名',
             name: 'name',
-            width: '25%'
+            width: '15%'
         }, {
             title: '身高',
             name: 'height',
-            width: '25%'
+            width: '15%'
         }, {
             title: '',
             width: '25%',

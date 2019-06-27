@@ -97,7 +97,7 @@ export class Toast extends React.Component {
                         return (
                             <div className="toastlist" key={index}>
                                 <div className="toast-item paper" >
-                                    <div className={['pb8', this.handleMapStatus(item.status)].join(' ')} style={{ minWidth: 256 + 'px' }}>{this.handleMapTitle(item.status) || item.title}</div>
+                                    <div className={['pb8', this.handleMapStatus(item.status)].join(' ')} style={{ minWidth: 256 + 'px' }}>{item.title || this.handleMapTitle(item.status)}</div>
                                     <div className="">{item.content}</div>
                                 </div>
                             </div>
@@ -124,3 +124,16 @@ Toast.add = ({ title, content, status }) => {
     }
     toastRef.current.add({ title, content, status })
 }
+
+Toast.success = (content) => {
+    Toast.add({ title: '成功', content, status: 'success' })
+}
+
+Toast.error = (content) => {
+    Toast.add({ title: '错误', content, status: 'fail' })
+}
+
+Toast.warn = (content) => {
+    Toast.add({ title: '提示', content, status: 'warn' })
+}
+

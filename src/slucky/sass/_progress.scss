@@ -8,6 +8,7 @@
     left: 0;
     background-color: rgba(255, 255, 255, 0);
     transition: all .3s;
+    overflow: hidden;
 }
 
 .progress-loading::-moz-progress-bar {
@@ -35,12 +36,92 @@
     animation: MoveF 2s infinite;
 }
 
-
 @keyframes MoveF {
     0% {
         left: -100%;
     }
     100% {
         left: 200%;
+    }
+}
+
+// .progress-loading-g {
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 3px;
+//     background-color: rgba(0, 0, 0, .9);
+// }
+
+// .progress-loading-g::-moz-progress-bar {
+//     background: rgba(0, 0, 0, .9);
+// }
+
+// .progress-loading-g::-webkit-progress-bar {
+//     background: rgba(0, 0, 0, .9);
+//     ;
+// }
+
+// .progress-loading-g::-webkit-progress-value {
+//     background: #26a597;
+// }
+
+.wave-box {
+    padding: 4px;
+    border: 4px solid #26a597;
+    border-radius: 50%;
+    &>.wave {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: #26a597;
+        border-radius: 50%;
+        overflow: hidden;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 50px;
+            left: 50%;
+            background-color: rgba(255, 255, 255, .4);
+            border-radius: 45%;
+            transform: translate(-50%, -70%) rotate(0);
+            animation: rotate 6s linear infinite, vertical 12s linear infinite;
+            z-index: 10;
+        }
+        &::after {
+            border-radius: 47%;
+            background-color: rgba(255, 255, 255, .9);
+            transform: translate(-50%, -70%) rotate(0);
+            animation: rotate 10s linear -5s infinite, vertical 12s linear infinite;
+            z-index: 20;
+        }
+    }
+}
+
+@keyframes rotate {
+    50% {
+        transform: translate(-50%, -73%) rotate(180deg);
+        top: 100px;
+    }
+    100% {
+        transform: translate(-50%, -70%) rotate(360deg);
+        top: 0;
+    }
+}
+
+@keyframes vertical {
+    0% {
+        top: -50px;
+    }
+    50% {
+        top: 50px;
+    }
+    100% {
+        top: -50px;
     }
 }

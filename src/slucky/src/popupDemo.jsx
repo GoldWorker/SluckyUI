@@ -31,6 +31,15 @@ ReactDOM.render(
         onClick={() => Toast.add({
             content: '内容'
         })}>弹出消息提示</button>
+        <button
+            className="tag-text ptb6 plr16 m32"
+            onClick={() => Toast.error(‘内容‘)}>弹出错误消息提示</button>
+        <button
+            className="tag-text ptb6 plr16 m32"
+            onClick={() => Toast.warn(‘内容‘)}>弹出警告消息提示</button>
+        <button
+            className="tag-text ptb6 plr16 m32"
+            onClick={() => Toast.success(‘内容‘)}>弹出成功消息提示</button>
 
         <button 
             className="btn-n" 
@@ -142,18 +151,28 @@ class demo extends Component {
                         </div>
                     </div>
                 </Dialog>
-                <button className="btn-n" onClick={() => Dialog.model({ content: 123, onOk: () => { }, title: 'Tips' })}>Open Dialog</button>
+                <button className="btn-n" onClick={() => Dialog.model({ content: 123, onOk: () => { }, title: 'Tips' })}>快捷弹出对话框</button>
 
-                {/* <Toast ref="toast" /> */}
 
                 <button
                     className="tag-text ptb6 plr16 m32"
-                    onClick={() => this.setState({ toggle: true })}>弹出对话框</button>
+                    onClick={() => this.setState({ toggle: true })}>弹出自定义对话框</button>
                 <button
                     className="tag-text ptb6 plr16 m32"
                     onClick={() => Toast.add({
-                        content: `内容${this.count++}`
-                    })}>弹出消息提示</button>
+                        title: '自定义',
+                        content: '内容...',
+                        status: 'success'
+                    })}>弹出自定义消息提示</button>
+                <button
+                    className="tag-text ptb6 plr16 m32"
+                    onClick={() => Toast.error(`内容${this.count++}`)}>弹出错误消息提示</button>
+                <button
+                    className="tag-text ptb6 plr16 m32"
+                    onClick={() => Toast.warn(`内容${this.count++}`)}>弹出警告消息提示</button>
+                <button
+                    className="tag-text ptb6 plr16 m32"
+                    onClick={() => Toast.success(`内容${this.count++}`)}>弹出成功消息提示</button>
 
                 <div className="pop-box">
                     <div className="pop-toggle plr4">

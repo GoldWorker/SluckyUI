@@ -60,7 +60,7 @@ var PopupDemo = exports.PopupDemo = function (_Component) {
         value: function render() {
             var _this2 = this;
 
-            var useString = '``` jsx' + '\n// Style1\uFF1A\u4F7F\u7528\u51FD\u6570\u5F0F\u76F4\u63A5\u8C03\u7528\n\nimport { Dialog, Toast } from \'slucky\'\nReactDOM.render(\n    <div>\n        <button\n        className="tag-text ptb6 plr16 m32"\n        onClick={() => Toast.add({\n            content: \'\u5185\u5BB9\'\n        })}>\u5F39\u51FA\u6D88\u606F\u63D0\u793A</button>\n\n        <button \n            className="btn-n" \n            onClick={() => Dialog.model({ \n                content: 123, \n                onOk: () => { }, \n                title: \'Tips\' \n            })}>Open Dialog</button>\n    </div>,\n    document.body\n)\n\n//------------------------------------\n// Style2\uFF1A\u4F7F\u7528\u7EC4\u4EF6\u53BB\u8C03\u7528\nclass demo extends Component {\n    constructor() {\n        super()\n        this.state = {\n            toggle: false\n        }\n    }\n    handleClickToggle() {\n        this.setState({\n            toggle: !this.state.toggle\n        })\n    }\n    render() {\n        return (\n            <div>\n                <Dialog open={this.state.toggle} onClose={() => this.setState({ toggle: false })}>\n                    <div>\n                        <p>Your Title</p>\n                        <div>Breaking news, sport, TV, radio and a whole lot more. The BBC informs,\n                            educates and entertains - wherever you are, whatever your age.Visit BBC News for\n                            up-to-the-minute news, breaking news, video, audio and feature stories. BBC News\n                            provides trusted World and UK news as well as local and ...</div>\n                        <div className="ta-r pt8">\n                            <button\n                                className="tag-text ptb6 plr16"\n                                onClick={() => this.setState({ toggle: false })}>cancel</button>\n                            <button className="tag-text ptb6 plr16">ok</button>\n                        </div>\n                    </div>\n                </Dialog>\n            </div>\n        )\n    }\n}\n\n';
+            var useString = '``` jsx' + '\n// Style1\uFF1A\u4F7F\u7528\u51FD\u6570\u5F0F\u76F4\u63A5\u8C03\u7528\n\nimport { Dialog, Toast } from \'slucky\'\nReactDOM.render(\n    <div>\n        <button\n        className="tag-text ptb6 plr16 m32"\n        onClick={() => Toast.add({\n            content: \'\u5185\u5BB9\'\n        })}>\u5F39\u51FA\u6D88\u606F\u63D0\u793A</button>\n        <button\n            className="tag-text ptb6 plr16 m32"\n            onClick={() => Toast.error(\u2018\u5185\u5BB9\u2018)}>\u5F39\u51FA\u9519\u8BEF\u6D88\u606F\u63D0\u793A</button>\n        <button\n            className="tag-text ptb6 plr16 m32"\n            onClick={() => Toast.warn(\u2018\u5185\u5BB9\u2018)}>\u5F39\u51FA\u8B66\u544A\u6D88\u606F\u63D0\u793A</button>\n        <button\n            className="tag-text ptb6 plr16 m32"\n            onClick={() => Toast.success(\u2018\u5185\u5BB9\u2018)}>\u5F39\u51FA\u6210\u529F\u6D88\u606F\u63D0\u793A</button>\n\n        <button \n            className="btn-n" \n            onClick={() => Dialog.model({ \n                content: 123, \n                onOk: () => { }, \n                title: \'Tips\' \n            })}>Open Dialog</button>\n    </div>,\n    document.body\n)\n\n//------------------------------------\n// Style2\uFF1A\u4F7F\u7528\u7EC4\u4EF6\u53BB\u8C03\u7528\nclass demo extends Component {\n    constructor() {\n        super()\n        this.state = {\n            toggle: false\n        }\n    }\n    handleClickToggle() {\n        this.setState({\n            toggle: !this.state.toggle\n        })\n    }\n    render() {\n        return (\n            <div>\n                <Dialog open={this.state.toggle} onClose={() => this.setState({ toggle: false })}>\n                    <div>\n                        <p>Your Title</p>\n                        <div>Breaking news, sport, TV, radio and a whole lot more. The BBC informs,\n                            educates and entertains - wherever you are, whatever your age.Visit BBC News for\n                            up-to-the-minute news, breaking news, video, audio and feature stories. BBC News\n                            provides trusted World and UK news as well as local and ...</div>\n                        <div className="ta-r pt8">\n                            <button\n                                className="tag-text ptb6 plr16"\n                                onClick={() => this.setState({ toggle: false })}>cancel</button>\n                            <button className="tag-text ptb6 plr16">ok</button>\n                        </div>\n                    </div>\n                </Dialog>\n            </div>\n        )\n    }\n}\n\n';
             var demoString = '``` html' + '\n <div className="fadeIn p-r z10">\n    <div className="dialog-mark"></div>\n    <div className="dialog-box d-f ac jc">\n        <span>\n            <div className="dialog paper fade-scale mlr64">\n                <div className="ta-r">\n                    <div className="mt4 mr4 pt4 plr8 ta-r">\n                        <div>X</div>\n                    </div>\n                </div>\n                <div>\n                    <div className="dialog-content ta-l">\n                        content\n                    </div>\n                </div>\n            </div>\n        </span>\n    </div>\n</div>\n\n<div className="toastlists-normalize-box">\n    <div className="toastlist">\n        <div className="toast-item paper" >\n            <div className="pb8 c-success" style="min-width:256px;">Title</div>\n            <div className="">centent</div>\n        </div>\n    </div>\n</div>\n            \n<div className="pop-box">\n    <div className="bor-b b-theme pop-toggle plr4">\n        <span className="c-theme">?</span>\n        <div className="pop-main-r pl8">\n            <div className="pop-content p24 bg-b ta-l shadow fs14">\n                <pre className="c-text-w fs18">Title</pre>\n                <pre className="c-text-w">TV, radio and a whole lot more. The BBC informs</pre>\n                <pre className="c-text-w">TV, radio and a whole lot more. The BBC informs</pre>\n                <pre className="c-text-w">TV, radio and a whole lot more. The BBC informs</pre>\n            </div>\n        </div>\n    </div>\n</div>\n';
             return _react2.default.createElement(
                 'div',
@@ -108,7 +108,7 @@ var PopupDemo = exports.PopupDemo = function (_Component) {
                     { className: 'btn-n', onClick: function onClick() {
                             return _index.Dialog.model({ content: 123, onOk: function onOk() {}, title: 'Tips' });
                         } },
-                    'Open Dialog'
+                    '\u5FEB\u6377\u5F39\u51FA\u5BF9\u8BDD\u6846'
                 ),
                 _react2.default.createElement(
                     'button',
@@ -117,7 +117,7 @@ var PopupDemo = exports.PopupDemo = function (_Component) {
                         onClick: function onClick() {
                             return _this2.setState({ toggle: true });
                         } },
-                    '\u5F39\u51FA\u5BF9\u8BDD\u6846'
+                    '\u5F39\u51FA\u81EA\u5B9A\u4E49\u5BF9\u8BDD\u6846'
                 ),
                 _react2.default.createElement(
                     'button',
@@ -125,10 +125,39 @@ var PopupDemo = exports.PopupDemo = function (_Component) {
                         className: 'tag-text ptb6 plr16 m32',
                         onClick: function onClick() {
                             return _index.Toast.add({
-                                content: '\u5185\u5BB9' + _this2.count++
+                                title: '自定义',
+                                content: '内容...',
+                                status: 'success'
                             });
                         } },
-                    '\u5F39\u51FA\u6D88\u606F\u63D0\u793A'
+                    '\u5F39\u51FA\u81EA\u5B9A\u4E49\u6D88\u606F\u63D0\u793A'
+                ),
+                _react2.default.createElement(
+                    'button',
+                    {
+                        className: 'tag-text ptb6 plr16 m32',
+                        onClick: function onClick() {
+                            return _index.Toast.error('\u5185\u5BB9' + _this2.count++);
+                        } },
+                    '\u5F39\u51FA\u9519\u8BEF\u6D88\u606F\u63D0\u793A'
+                ),
+                _react2.default.createElement(
+                    'button',
+                    {
+                        className: 'tag-text ptb6 plr16 m32',
+                        onClick: function onClick() {
+                            return _index.Toast.warn('\u5185\u5BB9' + _this2.count++);
+                        } },
+                    '\u5F39\u51FA\u8B66\u544A\u6D88\u606F\u63D0\u793A'
+                ),
+                _react2.default.createElement(
+                    'button',
+                    {
+                        className: 'tag-text ptb6 plr16 m32',
+                        onClick: function onClick() {
+                            return _index.Toast.success('\u5185\u5BB9' + _this2.count++);
+                        } },
+                    '\u5F39\u51FA\u6210\u529F\u6D88\u606F\u63D0\u793A'
                 ),
                 _react2.default.createElement(
                     'div',

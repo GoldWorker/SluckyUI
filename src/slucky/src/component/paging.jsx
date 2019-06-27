@@ -68,7 +68,6 @@ export class Paging extends Component {
         if (currentPage > this.end)
             currentPage = this.end;
 
-        // console.log('currentPage', currentPage, this.end);
         this.handleViewBox(currentPage);
         this.props.onAction && this.props.onAction(currentPage);
     }
@@ -95,7 +94,6 @@ export class Paging extends Component {
     handleViewBox(currentPage) {
         let width = this.state.viewBox.width;
 
-        // console.log('Index', currentPage);
         // 多条件判断
         if (this.end - 2 >= this.maxWidth) {
             // 左临界
@@ -113,12 +111,6 @@ export class Paging extends Component {
                         after: true
                     }
                 })
-                // Object.assign(this.state.viewBox, {
-                //     list,
-                //     currentPage,
-                //     before: false,
-                //     after: true
-                // });
             }
             // 右临界
             if (currentPage > this.end - Math.ceil(width / 2)) {
@@ -135,12 +127,6 @@ export class Paging extends Component {
                         after: false
                     }
                 })
-                // Object.assign(this.state.viewBox, {
-                //     list,
-                //     currentPage,
-                //     before: true,
-                //     after: false
-                // });
             }
             // 通常情况
             if (currentPage >= this.start + Math.floor(width / 2) && currentPage <= this.end - Math.ceil(width / 2)) {
@@ -163,12 +149,6 @@ export class Paging extends Component {
                         after: true
                     }
                 })
-                // Object.assign(this.state.viewBox, {
-                //     list,
-                //     currentPage,
-                //     before: true,
-                //     after: true
-                // });
             }
         } else {
             this.setState({
@@ -178,11 +158,6 @@ export class Paging extends Component {
                     after: false
                 })
             })
-            // Object.assign(this.state.viewBox, {
-            //     currentPage,
-            //     before: false,
-            //     after: false
-            // });
         }
     }
     render() {

@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Table = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -14,6 +16,8 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -27,10 +31,52 @@ var Table = exports.Table = function (_Component) {
     function Table() {
         _classCallCheck(this, Table);
 
-        return _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).call(this));
+        var _this = _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).call(this));
+
+        _this.checkboxList = [];
+        _this.isAllSelect = false;
+        return _this;
     }
 
     _createClass(Table, [{
+        key: 'handleCheckboxChange',
+        value: function handleCheckboxChange(data, i, checked, callback) {
+            var _this2 = this;
+
+            console.log(checked);
+            // data.checked = checked
+            if (checked) {
+                this.checkboxList.push(data);
+            } else {
+                this.checkboxList.forEach(function (elem, index) {
+                    if (JSON.stringify(data) === JSON.stringify(elem)) {
+                        _this2.checkboxList.splice(index, 1);
+                    }
+                });
+            }
+            callback(this.checkboxList);
+        }
+    }, {
+        key: 'handleCheckboxTieleChange',
+        value: function handleCheckboxTieleChange(e, callback) {
+            this.isAllSelect = e.target.checked;
+            if (this.isAllSelect) {
+                this.checkboxList = [].concat(_toConsumableArray(this.props.dataset));
+                this.props.dataset.map(function (item) {
+                    return _extends({}, item, {
+                        checked: true
+                    });
+                });
+                console.log(this.props.dataset);
+                this.forceUpdate();
+            } else {
+                this.checkboxList = [];
+            }
+            console.log(this.checkboxList, e.target.checked);
+            this.forceUpdate();
+            callback(this.checkboxList);
+        }
+    }, {
         key: 'handleDisplay',
         value: function handleDisplay(callback, data, i) {
             if (callback === undefined) {
@@ -54,7 +100,7 @@ var Table = exports.Table = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
+            var _this3 = this;
 
             return _react2.default.createElement(
                 'div',
@@ -74,6 +120,32 @@ var Table = exports.Table = function (_Component) {
                             'div',
                             { className: ['bg-title d-f ac', this.props.fixTitle ? 'table-fix' : ''].join(' ') },
                             this.props.dataconf.map(function (conf, i) {
+                                // 全选选项
+                                if (conf.checkbox) {
+                                    return _react2.default.createElement('div', { key: i, className: 'ptb16 plr6 d-il ta-c table-title s0', style: { 'width': conf.width } });
+                                    return _react2.default.createElement(
+                                        'div',
+                                        { key: i, className: 'ptb16 plr6 d-il ta-c table-title s0', style: { 'width': conf.width } },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'checkbox-box-normalize' },
+                                            _react2.default.createElement('input', { id: 'checkbox_normalize_title', type: 'checkbox', name: 'c_n',
+                                                checked: _this3.isAllSelect, onChange: function onChange(e) {
+                                                    return _this3.handleCheckboxTieleChange(e, conf.handle, _this3.props.dataset);
+                                                } }),
+                                            _react2.default.createElement(
+                                                'span',
+                                                { className: 'checkbox-hook ta-c' },
+                                                _react2.default.createElement(
+                                                    'span',
+                                                    { className: 'checkbox-hook-in fs12 op0' },
+                                                    '\u2713'
+                                                )
+                                            ),
+                                            _react2.default.createElement('label', { htmlFor: 'checkbox_normalize_title', className: 'p-r z10' })
+                                        )
+                                    );
+                                }
                                 return !conf.checkbox && conf.title ? _react2.default.createElement(
                                     'div',
                                     { className: 'ptb16 d-il ta-c table-title s0', style: { 'width': conf.width }, key: i },
@@ -100,7 +172,7 @@ var Table = exports.Table = function (_Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'table-list d-f ac ' },
-                                        _this2.props.dataconf.map(function (conf, k) {
+                                        _this3.props.dataconf.map(function (conf, k) {
                                             var _React$createElement;
 
                                             return _react2.default.createElement(
@@ -111,32 +183,15 @@ var Table = exports.Table = function (_Component) {
                                                     null,
                                                     data[conf.name]
                                                 ) : null,
-                                                conf.handles ? conf.handles.map(function (handleItem, j) {
-                                                    return _this2.handleDisplay(handleItem.display, data, i) ? _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'pop-box', key: j },
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: ['pop-toggle ptb4 mlr4', _this2.handleClass(handleItem.btnType)].join(' '), onClick: function onClick() {
-                                                                    return handleItem.handle && handleItem.handle(data, i);
-                                                                } },
-                                                            _react2.default.createElement(
-                                                                'span',
-                                                                null,
-                                                                handleItem.name
-                                                            ),
-                                                            handleItem.pipe ? _react2.default.createElement(
-                                                                'div',
-                                                                { className: 'pop-main pr8', style: { 'minWidth': handleItem.width } },
-                                                                _react2.default.createElement(
-                                                                    'div',
-                                                                    { className: 'pop-content paper bor b-side ptb16 plr12 shadow c-text-b' },
-                                                                    handleItem.pipe(data, i)
-                                                                )
-                                                            ) : null
-                                                        )
-                                                    ) : null;
-                                                }) : null
+                                                conf.handles ? Table.handleActions(_this3, conf.handles, data, i) : null,
+                                                conf.pipe ? _react2.default.createElement(
+                                                    'span',
+                                                    { className: 'p-r z10' },
+                                                    conf.pipe(data, i)
+                                                ) : null,
+                                                conf.textarea ? _react2.default.createElement('textarea', { rows: '4', className: 'textarea w-full', value: data[conf.name], readonly: true }) : null,
+                                                conf.progress && conf.progress(data) ? Table.handleProgress(data, conf) : null,
+                                                conf.checkbox ? Table.handleCheckbox(_this3, data, i, conf) : null
                                             );
                                         })
                                     )
@@ -151,3 +206,68 @@ var Table = exports.Table = function (_Component) {
 
     return Table;
 }(_react.Component);
+
+Table.handleActions = function (self_this, handles, data, i) {
+    return handles.map(function (handleItem, j) {
+        return self_this.handleDisplay(handleItem.display, data, i) ? _react2.default.createElement(
+            'div',
+            { className: 'pop-box', key: j },
+            _react2.default.createElement(
+                'div',
+                { className: ['pop-toggle ptb4 mlr4', self_this.handleClass(handleItem.btnType)].join(' '), onClick: function onClick() {
+                        return handleItem.handle && handleItem.handle(data, i);
+                    } },
+                _react2.default.createElement(
+                    'span',
+                    null,
+                    handleItem.name
+                ),
+                handleItem.pipe ? _react2.default.createElement(
+                    'div',
+                    { className: 'pop-main pr8', style: { 'minWidth': handleItem.width } },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'pop-content paper bor b-side ptb16 plr12 shadow c-text-b' },
+                        handleItem.pipe(data, i)
+                    )
+                ) : null
+            )
+        ) : null;
+    });
+};
+
+Table.handleProgress = function (data, conf) {
+    return _react2.default.createElement(
+        'div',
+        { className: 'd-il' },
+        !conf.pipe ? _react2.default.createElement(
+            'span',
+            { className: 'p-r z10' },
+            data[conf.name]
+        ) : null,
+        _react2.default.createElement('progress', { max: '100', value: conf.progress && conf.progress(data),
+            className: 'progress-loading' })
+    );
+};
+
+Table.handleCheckbox = function (self_this, data, i, conf) {
+    return _react2.default.createElement(
+        'div',
+        { className: 'checkbox-box-normalize' },
+        _react2.default.createElement('input', { id: 'checkbox_normalize_table' + i, type: 'checkbox', name: 'c_n'
+            // checked={data.checked}
+            , onChange: function onChange(e) {
+                return self_this.handleCheckboxChange(data, i, e.target.checked, conf.handle);
+            } }),
+        _react2.default.createElement(
+            'span',
+            { className: 'checkbox-hook ta-c' },
+            _react2.default.createElement(
+                'span',
+                { className: 'checkbox-hook-in fs12 op0' },
+                '\u2713'
+            )
+        ),
+        _react2.default.createElement('label', { htmlFor: 'checkbox_normalize_table' + i, className: 'p-r z10' })
+    );
+};

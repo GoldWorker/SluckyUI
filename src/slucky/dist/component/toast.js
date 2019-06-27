@@ -140,7 +140,7 @@ var Toast = exports.Toast = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: ['pb8', _this2.handleMapStatus(item.status)].join(' '), style: { minWidth: 256 + 'px' } },
-                                _this2.handleMapTitle(item.status) || item.title
+                                item.title || _this2.handleMapTitle(item.status)
                             ),
                             _react2.default.createElement(
                                 'div',
@@ -177,4 +177,16 @@ Toast.add = function (_ref2) {
         _reactDom2.default.render(component, div);
     }
     toastRef.current.add({ title: title, content: content, status: status });
+};
+
+Toast.success = function (content) {
+    Toast.add({ title: '成功', content: content, status: 'success' });
+};
+
+Toast.error = function (content) {
+    Toast.add({ title: '错误', content: content, status: 'fail' });
+};
+
+Toast.warn = function (content) {
+    Toast.add({ title: '提示', content: content, status: 'warn' });
 };

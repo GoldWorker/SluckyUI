@@ -57,17 +57,34 @@ var TableDemo = exports.TableDemo = function (_Component) {
         value: function render() {
             var demoString = '``` jsx' + '\nclass TableDemo extends Component {\n    handleChangePage = (currentPage) => {\n        console.log(currentPage);\n    }\n    render(){\n        const dataconf = [{\n            title: \'ID\',\n            name: \'id\',\n            width: \'25%\'\n        }, {\n            title: \'\u59D3\u540D\',\n            name: \'name\',\n            width: \'25%\'\n        }, {\n            title: \'\u8EAB\u9AD8\',\n            name: \'height\',\n            width: \'25%\'\n        }, {\n            title: \'\',\n            width: \'25%\',\n            name: \'action2\',\n            type: \'action\',\n            handles: [\n                {\n                    name: \'\u914D\u7F6E\',\n                    btnType: \'text\',\n                    handle: (data) => {\n                        alert(\'\u914D\u7F6E\')\n                        console.log(data);\n                    }\n                }, {\n                    name: \'\u5907\u6CE8\',\n                    btnType: \'text\',\n                    handle: (data) => {\n                        alert(\'\u5907\u6CE8\')\n                        console.log(data);\n                    }\n                }]\n        }]\n        \n        const dataset = [{\n            id: 1,\n            name: \'Apple\',\n            height: 178\n        }, {\n            id: 2,\n            name: \'Boy\',\n            height: 177\n        }, {\n            id: 3,\n            name: \'Cat\',\n            height: 176\n        }]\n        \n        const pageInfo = {\n            total: 119,\n            maxToShow: 20\n        }\n        return(\n            <Table dataconf={dataconf} dataset={dataset} />\n            <Paging pageInfo={pageInfo} onAction={this.handleChangePage} />\n        )\n    }\n}\n';
             var dataconf = [{
+                title: '',
+                width: '10%',
+                checkbox: true,
+                handle: function handle(list) {
+                    console.log(list);
+                }
+            }, {
+                title: 'progress',
+                name: 'progress',
+                width: '20%',
+                progress: function progress() {
+                    return 50;
+                },
+                pipe: function pipe() {
+                    return 50 + '%';
+                }
+            }, {
                 title: 'ID',
                 name: 'id',
-                width: '25%'
+                width: '15%'
             }, {
                 title: '姓名',
                 name: 'name',
-                width: '25%'
+                width: '15%'
             }, {
                 title: '身高',
                 name: 'height',
-                width: '25%'
+                width: '15%'
             }, {
                 title: '',
                 width: '25%',
