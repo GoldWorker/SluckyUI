@@ -56,8 +56,36 @@ var Paging = exports.Paging = function (_Component) {
             this.init();
         }
     }, {
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            var _this2 = this;
+
+            // 在重新render之前更新state不会重新触发生命周期
+            // console.log('componentWillReceiveProps', nextProps, this.props)
+            this.setState({
+                pageInfo: {
+                    total: nextProps.pageInfo.total || 1,
+                    maxToShow: nextProps.pageInfo.maxToShow || 1,
+                    currentPage: nextProps.pageInfo.currentPage || 1
+                },
+                viewBox: {
+                    width: '', // 可视容器的宽度
+                    list: [], // 可视容器列表
+                    before: false, // 前后省略号
+                    after: false,
+                    currentPage: '' // 当前页
+                }
+            }, function () {
+                if (nextProps.pageInfo.currentPage && _this2.state.viewBox) {
+                    _this2.init(_this2.handleChangePageSelf(nextProps.pageInfo.currentPage));
+                } else {
+                    _this2.init();
+                }
+            });
+        }
+    }, {
         key: 'init',
-        value: function init() {
+        value: function init(cb) {
             var pageInfo = this.state.pageInfo;
 
             this.end = Math.ceil(pageInfo.total / pageInfo.maxToShow);
@@ -82,6 +110,9 @@ var Paging = exports.Paging = function (_Component) {
                     after: this.maxWidth < this.minWidth,
                     currentPage: pageInfo.currentPage || 1
                 }
+            }, function () {
+                // console.log(this.state.viewBox);
+                cb && cb();
             });
         }
     }, {
@@ -92,7 +123,7 @@ var Paging = exports.Paging = function (_Component) {
             // 保证临界条件
             if (currentPage < this.start) currentPage = this.start;
             if (currentPage > this.end) currentPage = this.end;
-
+            // console.log('currentPage', currentPage)
             this.handleViewBox(currentPage);
             this.props.onAction && this.props.onAction(currentPage);
         }
@@ -133,12 +164,14 @@ var Paging = exports.Paging = function (_Component) {
                     }
                     // console.log('l', list);
                     this.setState({
-                        viewBox: {
+                        viewBox: Object.assign(this.state.viewBox, {
                             list: list,
                             currentPage: currentPage,
                             before: false,
                             after: true
-                        }
+                        })
+                    }, function () {
+                        // console.log('handleViewBox l', this.state.viewBox)
                     });
                 }
                 // 右临界
@@ -149,12 +182,14 @@ var Paging = exports.Paging = function (_Component) {
                     }
                     // console.log('r', list);
                     this.setState({
-                        viewBox: {
+                        viewBox: Object.assign(this.state.viewBox, {
                             list: _list,
                             currentPage: currentPage,
                             before: true,
                             after: false
-                        }
+                        })
+                    }, function () {
+                        // console.log('handleViewBox r', this.state.viewBox)
                     });
                 }
                 // 通常情况
@@ -169,12 +204,14 @@ var Paging = exports.Paging = function (_Component) {
                     }
                     // console.log('n', list);
                     this.setState({
-                        viewBox: {
+                        viewBox: Object.assign(this.state.viewBox, {
                             list: _list2,
                             currentPage: currentPage,
                             before: true,
                             after: true
-                        }
+                        })
+                    }, function () {
+                        // console.log('handleViewBox n', this.state.viewBox)
                     });
                 }
             } else {
@@ -184,13 +221,15 @@ var Paging = exports.Paging = function (_Component) {
                         before: false,
                         after: false
                     })
+                }, function () {
+                    // console.log('handleViewBox', this.state.viewBox)
                 });
             }
         }
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
+            var _this3 = this;
 
             // console.log(this.start, this.end, this.state.viewBox.currentPage, this.state.viewBox.list);
             var pageInfo = this.state.pageInfo;
@@ -214,12 +253,12 @@ var Paging = exports.Paging = function (_Component) {
                         'div',
                         null,
                         _react2.default.createElement('button', { className: 'btn-paging arrow-left', onClick: function onClick() {
-                                return _this2.handleChangePageLeft();
+                                return _this3.handleChangePageLeft();
                             } }),
                         _react2.default.createElement(
                             'span',
                             { onClick: function onClick() {
-                                    return _this2.handleChangePage(_this2.start);
+                                    return _this3.handleChangePage(_this3.start);
                                 }, className: ['btn-paging', this.start === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ') },
                             this.start
                         ),
@@ -233,8 +272,8 @@ var Paging = exports.Paging = function (_Component) {
                             return _react2.default.createElement(
                                 'span',
                                 { key: i, onClick: function onClick() {
-                                        return _this2.handleChangePage(item);
-                                    }, className: ['btn-paging', item === _this2.state.viewBox.currentPage ? 'btn-active' : ''].join(' ') },
+                                        return _this3.handleChangePage(item);
+                                    }, className: ['btn-paging', item === _this3.state.viewBox.currentPage ? 'btn-active' : ''].join(' ') },
                                 item
                             );
                         }),
@@ -243,15 +282,15 @@ var Paging = exports.Paging = function (_Component) {
                             null,
                             '...'
                         ) : null,
-                        _react2.default.createElement(
+                        this.state.viewBox.width >= 0 ? _react2.default.createElement(
                             'span',
                             { onClick: function onClick() {
-                                    return _this2.handleChangePage(_this2.end);
+                                    return _this3.handleChangePage(_this3.end);
                                 }, className: ['btn-paging', this.end === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ') },
                             this.end
-                        ),
+                        ) : null,
                         _react2.default.createElement('button', { className: 'btn-paging arrow-right', onClick: function onClick() {
-                                return _this2.handleChangePageRight();
+                                return _this3.handleChangePageRight();
                             } })
                     )
                 )

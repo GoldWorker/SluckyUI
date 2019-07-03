@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Input = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -19,45 +18,23 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Input = exports.Input = function (_Component) {
-    _inherits(Input, _Component);
+var Transfrom3D = function (_Component) {
+    _inherits(Transfrom3D, _Component);
 
-    function Input() {
-        _classCallCheck(this, Input);
+    function Transfrom3D() {
+        _classCallCheck(this, Transfrom3D);
 
-        return _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Transfrom3D.__proto__ || Object.getPrototypeOf(Transfrom3D)).apply(this, arguments));
     }
 
-    _createClass(Input, [{
+    _createClass(Transfrom3D, [{
         key: 'render',
         value: function render() {
-            var _this2 = this;
-
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement('input', {
-                        id: this.props.id || '',
-                        onChange: function onChange(e) {
-                            return _this2.props.onChange && _this2.props.onChange(e.target.value);
-                        },
-                        style: { width: this.props.width || 384 + 'px' },
-                        placeholder: this.props.placeholder || '',
-                        type: 'text',
-                        className: 'input-normal',
-                        maxLength: '100' }),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'fs12 c-fail p-a pt2' },
-                        this.props.error && this.props.error()
-                    )
-                )
-            );
+            return _react2.default.createElement('div', null);
         }
     }]);
 
-    return Input;
+    return Transfrom3D;
 }(_react.Component);
+
+exports.default = Transfrom3D;

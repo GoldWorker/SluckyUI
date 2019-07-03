@@ -29,7 +29,32 @@ export class Paging extends Component {
         this.init();
     }
 
-    init() {
+    componentWillReceiveProps(nextProps) {
+        // 在重新render之前更新state不会重新触发生命周期
+        // console.log('componentWillReceiveProps', nextProps, this.props)
+        this.setState({
+            pageInfo: {
+                total: nextProps.pageInfo.total || 1,
+                maxToShow: nextProps.pageInfo.maxToShow || 1,
+                currentPage: nextProps.pageInfo.currentPage || 1
+            },
+            viewBox: {
+                width: '', // 可视容器的宽度
+                list: [], // 可视容器列表
+                before: false, // 前后省略号
+                after: false,
+                currentPage: '' // 当前页
+            }
+        }, () => {
+            if (nextProps.pageInfo.currentPage && this.state.viewBox) {
+                this.init(this.handleChangePageSelf(nextProps.pageInfo.currentPage))
+            } else {
+                this.init();
+            }
+        })
+    }
+
+    init(cb) {
         const { pageInfo } = this.state
         this.end = Math.ceil(pageInfo.total / pageInfo.maxToShow);
         this.end > 0
@@ -57,6 +82,9 @@ export class Paging extends Component {
                 after: this.maxWidth < this.minWidth,
                 currentPage: pageInfo.currentPage || 1
             }
+        }, () => {
+            // console.log(this.state.viewBox);
+            cb && cb()
         })
     }
     handleChangePage(currentPage) {
@@ -67,7 +95,7 @@ export class Paging extends Component {
             currentPage = this.start;
         if (currentPage > this.end)
             currentPage = this.end;
-
+        // console.log('currentPage', currentPage)
         this.handleViewBox(currentPage);
         this.props.onAction && this.props.onAction(currentPage);
     }
@@ -104,12 +132,14 @@ export class Paging extends Component {
                 }
                 // console.log('l', list);
                 this.setState({
-                    viewBox: {
+                    viewBox: Object.assign(this.state.viewBox, {
                         list,
                         currentPage,
                         before: false,
                         after: true
-                    }
+                    })
+                }, () => {
+                    // console.log('handleViewBox l', this.state.viewBox)
                 })
             }
             // 右临界
@@ -120,12 +150,14 @@ export class Paging extends Component {
                 }
                 // console.log('r', list);
                 this.setState({
-                    viewBox: {
+                    viewBox: Object.assign(this.state.viewBox, {
                         list,
                         currentPage,
                         before: true,
                         after: false
-                    }
+                    })
+                }, () => {
+                    // console.log('handleViewBox r', this.state.viewBox)
                 })
             }
             // 通常情况
@@ -142,12 +174,14 @@ export class Paging extends Component {
                 }
                 // console.log('n', list);
                 this.setState({
-                    viewBox: {
+                    viewBox: Object.assign(this.state.viewBox, {
                         list,
                         currentPage,
                         before: true,
                         after: true
-                    }
+                    })
+                }, () => {
+                    // console.log('handleViewBox n', this.state.viewBox)
                 })
             }
         } else {
@@ -157,6 +191,8 @@ export class Paging extends Component {
                     before: false,
                     after: false
                 })
+            }, () => {
+                // console.log('handleViewBox', this.state.viewBox)
             })
         }
     }
@@ -185,7 +221,7 @@ export class Paging extends Component {
                             this.state.viewBox.after ? <span>...</span> : null
                         }
                         {
-                            <span onClick={() => this.handleChangePage(this.end)} className={['btn-paging', this.end === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ')} >{this.end}</span>
+                            this.state.viewBox.width >= 0 ? <span onClick={() => this.handleChangePage(this.end)} className={['btn-paging', this.end === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ')} >{this.end}</span> : null
                         }
                         <button className="btn-paging arrow-right" onClick={() => this.handleChangePageRight()}></button>
                     </div>

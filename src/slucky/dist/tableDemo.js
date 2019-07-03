@@ -37,19 +37,31 @@ var TableDemo = exports.TableDemo = function (_Component) {
     _inherits(TableDemo, _Component);
 
     function TableDemo() {
-        var _ref;
-
-        var _temp, _this, _ret;
-
         _classCallCheck(this, TableDemo);
 
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
+        var _this = _possibleConstructorReturn(this, (TableDemo.__proto__ || Object.getPrototypeOf(TableDemo)).call(this));
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TableDemo.__proto__ || Object.getPrototypeOf(TableDemo)).call.apply(_ref, [this].concat(args))), _this), _this.handleChangePage = function (currentPage) {
+        _this.handleChangePage = function (currentPage) {
             console.log(currentPage);
-        }, _temp), _possibleConstructorReturn(_this, _ret);
+        };
+
+        _this.state = {
+            pageInfo: {
+                currentPage: 1,
+                total: 120,
+                maxToShow: 20
+            }
+        };
+        setTimeout(function () {
+            _this.setState({
+                pageInfo: {
+                    currentPage: 1,
+                    total: 150,
+                    maxToShow: 20
+                }
+            });
+        }, 1000);
+        return _this;
     }
 
     _createClass(TableDemo, [{
@@ -119,10 +131,7 @@ var TableDemo = exports.TableDemo = function (_Component) {
                 name: 'Cat',
                 height: 176
             }];
-            var pageInfo = {
-                total: 119,
-                maxToShow: 20
-            };
+
             return _react2.default.createElement(
                 'div',
                 null,
@@ -133,7 +142,8 @@ var TableDemo = exports.TableDemo = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'p16' },
-                        _react2.default.createElement(_index.Paging, { pageInfo: pageInfo, onAction: this.handleChangePage })
+                        _react2.default.createElement(_index.Paging, { pageInfo: this.state.pageInfo, onAction: this.handleChangePage }),
+                        console.log(this.state.pageInfo)
                     )
                 ),
                 _react2.default.createElement(

@@ -116,7 +116,7 @@ export class Table extends Component {
                                 this.props.dataset.map((data, i) => {
                                     return (
                                         <div className="bor-b b-side" key={i}>
-                                            <div className="table-list d-f ac ">
+                                            <div className="table-list d-f ac jc-b">
                                                 {/* 行循环 */}
                                                 {
                                                     this.props.dataconf.map((conf, k) => {

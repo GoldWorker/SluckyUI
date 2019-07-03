@@ -5,6 +5,25 @@ import Highlight from 'react-highlight'
 import { Table, Paging } from './index'
 
 export class TableDemo extends Component {
+    constructor() {
+        super()
+        this.state = {
+            pageInfo: {
+                currentPage: 1,
+                total: 120,
+                maxToShow: 20
+            }
+        }
+        setTimeout(() => {
+            this.setState({
+                pageInfo: {
+                    currentPage: 1,
+                    total: 150,
+                    maxToShow: 20
+                }
+            })
+        }, 1000)
+    }
     handleChangePage = (currentPage) => {
         console.log(currentPage);
     }
@@ -87,10 +106,10 @@ class TableDemo extends Component {
             title: 'progress',
             name: 'progress',
             width: '20%',
-            progress:()=>{
+            progress: () => {
                 return 50
             },
-            pipe:()=>{
+            pipe: () => {
                 return `${50}%`
             }
         }, {
@@ -140,16 +159,14 @@ class TableDemo extends Component {
             name: 'Cat',
             height: 176
         }]
-        const pageInfo = {
-            total: 119,
-            maxToShow: 20
-        }
+
         return (
             <div>
                 <div className="ptb32">
                     <Table dataconf={dataconf} dataset={dataset} />
                     <div className="p16">
-                        <Paging pageInfo={pageInfo} onAction={this.handleChangePage}></Paging>
+                        <Paging pageInfo={this.state.pageInfo} onAction={this.handleChangePage}></Paging>
+                        {console.log(this.state.pageInfo)}
                     </div>
                 </div>
 

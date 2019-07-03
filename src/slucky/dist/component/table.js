@@ -171,7 +171,7 @@ var Table = exports.Table = function (_Component) {
                                     { className: 'bor-b b-side', key: i },
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'table-list d-f ac ' },
+                                        { className: 'table-list d-f ac jc-b' },
                                         _this3.props.dataconf.map(function (conf, k) {
                                             var _React$createElement;
 

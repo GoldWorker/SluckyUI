@@ -117,6 +117,7 @@ $theme_color:$ji_green;
         border-radius: 1000px;
         background-color: rgba($color:$hoverColor, $alpha: .1);
         transition: all .3s;
+        // z-index: -1;
     }
     &:hover {
         &:after {

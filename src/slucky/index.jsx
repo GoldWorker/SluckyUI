@@ -1,5 +1,35 @@
-import { Dialog, Paging, Table, Toast, Input, Validator } from "./src/index";
+import {
+    Dialog,
+    Paging,
+    Table,
+    Toast,
+    Input,
+    Checkbox,
+    Curmb,
+    Menu,
+    Radio,
+    Slidebar,
+    Steps,
+    Switch,
+    Testarea,
+    Transfrom3D,
+    Validator
+} from "./src/index";
 
 export {
-    Dialog, Paging, Table, Toast, Input, Validator
+    Dialog,
+    Paging,
+    Table,
+    Toast,
+    Input,
+    Checkbox,
+    Curmb,
+    Menu,
+    Radio,
+    Slidebar,
+    Steps,
+    Switch,
+    Testarea,
+    Transfrom3D,
+    Validator
 }

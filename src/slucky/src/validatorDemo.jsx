@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Validator, Toast } from "slucky/src";
-import { Inputs } from "slucky/src/component/input";
-
+import { Input } from "slucky/src/component/input";
+import { Radio } from "slucky/src/component/radio";
 export class ValidatorDemo extends Component {
     constructor() {
         super()
@@ -38,26 +38,35 @@ export class ValidatorDemo extends Component {
         this.forceUpdate();
     }
 
+    handleChangeRadio = (e) => {
+        console.log(e.target.value);
+    }
+
     render() {
         return (
             <div className="bor b-side p32 mtb32">
+                <Radio.Group className="pb32" defaultValue="Pear" onChange={(e) => { this.handleChangeRadio(e) }} option={[
+                    { label: 'Apple', value: 'Apple' },
+                    { label: 'Pear', value: 'Pear' },
+                    { label: 'Orange', value: 'Orange' }
+                ]} />
                 <div className="d-f ac mb24">
                     <div className="w96 s0">
                         <label htmlFor="name">Name:</label>
                     </div>
-                    <Inputs id="name" onChange={(name) => { this.setState({ name }) }} error={() => this.Validator.formatRes('name')} />
+                    <Input id="name" onChange={(name) => { this.setState({ name }) }} error={() => this.Validator.formatRes('name')} />
                 </div>
                 <div className="d-f ac mb24">
                     <div className="w96 s0">
                         <label htmlFor="email">Email:</label>
                     </div>
-                    <Inputs id="email" onChange={(email) => { this.setState({ email }) }} error={() => this.Validator.formatRes('email')} />
+                    <Input id="email" onChange={(email) => { this.setState({ email }) }} error={() => this.Validator.formatRes('email')} />
                 </div>
                 <div className="d-f ac mb24">
                     <div className="w96 s0">
                         <label htmlFor="password">Password:</label>
                     </div>
-                    <Inputs id="password" onChange={(password) => { this.setState({ password }) }} error={() => this.Validator.formatRes('password')} />
+                    <Input id="password" onChange={(password) => { this.setState({ password }) }} error={() => this.Validator.formatRes('password')} />
                 </div>
                 <div className="w384 ta-c">
                     <button className="btn-n ml8 plr16 ptb8" onClick={this.handelClickSubmit}>校验表单</button>

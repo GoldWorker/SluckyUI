@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class Inputs extends Component {
+export class Input extends Component {
 
     render() {
         return (
