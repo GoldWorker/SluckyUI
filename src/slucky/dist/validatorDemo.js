@@ -17,6 +17,12 @@ var _input = require("slucky/src/component/input");
 
 var _radio = require("slucky/src/component/radio");
 
+var _checkbox = require("slucky/src/component/checkbox");
+
+var _switch = require("slucky/src/component/switch");
+
+var _tab = require("slucky/src/component/tab");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48,6 +54,14 @@ var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
         };
 
         _this.handleChangeRadio = function (e) {
+            console.log(e.target.value);
+        };
+
+        _this.handleChangeCheckbox = function (selected) {
+            console.log(selected);
+        };
+
+        _this.handleChangeSwitch = function (e) {
             console.log(e.target.value);
         };
 
@@ -83,6 +97,10 @@ var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
                 _react2.default.createElement(_radio.Radio.Group, { className: "pb32", defaultValue: "Pear", onChange: function onChange(e) {
                         _this2.handleChangeRadio(e);
                     }, option: [{ label: 'Apple', value: 'Apple' }, { label: 'Pear', value: 'Pear' }, { label: 'Orange', value: 'Orange' }] }),
+                _react2.default.createElement(_checkbox.Checkbox.Group, { className: "pb32", defaultValue: "Pear", onChange: function onChange(selected) {
+                        _this2.handleChangeCheckbox(selected);
+                    }, option: [{ label: 'Apple', value: 'Apple' }, { label: 'Pear', value: 'Pear' }, { label: 'Orange', value: 'Orange' }] }),
+                _react2.default.createElement(_switch.Switch, null),
                 _react2.default.createElement(
                     "div",
                     { className: "d-f ac mb24" },
@@ -95,7 +113,7 @@ var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
                             "Name:"
                         )
                     ),
-                    _react2.default.createElement(_input.Input, { id: "name", onChange: function onChange(name) {
+                    _react2.default.createElement(_input.Input, { id: "name", value: this.state.name, onChange: function onChange(name) {
                             _this2.setState({ name: name });
                         }, error: function error() {
                             return _this2.Validator.formatRes('name');
@@ -144,6 +162,25 @@ var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
                         "button",
                         { className: "btn-n ml8 plr16 ptb8", onClick: this.handelClickSubmit },
                         "\u6821\u9A8C\u8868\u5355"
+                    )
+                ),
+                _react2.default.createElement(
+                    _tab.Tab.Group,
+                    null,
+                    _react2.default.createElement(
+                        _tab.Tab,
+                        { title: "hello" },
+                        "123"
+                    ),
+                    _react2.default.createElement(
+                        _tab.Tab,
+                        { title: "123" },
+                        "qwer"
+                    ),
+                    _react2.default.createElement(
+                        _tab.Tab,
+                        { title: "qwe" },
+                        "12asdf3"
                     )
                 )
             );

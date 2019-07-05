@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Slidebar extends Component {
+export class Slidebar extends Component {
     render() {
         return (
             <div>

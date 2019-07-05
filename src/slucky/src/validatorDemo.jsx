@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { Validator, Toast } from "slucky/src";
 import { Input } from "slucky/src/component/input";
 import { Radio } from "slucky/src/component/radio";
+import { Checkbox } from "slucky/src/component/checkbox";
+import { Switch } from "slucky/src/component/switch";
+import { Tab } from "slucky/src/component/tab";
 export class ValidatorDemo extends Component {
     constructor() {
         super()
@@ -42,19 +45,37 @@ export class ValidatorDemo extends Component {
         console.log(e.target.value);
     }
 
+    handleChangeCheckbox = (selected) => {
+        console.log(selected);
+    }
+
+    handleChangeSwitch = (e) => {
+        console.log(e.target.value);
+    }
+
     render() {
         return (
             <div className="bor b-side p32 mtb32">
+
+
                 <Radio.Group className="pb32" defaultValue="Pear" onChange={(e) => { this.handleChangeRadio(e) }} option={[
                     { label: 'Apple', value: 'Apple' },
                     { label: 'Pear', value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }
                 ]} />
+                <Checkbox.Group className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected) }} option={[
+                    { label: 'Apple', value: 'Apple' },
+                    { label: 'Pear', value: 'Pear' },
+                    { label: 'Orange', value: 'Orange' }
+                ]} />
+
+                <Switch />
+
                 <div className="d-f ac mb24">
                     <div className="w96 s0">
                         <label htmlFor="name">Name:</label>
                     </div>
-                    <Input id="name" onChange={(name) => { this.setState({ name }) }} error={() => this.Validator.formatRes('name')} />
+                    <Input id="name" value={this.state.name} onChange={(name) => { this.setState({ name }) }} error={() => this.Validator.formatRes('name')} />
                 </div>
                 <div className="d-f ac mb24">
                     <div className="w96 s0">
@@ -71,6 +92,11 @@ export class ValidatorDemo extends Component {
                 <div className="w384 ta-c">
                     <button className="btn-n ml8 plr16 ptb8" onClick={this.handelClickSubmit}>校验表单</button>
                 </div>
+                <Tab.Group>
+                    <Tab title='hello'>123</Tab>
+                    <Tab title='123'>qwer</Tab>
+                    <Tab title='qwe'>12asdf3</Tab>
+                </Tab.Group>
             </div>
         )
     }

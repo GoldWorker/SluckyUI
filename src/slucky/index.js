@@ -3,9 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Validator = exports.Transfrom3D = exports.Testarea = exports.Switch = exports.Steps = exports.Slidebar = exports.Radio = exports.Menu = exports.Curmb = exports.Checkbox = exports.Input = exports.Toast = exports.Table = exports.Paging = exports.Dialog = undefined;
+exports.Validator = exports.Tab = exports.Transfrom3D = exports.Testarea = exports.Switch = exports.Steps = exports.Slidebar = exports.Radio = exports.Menu = exports.Curmb = exports.Checkbox = exports.Input = exports.Toast = exports.Table = exports.Paging = exports.Dialog = undefined;
 
-var _index = require("./src/index");
+var _index = require("./dist/index");
 
 exports.Dialog = _index.Dialog;
 exports.Paging = _index.Paging;
@@ -21,4 +21,5 @@ exports.Steps = _index.Steps;
 exports.Switch = _index.Switch;
 exports.Testarea = _index.Testarea;
 exports.Transfrom3D = _index.Transfrom3D;
+exports.Tab = _index.Tab;
 exports.Validator = _index.Validator;

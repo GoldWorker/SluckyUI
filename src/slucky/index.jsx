@@ -13,8 +13,9 @@ import {
     Switch,
     Testarea,
     Transfrom3D,
+    Tab,
     Validator
-} from "./src/index";
+} from "./dist/index";
 
 export {
     Dialog,
@@ -31,5 +32,6 @@ export {
     Switch,
     Testarea,
     Transfrom3D,
+    Tab,
     Validator
 }

@@ -34,9 +34,6 @@ module.exports = {
             test: /.jsx$/, //使用loader的目标文件。这里是.jsx
             use: {
                 loader: 'babel-loader',
-                query: {
-                    presets: ["env", "stage-0"]
-                }
             },
             // exclude: /node_modules/
             include: [
@@ -47,9 +44,6 @@ module.exports = {
             test: /\.js$/,
             use: {
                 loader: 'babel-loader',
-                query: {
-                    presets: ["env", "stage-0"]
-                }
             },
             exclude: /node_modules/,
             // include: [

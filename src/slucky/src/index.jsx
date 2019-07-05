@@ -12,6 +12,7 @@ import { Steps } from "./component/steps";
 import { Switch } from "./component/switch";
 import { Testarea } from "./component/testarea";
 import { Transfrom3D } from "./component/transfrom3D";
+import { Tab } from "./component/tab";
 import { Validator } from "./lib/validator";
 
 export {
@@ -29,5 +30,6 @@ export {
     Switch,
     Testarea,
     Transfrom3D,
+    Tab,
     Validator
 }

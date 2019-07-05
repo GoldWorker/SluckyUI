@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Curmb extends Component {
+export class Curmb extends Component {
     render() {
         return (
             <div>

@@ -1,8 +1,10 @@
 .tab-box-normalize {
     position: relative;
     display: inline-block;
+
     .tab-contrl {
         height: 48px; // background-color: rgba(241, 241, 241, 1);
+
         &>label {
             display: inline-block;
             box-sizing: border-box;
@@ -10,10 +12,13 @@
             z-index: 1;
         }
     }
+
     .tab-container {
         display: inline-block;
+
         &>.tab-toggle {
             width: 100%; // z-index: -1;
+
             &>.tab-decoration {
                 position: relative;
                 padding-left: 16px;
@@ -22,6 +27,7 @@
                 line-height: 48px;
                 border-radius: 3px 3px 0 0; // border: 1px solid transparent;
             }
+
             &>.tab-content {
                 @include box_sizing();
                 padding: 16px;
@@ -35,15 +41,18 @@
                 z-index: 1;
             }
         }
+
         &>input[type="radio"] {
             display: none;
         }
+
         &>input[type="radio"]:checked+.tab-toggle>.tab-decoration {
             background-color: #fff;
             color: $theme_color; // border: 1px #cdcdcd solid;
             border-bottom: 1px $theme_color solid;
             animation: tabFadeIn .4s;
         }
+
         &>input[type="radio"]:checked+.tab-toggle>.tab-content {
             display: block; // border: 1px #cdcdcd solid;
             animation: tabFadeIn .4s;
@@ -57,9 +66,11 @@
         transform: translateY(-12px);
         opacity: 0.6;
     }
+
     50% {
         transform: translateY(-2px);
     }
+
     100% {
         // background-color: blue;
         transform: translateY(0px);
@@ -70,37 +81,46 @@
 .tab-box-smooth {
     position: relative;
     display: inline-block;
+
     .tab-contrl {
         height: 48px; // background-color: rgba(241, 241, 241, 1);
+
         &>label {
             display: inline-block;
             box-sizing: border-box;
             cursor: pointer;
             z-index: 1;
         }
+
         &>input[type="radio"] {
             display: none;
         }
+
         &>input[type="radio"]:checked+label .tab-toggle>.tab-decoration {
             background-color: #fff;
             color: $theme_color; // border: 1px #cdcdcd solid;
             border-bottom: 1px $theme_color solid; // animation: tabFadeIn .4s;
         }
+
         &>input[type="radio"]:checked+label .tab-toggle>.tab-content {
             // display: block; // border: 1px #cdcdcd solid;
             // animation: tabFadeIn .4s;
             left: 0;
         }
+
         &>input[type="radio"]:checked+label~label .tab-toggle>.tab-content {
             // display: block; // border: 1px #cdcdcd solid;
             // animation: tabFadeIn .4s;
             left: 100%;
         }
     }
+
     .tab-container {
         display: inline-block;
+
         &>.tab-toggle {
             width: 100%; // z-index: -1;
+
             &>.tab-decoration {
                 position: relative;
                 padding-left: 16px;
@@ -109,6 +129,7 @@
                 line-height: 48px;
                 border-radius: 3px 3px 0 0; // border: 1px solid transparent;
             }
+
             &>.tab-content {
                 @include box_sizing();
                 padding: 16px; // display: none;
@@ -132,9 +153,11 @@
 .tab-box-tb {
     position: relative;
     display: inline-block;
+
     .tab-contrl {
         height: 100%;
         z-index: 1;
+
         &>label {
             position: relative;
             // display: block;
@@ -143,21 +166,26 @@
             z-index: 2;
             // background-color: #fff;
         }
+
         &>input[type="radio"] {
             display: none;
         }
-        &>input[type="radio"]:checked+label >.tab-decoration {
+
+        &>input[type="radio"]:checked+label>.tab-decoration {
             background-color: #fff;
             color: $theme_color;
             border-bottom: 1px $theme_color solid;
         }
+
         &>input[type="radio"]:checked+label>.radio-out {
             border-color: $text_b;
         }
+
         &>input[type='radio']:checked+label>.radio-out>.radio-in {
             border-color: $text_b;
             opacity: 1;
         }
+
         &>input[type="radio"]:checked+label+.tab-content {
             top: 100%; // left: 0;
             // display: block;
@@ -165,6 +193,7 @@
             opacity: 1;
             z-index: 1;
         }
+
         &>input[type="radio"]:checked+label~label+.tab-content {
             top: 200%; // left: 100%;
             // display: none;
@@ -172,6 +201,7 @@
             opacity: 0;
             z-index: -1;
         }
+
         &>.tab-content {
             @include box_sizing();
             position: absolute; // left: -100%;
@@ -184,6 +214,7 @@
             z-index: -1; // overflow: hidden;
         }
     }
+
     .tab-decoration {
         display: inline-block;
         // width: 100%;
@@ -193,11 +224,10 @@
         height: 48px;
         line-height: 48px;
         border-radius: 3px 3px 0 0;
+
         &>.tab-toggle {
-            
-            &>.tab-decoration {
-                
-            }
+
+            &>.tab-decoration {}
         }
     }
 }
@@ -205,53 +235,66 @@
 .tab-box-lr {
     position: relative;
     display: inline-block;
+
     .tab-contrl {
         height: 48px;
-        &>label {
+
+        .tab-item {
             display: inline-block;
-            box-sizing: border-box;
-            cursor: pointer;
-            z-index: 1;
-        }
-        &>input[type="radio"] {
-            display: none;
-        }
-        &>input[type="radio"]:checked+label .tab-toggle>.tab-decoration {
-            background-color: #fff;
-            color: $theme_color;
-            border-bottom: 1px $theme_color solid;
-        }
-        &>input[type="radio"]:checked+label+.tab-content {
-            // top: 48px; 
-            left: 0; // display: block;
-            visibility: visible;
-            opacity: 1;
-            z-index: 1;
-        }
-        &>input[type="radio"]:checked+label~label+.tab-content {
-            // top: 100%;  
-            left: 100%; // display: none;
-            visibility: hidden;
-            opacity: 0;
-            z-index: -1;
-        }
-        &>.tab-content {
-            @include box_sizing();
-            position: absolute;
-            left: -100%; // top: -100%;
-            top: 48px;
-            background-color: #fff;
-            border-radius: 3px; // z-index: 1;
-            transition: top .2s ease-out, opacity .2s ease-out, visibility .2s ease-out; // display: none;
-            visibility: hidden;
-            opacity: 0;
-            z-index: -1; // overflow: hidden;
+            &>label {
+                display: inline-block;
+                box-sizing: border-box;
+                cursor: pointer;
+                z-index: 1;
+            }
+
+            &>input[type="radio"] {
+                display: none;
+            }
+
+            &>input[type="radio"]:checked+label .tab-toggle>.tab-decoration {
+                background-color: #fff;
+                color: $theme_color;
+                border-bottom: 1px $theme_color solid;
+            }
+
+            &>input[type="radio"]:checked+label+.tab-content {
+                left: 0; 
+                visibility: visible;
+                opacity: 1;
+                z-index: 1;
+            }
+
+            //这里换成新dom结构后有问题，无法实现回溯，故无法生效
+            &>input[type="radio"]:checked+label~label+.tab-content {
+                // top: 100%;  
+                left: 100%; 
+                visibility: hidden;
+                opacity: 0;
+                z-index: -1;
+            }
+
+            &>.tab-content {
+                @include box_sizing();
+                position: absolute;
+                left: -100%;
+                top: 48px;
+                background-color: #fff;
+                border-radius: 3px; // z-index: 1;
+                transition: opacity .2s ease-out, visibility .2s ease-out; // display: none;
+                visibility: hidden;
+                opacity: 0;
+                z-index: -1; // overflow: hidden;
+            }
         }
     }
+
     .tab-container {
         display: inline-block;
+
         &>.tab-toggle {
             width: 100%;
+
             &>.tab-decoration {
                 position: relative;
                 padding-left: 16px;
