@@ -169,7 +169,7 @@ var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
                     null,
                     _react2.default.createElement(
                         _tab.Tab,
-                        { title: "hello" },
+                        { title: "hello", defaultChecked: true },
                         "123"
                     ),
                     _react2.default.createElement(

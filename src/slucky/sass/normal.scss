@@ -1,37 +1,37 @@
 //color-mei
 // $title_b:#fafafa; //标题栏背景色
-$side_b:#f4f4f4; //描边 & 模块分割底色
-$side_strong:#cacaca; //按钮描边
-$placeholder_b:#cccccc; //input 级别的提示
-$divider_b: #E5E5E5; //divider分割线
-$hint_b: #888888; //hint & disable
-$icon_b: #666666; //icon & secondary
-$text_b: #222222; //text
-$divider_w: rgba(white, .12); //divider
-$hint_w: rgba(white, .3); //hint disable
-$icon_w: rgba(white, .7); //icon secondary
-$text_w: rgb(255, 255, 255); //text
+$side_b:#f4f4f4 !default; //描边 & 模块分割底色
+$side_strong:#cacaca !default; //按钮描边
+$placeholder_b:#cccccc !default; //input 级别的提示
+$divider_b: #E5E5E5 !default; //divider分割线
+$hint_b: #888888 !default; //hint & disable
+$icon_b: #666666 !default; //icon & secondary
+$text_b: #222222 !default; //text
+$divider_w: rgba(white, .12) !default; //divider
+$hint_w: rgba(white, .3) !default; //hint disable
+$icon_w: rgba(white, .7) !default; //icon secondary
+$text_w: rgb(255, 255, 255) !default; //text
 //color-ji
-$title_b:#f7f7f7;
+$title_b:#f7f7f7 !default;
 //mei
-$mei_red:#e74c75;
-$mei_blue: #318FE2;
+$mei_red:#e74c75 !default;
+$mei_blue: #318FE2 !default;
 //status
-$success_green:#03b266;
-$fail_red:#ff4444;
-$warn_yellow:#fc7e36;
-$disable:#898183;
+$success_green:#03b266 !default;
+$fail_red:#ff4444 !default;
+$warn_yellow:#fc7e36 !default;
+$disable:#898183 !default;
 //shadow
 $shadow_color: 0 2px 2px 0 rgba(0, 0, 0, 0.05),
 0 1px 4px 0 rgba(0, 0, 0, 0.08),
-0 3px 1px -2px rgba(0, 0, 0, 0.2);
+0 3px 1px -2px rgba(0, 0, 0, 0.2) !default;
 //paper
-$paper_color: #fff;
+$paper_color: #fff !default;
 //size
-$w_space: -5px;
+$w_space: -5px !default;
 //ji
-$ji_green:#26a597;
-$theme_color:$ji_green;
+$ji_green:#26a597 !default;
+$theme_color:$ji_green !default;
 // ---------------------------模板------------------------
 @mixin cicle($size:28px) {
     flex-shrink: 0;

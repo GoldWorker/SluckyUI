@@ -3,13 +3,13 @@ import React, { Component } from 'react'
 export class Tab extends Component {
     constructor() {
         super()
-        this.id = Math.random().toString(36).substring(2);
+        this.cid = Math.random().toString(36).substring(2);
     }
     render() {
         return (
             <div className="tab-item">
-                <input type="radio" id={this.id} name={this.props.name} defaultChecked />
-                <label htmlFor={this.id}>
+                <input type="radio" id={this.cid} name={this.props.name} defaultChecked={this.props.defaultChecked || false} />
+                <label htmlFor={this.cid}>
                     <div className="tab-container">
                         <div className="tab-toggle">
                             <div className="tab-decoration">
@@ -38,7 +38,7 @@ class Group extends Component {
                     <div className="tab-contrl">
                         {
                             React.Children.map(this.props.children,
-                                (child) => React.cloneElement(child, { name: this.name }))
+                                (child) => React.cloneElement(child, { name: this.name, currentTab: this.props.currentTab || '' }))
                         }
                     </div>
                 </div>

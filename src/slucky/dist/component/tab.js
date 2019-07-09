@@ -27,7 +27,7 @@ var Tab = exports.Tab = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).call(this));
 
-        _this.id = Math.random().toString(36).substring(2);
+        _this.cid = Math.random().toString(36).substring(2);
         return _this;
     }
 
@@ -37,10 +37,10 @@ var Tab = exports.Tab = function (_Component) {
             return _react2.default.createElement(
                 "div",
                 { className: "tab-item" },
-                _react2.default.createElement("input", { type: "radio", id: this.id, name: this.props.name, defaultChecked: true }),
+                _react2.default.createElement("input", { type: "radio", id: this.cid, name: this.props.name, defaultChecked: this.props.defaultChecked || false }),
                 _react2.default.createElement(
                     "label",
-                    { htmlFor: this.id },
+                    { htmlFor: this.cid },
                     _react2.default.createElement(
                         "div",
                         { className: "tab-container" },
@@ -102,7 +102,7 @@ var Group = function (_Component2) {
                         "div",
                         { className: "tab-contrl" },
                         _react2.default.Children.map(this.props.children, function (child) {
-                            return _react2.default.cloneElement(child, { name: _this3.name });
+                            return _react2.default.cloneElement(child, { name: _this3.name, currentTab: _this3.props.currentTab || '' });
                         })
                     )
                 )

@@ -93,7 +93,7 @@ export class ValidatorDemo extends Component {
                     <button className="btn-n ml8 plr16 ptb8" onClick={this.handelClickSubmit}>校验表单</button>
                 </div>
                 <Tab.Group>
-                    <Tab title='hello'>123</Tab>
+                    <Tab title='hello' defaultChecked={true}>123</Tab>
                     <Tab title='123'>qwer</Tab>
                     <Tab title='qwe'>12asdf3</Tab>
                 </Tab.Group>

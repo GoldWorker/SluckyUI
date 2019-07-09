@@ -20,7 +20,8 @@
 }
 
 .progress-loading::-webkit-progress-value {
-    background: rgba(31, 181, 172, .3);
+    // background: rgba(31, 181, 172, .3);
+    background-color: rgba($color: $theme_color, $alpha: .3)
 }
 
 .progress-loading::after {
