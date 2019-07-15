@@ -100,10 +100,32 @@ var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
                 _react2.default.createElement(_checkbox.Checkbox.Group, { className: "pb32", defaultValue: "Pear", onChange: function onChange(selected) {
                         _this2.handleChangeCheckbox(selected);
                     }, option: [{ label: 'Apple', value: 'Apple' }, { label: 'Pear', value: 'Pear' }, { label: 'Orange', value: 'Orange' }] }),
+                _react2.default.createElement(_checkbox.Checkbox.GroupFontIn, { className: "pb32", defaultValue: "Pear", onChange: function onChange(selected) {
+                        _this2.handleChangeCheckbox(selected);
+                    }, option: [{ label: 'Apple', value: 'Apple' }, { label: 'Pear', value: 'Pear' }, { label: 'Orange', value: 'Orange' }] }),
                 _react2.default.createElement(_switch.Switch, null),
                 _react2.default.createElement(
+                    _tab.Tab.Group,
+                    null,
+                    _react2.default.createElement(
+                        _tab.Tab,
+                        { title: "hello", defaultChecked: true },
+                        "123"
+                    ),
+                    _react2.default.createElement(
+                        _tab.Tab,
+                        { title: "123" },
+                        "qwer"
+                    ),
+                    _react2.default.createElement(
+                        _tab.Tab,
+                        { title: "qwe" },
+                        "12asdf3"
+                    )
+                ),
+                _react2.default.createElement(
                     "div",
-                    { className: "d-f ac mb24" },
+                    { className: "d-f ac mb24 mt36" },
                     _react2.default.createElement(
                         "div",
                         { className: "w96 s0" },
@@ -113,7 +135,7 @@ var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
                             "Name:"
                         )
                     ),
-                    _react2.default.createElement(_input.Input, { id: "name", value: this.state.name, onChange: function onChange(name) {
+                    _react2.default.createElement(_input.Input, { id: "name", width: "100%", value: this.state.name, onChange: function onChange(name) {
                             _this2.setState({ name: name });
                         }, error: function error() {
                             return _this2.Validator.formatRes('name');
@@ -162,25 +184,6 @@ var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
                         "button",
                         { className: "btn-n ml8 plr16 ptb8", onClick: this.handelClickSubmit },
                         "\u6821\u9A8C\u8868\u5355"
-                    )
-                ),
-                _react2.default.createElement(
-                    _tab.Tab.Group,
-                    null,
-                    _react2.default.createElement(
-                        _tab.Tab,
-                        { title: "hello", defaultChecked: true },
-                        "123"
-                    ),
-                    _react2.default.createElement(
-                        _tab.Tab,
-                        { title: "123" },
-                        "qwer"
-                    ),
-                    _react2.default.createElement(
-                        _tab.Tab,
-                        { title: "qwe" },
-                        "12asdf3"
                     )
                 )
             );

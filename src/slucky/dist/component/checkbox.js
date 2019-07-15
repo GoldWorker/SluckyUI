@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Checkbox = undefined;
+exports.CheckboxFontIn = exports.Checkbox = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -38,7 +38,7 @@ var Checkbox = exports.Checkbox = function (_Component) {
 
             return _react2.default.createElement(
                 "div",
-                { className: "checkbox-box-normalize mr16" },
+                { className: "checkbox-box-normalize mr16 mb8" },
                 _react2.default.createElement("input", {
                     id: this.id,
                     type: "checkbox",
@@ -109,6 +109,7 @@ var Group = function (_Component2) {
                     if (_this4.props.defaultValue == item.value) {
                         _this4.selected.push(item.value);
                     }
+
                     return _react2.default.createElement(Checkbox, {
                         key: index,
                         defaultChecked: _this4.props.defaultValue == item.value,
@@ -126,4 +127,112 @@ var Group = function (_Component2) {
     return Group;
 }(_react.Component);
 
+var CheckboxFontIn = exports.CheckboxFontIn = function (_Component3) {
+    _inherits(CheckboxFontIn, _Component3);
+
+    function CheckboxFontIn() {
+        _classCallCheck(this, CheckboxFontIn);
+
+        var _this5 = _possibleConstructorReturn(this, (CheckboxFontIn.__proto__ || Object.getPrototypeOf(CheckboxFontIn)).call(this));
+
+        _this5.id = Math.random().toString(36).substring(2);
+        return _this5;
+    }
+
+    _createClass(CheckboxFontIn, [{
+        key: "render",
+        value: function render() {
+            var _this6 = this;
+
+            return _react2.default.createElement(
+                "div",
+                { className: "checkbox-box-fontstyle d-il mr16 mb8" },
+                _react2.default.createElement("input", {
+                    id: this.id,
+                    type: "checkbox",
+                    className: "d-n",
+                    name: this.props.name,
+                    value: this.props.value,
+                    defaultChecked: this.props.defaultChecked,
+                    onChange: function onChange(e) {
+                        return _this6.props.onAction(e);
+                    } }),
+                _react2.default.createElement(
+                    "label",
+                    {
+                        htmlFor: this.id,
+                        className: "checkbox-fontstyle mb0"
+                    },
+                    _react2.default.createElement(
+                        "span",
+                        { className: "m0" },
+                        this.props.label || ''
+                    )
+                )
+            );
+        }
+    }]);
+
+    return CheckboxFontIn;
+}(_react.Component);
+
+var GroupFontIn = function (_Component4) {
+    _inherits(GroupFontIn, _Component4);
+
+    function GroupFontIn() {
+        _classCallCheck(this, GroupFontIn);
+
+        var _this7 = _possibleConstructorReturn(this, (GroupFontIn.__proto__ || Object.getPrototypeOf(GroupFontIn)).call(this));
+
+        _this7.name = Math.random().toString(36).substring(2);
+        _this7.selected = [];
+        return _this7;
+    }
+
+    _createClass(GroupFontIn, [{
+        key: "onAction",
+        value: function onAction(e) {
+            var _e$target2 = e.target,
+                value = _e$target2.value,
+                checked = _e$target2.checked;
+
+            if (checked) {
+                this.selected.push(value);
+            } else {
+                var ind = this.selected.indexOf(value);
+                ind != -1 && this.selected.splice(ind, 1);
+            }
+            this.props.onChange(this.selected);
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            var _this8 = this;
+
+            return _react2.default.createElement(
+                "div",
+                { className: this.props.className || '' },
+                this.props.children ? null : this.props.option.map(function (item, index) {
+                    if (_this8.props.defaultValue == item.value) {
+                        _this8.selected.push(item.value);
+                    }
+
+                    return _react2.default.createElement(CheckboxFontIn, {
+                        key: index,
+                        defaultChecked: _this8.props.defaultValue == item.value,
+                        name: _this8.name,
+                        label: item.label,
+                        value: item.value,
+                        onAction: function onAction(e) {
+                            return _this8.onAction(e);
+                        } });
+                })
+            );
+        }
+    }]);
+
+    return GroupFontIn;
+}(_react.Component);
+
 Checkbox.Group = Group;
+Checkbox.GroupFontIn = GroupFontIn;

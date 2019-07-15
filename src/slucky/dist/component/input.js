@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -7,7 +7,7 @@ exports.Input = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -32,44 +32,44 @@ var Input = exports.Input = function (_Component) {
     }
 
     _createClass(Input, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             var _this2 = this;
 
             return _react2.default.createElement(
-                "div",
-                { className: "d-f ac" },
+                'div',
+                { className: 'd-f ac', style: { width: this.props.width || 384 + 'px' } },
                 this.props.labelName ? _react2.default.createElement(
-                    "div",
-                    { className: "s0", style: { width: this.props.labelWidth || 96 + 'px' } },
+                    'div',
+                    { className: 's0', style: { width: this.props.labelWidth || 96 + 'px' } },
                     _react2.default.createElement(
-                        "label",
+                        'label',
                         { htmlFor: this.id },
                         this.props.labelName
                     )
                 ) : null,
                 typeof this.props.value === 'undefined' ? _react2.default.createElement(
-                    "div",
-                    null,
-                    _react2.default.createElement("input", {
+                    'div',
+                    { style: { width: this.props.width || 384 + 'px' } },
+                    _react2.default.createElement('input', {
                         id: this.props.id || this.id || '',
                         onChange: function onChange(e) {
                             return _this2.props.onChange && _this2.props.onChange(e.target.value);
                         },
                         style: { width: this.props.width || 384 + 'px' },
                         placeholder: this.props.placeholder || '',
-                        type: "text",
-                        className: "input-normal",
+                        type: 'text',
+                        className: 'input-normal',
                         maxLength: this.props.maxLength || '100' }),
                     _react2.default.createElement(
-                        "div",
-                        { className: "fs12 c-fail p-a pt2" },
+                        'div',
+                        { className: 'fs12 c-fail p-a pt2' },
                         this.props.error && this.props.error()
                     )
                 ) : _react2.default.createElement(
-                    "div",
-                    null,
-                    _react2.default.createElement("input", {
+                    'div',
+                    { style: { width: this.props.width || 384 + 'px' } },
+                    _react2.default.createElement('input', {
                         id: this.props.id || this.id || '',
                         onChange: function onChange(e) {
                             return _this2.props.onChange && _this2.props.onChange(e.target.value);
@@ -77,12 +77,12 @@ var Input = exports.Input = function (_Component) {
                         style: { width: this.props.width || 384 + 'px' },
                         value: this.props.value || '',
                         placeholder: this.props.placeholder || '',
-                        type: "text",
-                        className: "input-normal",
+                        type: 'text',
+                        className: 'input-normal',
                         maxLength: this.props.maxLength || '100' }),
                     _react2.default.createElement(
-                        "div",
-                        { className: "fs12 c-fail p-a pt2" },
+                        'div',
+                        { className: 'fs12 c-fail p-a pt2' },
                         this.props.error && this.props.error()
                     )
                 )

@@ -171,13 +171,21 @@ var Table = exports.Table = function (_Component) {
                                     { className: 'bor-b b-side', key: i },
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'table-list d-f ac jc-b' },
+                                        { className: 'table-list d-f ac jc-b p-r' },
                                         _this3.props.dataconf.map(function (conf, k) {
-                                            var _React$createElement;
+                                            if (conf.progress) {
+                                                return _react2.default.createElement('progress', _defineProperty({ className: 'p-a w-full', style: { height: 3 + '%', top: 'unset', bottom: 0 }, max: '100', value: conf.progress && conf.progress(data)
+                                                }, 'className', 'progress-loading'));
+                                            } else {
+                                                return null;
+                                            }
+                                        }),
+                                        _this3.props.dataconf.map(function (conf, k) {
+                                            var _React$createElement2;
 
                                             return _react2.default.createElement(
                                                 'div',
-                                                (_React$createElement = { className: 'd-il ptb12 plr6 ta-c p-r s0 fw-w', style: 'cursor:pointer' }, _defineProperty(_React$createElement, 'style', { 'width': conf.width }), _defineProperty(_React$createElement, 'key', k), _React$createElement),
+                                                (_React$createElement2 = { className: 'd-il ptb12 plr6 ta-c p-r s0 fw-w', style: 'cursor:pointer' }, _defineProperty(_React$createElement2, 'style', { 'width': conf.width }), _defineProperty(_React$createElement2, 'key', k), _React$createElement2),
                                                 !conf.handle && !conf.pipe && !conf.textarea && !conf.progress && !conf.tagList && !conf.input ? _react2.default.createElement(
                                                     'span',
                                                     null,
@@ -244,9 +252,7 @@ Table.handleProgress = function (data, conf) {
             'span',
             { className: 'p-r z10' },
             data[conf.name]
-        ) : null,
-        _react2.default.createElement('progress', { max: '100', value: conf.progress && conf.progress(data),
-            className: 'progress-loading' })
+        ) : null
     );
 };
 
@@ -269,5 +275,25 @@ Table.handleCheckbox = function (self_this, data, i, conf) {
             )
         ),
         _react2.default.createElement('label', { htmlFor: 'checkbox_normalize_table' + i, className: 'p-r z10' })
+    );
+};
+
+Table.handelPopup = function (handleItem) {
+    return _react2.default.createElement(
+        'div',
+        { 'class': 'pop-box' },
+        _react2.default.createElement(
+            'div',
+            { className: 'pop-toggle ptb4 mlr4' },
+            _react2.default.createElement(
+                'div',
+                { className: 'pop-main pr8' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'pop-content' },
+                    handleItem.pipe(data, i)
+                )
+            )
+        )
     );
 };

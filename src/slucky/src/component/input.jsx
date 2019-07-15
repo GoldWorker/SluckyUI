@@ -8,7 +8,7 @@ export class Input extends Component {
 
     render() {
         return (
-            <div className="d-f ac">
+            <div className="d-f ac" style={{ width: this.props.width || 384 + 'px' }}>
                 {
                     this.props.labelName ? <div className="s0" style={{ width: this.props.labelWidth || 96 + 'px' }}>
                         <label htmlFor={this.id}>{this.props.labelName}</label>
@@ -16,7 +16,7 @@ export class Input extends Component {
                 }
                 {
                     typeof this.props.value === 'undefined' ?
-                        <div>
+                        <div style={{ width: this.props.width || 384 + 'px' }}>
                             <input
                                 id={this.props.id || this.id || ''}
                                 onChange={(e) => this.props.onChange && this.props.onChange(e.target.value)}
@@ -26,7 +26,7 @@ export class Input extends Component {
                                 className="input-normal"
                                 maxLength={this.props.maxLength || '100'} />
                             <div className="fs12 c-fail p-a pt2">{this.props.error && this.props.error()}</div>
-                        </div> : <div>
+                        </div> : <div style={{ width: this.props.width || 384 + 'px' }}>
                             <input
                                 id={this.props.id || this.id || ''}
                                 onChange={(e) => this.props.onChange && this.props.onChange(e.target.value)}

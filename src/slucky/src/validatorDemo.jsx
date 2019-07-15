@@ -69,13 +69,25 @@ export class ValidatorDemo extends Component {
                     { label: 'Orange', value: 'Orange' }
                 ]} />
 
+                <Checkbox.GroupFontIn className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected) }} option={[
+                    { label: 'Apple', value: 'Apple' },
+                    { label: 'Pear', value: 'Pear' },
+                    { label: 'Orange', value: 'Orange' }
+                ]} />
+                
                 <Switch />
 
-                <div className="d-f ac mb24">
+                <Tab.Group>
+                    <Tab title='hello' defaultChecked={true}>123</Tab>
+                    <Tab title='123'>qwer</Tab>
+                    <Tab title='qwe'>12asdf3</Tab>
+                </Tab.Group>
+
+                <div className="d-f ac mb24 mt36">
                     <div className="w96 s0">
                         <label htmlFor="name">Name:</label>
                     </div>
-                    <Input id="name" value={this.state.name} onChange={(name) => { this.setState({ name }) }} error={() => this.Validator.formatRes('name')} />
+                    <Input id="name" width="100%" value={this.state.name} onChange={(name) => { this.setState({ name }) }} error={() => this.Validator.formatRes('name')} />
                 </div>
                 <div className="d-f ac mb24">
                     <div className="w96 s0">
@@ -92,11 +104,7 @@ export class ValidatorDemo extends Component {
                 <div className="w384 ta-c">
                     <button className="btn-n ml8 plr16 ptb8" onClick={this.handelClickSubmit}>校验表单</button>
                 </div>
-                <Tab.Group>
-                    <Tab title='hello' defaultChecked={true}>123</Tab>
-                    <Tab title='123'>qwer</Tab>
-                    <Tab title='qwe'>12asdf3</Tab>
-                </Tab.Group>
+                
             </div>
         )
     }

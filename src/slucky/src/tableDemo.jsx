@@ -29,58 +29,100 @@ export class TableDemo extends Component {
     }
     render() {
         const demoString = '``` jsx' + `
+import React, { Component } from 'react'
+import { Table, Paging } from 'slucky'
+
 class TableDemo extends Component {
     handleChangePage = (currentPage) => {
         console.log(currentPage);
     }
     render(){
-        const dataconf = [{
-            title: 'ID',
-            name: 'id',
-            width: '25%'
-        }, {
-            title: '姓名',
-            name: 'name',
-            width: '25%'
-        }, {
-            title: '身高',
-            name: 'height',
-            width: '25%'
-        }, {
-            title: '',
-            width: '25%',
-            name: 'action2',
-            type: 'action',
-            handles: [
-                {
-                    name: '配置',
-                    btnType: 'text',
-                    handle: (data) => {
-                        alert('配置')
-                        console.log(data);
-                    }
-                }, {
-                    name: '备注',
-                    btnType: 'text',
-                    handle: (data) => {
-                        alert('备注')
-                        console.log(data);
-                    }
-                }]
-        }]
-        
+        const dataconf = [
+            {
+                title: '',
+                width: '10%',
+                checkbox: true,
+                handle: (list) => {
+                    console.log(list)
+                }
+            },
+            {
+                title: 'progress',
+                name: 'progress',
+                width: '25%',
+                progress: (data) => {
+                    return data['progress']
+                },
+                pipe: (data) => {
+                    return {data['progress']}
+                }
+            },
+            {
+                title: 'ID',
+                name: 'id',
+                width: '10%'
+            }, {
+                title: '姓名',
+                name: 'name',
+                width: '10%'
+            }, {
+                title: '身高',
+                name: 'height',
+                width: '10%'
+            },
+            {
+                width: '10%',
+                name: '提示',
+                popup: (data) => {
+                    return (
+                        <div>
+                            <pre className="c-text-w fs18">Title</pre>
+                            <pre className="c-text-w">SluckyUI的跨平台性质可快速加工成react，vue，angular的组件</pre>
+                            <pre className="c-text-w">SluckyUI的跨平台性质可快速加工成react，vue，angular的组件</pre>
+                            <pre className="c-text-w">SluckyUI的跨平台性质可快速加工成react，vue，angular的组件</pre>
+                        </div>
+                    )
+                }
+            },
+            {
+                title: '',
+                width: '25%',
+                name: 'action2',
+                type: 'action',
+                handles: [
+                    {
+                        name: '配置',
+                        btnType: 'text',
+                        handle: (data) => {
+                            alert('配置')
+                            console.log(data);
+                        }
+                    },
+                    {
+                        name: '删除',
+                        btnType: 'text',
+                        handle: (data) => {
+                            alert('备注')
+                            console.log(data);
+                        }
+                    }]
+            }
+        ]
         const dataset = [{
             id: 1,
             name: 'Apple',
-            height: 178
+            height: 178,
+            progress: 30
         }, {
             id: 2,
             name: 'Boy',
-            height: 177
+            height: 177,
+            progress: 60
         }, {
             id: 3,
             name: 'Cat',
-            height: 176
+            height: 176,
+            progress: 90
         }]
         
         const pageInfo = {
@@ -94,70 +136,92 @@ class TableDemo extends Component {
     }
 }
 `
-        const dataconf = [{
-            title: '',
-            width: '10%',
-            checkbox: true,
-            handle: (list) => {
-                console.log(list)
-            }
-        },
-        {
-            title: 'progress',
-            name: 'progress',
-            width: '20%',
-            progress: () => {
-                return 50
+        const dataconf = [
+            {
+                title: '',
+                width: '10%',
+                checkbox: true,
+                handle: (list) => {
+                    console.log(list)
+                }
             },
-            pipe: () => {
-                return `${50}%`
+            {
+                title: 'progress',
+                name: 'progress',
+                width: '25%',
+                progress: (data) => {
+                    return data['progress']
+                },
+                pipe: (data) => {
+                    return `${data['progress']}%`
+                }
+            },
+            {
+                title: 'ID',
+                name: 'id',
+                width: '10%'
+            }, {
+                title: '姓名',
+                name: 'name',
+                width: '10%'
+            }, {
+                title: '身高',
+                name: 'height',
+                width: '10%'
+            },
+            {
+                width: '10%',
+                name: '提示',
+                popup: (data) => {
+                    return (
+                        <div>
+                            <pre className="c-text-w fs18">Title</pre>
+                            <pre className="c-text-w">SluckyUI的跨平台性质可快速加工成react，vue，angular的组件</pre>
+                            <pre className="c-text-w">SluckyUI的跨平台性质可快速加工成react，vue，angular的组件</pre>
+                            <pre className="c-text-w">SluckyUI的跨平台性质可快速加工成react，vue，angular的组件</pre>
+                        </div>
+                    )
+                }
+            },
+            {
+                title: '',
+                width: '25%',
+                name: 'action2',
+                type: 'action',
+                handles: [
+                    {
+                        name: '配置',
+                        btnType: 'text',
+                        handle: (data) => {
+                            alert('配置')
+                            console.log(data);
+                        }
+                    },
+                    {
+                        name: '删除',
+                        btnType: 'text',
+                        handle: (data) => {
+                            alert('备注')
+                            console.log(data);
+                        }
+                    }]
             }
-        }, {
-            title: 'ID',
-            name: 'id',
-            width: '15%'
-        }, {
-            title: '姓名',
-            name: 'name',
-            width: '15%'
-        }, {
-            title: '身高',
-            name: 'height',
-            width: '15%'
-        }, {
-            title: '',
-            width: '25%',
-            name: 'action2',
-            type: 'action',
-            handles: [
-                {
-                    name: '配置',
-                    btnType: 'text',
-                    handle: (data) => {
-                        alert('配置')
-                        console.log(data);
-                    }
-                }, {
-                    name: '备注',
-                    btnType: 'text',
-                    handle: (data) => {
-                        alert('备注')
-                        console.log(data);
-                    }
-                }]
-        }]
+        ]
         const dataset = [{
             id: 1,
             name: 'Apple',
-            height: 178
+            height: 178,
+            progress: 30
         }, {
             id: 2,
             name: 'Boy',
-            height: 177
+            height: 177,
+            progress: 60
         }, {
             id: 3,
             name: 'Cat',
-            height: 176
+            height: 176,
+            progress: 90
         }]
 
         return (

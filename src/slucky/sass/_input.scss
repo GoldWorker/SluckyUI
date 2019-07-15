@@ -290,21 +290,24 @@
 
 .checkbox-box-fontstyle {
     .checkbox-fontstyle {
+        background-color: #F6F8F9;
+        display: inline-block;
+        margin-bottom: 4px;
         .fontstyle-sign {
             padding-right: 2px;
             opacity: 0;
         }
 
-        padding: 2px 6px 2px 6px;
-        border: 1px solid $color_input_def;
-        border-radius: 2px;
+        padding: 4px 8px 4px 8px;
+        // border: 1px solid $color_input_def;
+        border-radius: 100px;
         transition: all .3s;
         cursor: pointer;
     }
 
     & input[type="checkbox"]:checked+.checkbox-fontstyle {
         background-color: $theme_color;
-        border: 1px solid $theme_color;
+        // border: 1px solid $theme_color;
         color: #fff;
 
         .fontstyle-sign {

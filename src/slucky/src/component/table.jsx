@@ -76,7 +76,7 @@ export class Table extends Component {
                         </div>) : null
                     }
 
-                    <div className="slucky-table" style={{ 'width': this.props.maxWidth, 'overflow': 'auto', 'maxHeight': this.props.maxHeight }}>
+                    <div className="slucky-table" style={{ 'width': this.props.maxWidth, 'maxHeight': this.props.maxHeight }}>
                         {/* table header */}
                         <div className={['bg-title d-f ac', this.props.fixTitle ? 'table-fix' : ''].join(' ')}>
                             {
@@ -116,13 +116,24 @@ export class Table extends Component {
                                 this.props.dataset.map((data, i) => {
                                     return (
                                         <div className="bor-b b-side" key={i}>
-                                            <div className="table-list d-f ac jc-b">
+                                            <div className="table-list d-f ac jc-b p-r">
                                                 {/* 行循环 */}
+                                                {
+                                                    this.props.dataconf.map((conf, k) => {
+                                                        if (conf.progress) {
+                                                            return <progress className="p-a w-full" style={{ height: conf.progressWidth || 3 + '%', top: 'unset', bottom: 0 }} max="100" value={conf.progress && conf.progress(data)}
+                                                                className="progress-loading"></progress>
+                                                        } else {
+                                                            return null
+                                                        }
+                                                    })
+                                                }
                                                 {
                                                     this.props.dataconf.map((conf, k) => {
                                                         return (
                                                             <div className="d-il ptb12 plr6 ta-c p-r s0 fw-w" style="cursor:pointer" style={{ 'width': conf.width }} key={k}>
                                                                 {/* Base */}
+
                                                                 {
                                                                     !conf.handle && !conf.pipe && !conf.textarea && !conf.progress && !conf.tagList && !conf.input ? <span>{data[conf.name]}</span> : null
                                                                 }
@@ -154,6 +165,23 @@ export class Table extends Component {
                                                                 {
                                                                     conf.checkbox ? (
                                                                         Table.handleCheckbox(this, data, i, conf)
+                                                                    ) : null
+                                                                }
+                                                                {/* popup */}
+                                                                {
+                                                                    conf.popup ? (
+                                                                        <div className="pop-box">
+                                                                            <div className="b-theme pop-toggle plr4">
+                                                                                <span className="c-theme">{conf.name || ''}</span>
+                                                                                <div className="pop-main pl8">
+                                                                                    <div className="pop-content p24 bg-b ta-l shadow fs14">
+                                                                                        {
+                                                                                            conf.popup(data, i)
+                                                                                        }
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     ) : null
                                                                 }
                                                             </div>
@@ -204,8 +232,8 @@ Table.handleProgress = (data, conf) => {
                     <span className="p-r z10">{data[conf.name]}</span>
                 ) : null
             }
-            <progress max="100" value={conf.progress && conf.progress(data)}
-                className="progress-loading"></progress>
+            {/* <progress max="100" value={conf.progress && conf.progress(data)}
+                className="progress-loading"></progress> */}
         </div>
     )
 }
@@ -220,6 +248,20 @@ Table.handleCheckbox = (self_this, data, i, conf) => {
                 <span className="checkbox-hook-in fs12 op0">✓</span>
             </span>
             <label htmlFor={'checkbox_normalize_table' + i} className="p-r z10"></label>
+        </div>
+    )
+}
+
+Table.handelPopup = (handleItem) => {
+    return (
+        <div class="pop-box">
+            <div className="pop-toggle ptb4 mlr4">
+                <div className="pop-main pr8">
+                    <div className="pop-content">
+                        {handleItem.pipe(data, i)}
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

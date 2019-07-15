@@ -117,7 +117,7 @@
         border-radius: 2px;
         z-index: 99;
         animation: toast-fade-in .3s;
-
+        cursor: default;
         .pop-content {}
     }
 
@@ -128,6 +128,7 @@
     }
 
     .pop-toggle {
+        cursor: pointer;
         &:hover .pop-main {
             display: block;
         }

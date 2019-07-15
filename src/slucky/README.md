@@ -22,6 +22,41 @@ npm i slucky
 import "slucky/sass/normal.scss";
 ```
 
+## How to change theme
+
+```
+//common.scss
+
+//base
+$side_b:#f4f4f4; //描边 & 模块分割底色
+$side_strong:#cacaca; //按钮描边
+$placeholder_b:#cccccc; //input 级别的提示
+$divider_b: #E5E5E5; //divider分割线
+$hint_b: #888888; //hint & disable
+$icon_b: #666666; //icon & secondary
+$text_b: #222222; //text
+$divider_w: rgba(white, .12); //divider
+$hint_w: rgba(white, .3); //hint disable
+$icon_w: rgba(white, .7); //icon secondary
+$text_w: rgb(255, 255, 255); //text
+
+//status
+$success_green:#03b266;
+$fail_red:#ff4444;
+$warn_yellow:#fc7e36;
+$disable:#898183;
+
+//shadow
+$shadow_color: 0 2px 2px 0 rgba(0, 0, 0, 0.05),
+0 1px 4px 0 rgba(0, 0, 0, 0.08),
+0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+//main color
+$theme_color:#000
+
+import "slucky/sass/normal.scss";
+```
+
 > 这时就可以使用除二次开发外的SluckyUI组件了，直接前往 http://www.brandf.cn 复制相应组件的代码即可
 
 ## How to use SluckyUI for React

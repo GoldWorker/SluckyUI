@@ -79,11 +79,11 @@ var TableDemo = exports.TableDemo = function (_Component) {
                 title: 'progress',
                 name: 'progress',
                 width: '20%',
-                progress: function progress() {
-                    return 50;
+                progress: function progress(data) {
+                    return data['progress'];
                 },
-                pipe: function pipe() {
-                    return 50 + '%';
+                pipe: function pipe(data) {
+                    return data['progress'] + '%';
                 }
             }, {
                 title: 'ID',
@@ -121,15 +121,18 @@ var TableDemo = exports.TableDemo = function (_Component) {
             var dataset = [{
                 id: 1,
                 name: 'Apple',
-                height: 178
+                height: 178,
+                progress: 30
             }, {
                 id: 2,
                 name: 'Boy',
-                height: 177
+                height: 177,
+                progress: 60
             }, {
                 id: 3,
                 name: 'Cat',
-                height: 176
+                height: 176,
+                progress: 90
             }];
 
             return _react2.default.createElement(
