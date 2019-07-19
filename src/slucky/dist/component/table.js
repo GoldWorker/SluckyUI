@@ -115,10 +115,10 @@ var Table = exports.Table = function (_Component) {
                     ) : null,
                     _react2.default.createElement(
                         'div',
-                        { className: 'slucky-table', style: { 'width': this.props.maxWidth, 'overflow': 'auto', 'maxHeight': this.props.maxHeight } },
+                        { className: 'slucky-table', style: { 'width': this.props.maxWidth, 'maxHeight': this.props.maxHeight } },
                         _react2.default.createElement(
                             'div',
-                            { className: ['bg-title d-f ac', this.props.fixTitle ? 'table-fix' : ''].join(' ') },
+                            { className: ['table-header d-f ac', this.props.fixTitle ? 'table-fix' : ''].join(' ') },
                             this.props.dataconf.map(function (conf, i) {
                                 // 全选选项
                                 if (conf.checkbox) {
@@ -168,41 +168,59 @@ var Table = exports.Table = function (_Component) {
                             this.props.dataset.map(function (data, i) {
                                 return _react2.default.createElement(
                                     'div',
-                                    { className: 'bor-b b-side', key: i },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'table-list d-f ac jc-b p-r' },
-                                        _this3.props.dataconf.map(function (conf, k) {
-                                            if (conf.progress) {
-                                                return _react2.default.createElement('progress', _defineProperty({ className: 'p-a w-full', style: { height: 3 + '%', top: 'unset', bottom: 0 }, max: '100', value: conf.progress && conf.progress(data)
-                                                }, 'className', 'progress-loading'));
-                                            } else {
-                                                return null;
-                                            }
-                                        }),
-                                        _this3.props.dataconf.map(function (conf, k) {
-                                            var _React$createElement2;
+                                    { className: 'table-list d-f ac jc-b p-r', key: i },
+                                    _this3.props.dataconf.map(function (conf, i) {
+                                        if (conf.progress) {
+                                            return _react2.default.createElement('progress', _defineProperty({ key: i, className: 'p-a w-full', style: { height: conf.progressWidth || 2 + 'px', top: 'unset', bottom: 0 }, max: '100', value: conf.progress && conf.progress(data)
+                                            }, 'className', 'progress-loading'));
+                                        } else {
+                                            return null;
+                                        }
+                                    }),
+                                    _this3.props.dataconf.map(function (conf, k) {
+                                        var _React$createElement2;
 
-                                            return _react2.default.createElement(
+                                        return _react2.default.createElement(
+                                            'div',
+                                            (_React$createElement2 = { className: 'd-il ptb12 plr6 ta-c p-r s0 fw-w', style: 'cursor:pointer' }, _defineProperty(_React$createElement2, 'style', { 'width': conf.width }), _defineProperty(_React$createElement2, 'key', k), _React$createElement2),
+                                            !conf.handle && !conf.pipe && !conf.textarea && !conf.progress && !conf.tagList && !conf.input ? _react2.default.createElement(
+                                                'span',
+                                                null,
+                                                data[conf.name]
+                                            ) : null,
+                                            conf.handles ? Table.handleActions(_this3, conf.handles, data, i) : null,
+                                            conf.pipe ? _react2.default.createElement(
+                                                'span',
+                                                { className: 'p-r z10' },
+                                                conf.pipe(data, i)
+                                            ) : null,
+                                            conf.textarea ? _react2.default.createElement('textarea', { rows: '4', className: 'textarea w-full', value: data[conf.name], readonly: true }) : null,
+                                            conf.progress && conf.progress(data) ? Table.handleProgress(data, conf) : null,
+                                            conf.checkbox ? Table.handleCheckbox(_this3, data, i, conf) : null,
+                                            conf.popup ? _react2.default.createElement(
                                                 'div',
-                                                (_React$createElement2 = { className: 'd-il ptb12 plr6 ta-c p-r s0 fw-w', style: 'cursor:pointer' }, _defineProperty(_React$createElement2, 'style', { 'width': conf.width }), _defineProperty(_React$createElement2, 'key', k), _React$createElement2),
-                                                !conf.handle && !conf.pipe && !conf.textarea && !conf.progress && !conf.tagList && !conf.input ? _react2.default.createElement(
-                                                    'span',
-                                                    null,
-                                                    data[conf.name]
-                                                ) : null,
-                                                conf.handles ? Table.handleActions(_this3, conf.handles, data, i) : null,
-                                                conf.pipe ? _react2.default.createElement(
-                                                    'span',
-                                                    { className: 'p-r z10' },
-                                                    conf.pipe(data, i)
-                                                ) : null,
-                                                conf.textarea ? _react2.default.createElement('textarea', { rows: '4', className: 'textarea w-full', value: data[conf.name], readonly: true }) : null,
-                                                conf.progress && conf.progress(data) ? Table.handleProgress(data, conf) : null,
-                                                conf.checkbox ? Table.handleCheckbox(_this3, data, i, conf) : null
-                                            );
-                                        })
-                                    )
+                                                { className: 'pop-box' },
+                                                _react2.default.createElement(
+                                                    'div',
+                                                    { className: 'b-theme pop-toggle plr4' },
+                                                    _react2.default.createElement(
+                                                        'span',
+                                                        { className: 'c-theme' },
+                                                        conf.name || ''
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'pop-main pl8' },
+                                                        _react2.default.createElement(
+                                                            'div',
+                                                            { className: 'pop-content p24 bg-b ta-l shadow fs14' },
+                                                            conf.popup(data, i)
+                                                        )
+                                                    )
+                                                )
+                                            ) : null
+                                        );
+                                    })
                                 );
                             })
                         )

@@ -78,12 +78,12 @@ export class Table extends Component {
 
                     <div className="slucky-table" style={{ 'width': this.props.maxWidth, 'maxHeight': this.props.maxHeight }}>
                         {/* table header */}
-                        <div className={['bg-title d-f ac', this.props.fixTitle ? 'table-fix' : ''].join(' ')}>
+                        <div className={['table-header d-f ac', this.props.fixTitle ? 'table-fix' : ''].join(' ')}>
                             {
                                 this.props.dataconf.map((conf, i) => {
                                     // 全选选项
                                     if (conf.checkbox) {
-                                        return <div key={i} className="ptb16 plr6 d-il ta-c table-title s0" style={{ 'width': conf.width }}></div>
+                                        return <div key={i} className="ptb24 plr6 d-il ta-c table-title s0" style={{ 'width': conf.width }}></div>
                                         return (
                                             <div key={i} className="ptb16 plr6 d-il ta-c table-title s0" style={{ 'width': conf.width }}>
                                                 <div className="checkbox-box-normalize">
@@ -98,7 +98,7 @@ export class Table extends Component {
                                         )
                                     }
                                     return (
-                                        !conf.checkbox && conf.title ? <div className="ptb16 d-il ta-c table-title s0" style={{ 'width': conf.width }} key={i}>{conf.title}</div> : null
+                                        !conf.checkbox && conf.title ? <div className="ptb24 d-il ta-c table-title s0" style={{ 'width': conf.width }} key={i}>{conf.title}</div> : null
                                     )
                                 })
                             }
@@ -115,80 +115,78 @@ export class Table extends Component {
                             {
                                 this.props.dataset.map((data, i) => {
                                     return (
-                                        <div className="bor-b b-side" key={i}>
-                                            <div className="table-list d-f ac jc-b p-r">
-                                                {/* 行循环 */}
-                                                {
-                                                    this.props.dataconf.map((conf, k) => {
-                                                        if (conf.progress) {
-                                                            return <progress className="p-a w-full" style={{ height: conf.progressWidth || 3 + '%', top: 'unset', bottom: 0 }} max="100" value={conf.progress && conf.progress(data)}
-                                                                className="progress-loading"></progress>
-                                                        } else {
-                                                            return null
-                                                        }
-                                                    })
-                                                }
-                                                {
-                                                    this.props.dataconf.map((conf, k) => {
-                                                        return (
-                                                            <div className="d-il ptb12 plr6 ta-c p-r s0 fw-w" style="cursor:pointer" style={{ 'width': conf.width }} key={k}>
-                                                                {/* Base */}
+                                        <div className="table-list d-f ac jc-b p-r" key={i}>
+                                            {/* 行循环 */}
+                                            {
+                                                this.props.dataconf.map((conf, i) => {
+                                                    if (conf.progress) {
+                                                        return <progress key={i} className="p-a w-full" style={{ height: conf.progressWidth || 2 + 'px', top: 'unset', bottom: 0 }} max="100" value={conf.progress && conf.progress(data)}
+                                                            className="progress-loading"></progress>
+                                                    } else {
+                                                        return null
+                                                    }
+                                                })
+                                            }
+                                            {
+                                                this.props.dataconf.map((conf, k) => {
+                                                    return (
+                                                        <div className="d-il ptb12 plr6 ta-c p-r s0 fw-w" style="cursor:pointer" style={{ 'width': conf.width }} key={k}>
+                                                            {/* Base */}
 
-                                                                {
-                                                                    !conf.handle && !conf.pipe && !conf.textarea && !conf.progress && !conf.tagList && !conf.input ? <span>{data[conf.name]}</span> : null
-                                                                }
-                                                                {/* 复杂情况，有多种handle */}
-                                                                {
-                                                                    conf.handles ? (
-                                                                        Table.handleActions(this, conf.handles, data, i)
-                                                                    ) : null
-                                                                }
-                                                                {/* Pipe */}
-                                                                {
-                                                                    conf.pipe ? (
-                                                                        <span className="p-r z10">{conf.pipe(data, i)}</span>
-                                                                    ) : null
-                                                                }
-                                                                {/* Textarea */}
-                                                                {
-                                                                    conf.textarea ? (
-                                                                        <textarea rows="4" className="textarea w-full" value={data[conf.name]} readonly></textarea>
-                                                                    ) : null
-                                                                }
-                                                                {/* Progress */}
-                                                                {
-                                                                    conf.progress && conf.progress(data) ? (
-                                                                        Table.handleProgress(data, conf)
-                                                                    ) : null
-                                                                }
-                                                                {/* checkbox */}
-                                                                {
-                                                                    conf.checkbox ? (
-                                                                        Table.handleCheckbox(this, data, i, conf)
-                                                                    ) : null
-                                                                }
-                                                                {/* popup */}
-                                                                {
-                                                                    conf.popup ? (
-                                                                        <div className="pop-box">
-                                                                            <div className="b-theme pop-toggle plr4">
-                                                                                <span className="c-theme">{conf.name || ''}</span>
-                                                                                <div className="pop-main pl8">
-                                                                                    <div className="pop-content p24 bg-b ta-l shadow fs14">
-                                                                                        {
-                                                                                            conf.popup(data, i)
-                                                                                        }
-                                                                                    </div>
+                                                            {
+                                                                !conf.handle && !conf.pipe && !conf.textarea && !conf.progress && !conf.tagList && !conf.input ? <span>{data[conf.name]}</span> : null
+                                                            }
+                                                            {/* 复杂情况，有多种handle */}
+                                                            {
+                                                                conf.handles ? (
+                                                                    Table.handleActions(this, conf.handles, data, i)
+                                                                ) : null
+                                                            }
+                                                            {/* Pipe */}
+                                                            {
+                                                                conf.pipe ? (
+                                                                    <span className="p-r z10">{conf.pipe(data, i)}</span>
+                                                                ) : null
+                                                            }
+                                                            {/* Textarea */}
+                                                            {
+                                                                conf.textarea ? (
+                                                                    <textarea rows="4" className="textarea w-full" value={data[conf.name]} readonly></textarea>
+                                                                ) : null
+                                                            }
+                                                            {/* Progress */}
+                                                            {
+                                                                conf.progress && conf.progress(data) ? (
+                                                                    Table.handleProgress(data, conf)
+                                                                ) : null
+                                                            }
+                                                            {/* checkbox */}
+                                                            {
+                                                                conf.checkbox ? (
+                                                                    Table.handleCheckbox(this, data, i, conf)
+                                                                ) : null
+                                                            }
+                                                            {/* popup */}
+                                                            {
+                                                                conf.popup ? (
+                                                                    <div className="pop-box">
+                                                                        <div className="b-theme pop-toggle plr4">
+                                                                            <span className="c-theme">{conf.name || ''}</span>
+                                                                            <div className="pop-main pl8">
+                                                                                <div className="pop-content p24 bg-b ta-l shadow fs14">
+                                                                                    {
+                                                                                        conf.popup(data, i)
+                                                                                    }
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    ) : null
-                                                                }
-                                                            </div>
-                                                        )
-                                                    })
-                                                }
-                                            </div>
+                                                                    </div>
+                                                                ) : null
+                                                            }
+                                                        </div>
+                                                    )
+                                                })
+                                            }
                                         </div>
                                     )
                                 })

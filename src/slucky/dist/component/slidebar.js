@@ -25,13 +25,50 @@ var Slidebar = exports.Slidebar = function (_Component) {
     function Slidebar() {
         _classCallCheck(this, Slidebar);
 
-        return _possibleConstructorReturn(this, (Slidebar.__proto__ || Object.getPrototypeOf(Slidebar)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Slidebar.__proto__ || Object.getPrototypeOf(Slidebar)).call(this));
+
+        _this.id = Math.random().toString(36).substring(2);
+        return _this;
     }
 
     _createClass(Slidebar, [{
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', null);
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                this.props.labelName ? _react2.default.createElement(
+                    'div',
+                    { className: 's0', style: { width: this.props.labelWidth || 96 + 'px' } },
+                    _react2.default.createElement(
+                        'label',
+                        { htmlFor: this.id },
+                        this.props.labelName
+                    )
+                ) : null,
+                _react2.default.createElement(
+                    'div',
+                    { style: { width: this.props.width || 384 + 'px' } },
+                    _react2.default.createElement('input', {
+                        id: this.props.id || this.id || '',
+                        onChange: function onChange(e) {
+                            return _this2.props.onChange && _this2.props.onChange(e.target.value);
+                        },
+                        style: { width: this.props.width || 384 + 'px' },
+                        value: this.props.value || '',
+                        placeholder: this.props.placeholder || '',
+                        type: 'text',
+                        className: 'input-normal',
+                        maxLength: this.props.maxLength || '100' }),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'fs12 c-fail p-a pt2' },
+                        this.props.error && this.props.error()
+                    )
+                )
+            );
         }
     }]);
 

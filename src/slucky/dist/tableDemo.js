@@ -67,7 +67,7 @@ var TableDemo = exports.TableDemo = function (_Component) {
     _createClass(TableDemo, [{
         key: 'render',
         value: function render() {
-            var demoString = '``` jsx' + '\nclass TableDemo extends Component {\n    handleChangePage = (currentPage) => {\n        console.log(currentPage);\n    }\n    render(){\n        const dataconf = [{\n            title: \'ID\',\n            name: \'id\',\n            width: \'25%\'\n        }, {\n            title: \'\u59D3\u540D\',\n            name: \'name\',\n            width: \'25%\'\n        }, {\n            title: \'\u8EAB\u9AD8\',\n            name: \'height\',\n            width: \'25%\'\n        }, {\n            title: \'\',\n            width: \'25%\',\n            name: \'action2\',\n            type: \'action\',\n            handles: [\n                {\n                    name: \'\u914D\u7F6E\',\n                    btnType: \'text\',\n                    handle: (data) => {\n                        alert(\'\u914D\u7F6E\')\n                        console.log(data);\n                    }\n                }, {\n                    name: \'\u5907\u6CE8\',\n                    btnType: \'text\',\n                    handle: (data) => {\n                        alert(\'\u5907\u6CE8\')\n                        console.log(data);\n                    }\n                }]\n        }]\n        \n        const dataset = [{\n            id: 1,\n            name: \'Apple\',\n            height: 178\n        }, {\n            id: 2,\n            name: \'Boy\',\n            height: 177\n        }, {\n            id: 3,\n            name: \'Cat\',\n            height: 176\n        }]\n        \n        const pageInfo = {\n            total: 119,\n            maxToShow: 20\n        }\n        return(\n            <Table dataconf={dataconf} dataset={dataset} />\n            <Paging pageInfo={pageInfo} onAction={this.handleChangePage} />\n        )\n    }\n}\n';
+            var demoString = '``` jsx' + '\nimport React, { Component } from \'react\'\nimport { Table, Paging } from \'slucky\'\n\nclass TableDemo extends Component {\n    handleChangePage = (currentPage) => {\n        console.log(currentPage);\n    }\n    render(){\n        const dataconf = [\n            {\n                title: \'\',\n                width: \'10%\',\n                checkbox: true,\n                handle: (list) => {\n                    console.log(list)\n                }\n            },\n            {\n                title: \'progress\',\n                name: \'progress\',\n                width: \'25%\',\n                progress: (data) => {\n                    return data[\'progress\']\n                },\n                pipe: (data) => {\n                    return {data[\'progress\']}\n                }\n            },\n            {\n                title: \'ID\',\n                name: \'id\',\n                width: \'10%\'\n            }, {\n                title: \'\u59D3\u540D\',\n                name: \'name\',\n                width: \'10%\'\n            }, {\n                title: \'\u8EAB\u9AD8\',\n                name: \'height\',\n                width: \'10%\'\n            },\n            {\n                width: \'10%\',\n                name: \'\u63D0\u793A\',\n                popup: (data) => {\n                    return (\n                        <div>\n                            <pre className="c-text-w fs18">Title</pre>\n                            <pre className="c-text-w">SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6</pre>\n                            <pre className="c-text-w">SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6</pre>\n                            <pre className="c-text-w">SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6</pre>\n                        </div>\n                    )\n                }\n            },\n            {\n                title: \'\',\n                width: \'25%\',\n                name: \'action2\',\n                type: \'action\',\n                handles: [\n                    {\n                        name: \'\u914D\u7F6E\',\n                        btnType: \'text\',\n                        handle: (data) => {\n                            alert(\'\u914D\u7F6E\')\n                            console.log(data);\n                        }\n                    },\n                    {\n                        name: \'\u5220\u9664\',\n                        btnType: \'text\',\n                        handle: (data) => {\n                            alert(\'\u5907\u6CE8\')\n                            console.log(data);\n                        }\n                    }]\n            }\n        ]\n        const dataset = [{\n            id: 1,\n            name: \'Apple\',\n            height: 178,\n            progress: 30\n        }, {\n            id: 2,\n            name: \'Boy\',\n            height: 177,\n            progress: 60\n        }, {\n            id: 3,\n            name: \'Cat\',\n            height: 176,\n            progress: 90\n        }]\n        \n        const pageInfo = {\n            total: 119,\n            maxToShow: 20\n        }\n        return(\n            <Table dataconf={dataconf} dataset={dataset} />\n            <Paging pageInfo={pageInfo} onAction={this.handleChangePage} />\n        )\n    }\n}\n';
             var dataconf = [{
                 title: '',
                 width: '10%',
@@ -78,7 +78,7 @@ var TableDemo = exports.TableDemo = function (_Component) {
             }, {
                 title: 'progress',
                 name: 'progress',
-                width: '20%',
+                width: '25%',
                 progress: function progress(data) {
                     return data['progress'];
                 },
@@ -88,15 +88,44 @@ var TableDemo = exports.TableDemo = function (_Component) {
             }, {
                 title: 'ID',
                 name: 'id',
-                width: '15%'
+                width: '10%'
             }, {
                 title: '姓名',
                 name: 'name',
-                width: '15%'
+                width: '10%'
             }, {
                 title: '身高',
                 name: 'height',
-                width: '15%'
+                width: '10%'
+            }, {
+                width: '10%',
+                name: '提示',
+                popup: function popup(data) {
+                    return _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            'pre',
+                            { className: 'c-text-w fs18' },
+                            'Title'
+                        ),
+                        _react2.default.createElement(
+                            'pre',
+                            { className: 'c-text-w' },
+                            'SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6'
+                        ),
+                        _react2.default.createElement(
+                            'pre',
+                            { className: 'c-text-w' },
+                            'SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6'
+                        ),
+                        _react2.default.createElement(
+                            'pre',
+                            { className: 'c-text-w' },
+                            'SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6'
+                        )
+                    );
+                }
             }, {
                 title: '',
                 width: '25%',
@@ -110,7 +139,7 @@ var TableDemo = exports.TableDemo = function (_Component) {
                         console.log(data);
                     }
                 }, {
-                    name: '备注',
+                    name: '删除',
                     btnType: 'text',
                     handle: function handle(data) {
                         alert('备注');

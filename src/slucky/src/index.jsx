@@ -13,6 +13,8 @@ import { Switch } from "./component/switch";
 import { Testarea } from "./component/testarea";
 import { Transfrom3D } from "./component/transfrom3D";
 import { Tab } from "./component/tab";
+import { Select } from "./component/select";
+import { Search } from "./component/search";
 import { Validator } from "./lib/validator";
 
 export {
@@ -31,5 +33,7 @@ export {
     Testarea,
     Transfrom3D,
     Tab,
+    Select,
+    Search,
     Validator
 }

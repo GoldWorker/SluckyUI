@@ -202,12 +202,12 @@ export class Paging extends Component {
         return (
             <div>
                 <div className="d-f ac jc-b">
-                    <div>共{pageInfo.total}条，每页{pageInfo.maxToShow}条</div>
+                    <div className="fs12">共<strong className="plr4">{pageInfo.total}</strong>条，每页<strong className="plr4">{pageInfo.maxToShow}</strong>条</div>
                     <div>
                         <button className="btn-paging arrow-left" onClick={() => this.handleChangePageLeft()}></button>
                         <span onClick={() => this.handleChangePage(this.start)} className={['btn-paging', this.start === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ')}>{this.start}</span>
                         {
-                            this.state.viewBox.before ? <span>...</span> : null
+                            this.state.viewBox.before ? <span className="mr8">...</span> : null
                         }
                         {
                             this.state.viewBox.list.map((item, i) => {
@@ -218,7 +218,7 @@ export class Paging extends Component {
                             })
                         }
                         {
-                            this.state.viewBox.after ? <span>...</span> : null
+                            this.state.viewBox.after ? <span className="mr8">...</span> : null
                         }
                         {
                             this.state.viewBox.width >= 0 ? <span onClick={() => this.handleChangePage(this.end)} className={['btn-paging', this.end === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ')} >{this.end}</span> : null

@@ -17,10 +17,14 @@
     margin-right: 8px;
     font-family: Arial;
     outline: 0;
+    transition: background-color .3s;
+    &:hover{
+        background-color: $table_odd_bg;
+    }
 }
 
 .btn-active {
-    background-color: $theme_color;
+    background-color: $theme_color !important;
     border-color: $theme_color;
     color: #fff;
 }

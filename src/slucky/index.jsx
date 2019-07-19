@@ -14,6 +14,8 @@ import {
     Testarea,
     Transfrom3D,
     Tab,
+    Select,
+    Search,
     Validator
 } from "./dist/index";
 
@@ -33,5 +35,7 @@ export {
     Testarea,
     Transfrom3D,
     Tab,
+    Select,
+    Search,
     Validator
 }

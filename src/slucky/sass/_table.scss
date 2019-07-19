@@ -21,12 +21,18 @@
     content: '-' !important;
 }
 
+.table-header {
+    background-color: $table_header_bg;
+    color: $table_header_c;
+    font-size: $table_header_fs;
+}
+
 .table-title {
     transition: all .3s;
 }
 
 .table-title:hover {
-    background-color: #eaeaea;
+    // background-color: #eaeaea;
 }
 
 .table-list {
@@ -34,12 +40,16 @@
     border-left: 2px transparent solid;
 }
 
-.table-list span{
-    word-break:break-all;
+.table-list:nth-child(odd) {
+    background-color: $table_odd_bg;
+}
+
+.table-list span {
+    word-break: break-all;
 }
 
 .table-list:hover {
-    background-color: #fafafa;
+    background-color: $table_hover;
     // border-left: 2px #26a597 solid;
 }
 

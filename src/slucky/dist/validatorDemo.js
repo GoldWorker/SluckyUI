@@ -23,6 +23,10 @@ var _switch = require("slucky/src/component/switch");
 
 var _tab = require("slucky/src/component/tab");
 
+var _select = require("slucky/src/component/select");
+
+var _search = require("slucky/src/component/search");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -94,6 +98,21 @@ var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
             return _react2.default.createElement(
                 "div",
                 { className: "bor b-side p32 mtb32" },
+                _react2.default.createElement(_search.Search, { onChange: function onChange(v) {
+                        console.log(v);
+                    }, option: ['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh'] }),
+                _react2.default.createElement(_select.Select, { defaultValue: "\u9009\u98792", onChange: function onChange(v) {
+                        console.log(v);
+                    }, option: [{
+                        label: '选项1',
+                        value: 'v1'
+                    }, {
+                        label: '选项2',
+                        value: 'v2'
+                    }, {
+                        label: '选项3',
+                        value: 'v3'
+                    }] }),
                 _react2.default.createElement(_radio.Radio.Group, { className: "pb32", defaultValue: "Pear", onChange: function onChange(e) {
                         _this2.handleChangeRadio(e);
                     }, option: [{ label: 'Apple', value: 'Apple' }, { label: 'Pear', value: 'Pear' }, { label: 'Orange', value: 'Orange' }] }),

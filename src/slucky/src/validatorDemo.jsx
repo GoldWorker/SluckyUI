@@ -5,12 +5,16 @@ import { Radio } from "slucky/src/component/radio";
 import { Checkbox } from "slucky/src/component/checkbox";
 import { Switch } from "slucky/src/component/switch";
 import { Tab } from "slucky/src/component/tab";
+import { Select } from "slucky/src/component/select";
+import { Search } from "slucky/src/component/search";
+// import { Search } from "slucky/distTest/component/search";
+
 export class ValidatorDemo extends Component {
     constructor() {
         super()
         this.state = {
-            name: '',
-            email: '',
+            name: 'asdf',
+            email: '123',
             password: ''
         }
         this.Validator = new Validator()
@@ -56,7 +60,18 @@ export class ValidatorDemo extends Component {
     render() {
         return (
             <div className="bor b-side p32 mtb32">
+                <Search onChange={(v) => { console.log(v) }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 
+                <Select defaultValue="选项2" onChange={(v) => { console.log(v) }} option={[{
+                    label: '选项1',
+                    value: 'v1'
+                }, {
+                    label: '选项2',
+                    value: 'v2'
+                }, {
+                    label: '选项3',
+                    value: 'v3'
+                }]} />
 
                 <Radio.Group className="pb32" defaultValue="Pear" onChange={(e) => { this.handleChangeRadio(e) }} option={[
                     { label: 'Apple', value: 'Apple' },
@@ -74,7 +89,7 @@ export class ValidatorDemo extends Component {
                     { label: 'Pear', value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }
                 ]} />
-                
+
                 <Switch />
 
                 <Tab.Group>
@@ -87,13 +102,13 @@ export class ValidatorDemo extends Component {
                     <div className="w96 s0">
                         <label htmlFor="name">Name:</label>
                     </div>
-                    <Input id="name" width="100%" value={this.state.name} onChange={(name) => { this.setState({ name }) }} error={() => this.Validator.formatRes('name')} />
+                    <Input disabled id="name" width="100%" value={this.state.name} onChange={(name) => { this.setState({ name }) }} error={() => this.Validator.formatRes('name')} />
                 </div>
                 <div className="d-f ac mb24">
                     <div className="w96 s0">
                         <label htmlFor="email">Email:</label>
                     </div>
-                    <Input id="email" onChange={(email) => { this.setState({ email }) }} error={() => this.Validator.formatRes('email')} />
+                    <Input readOnly id="email" value={this.state.email} onChange={(email) => { this.setState({ email }) }} error={() => this.Validator.formatRes('email')} />
                 </div>
                 <div className="d-f ac mb24">
                     <div className="w96 s0">
@@ -104,7 +119,7 @@ export class ValidatorDemo extends Component {
                 <div className="w384 ta-c">
                     <button className="btn-n ml8 plr16 ptb8" onClick={this.handelClickSubmit}>校验表单</button>
                 </div>
-                
+
             </div>
         )
     }
