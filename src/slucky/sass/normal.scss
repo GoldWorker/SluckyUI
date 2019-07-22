@@ -50,8 +50,10 @@ $checkbox_focus_bg: $theme_color !default;
 $checkbox_focus_c: inherit !default;
 
 // btn
-$hoverWaveColor: #ffffff1a !default;
+$hoverWaveColor: $theme_color !default;
 $btn_radius: 3px !default;
+$btn_action_radius: 50px !default;
+$btn_fs: 12px !default;
 
 // table
 $table_odd_bg: #F6F8F9 !default;
@@ -150,7 +152,8 @@ $table_hover: #E8EBED;
         width: 100%;
         height: 100%;
         border-radius: 200px;
-        background-color: $hoverWaveColor;
+        background-color: rgba($color:$hoverColor, $alpha: .1);
+        // background-color: $hoverColor;
         transition: all .3s;
         // z-index: -1;
     }
@@ -693,7 +696,7 @@ $space: 2;
     color: $placeholder_b;
 }
 
-//极光色
+//色
 .c-red {
     color: $fail_red;
 }
@@ -802,7 +805,7 @@ $space: 2;
     border: none;
 }
 
-//极光常用的绿色按钮
+//常用的绿色按钮
 .btn-n {
     @include btn($btn_radius);
     @include hoverWave(#fff);
@@ -811,7 +814,7 @@ $space: 2;
     color: $text_w;
 }
 
-//极光常用的白色按钮
+//常用的白色按钮
 .btn-w {
     @include btn($btn_radius);
     @extend .bg-w; // border-color: $side_strong;
@@ -833,7 +836,7 @@ $space: 2;
     }
 }
 
-//极光常用的红色镂空按钮
+//常用的镂空按钮
 .btn-hollow {
     @include btn($btn_radius);
     @include hoverWave(#fff);
@@ -844,21 +847,36 @@ $space: 2;
     cursor: pointer;
 }
 
-//极光常用镂空tag
-.tag-hollow {
-    @include disableOutline();
-    @include hoverWave(#fff);
-    @extend .tp;
-    @extend .bor;
-    border-color: $theme_color;
+//常用镂空tag
+// .tag-hollow {
+//     @include disableOutline();
+//     @include hoverWave(#fff);
+//     @extend .tp;
+//     @extend .bor;
+//     border-color: $theme_color;
+//     color: $theme_color;
+//     cursor: pointer;
+// }
+
+//操作按钮
+.btn-action {
+    @include btn($btn_action_radius);
+    // @include hoverWave($theme_color);
     color: $theme_color;
+    border: none;
+    transition: background .3s ease-out, color .3s ease-out;
     cursor: pointer;
+
+    &:hover {
+        background-color: $theme_color;
+        color: #fff;
+    }
 }
 
-//极光常用纯文字tag
+//常用纯文字tag
 .tag-text {
     @include disableOutline(); // @include hoverWave($theme_color);
-    @include btn();
+    @include btn($btn_radius);
     @include hoverWave();
     @extend .tp;
     border: none;

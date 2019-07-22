@@ -52,8 +52,9 @@ export default class ButtonDemo extends Component {
                     <button className="btn-n ptb6 plr16 m32">SluckyUI</button>
                     <button className="btn-w bor b-side ptb6 plr16 m32">SluckyUI</button>
                     <button className="btn-hollow ptb6 plr16 m32">SluckyUI</button>
-                    <button className="tag-hollow ptb6 plr16 m32">SluckyUI</button>
+                    {/* <button className="tag-hollow ptb6 plr16 m32">SluckyUI</button> */}
                     <button className="tag-text ptb6 plr16 m32">SluckyUI</button>
+                    <button className="btn-action ptb6 plr16 m32">SluckyUI</button>
                 </div>
                 {/* {console.log(ReactDOMServer.renderToStaticMarkup(<Highlight>{demoString}</Highlight>))} */}
                 {/* 先将md文本解析成html字符串，然后交由highlight去解析 */}
