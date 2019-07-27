@@ -72,7 +72,9 @@ export class Table extends Component {
                 <div className="p-r">
                     {
                         this.props.loading ? (<div className="d-f ac jc table-loading" >
-                            <div data-loader='circle'></div>
+                            {
+                                this.props.loadingOption ? this.props.loadingOption : <div data-loader='circle'></div>
+                            }
                         </div>) : null
                     }
 
@@ -121,7 +123,7 @@ export class Table extends Component {
                                                 this.props.dataconf.map((conf, i) => {
                                                     if (conf.progress) {
                                                         return <progress key={i} className="p-a w-full" style={{ height: conf.progressWidth || 2 + 'px', top: 'unset', bottom: 0 }} max="100" value={conf.progress && conf.progress(data)}
-                                                            className="progress-loading"></progress>
+                                                            className="progress-loading-table"></progress>
                                                     } else {
                                                         return null
                                                     }

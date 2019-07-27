@@ -99,12 +99,12 @@ var ButtonDemo = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'button',
-                        { className: 'tag-hollow ptb6 plr16 m32' },
+                        { className: 'tag-text ptb6 plr16 m32' },
                         'SluckyUI'
                     ),
                     _react2.default.createElement(
                         'button',
-                        { className: 'tag-text ptb6 plr16 m32' },
+                        { className: 'btn-action ptb6 plr16 m32' },
                         'SluckyUI'
                     )
                 ),

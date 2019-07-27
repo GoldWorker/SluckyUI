@@ -7,6 +7,7 @@ import { Switch } from "slucky/src/component/switch";
 import { Tab } from "slucky/src/component/tab";
 import { Select } from "slucky/src/component/select";
 import { Search } from "slucky/src/component/search";
+import { Steps } from "slucky/src/component/steps";
 // import { Search } from "slucky/distTest/component/search";
 
 export class ValidatorDemo extends Component {
@@ -60,6 +61,40 @@ export class ValidatorDemo extends Component {
     render() {
         return (
             <div className="bor b-side p32 mtb32">
+                
+                <Steps isCacheData={true} stepset={[{
+                    title: '1',
+                    content: (data) => {
+                        return <div>
+                            <Search onChange={(v) => { console.log(v) }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
+                        </div>
+                    },
+                    handleNext: (data) => {
+                        return true;
+                    }
+                }, {
+                    title: '-> 2',
+                    content: (data) => {
+                        return <Select defaultValue="选项2" onChange={(v) => { console.log(v) }} option={[{
+                            label: '选项1',
+                            value: 'v1'
+                        }, {
+                            label: '选项2',
+                            value: 'v2'
+                        }, {
+                            label: '选项3',
+                            value: 'v3'
+                        }]} />
+                    },
+                    handleNext: (data) => { return true; }
+                }, {
+                    title: '-> 3',
+                    content: (data) => {
+                        return <div>{data.name}</div>
+                    },
+                    handleNext: (data) => { return true; }
+                }]} onChange={(currentSept) => { console.log(currentSept) }} />
+
                 <Search onChange={(v) => { console.log(v) }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 
                 <Select defaultValue="选项2" onChange={(v) => { console.log(v) }} option={[{

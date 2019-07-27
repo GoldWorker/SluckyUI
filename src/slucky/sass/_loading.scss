@@ -12,6 +12,45 @@
     border-radius: 100%;
 }
 
+[data-loader='bounce'] {
+    min-width: 60px;
+    min-height: 30px;
+    text-align: center;
+    display: -moz-box;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    /* Safari、Opera 以及 Chrome */
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -o-box-pack: center;
+    -o-box-align: center;
+
+    >div {
+        min-height: 14px;
+        min-width: 14px;
+        background-color: $theme_color;
+        border-radius: 100%;
+        display: inline-block;
+        margin: 0 8px;
+        animation: bouncedelay 1.4s infinite ease-in-out;
+        /* 防止动画第一帧开始闪烁*/
+        animation-fill-mode: both;
+    }
+
+    .bounce1 {
+        animation-delay: -0.32s;
+    }
+
+    .bounce2 {
+        animation-delay: -0.16s;
+    }
+
+    .bounce4 {
+        animation-delay: 0.16s;
+    }
+}
+
 .loading-container {
     position: absolute;
     width: 100%;
@@ -88,4 +127,17 @@
     left: 0;
     text-align: center;
     z-index: 19;
+}
+
+@keyframes bouncedelay {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0.0);
+    }
+
+    40% {
+        transform: scale(1.0);
+    }
 }

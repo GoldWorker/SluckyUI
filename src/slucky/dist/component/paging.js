@@ -35,8 +35,8 @@ var Paging = exports.Paging = function (_Component) {
 
         _this.state = {
             pageInfo: {
-                total: _this.props.pageInfo.total || 1,
-                maxToShow: _this.props.pageInfo.maxToShow || 1,
+                total: _this.props.pageInfo.total || 0,
+                maxToShow: _this.props.pageInfo.maxToShow || 0,
                 currentPage: _this.props.pageInfo.currentPage || 1
             },
             viewBox: {
@@ -64,8 +64,8 @@ var Paging = exports.Paging = function (_Component) {
             // console.log('componentWillReceiveProps', nextProps, this.props)
             this.setState({
                 pageInfo: {
-                    total: nextProps.pageInfo.total || 1,
-                    maxToShow: nextProps.pageInfo.maxToShow || 1,
+                    total: nextProps.pageInfo.total || 0,
+                    maxToShow: nextProps.pageInfo.maxToShow || 0,
                     currentPage: nextProps.pageInfo.currentPage || 1
                 },
                 viewBox: {
@@ -239,20 +239,28 @@ var Paging = exports.Paging = function (_Component) {
                 null,
                 _react2.default.createElement(
                     'div',
-                    { className: 'd-f ac jc-b' },
+                    { className: ['d-f ac jc-b', this.props.style || 'paging-normal'].join(' ') },
                     _react2.default.createElement(
                         'div',
-                        null,
+                        { className: 'fs12' },
                         '\u5171',
-                        pageInfo.total,
+                        _react2.default.createElement(
+                            'strong',
+                            { className: 'plr4' },
+                            pageInfo.total
+                        ),
                         '\u6761\uFF0C\u6BCF\u9875',
-                        pageInfo.maxToShow,
+                        _react2.default.createElement(
+                            'strong',
+                            { className: 'plr4' },
+                            pageInfo.maxToShow
+                        ),
                         '\u6761'
                     ),
                     _react2.default.createElement(
                         'div',
-                        null,
-                        _react2.default.createElement('button', { className: 'btn-paging arrow-left', onClick: function onClick() {
+                        { className: 'paging-viewbox' },
+                        _react2.default.createElement('span', { className: 'btn-paging arrow-left', onClick: function onClick() {
                                 return _this3.handleChangePageLeft();
                             } }),
                         _react2.default.createElement(
@@ -264,7 +272,7 @@ var Paging = exports.Paging = function (_Component) {
                         ),
                         this.state.viewBox.before ? _react2.default.createElement(
                             'span',
-                            null,
+                            { className: 'mr8' },
                             '...'
                         ) : null,
                         this.state.viewBox.list.map(function (item, i) {
@@ -279,7 +287,7 @@ var Paging = exports.Paging = function (_Component) {
                         }),
                         this.state.viewBox.after ? _react2.default.createElement(
                             'span',
-                            null,
+                            { className: 'mr8' },
                             '...'
                         ) : null,
                         this.state.viewBox.width >= 0 ? _react2.default.createElement(
@@ -289,7 +297,7 @@ var Paging = exports.Paging = function (_Component) {
                                 }, className: ['btn-paging', this.end === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ') },
                             this.end
                         ) : null,
-                        _react2.default.createElement('button', { className: 'btn-paging arrow-right', onClick: function onClick() {
+                        _react2.default.createElement('span', { className: 'btn-paging arrow-right', onClick: function onClick() {
                                 return _this3.handleChangePageRight();
                             } })
                     )

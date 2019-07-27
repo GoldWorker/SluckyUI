@@ -1,7 +1,27 @@
 {
     "presets": [
+        ["env", {
+            "targets": {
+                "browsers": [
+                    ">0.25%",
+                    "not ie 11",
+                    "not op_mini all"
+                ]
+            }
+        }],
         "react",
         "es2015",
         "stage-0"
+    ],
+    "plugins": [
+        [
+            "transform-runtime",
+            {
+                "helpers": false,
+                "polyfill": false,
+                "regenerator": true,
+                "moduleName": "babel-runtime"
+            }
+        ]
     ]
 }

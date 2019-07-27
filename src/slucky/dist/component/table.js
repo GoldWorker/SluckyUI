@@ -122,7 +122,7 @@ var Table = exports.Table = function (_Component) {
                             this.props.dataconf.map(function (conf, i) {
                                 // 全选选项
                                 if (conf.checkbox) {
-                                    return _react2.default.createElement('div', { key: i, className: 'ptb16 plr6 d-il ta-c table-title s0', style: { 'width': conf.width } });
+                                    return _react2.default.createElement('div', { key: i, className: 'ptb24 plr6 d-il ta-c table-title s0', style: { 'width': conf.width } });
                                     return _react2.default.createElement(
                                         'div',
                                         { key: i, className: 'ptb16 plr6 d-il ta-c table-title s0', style: { 'width': conf.width } },
@@ -148,7 +148,7 @@ var Table = exports.Table = function (_Component) {
                                 }
                                 return !conf.checkbox && conf.title ? _react2.default.createElement(
                                     'div',
-                                    { className: 'ptb16 d-il ta-c table-title s0', style: { 'width': conf.width }, key: i },
+                                    { className: 'ptb24 d-il ta-c table-title s0', style: { 'width': conf.width }, key: i },
                                     conf.title
                                 ) : null;
                             })

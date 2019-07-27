@@ -375,6 +375,7 @@
             width: 100%;
             height: 2px;
             background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+            z-index: 10;
         }
 
         .progress-loading-g::-moz-progress-bar {
@@ -398,34 +399,39 @@
             }
             var progress = $('progress_loading');
             var _timer;
+            var _disTimer;
 
-            autoAdd(80, 300);
+            updateProgress(80, 300);
             /**
              * 加载进度模拟
              * @param  {[int]}   tar      [目标值]
              * @param  {[int]}   delay    [时间间隔]
-             * @param  {Function} callback [description]
-             * @return {[type]}            [description]
+             * @param  {Function} callback [回调]
+             * @return {[type]}            [void]
              */
-            function autoAdd(tar, delay, callback) {
+            function updateProgress(tar, delay, callback) {
                 clearInterval(_timer);
-                // 随机量偏移值
-                _interval = Math.ceil(Math.random() * 5);
-                var bool = Math.floor(Math.random() * 2);
+
+                // 预设终点偏移量
+                var isPositive = Math.floor(Math.random() * 2);
                 var tarOffset = Math.ceil(Math.random() * 10);
-                if (bool) {
-                    tar += tarOffset;
-                } else {
-                    tar -= tarOffset;
-                }
-                if (tar > 100) {
-                    tar = 100;
+                isPositive ? tar += tarOffset : tar -= tarOffset;
+
+                if (tar >= 100) {
+                    progress.value = 100;
+                    clearInterval(_timer);
+                    callback && callback();
+                    return;
                 }
 
                 _timer = setInterval(function() {
+                    console.log('progress', progress.value);
                     if (progress.value < tar) {
+                        // 累加偏移量
+                        var _interval = Math.ceil(Math.random() * 5);
                         progress.value += _interval;
                     } else {
+                        // 到达目标值，停止累加
                         progress.value = tar;
                         clearInterval(_timer);
                         callback && callback();
@@ -434,13 +440,11 @@
             }
 
             window.onload = function() {
-                console.log("onload")
-                autoAdd(100, 300, function() {
-                    var _disTimer;
+                updateProgress(100, 0, function() {
                     clearTimeout(_disTimer);
                     _disTimer = setTimeout(function() {
                         progress.style.display = "none";
-                    }, 1000);
+                    }, 3000);
                 });
             }
         })();

@@ -39,7 +39,7 @@ $theme_color:#26a597 !default;
 
 // input
 $input_border_color: $divider_b !default;
-$input_outline_color: $divider_b !default;
+$input_outline_color: $theme_color !default;
 $input_radius: 0px !default;
 $input_fs: 14px !default;
 $placeholder_b: #cccccc !default; //input 级别的提示
@@ -379,6 +379,10 @@ $space: 2;
 
 .v-h {
     visibility: hidden;
+}
+
+.v-v {
+    visibility: visible;
 }
 
 // 定位系列

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReactDOMServer from 'react-dom/server';
 import ReactMarkdown from 'react-markdown'
 import Highlight from 'react-highlight'
+import { Progress, ProgressCircle, ProgressPie, ProgressWave } from "slucky/src/component/progress";
 export default class LoadingDemo extends Component {
 
     render() {
@@ -28,11 +29,12 @@ export default class LoadingDemo extends Component {
 `
         return (
             <div>
-                <div className="mtb32">
-                    <div className="wave-box">
-                        <div className="wave"></div>
-                    </div>
-                </div>
+                <ProgressCircle percent={30} />
+                <ProgressPie percent={60} />
+                <Progress percent={90} />
+                <ProgressWave percent={50} />
+
+
                 <div className="mtb32">
                     <div className="w128 h128" loader-inline='circle'>
                         <div className="c-hint-b">该loading适用于有内嵌内容的情况，该loading适用于有内嵌内容的情况，该loading适用于有内嵌内容的情况</div>

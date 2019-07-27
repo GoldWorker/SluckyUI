@@ -15,6 +15,7 @@ import { Transfrom3D } from "./component/transfrom3D";
 import { Tab } from "./component/tab";
 import { Select } from "./component/select";
 import { Search } from "./component/search";
+import { Progress } from "./component/progress";
 import { Validator } from "./lib/validator";
 
 export {
@@ -35,5 +36,6 @@ export {
     Tab,
     Select,
     Search,
-    Validator
+    Validator,
+    Progress
 }

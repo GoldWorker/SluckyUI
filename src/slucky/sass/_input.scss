@@ -486,7 +486,9 @@
     transition: border-color .3s;
 
     &:focus {
-        outline: $input_outline_color auto 1px;
+        // outline: $input_outline_color auto 1px;
+        outline: none;
+        border-color: $input_outline_color;
     }
 }
 
@@ -565,7 +567,7 @@
     word-spacing: $w_space;
 
     &:focus-within {
-        border: solid 1px $hint_b;
+        border: solid 1px $theme_color;
     }
 
     & input {

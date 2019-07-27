@@ -14,7 +14,7 @@ var _highorderMessage = require("./message/highorder-message");
 
 var _highorderMessage2 = _interopRequireDefault(_highorderMessage);
 
-var _slidebar = require("./slidebar");
+var _slidebar = require("./slidebar.demo");
 
 var _slidebar2 = _interopRequireDefault(_slidebar);
 

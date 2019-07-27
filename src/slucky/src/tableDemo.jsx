@@ -27,6 +27,7 @@ export class TableDemo extends Component {
     handleChangePage = (currentPage) => {
         console.log(currentPage);
     }
+
     render() {
         const demoString = '``` jsx' + `
 import React, { Component } from 'react'
@@ -227,7 +228,13 @@ class TableDemo extends Component {
         return (
             <div>
                 <div className="ptb32">
-                    <Table dataconf={dataconf} dataset={dataset} />
+                    <Table dataconf={dataconf} dataset={dataset} loading={false} loadingOption={
+                        <div data-loader='bounce'>
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                            <div class="bounce4"></div>
+                        </div>} />
                     <div className="p16">
                         <Paging pageInfo={this.state.pageInfo} onAction={this.handleChangePage}></Paging>
                         {console.log(this.state.pageInfo)}

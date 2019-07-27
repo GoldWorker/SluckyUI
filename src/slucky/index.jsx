@@ -16,6 +16,7 @@ import {
     Tab,
     Select,
     Search,
+    Progress,
     Validator
 } from "./dist/index";
 
@@ -37,5 +38,6 @@ export {
     Tab,
     Select,
     Search,
+    Progress,
     Validator
 }

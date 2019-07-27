@@ -35,6 +35,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+// import { Search } from "slucky/distTest/component/search";
+
 var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
     _inherits(ValidatorDemo, _Component);
 
@@ -70,8 +72,8 @@ var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
         };
 
         _this.state = {
-            name: '',
-            email: '',
+            name: 'asdf',
+            email: '123',
             password: ''
         };
         _this.Validator = new _src.Validator();
@@ -154,7 +156,7 @@ var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
                             "Name:"
                         )
                     ),
-                    _react2.default.createElement(_input.Input, { id: "name", width: "100%", value: this.state.name, onChange: function onChange(name) {
+                    _react2.default.createElement(_input.Input, { disabled: true, id: "name", width: "100%", value: this.state.name, onChange: function onChange(name) {
                             _this2.setState({ name: name });
                         }, error: function error() {
                             return _this2.Validator.formatRes('name');
@@ -172,7 +174,7 @@ var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
                             "Email:"
                         )
                     ),
-                    _react2.default.createElement(_input.Input, { id: "email", onChange: function onChange(email) {
+                    _react2.default.createElement(_input.Input, { readOnly: true, id: "email", value: this.state.email, onChange: function onChange(email) {
                             _this2.setState({ email: email });
                         }, error: function error() {
                             return _this2.Validator.formatRes('email');

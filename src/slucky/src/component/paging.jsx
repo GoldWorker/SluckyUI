@@ -11,8 +11,8 @@ export class Paging extends Component {
 
         this.state = {
             pageInfo: {
-                total: this.props.pageInfo.total || 1,
-                maxToShow: this.props.pageInfo.maxToShow || 1,
+                total: this.props.pageInfo.total || 0,
+                maxToShow: this.props.pageInfo.maxToShow || 0,
                 currentPage: this.props.pageInfo.currentPage || 1
             },
             viewBox: {
@@ -34,8 +34,8 @@ export class Paging extends Component {
         // console.log('componentWillReceiveProps', nextProps, this.props)
         this.setState({
             pageInfo: {
-                total: nextProps.pageInfo.total || 1,
-                maxToShow: nextProps.pageInfo.maxToShow || 1,
+                total: nextProps.pageInfo.total || 0,
+                maxToShow: nextProps.pageInfo.maxToShow || 0,
                 currentPage: nextProps.pageInfo.currentPage || 1
             },
             viewBox: {
@@ -201,10 +201,10 @@ export class Paging extends Component {
         const { pageInfo } = this.state
         return (
             <div>
-                <div className="d-f ac jc-b">
+                <div className={['d-f ac jc-b', this.props.style || 'paging-normal'].join(' ')}>
                     <div className="fs12">共<strong className="plr4">{pageInfo.total}</strong>条，每页<strong className="plr4">{pageInfo.maxToShow}</strong>条</div>
-                    <div>
-                        <button className="btn-paging arrow-left" onClick={() => this.handleChangePageLeft()}></button>
+                    <div className="paging-viewbox">
+                        <span className="btn-paging arrow-left" onClick={() => this.handleChangePageLeft()}></span>
                         <span onClick={() => this.handleChangePage(this.start)} className={['btn-paging', this.start === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ')}>{this.start}</span>
                         {
                             this.state.viewBox.before ? <span className="mr8">...</span> : null
@@ -223,7 +223,7 @@ export class Paging extends Component {
                         {
                             this.state.viewBox.width >= 0 ? <span onClick={() => this.handleChangePage(this.end)} className={['btn-paging', this.end === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ')} >{this.end}</span> : null
                         }
-                        <button className="btn-paging arrow-right" onClick={() => this.handleChangePageRight()}></button>
+                        <span className="btn-paging arrow-right" onClick={() => this.handleChangePageRight()}></span>
                     </div>
                 </div>
             </div>
