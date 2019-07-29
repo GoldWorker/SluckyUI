@@ -22,6 +22,8 @@ var _reactHighlight = require('react-highlight');
 
 var _reactHighlight2 = _interopRequireDefault(_reactHighlight);
 
+var _progress = require('slucky/src/component/progress');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -43,47 +45,67 @@ var LoadingDemo = function (_Component) {
         key: 'render',
         value: function render() {
 
-            var demoString = '``` html' + '\n<div className="wave-box">\n    <div className="wave"></div>\n</div>\n\n<div className="mtb32">\n    <div className="w128 h128" loader-inline=\'circle\'>\n        <div className="c-hint-b">\u8BE5loading\u9002\u7528\u4E8E\u6709\u5185\u5D4C\u5185\u5BB9\u7684\u60C5\u51B5\uFF0C\u8BE5loading\u9002\u7528\u4E8E\u6709\u5185\u5D4C\u5185\u5BB9\u7684\u60C5\u51B5\uFF0C\u8BE5loading\u9002\u7528\u4E8E\u6709\u5185\u5D4C\u5185\u5BB9\u7684\u60C5\u51B5</div>\n    </div>\n</div>\n\n<div className="mtb32">\n    <div className="w128 h128 p-r">\n        <div className="d-f ac jc loading-container" >\n            <div data-loader=\'circle-side\'></div>\n        </div>\n        <div className="c-hint-b">\u8BE5loading\u9002\u7528\u65E0\u6CD5\u5185\u5D4C\u7684Dom\u7ED3\u6784\uFF0C\u8BE5loading\u9002\u7528\u65E0\u6CD5\u5185\u5D4C\u7684Dom\u7ED3\u6784\uFF0C\u8BE5loading\u9002\u7528\u65E0\u6CD5\u5185\u5D4C\u7684Dom\u7ED3\u6784</div>\n    </div>\n</div>\n';
+            var demoString = '``` html' + '\nimport { Progress, ProgressCircle, ProgressPie, ProgressWave } from "slucky";\n...\n<ProgressCircle percent={30} radius={96} />\n<ProgressPie percent={40} />\n<ProgressWave percent={60} />\n<Progress percent={50} />\n\n<div className="wave-box-seed">\n    <div className="wave"></div>\n</div>\n\n<div className="mtb32">\n    <div className="w128 h128" loader-inline=\'circle\'>\n        <div className="c-hint-b">\u8BE5loading\u9002\u7528\u4E8E\u6709\u5185\u5D4C\u5185\u5BB9\u7684\u60C5\u51B5\uFF0C\u8BE5loading\u9002\u7528\u4E8E\u6709\u5185\u5D4C\u5185\u5BB9\u7684\u60C5\u51B5\uFF0C\u8BE5loading\u9002\u7528\u4E8E\u6709\u5185\u5D4C\u5185\u5BB9\u7684\u60C5\u51B5</div>\n    </div>\n</div>\n\n<div className="mtb32">\n    <div className="w128 h128 p-r">\n        <div className="d-f ac jc loading-container" >\n            <div data-loader=\'circle-side\'></div>\n        </div>\n        <div className="c-hint-b">\u8BE5loading\u9002\u7528\u65E0\u6CD5\u5185\u5D4C\u7684Dom\u7ED3\u6784\uFF0C\u8BE5loading\u9002\u7528\u65E0\u6CD5\u5185\u5D4C\u7684Dom\u7ED3\u6784\uFF0C\u8BE5loading\u9002\u7528\u65E0\u6CD5\u5185\u5D4C\u7684Dom\u7ED3\u6784</div>\n    </div>\n</div>\n';
             return _react2.default.createElement(
                 'div',
                 null,
                 _react2.default.createElement(
                     'div',
-                    { className: 'mtb32' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'wave-box' },
-                        _react2.default.createElement('div', { className: 'wave' })
-                    )
+                    { className: 'd-il m16' },
+                    _react2.default.createElement(_progress.ProgressCircle, { percent: 30, radius: 96 })
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'mtb32' },
+                    { className: 'd-il m16' },
+                    _react2.default.createElement(_progress.ProgressPie, { percent: 40 })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'd-il m16' },
+                    _react2.default.createElement(_progress.ProgressWave, { percent: 60 })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'd-il m16' },
+                    _react2.default.createElement(_progress.Progress, { percent: 50 })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'wave-box-seed' },
+                    _react2.default.createElement('div', { className: 'wave' })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    null,
                     _react2.default.createElement(
                         'div',
-                        { className: 'w128 h128', 'loader-inline': 'circle' },
+                        { className: 'd-il m16' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'c-hint-b' },
-                            '\u8BE5loading\u9002\u7528\u4E8E\u6709\u5185\u5D4C\u5185\u5BB9\u7684\u60C5\u51B5\uFF0C\u8BE5loading\u9002\u7528\u4E8E\u6709\u5185\u5D4C\u5185\u5BB9\u7684\u60C5\u51B5\uFF0C\u8BE5loading\u9002\u7528\u4E8E\u6709\u5185\u5D4C\u5185\u5BB9\u7684\u60C5\u51B5'
+                            { className: 'w128 h128', 'loader-inline': 'circle' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'c-hint-b' },
+                                '\u8BE5loading\u9002\u7528\u4E8E\u6709\u5185\u5D4C\u5185\u5BB9\u7684\u60C5\u51B5\uFF0C\u8BE5loading\u9002\u7528\u4E8E\u6709\u5185\u5D4C\u5185\u5BB9\u7684\u60C5\u51B5\uFF0C\u8BE5loading\u9002\u7528\u4E8E\u6709\u5185\u5D4C\u5185\u5BB9\u7684\u60C5\u51B5'
+                            )
                         )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mtb32' },
+                    ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'w128 h128 p-r' },
+                        { className: 'd-il m16' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'd-f ac jc loading-container' },
-                            _react2.default.createElement('div', { 'data-loader': 'circle-side' })
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'c-hint-b' },
-                            '\u8BE5loading\u9002\u7528\u65E0\u6CD5\u5185\u5D4C\u7684Dom\u7ED3\u6784\uFF0C\u8BE5loading\u9002\u7528\u65E0\u6CD5\u5185\u5D4C\u7684Dom\u7ED3\u6784\uFF0C\u8BE5loading\u9002\u7528\u65E0\u6CD5\u5185\u5D4C\u7684Dom\u7ED3\u6784'
+                            { className: 'w128 h128 p-r' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'd-f ac jc loading-container' },
+                                _react2.default.createElement('div', { 'data-loader': 'circle-side' })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'c-hint-b' },
+                                '\u8BE5loading\u9002\u7528\u65E0\u6CD5\u5185\u5D4C\u7684Dom\u7ED3\u6784\uFF0C\u8BE5loading\u9002\u7528\u65E0\u6CD5\u5185\u5D4C\u7684Dom\u7ED3\u6784\uFF0C\u8BE5loading\u9002\u7528\u65E0\u6CD5\u5185\u5D4C\u7684Dom\u7ED3\u6784'
+                            )
                         )
                     )
                 ),

@@ -111,7 +111,7 @@ var Table = exports.Table = function (_Component) {
                     this.props.loading ? _react2.default.createElement(
                         'div',
                         { className: 'd-f ac jc table-loading' },
-                        _react2.default.createElement('div', { 'data-loader': 'circle' })
+                        this.props.loadingOption ? this.props.loadingOption : _react2.default.createElement('div', { 'data-loader': 'circle' })
                     ) : null,
                     _react2.default.createElement(
                         'div',
@@ -172,7 +172,7 @@ var Table = exports.Table = function (_Component) {
                                     _this3.props.dataconf.map(function (conf, i) {
                                         if (conf.progress) {
                                             return _react2.default.createElement('progress', _defineProperty({ key: i, className: 'p-a w-full', style: { height: conf.progressWidth || 2 + 'px', top: 'unset', bottom: 0 }, max: '100', value: conf.progress && conf.progress(data)
-                                            }, 'className', 'progress-loading'));
+                                            }, 'className', 'progress-loading-table'));
                                         } else {
                                             return null;
                                         }

@@ -8,7 +8,14 @@ export default class LoadingDemo extends Component {
     render() {
 
         const demoString = '``` html' + `
-<div className="wave-box">
+import { Progress, ProgressCircle, ProgressPie, ProgressWave } from "slucky";
+...
+<ProgressCircle percent={30} radius={96} />
+<ProgressPie percent={40} />
+<ProgressWave percent={60} />
+<Progress percent={50} />
+
+<div className="wave-box-seed">
     <div className="wave"></div>
 </div>
 
@@ -29,24 +36,37 @@ export default class LoadingDemo extends Component {
 `
         return (
             <div>
-                <ProgressCircle percent={30} />
-                <ProgressPie percent={60} />
-                <Progress percent={90} />
-                <ProgressWave percent={50} />
-
-
-                <div className="mtb32">
-                    <div className="w128 h128" loader-inline='circle'>
-                        <div className="c-hint-b">该loading适用于有内嵌内容的情况，该loading适用于有内嵌内容的情况，该loading适用于有内嵌内容的情况</div>
-                    </div>
+                <div className="d-il m16">
+                    <ProgressCircle percent={30} radius={96} />
+                </div>
+                <div className="d-il m16">
+                    <ProgressPie percent={40} />
+                </div>
+                <div className="d-il m16">
+                    <ProgressWave percent={60} />
+                </div>
+                <div className="d-il m16">
+                    <Progress percent={50} />
                 </div>
 
-                <div className="mtb32">
-                    <div className="w128 h128 p-r">
-                        <div className="d-f ac jc loading-container" >
-                            <div data-loader='circle-side'></div>
+                <div className="wave-box-seed">
+                    <div className="wave"></div>
+                </div>
+
+                <div>
+                    <div className="d-il m16">
+                        <div className="w128 h128" loader-inline='circle'>
+                            <div className="c-hint-b">该loading适用于有内嵌内容的情况，该loading适用于有内嵌内容的情况，该loading适用于有内嵌内容的情况</div>
                         </div>
-                        <div className="c-hint-b">该loading适用无法内嵌的Dom结构，该loading适用无法内嵌的Dom结构，该loading适用无法内嵌的Dom结构</div>
+                    </div>
+
+                    <div className="d-il m16">
+                        <div className="w128 h128 p-r">
+                            <div className="d-f ac jc loading-container" >
+                                <div data-loader='circle-side'></div>
+                            </div>
+                            <div className="c-hint-b">该loading适用无法内嵌的Dom结构，该loading适用无法内嵌的Dom结构，该loading适用无法内嵌的Dom结构</div>
+                        </div>
                     </div>
                 </div>
                 <details className="pb16 mb16 bor-b b-side-s">

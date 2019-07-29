@@ -170,7 +170,14 @@ var TableDemo = exports.TableDemo = function (_Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'ptb32' },
-                    _react2.default.createElement(_index.Table, { dataconf: dataconf, dataset: dataset }),
+                    _react2.default.createElement(_index.Table, { dataconf: dataconf, dataset: dataset, loading: false, loadingOption: _react2.default.createElement(
+                            'div',
+                            { 'data-loader': 'bounce' },
+                            _react2.default.createElement('div', { 'class': 'bounce1' }),
+                            _react2.default.createElement('div', { 'class': 'bounce2' }),
+                            _react2.default.createElement('div', { 'class': 'bounce3' }),
+                            _react2.default.createElement('div', { 'class': 'bounce4' })
+                        ) }),
                     _react2.default.createElement(
                         'div',
                         { className: 'p16' },

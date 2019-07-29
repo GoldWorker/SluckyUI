@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Validator = exports.Search = exports.Select = exports.Tab = exports.Transfrom3D = exports.Testarea = exports.Switch = exports.Steps = exports.Slidebar = exports.Radio = exports.Menu = exports.Curmb = exports.Checkbox = exports.Input = exports.Toast = exports.Table = exports.Paging = exports.Dialog = undefined;
+exports.Progress = exports.Validator = exports.Search = exports.Select = exports.Tab = exports.Transfrom3D = exports.Testarea = exports.Switch = exports.Steps = exports.Slidebar = exports.Radio = exports.Menu = exports.Curmb = exports.Checkbox = exports.Input = exports.Toast = exports.Table = exports.Paging = exports.Dialog = undefined;
 
 var _dialog = require("./component/dialog");
 
@@ -39,6 +39,8 @@ var _select = require("./component/select");
 
 var _search = require("./component/search");
 
+var _progress = require("./component/progress");
+
 var _validator = require("./lib/validator");
 
 exports.Dialog = _dialog.Dialog;
@@ -59,3 +61,4 @@ exports.Tab = _tab.Tab;
 exports.Select = _select.Select;
 exports.Search = _search.Search;
 exports.Validator = _validator.Validator;
+exports.Progress = _progress.Progress;

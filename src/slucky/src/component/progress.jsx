@@ -4,7 +4,7 @@ export class Progress extends Component {
     render() {
         return (
             <div className="d-il">
-                <progress max="100" value={67} className="progress-loading" style={{ width: this.props.width || 128 + 'px' }}></progress>
+                <progress max="100" value={this.props.percent} className="progress-loading bg-warn" style={{ width: this.props.width || 128 + 'px' }}></progress>
                 <span className="d-il ml12">{this.props.percent || 0}%</span>
             </div>
         )

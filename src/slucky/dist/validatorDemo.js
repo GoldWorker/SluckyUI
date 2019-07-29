@@ -27,6 +27,8 @@ var _select = require("slucky/src/component/select");
 
 var _search = require("slucky/src/component/search");
 
+var _steps = require("slucky/src/component/steps");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -100,6 +102,54 @@ var ValidatorDemo = exports.ValidatorDemo = function (_Component) {
             return _react2.default.createElement(
                 "div",
                 { className: "bor b-side p32 mtb32" },
+                _react2.default.createElement(_steps.Steps, { isCacheData: true, stepset: [{
+                        title: '1',
+                        content: function content(data) {
+                            return _react2.default.createElement(
+                                "div",
+                                null,
+                                _react2.default.createElement(_search.Search, { onChange: function onChange(v) {
+                                        console.log(v);
+                                    }, option: ['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh'] })
+                            );
+                        },
+                        handleNext: function handleNext(data) {
+                            return true;
+                        }
+                    }, {
+                        title: '-> 2',
+                        content: function content(data) {
+                            return _react2.default.createElement(_select.Select, { defaultValue: "\u9009\u98792", onChange: function onChange(v) {
+                                    console.log(v);
+                                }, option: [{
+                                    label: '选项1',
+                                    value: 'v1'
+                                }, {
+                                    label: '选项2',
+                                    value: 'v2'
+                                }, {
+                                    label: '选项3',
+                                    value: 'v3'
+                                }] });
+                        },
+                        handleNext: function handleNext(data) {
+                            return true;
+                        }
+                    }, {
+                        title: '-> 3',
+                        content: function content(data) {
+                            return _react2.default.createElement(
+                                "div",
+                                null,
+                                data.name
+                            );
+                        },
+                        handleNext: function handleNext(data) {
+                            return true;
+                        }
+                    }], onChange: function onChange(currentSept) {
+                        console.log(currentSept);
+                    } }),
                 _react2.default.createElement(_search.Search, { onChange: function onChange(v) {
                         console.log(v);
                     }, option: ['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh'] }),

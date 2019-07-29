@@ -412,17 +412,17 @@
             function updateProgress(tar, delay, callback) {
                 clearInterval(_timer);
 
-                // 预设终点偏移量
-                var isPositive = Math.floor(Math.random() * 2);
-                var tarOffset = Math.ceil(Math.random() * 10);
-                isPositive ? tar += tarOffset : tar -= tarOffset;
-
                 if (tar >= 100) {
                     progress.value = 100;
                     clearInterval(_timer);
                     callback && callback();
                     return;
                 }
+
+                // 预设终点偏移量
+                var isPositive = Math.floor(Math.random() * 2);
+                var tarOffset = Math.ceil(Math.random() * 10);
+                isPositive ? tar += tarOffset : tar -= tarOffset;
 
                 _timer = setInterval(function() {
                     console.log('progress', progress.value);
