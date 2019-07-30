@@ -56,29 +56,54 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /.jsx$/, //使用loader的目标文件。这里是.jsx
-            loader: 'babel-loader',
-            exclude: /node_modules/
-        }, {
-            test: /\.(jpg|png|gif|svg|jpeg)$/,
-            use: [{
-                loader: 'url-loader',
-                options: {
-                    limit: 8192,
-                    mimetype: 'image/png',
-                    fallback: 'responsive-loader',
-                    quality: 100
-                }
-            }],
-            exclude: /node_modules/
-        }]
+                test: /.jsx$/, //使用loader的目标文件。这里是.jsx
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            }, {
+                test: /\.(jpg|png|gif|svg|jpeg)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192,
+                        mimetype: 'image/png',
+                        fallback: 'responsive-loader',
+                        quality: 100
+                    }
+                }],
+                exclude: /node_modules/
+            }, {
+                test: /\.svg$/,
+                include: [path.resolve(__dirname, 'src/icons')],
+                use: [{
+                        loader: 'svg-sprite-loader',
+                        options: {
+                            symbolId: 'icon-[name]'
+                        }
+                    },
+                    'svg-fill-loader', {
+                        loader: 'svgo-loader',
+                        options: {
+                            plugins: [{
+                                removeTitle: true
+                            }, {
+                                convertColors: {
+                                    shorthex: false
+                                }
+                            }, {
+                                convertPathData: false
+                            }]
+                        }
+                    }
+                ]
+            }
+        ]
     },
     plugins: [
         // new BundleAnalyzerPlugin(),
         new CleanWebpackPlugin('distTest', {
             verbose: false,
             watch: true,
-            "exclude": ['.git', '.npmignore', 'package.json']
+            "exclude": ['.git', '.npmignore', 'package.json', 'README.md', 'sass']
         })
     ]
 }

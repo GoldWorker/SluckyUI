@@ -3,10 +3,10 @@
 		module.exports = factory(require("./data-login"), require("./display-loginInfo"), require("react-redux"));
 	else if(typeof define === 'function' && define.amd)
 		define(["./data-login", "./display-loginInfo", "react-redux"], factory);
-	else if(typeof exports === 'object')
-		exports["slucky"] = factory(require("./data-login"), require("./display-loginInfo"), require("react-redux"));
-	else
-		root["slucky"] = factory(root["./data-login"], root["./display-loginInfo"], root["react-redux"]);
+	else {
+		var a = typeof exports === 'object' ? factory(require("./data-login"), require("./display-loginInfo"), require("react-redux")) : factory(root["./data-login"], root["./display-loginInfo"], root["react-redux"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
 })(window, function(__WEBPACK_EXTERNAL_MODULE__data_login__, __WEBPACK_EXTERNAL_MODULE__display_loginInfo__, __WEBPACK_EXTERNAL_MODULE_react_redux__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -103,7 +103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__data_login__;\n\n//# sourceURL=webpack://slucky/external_%22./data-login%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__data_login__;\n\n//# sourceURL=webpack:///external_%22./data-login%22?");
 
 /***/ }),
 
@@ -114,7 +114,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__data_login__;\n\n//# sourceURL
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_loginInfo__;\n\n//# sourceURL=webpack://slucky/external_%22./display-loginInfo%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_loginInfo__;\n\n//# sourceURL=webpack:///external_%22./display-loginInfo%22?");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_loginInfo__;\n\n//# so
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _displayLoginInfo = __webpack_require__(/*! ./display-loginInfo */ \"./display-loginInfo\");\n\nvar _displayLoginInfo2 = _interopRequireDefault(_displayLoginInfo);\n\nvar _dataLogin = __webpack_require__(/*! ./data-login */ \"./data-login\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state) {\n\treturn {\n\t\tuserInfo: state.loginReducer.userInfo,\n\t\tisLogined: state.loginReducer.isLogined\n\t};\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n\treturn {\n\t\thandleLoginClick: function handleLoginClick() {\n\t\t\treturn dispatch((0, _dataLogin.loginWindowToggle)());\n\t\t},\n\t\thandleLogoutClick: function handleLogoutClick() {\n\t\t\treturn dispatch((0, _dataLogin.logout)());\n\t\t}\n\t};\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_displayLoginInfo2.default);\n\n//# sourceURL=webpack://slucky/./src/login/highorder-loginInfo.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _displayLoginInfo = __webpack_require__(/*! ./display-loginInfo */ \"./display-loginInfo\");\n\nvar _displayLoginInfo2 = _interopRequireDefault(_displayLoginInfo);\n\nvar _dataLogin = __webpack_require__(/*! ./data-login */ \"./data-login\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state) {\n\treturn {\n\t\tuserInfo: state.loginReducer.userInfo,\n\t\tisLogined: state.loginReducer.isLogined\n\t};\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n\treturn {\n\t\thandleLoginClick: function handleLoginClick() {\n\t\t\treturn dispatch((0, _dataLogin.loginWindowToggle)());\n\t\t},\n\t\thandleLogoutClick: function handleLogoutClick() {\n\t\t\treturn dispatch((0, _dataLogin.logout)());\n\t\t}\n\t};\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_displayLoginInfo2.default);\n\n//# sourceURL=webpack:///./src/login/highorder-loginInfo.jsx?");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_redux__;\n\n//# sourceURL=webpack://slucky/external_%22react-redux%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_redux__;\n\n//# sourceURL=webpack:///external_%22react-redux%22?");
 
 /***/ })
 

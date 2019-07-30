@@ -11,7 +11,7 @@ export class Progress extends Component {
     }
 }
 
-export class ProgressCircle extends Component {
+class ProgressCircle extends Component {
     render() {
         return (
             <div className="progress-pie" style={{
@@ -27,7 +27,7 @@ export class ProgressCircle extends Component {
     }
 }
 
-export class ProgressPie extends Component {
+class ProgressPie extends Component {
     render() {
         return (
             <ProgressCircle isPipe={true} radius={this.props.radius} percent={this.props.percent} />
@@ -35,7 +35,7 @@ export class ProgressPie extends Component {
     }
 }
 
-export class ProgressWave extends Component {
+class ProgressWave extends Component {
     render() {
         return (
             <div className="wave-box">
@@ -46,3 +46,7 @@ export class ProgressWave extends Component {
         )
     }
 }
+
+Progress.circle = ProgressCircle
+Progress.pie = ProgressPie
+Progress.wave = ProgressWave

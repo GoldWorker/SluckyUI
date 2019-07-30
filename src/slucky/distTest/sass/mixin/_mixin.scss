@@ -1,0 +1,69 @@
+//templete
+@mixin bor-r($radius: 2px) {
+    border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+}
+
+@mixin flex($scale:1) {
+    display: block;
+    -moz-box-flex: $scale;
+    -webkit-box-flex: $scale;
+    box-flex: $scale;
+}
+
+@mixin ellip-def {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@mixin ellip($row:1) {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: $row;
+    -webkit-box-orient: vertical;
+}
+
+@mixin animate($time:0.3s) {
+    -webkit-transition: all $time;
+    -o-transition: all $time;
+    transition: all $time;
+}
+
+@mixin alink() {
+    text-decoration: none;
+    color: inherit;
+}
+
+@mixin tp() {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+@mixin box_sizing() {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin animate_name($name) {
+    animation-name: $name;
+    -moz-animation-name: $name;
+    /* Firefox */
+    -webkit-animation-name: $name;
+    /* Safari and Chrome */
+    -o-animation-name: $name;
+    /* Opera */
+}
+
+@mixin animate_duration($time:0.3s) {
+    animation-duration: $time;
+    -moz-animation-duration: $time;
+    /* Firefox */
+    -webkit-animation-duration: $time;
+    /* Safari and Chrome */
+    -o-animation-duration: $time;
+    /* Opera */
+}

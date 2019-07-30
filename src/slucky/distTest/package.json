@@ -1,0 +1,44 @@
+{
+    "name": "slucky",
+    "version": "0.1.24",
+    "description": "sluckyUI component base on react",
+    "main": "index.jsx",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build_index": "./node_modules/.bin/babel ./index.jsx --out-dir ./",
+        "build_src": "./node_modules/.bin/babel ./src --out-dir ./dist",
+        "build": "npm run build_index && npm run build_src",
+        "pub": "npm run build && npm publish",
+        "t": "webpack --mode development"
+    },
+    "keywords": [
+        "react",
+        "ui",
+        "component",
+        "slucky",
+        "sluckyUI"
+    ],
+    "author": "Flyteng",
+    "license": "ISC",
+    "dependencies": {
+        "glob": "^7.1.4"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-plugin-import": "^1.7.0",
+        "babel-plugin-syntax-dynamic-import": "^6.18.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-es2015-loose": "^8.0.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "clean-webpack-plugin": "^0.1.19",
+        "webpack": "^4.36.1",
+        "webpack-bundle-analyzer": "^3.3.2",
+        "webpack-cli": "^3.3.6"
+    }
+}

@@ -1,0 +1,105 @@
+.btn-toggle {
+    cursor: pointer;
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    line-height: 14px;
+    border: 1px solid #e9e9e9;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: #fff;
+}
+
+.btn-toggle:after {
+    content: '+';
+}
+
+.btn-hidden:after {
+    content: '-' !important;
+}
+
+.table-header {
+    background-color: $table_header_bg;
+    color: $table_header_c;
+    font-size: $table_header_fs;
+}
+
+.table-title {
+    transition: all .3s;
+}
+
+.table-title:hover {
+    // background-color: #eaeaea;
+}
+
+.table-list {
+    transition: all .3s;
+    border-left: 2px transparent solid;
+}
+
+.table-list:nth-child(odd) {
+    background-color: $table_odd_bg;
+}
+
+.table-list span {
+    word-break: break-all;
+}
+
+.table-list:hover {
+    background-color: $table_hover;
+    // border-left: 2px #26a597 solid;
+}
+
+.w80 {
+    width: 80px;
+}
+
+.table-content {
+    /* overflow: auto */
+}
+
+.table-fix {
+    position: sticky;
+    top: 0;
+    z-index: 19;
+}
+
+.slucky-table {
+    position: relative;
+    z-index: 1;
+}
+
+.slucky-table::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 2px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 8px;
+}
+
+.slucky-table::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 2px;
+    /* -webkit-box-shadow: inset 0 0 5px #fafafa; */
+    background: #f4f4f4;
+}
+
+.slucky-table::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    /* -webkit-box-shadow: inset 0 0 5px #fafafa; */
+    border-radius: 2px;
+    background: transparent;
+}
+
+.table-loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .5);
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 19;
+}

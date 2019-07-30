@@ -3,10 +3,10 @@
 		module.exports = factory(require("./display-message"), require("react-redux"));
 	else if(typeof define === 'function' && define.amd)
 		define(["./display-message", "react-redux"], factory);
-	else if(typeof exports === 'object')
-		exports["slucky"] = factory(require("./display-message"), require("react-redux"));
-	else
-		root["slucky"] = factory(root["./display-message"], root["react-redux"]);
+	else {
+		var a = typeof exports === 'object' ? factory(require("./display-message"), require("react-redux")) : factory(root["./display-message"], root["react-redux"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
 })(window, function(__WEBPACK_EXTERNAL_MODULE__display_message__, __WEBPACK_EXTERNAL_MODULE_react_redux__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -103,7 +103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_message__;\n\n//# sourceURL=webpack://slucky/external_%22./display-message%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_message__;\n\n//# sourceURL=webpack:///external_%22./display-message%22?");
 
 /***/ }),
 
@@ -115,7 +115,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_message__;\n\n//# sour
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _displayMessage = __webpack_require__(/*! ./display-message */ \"./display-message\");\n\nvar _displayMessage2 = _interopRequireDefault(_displayMessage);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state) {\n\treturn {\n\t\tlists: state.messageReducer\n\t};\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps)(_displayMessage2.default);\n\n//# sourceURL=webpack://slucky/./src/message/highorder-message.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _displayMessage = __webpack_require__(/*! ./display-message */ \"./display-message\");\n\nvar _displayMessage2 = _interopRequireDefault(_displayMessage);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state) {\n\treturn {\n\t\tlists: state.messageReducer\n\t};\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps)(_displayMessage2.default);\n\n//# sourceURL=webpack:///./src/message/highorder-message.jsx?");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_redux__;\n\n//# sourceURL=webpack://slucky/external_%22react-redux%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_redux__;\n\n//# sourceURL=webpack:///external_%22react-redux%22?");
 
 /***/ })
 

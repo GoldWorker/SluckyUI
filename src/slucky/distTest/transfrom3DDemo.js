@@ -3,10 +3,10 @@
 		module.exports = factory(require("../images/bg_test.jpg"), require("react"), require("react-dom/server"), require("react-highlight"), require("react-markdown"));
 	else if(typeof define === 'function' && define.amd)
 		define(["../images/bg_test.jpg", "react", "react-dom/server", "react-highlight", "react-markdown"], factory);
-	else if(typeof exports === 'object')
-		exports["slucky"] = factory(require("../images/bg_test.jpg"), require("react"), require("react-dom/server"), require("react-highlight"), require("react-markdown"));
-	else
-		root["slucky"] = factory(root["../images/bg_test.jpg"], root["react"], root["react-dom/server"], root["react-highlight"], root["react-markdown"]);
+	else {
+		var a = typeof exports === 'object' ? factory(require("../images/bg_test.jpg"), require("react"), require("react-dom/server"), require("react-highlight"), require("react-markdown")) : factory(root["../images/bg_test.jpg"], root["react"], root["react-dom/server"], root["react-highlight"], root["react-markdown"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
 })(window, function(__WEBPACK_EXTERNAL_MODULE__images_bg_test_jpg__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom_server__, __WEBPACK_EXTERNAL_MODULE_react_highlight__, __WEBPACK_EXTERNAL_MODULE_react_markdown__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -103,7 +103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__images_bg_test_jpg__;\n\n//# sourceURL=webpack://slucky/external_%22../images/bg_test.jpg%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__images_bg_test_jpg__;\n\n//# sourceURL=webpack:///external_%22../images/bg_test.jpg%22?");
 
 /***/ }),
 
@@ -115,7 +115,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__images_bg_test_jpg__;\n\n//# s
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n\nvar _server2 = _interopRequireDefault(_server);\n\nvar _reactMarkdown = __webpack_require__(/*! react-markdown */ \"react-markdown\");\n\nvar _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);\n\nvar _reactHighlight = __webpack_require__(/*! react-highlight */ \"react-highlight\");\n\nvar _reactHighlight2 = _interopRequireDefault(_reactHighlight);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar transfrom3DDemo = function (_Component) {\n    _inherits(transfrom3DDemo, _Component);\n\n    function transfrom3DDemo() {\n        _classCallCheck(this, transfrom3DDemo);\n\n        return _possibleConstructorReturn(this, (transfrom3DDemo.__proto__ || Object.getPrototypeOf(transfrom3DDemo)).apply(this, arguments));\n    }\n\n    _createClass(transfrom3DDemo, [{\n        key: 'render',\n        value: function render() {\n            return _react2.default.createElement(\n                'div',\n                null,\n                _react2.default.createElement(\n                    'section',\n                    { className: 't3d-container' },\n                    _react2.default.createElement('input', { type: 'radio', id: 'card_front', name: 'card-ctrl', defaultChecked: true }),\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'card-select-box' },\n                        _react2.default.createElement(\n                            'label',\n                            { className: 'card-select', htmlFor: 'card_front' },\n                            'front'\n                        ),\n                        _react2.default.createElement(\n                            'label',\n                            { className: 'card-select', htmlFor: 'card_back' },\n                            'back'\n                        )\n                    ),\n                    _react2.default.createElement('input', { type: 'radio', id: 'card_back', name: 'card-ctrl', className: 'card-ischecked' }),\n                    _react2.default.createElement(\n                        'div',\n                        { id: 'card' },\n                        _react2.default.createElement(\n                            'figure',\n                            { className: 'front', id: 'front' },\n                            _react2.default.createElement('img', { style: { width: '100px' }, src: __webpack_require__(/*! ../images/bg_test.jpg */ \"../images/bg_test.jpg\"), alt: '' })\n                        ),\n                        _react2.default.createElement(\n                            'figure',\n                            { className: 'back', id: 'back' },\n                            _react2.default.createElement('img', { style: { width: '100px' }, src: __webpack_require__(/*! ../images/bg_test.jpg */ \"../images/bg_test.jpg\"), alt: '' })\n                        )\n                    )\n                )\n            );\n        }\n    }]);\n\n    return transfrom3DDemo;\n}(_react.Component);\n\nexports.default = transfrom3DDemo;\n\n//# sourceURL=webpack://slucky/./src/transfrom3DDemo.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n\nvar _server2 = _interopRequireDefault(_server);\n\nvar _reactMarkdown = __webpack_require__(/*! react-markdown */ \"react-markdown\");\n\nvar _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);\n\nvar _reactHighlight = __webpack_require__(/*! react-highlight */ \"react-highlight\");\n\nvar _reactHighlight2 = _interopRequireDefault(_reactHighlight);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar transfrom3DDemo = function (_Component) {\n    _inherits(transfrom3DDemo, _Component);\n\n    function transfrom3DDemo() {\n        _classCallCheck(this, transfrom3DDemo);\n\n        return _possibleConstructorReturn(this, (transfrom3DDemo.__proto__ || Object.getPrototypeOf(transfrom3DDemo)).apply(this, arguments));\n    }\n\n    _createClass(transfrom3DDemo, [{\n        key: 'render',\n        value: function render() {\n            return _react2.default.createElement(\n                'div',\n                null,\n                _react2.default.createElement(\n                    'section',\n                    { className: 't3d-container' },\n                    _react2.default.createElement('input', { type: 'radio', id: 'card_front', name: 'card-ctrl', defaultChecked: true }),\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'card-select-box' },\n                        _react2.default.createElement(\n                            'label',\n                            { className: 'card-select', htmlFor: 'card_front' },\n                            'front'\n                        ),\n                        _react2.default.createElement(\n                            'label',\n                            { className: 'card-select', htmlFor: 'card_back' },\n                            'back'\n                        )\n                    ),\n                    _react2.default.createElement('input', { type: 'radio', id: 'card_back', name: 'card-ctrl', className: 'card-ischecked' }),\n                    _react2.default.createElement(\n                        'div',\n                        { id: 'card' },\n                        _react2.default.createElement(\n                            'figure',\n                            { className: 'front', id: 'front' },\n                            _react2.default.createElement('img', { style: { width: '100px' }, src: __webpack_require__(/*! ../images/bg_test.jpg */ \"../images/bg_test.jpg\"), alt: '' })\n                        ),\n                        _react2.default.createElement(\n                            'figure',\n                            { className: 'back', id: 'back' },\n                            _react2.default.createElement('img', { style: { width: '100px' }, src: __webpack_require__(/*! ../images/bg_test.jpg */ \"../images/bg_test.jpg\"), alt: '' })\n                        )\n                    )\n                )\n            );\n        }\n    }]);\n\n    return transfrom3DDemo;\n}(_react.Component);\n\nexports.default = transfrom3DDemo;\n\n//# sourceURL=webpack:///./src/transfrom3DDemo.jsx?");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react__;\n\n//# sourceURL=webpack://slucky/external_%22react%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react__;\n\n//# sourceURL=webpack:///external_%22react%22?");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react__;\n\n//# sourceURL=webpa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom_server__;\n\n//# sourceURL=webpack://slucky/external_%22react-dom/server%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom_server__;\n\n//# sourceURL=webpack:///external_%22react-dom/server%22?");
 
 /***/ }),
 
@@ -148,7 +148,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom_server__;\n\n//# sour
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_highlight__;\n\n//# sourceURL=webpack://slucky/external_%22react-highlight%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_highlight__;\n\n//# sourceURL=webpack:///external_%22react-highlight%22?");
 
 /***/ }),
 
@@ -159,7 +159,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_highlight__;\n\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_markdown__;\n\n//# sourceURL=webpack://slucky/external_%22react-markdown%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_markdown__;\n\n//# sourceURL=webpack:///external_%22react-markdown%22?");
 
 /***/ })
 

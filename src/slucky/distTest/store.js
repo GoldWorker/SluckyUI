@@ -3,10 +3,10 @@
 		module.exports = factory(require("redux"), require("redux-logger"), require("redux-thunk"));
 	else if(typeof define === 'function' && define.amd)
 		define(["redux", "redux-logger", "redux-thunk"], factory);
-	else if(typeof exports === 'object')
-		exports["slucky"] = factory(require("redux"), require("redux-logger"), require("redux-thunk"));
-	else
-		root["slucky"] = factory(root["redux"], root["redux-logger"], root["redux-thunk"]);
+	else {
+		var a = typeof exports === 'object' ? factory(require("redux"), require("redux-logger"), require("redux-thunk")) : factory(root["redux"], root["redux-logger"], root["redux-thunk"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
 })(window, function(__WEBPACK_EXTERNAL_MODULE_redux__, __WEBPACK_EXTERNAL_MODULE_redux_logger__, __WEBPACK_EXTERNAL_MODULE_redux_thunk__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.updateReducer = exports.getStore = exports.addReducer = undefined;\n\nvar _redux = __webpack_require__(/*! redux */ \"redux\");\n\nvar _reduxThunk = __webpack_require__(/*! redux-thunk */ \"redux-thunk\");\n\nvar _reduxThunk2 = _interopRequireDefault(_reduxThunk);\n\nvar _reduxLogger = __webpack_require__(/*! redux-logger */ \"redux-logger\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar reducers = {}; // export default todos\n\n\nvar addReducer = function addReducer(reducer, name) {\n    reducers[name] = reducer;\n    console.log(reducers, reducer.name);\n};\n\nvar updateReducer = function updateReducer(store) {\n    store.replaceReducer((0, _redux.combineReducers)(reducers));\n};\n\nvar getStore = function getStore() {\n    var reducerCollection = (0, _redux.combineReducers)(reducers);\n    var loggerMiddleware = (0, _reduxLogger.createLogger)();\n    var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.compose;\n    return (0, _redux.createStore)(reducerCollection,\n    /* preloadedState, */\n    composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default, loggerMiddleware)));\n};\n\nexports.addReducer = addReducer;\nexports.getStore = getStore;\nexports.updateReducer = updateReducer;\n\n//# sourceURL=webpack://slucky/./src/store.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.updateReducer = exports.getStore = exports.addReducer = undefined;\n\nvar _redux = __webpack_require__(/*! redux */ \"redux\");\n\nvar _reduxThunk = __webpack_require__(/*! redux-thunk */ \"redux-thunk\");\n\nvar _reduxThunk2 = _interopRequireDefault(_reduxThunk);\n\nvar _reduxLogger = __webpack_require__(/*! redux-logger */ \"redux-logger\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar reducers = {}; // export default todos\n\n\nvar addReducer = function addReducer(reducer, name) {\n    reducers[name] = reducer;\n    console.log(reducers, reducer.name);\n};\n\nvar updateReducer = function updateReducer(store) {\n    store.replaceReducer((0, _redux.combineReducers)(reducers));\n};\n\nvar getStore = function getStore() {\n    var reducerCollection = (0, _redux.combineReducers)(reducers);\n    var loggerMiddleware = (0, _reduxLogger.createLogger)();\n    var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.compose;\n    return (0, _redux.createStore)(reducerCollection,\n    /* preloadedState, */\n    composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default, loggerMiddleware)));\n};\n\nexports.addReducer = addReducer;\nexports.getStore = getStore;\nexports.updateReducer = updateReducer;\n\n//# sourceURL=webpack:///./src/store.jsx?");
 
 /***/ }),
 
@@ -115,7 +115,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_redux__;\n\n//# sourceURL=webpack://slucky/external_%22redux%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_redux__;\n\n//# sourceURL=webpack:///external_%22redux%22?");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE_redux__;\n\n//# sourceURL=webpa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_redux_logger__;\n\n//# sourceURL=webpack://slucky/external_%22redux-logger%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_redux_logger__;\n\n//# sourceURL=webpack:///external_%22redux-logger%22?");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE_redux_logger__;\n\n//# sourceUR
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_redux_thunk__;\n\n//# sourceURL=webpack://slucky/external_%22redux-thunk%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_redux_thunk__;\n\n//# sourceURL=webpack:///external_%22redux-thunk%22?");
 
 /***/ })
 

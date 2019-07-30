@@ -3,10 +3,10 @@
 		module.exports = factory(require("../store"));
 	else if(typeof define === 'function' && define.amd)
 		define(["../store"], factory);
-	else if(typeof exports === 'object')
-		exports["slucky"] = factory(require("../store"));
-	else
-		root["slucky"] = factory(root["../store"]);
+	else {
+		var a = typeof exports === 'object' ? factory(require("../store")) : factory(root["../store"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
 })(window, function(__WEBPACK_EXTERNAL_MODULE__store__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -103,7 +103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__store__;\n\n//# sourceURL=webpack://slucky/external_%22../store%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__store__;\n\n//# sourceURL=webpack:///external_%22../store%22?");
 
 /***/ }),
 
@@ -115,7 +115,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__store__;\n\n//# sourceURL=webp
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nexports.pushInQueue = undefined;\n\nvar _store = __webpack_require__(/*! ../store */ \"../store\");\n\nfunction _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } // ex:\n// let state = {\n// \tlists: [{\n// \t\tflag: \"hint/text/warning\"\n// \t\tinfo: \"\"\n// \t}, {\n// \t\tinfo: \"\"\n// \t}, {\n// \t\tinfo: \"\"\n// \t}]\n// }\n\n\nvar shiftMsg = function shiftMsg(msgQueue) {\n\treturn {\n\t\ttype: \"SHIFT_MSG\",\n\t\tmsgQueue: msgQueue //最新的消息队列\n\t};\n};\n\nvar pushMsg = function pushMsg(msg) {\n\treturn {\n\t\ttype: \"PUSH_MSG\",\n\t\tmsg: msg.info,\n\t\tflag: msg.flag\n\t};\n};\n\nvar _timer;\nvar nextMsgId = 0;\nvar _message = [];\n\nvar pushInQueue = exports.pushInQueue = function pushInQueue(msg) {\n\treturn function (dispatch) {\n\t\tif (_message.length == 0) {\n\t\t\t// 生成定时器\n\t\t\tconsole.log(\"timer seted\");\n\t\t\t_timer = setInterval(function () {\n\t\t\t\tpopToQueue(dispatch);\n\t\t\t}, 3000);\n\t\t}\n\t\t_message.push(msg);\n\t\tdispatch(pushMsg(msg));\n\t};\n};\n\nvar popToQueue = function popToQueue(dispatch) {\n\t_message.shift();\n\tif (_message.length == 0) {\n\t\tclearInterval(_timer); //清空队列\n\t\tconsole.log(\"timer cleared\");\n\t}\n\tdispatch(shiftMsg(_message));\n};\n\nvar messageReducer = function messageReducer() {\n\tvar state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n\tvar action = arguments[1];\n\n\tswitch (action.type) {\n\t\tcase \"PUSH_MSG\":\n\t\t\treturn [].concat(_toConsumableArray(state), [{\n\t\t\t\tinfo: action.msg,\n\t\t\t\tid: action.id,\n\t\t\t\tflag: action.flag\n\t\t\t}]);\n\t\tcase \"SHIFT_MSG\":\n\t\t\treturn [].concat(_toConsumableArray(action.msgQueue));\n\t\tdefault:\n\t\t\treturn state;\n\t}\n};\n\n(0, _store.addReducer)(messageReducer, 'messageReducer');\n\n//# sourceURL=webpack://slucky/./src/message/data-message.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\nexports.pushInQueue = undefined;\n\nvar _store = __webpack_require__(/*! ../store */ \"../store\");\n\nfunction _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } // ex:\n// let state = {\n// \tlists: [{\n// \t\tflag: \"hint/text/warning\"\n// \t\tinfo: \"\"\n// \t}, {\n// \t\tinfo: \"\"\n// \t}, {\n// \t\tinfo: \"\"\n// \t}]\n// }\n\n\nvar shiftMsg = function shiftMsg(msgQueue) {\n\treturn {\n\t\ttype: \"SHIFT_MSG\",\n\t\tmsgQueue: msgQueue //最新的消息队列\n\t};\n};\n\nvar pushMsg = function pushMsg(msg) {\n\treturn {\n\t\ttype: \"PUSH_MSG\",\n\t\tmsg: msg.info,\n\t\tflag: msg.flag\n\t};\n};\n\nvar _timer;\nvar nextMsgId = 0;\nvar _message = [];\n\nvar pushInQueue = exports.pushInQueue = function pushInQueue(msg) {\n\treturn function (dispatch) {\n\t\tif (_message.length == 0) {\n\t\t\t// 生成定时器\n\t\t\tconsole.log(\"timer seted\");\n\t\t\t_timer = setInterval(function () {\n\t\t\t\tpopToQueue(dispatch);\n\t\t\t}, 3000);\n\t\t}\n\t\t_message.push(msg);\n\t\tdispatch(pushMsg(msg));\n\t};\n};\n\nvar popToQueue = function popToQueue(dispatch) {\n\t_message.shift();\n\tif (_message.length == 0) {\n\t\tclearInterval(_timer); //清空队列\n\t\tconsole.log(\"timer cleared\");\n\t}\n\tdispatch(shiftMsg(_message));\n};\n\nvar messageReducer = function messageReducer() {\n\tvar state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n\tvar action = arguments[1];\n\n\tswitch (action.type) {\n\t\tcase \"PUSH_MSG\":\n\t\t\treturn [].concat(_toConsumableArray(state), [{\n\t\t\t\tinfo: action.msg,\n\t\t\t\tid: action.id,\n\t\t\t\tflag: action.flag\n\t\t\t}]);\n\t\tcase \"SHIFT_MSG\":\n\t\t\treturn [].concat(_toConsumableArray(action.msgQueue));\n\t\tdefault:\n\t\t\treturn state;\n\t}\n};\n\n(0, _store.addReducer)(messageReducer, 'messageReducer');\n\n//# sourceURL=webpack:///./src/message/data-message.jsx?");
 
 /***/ })
 

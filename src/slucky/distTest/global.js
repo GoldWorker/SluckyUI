@@ -3,10 +3,10 @@
 		module.exports = factory(require("./login/highorder-loginWindow"), require("./message/highorder-message"), require("./nav/highorder-navNormalize"), require("./slidebar.demo"), require("react"));
 	else if(typeof define === 'function' && define.amd)
 		define(["./login/highorder-loginWindow", "./message/highorder-message", "./nav/highorder-navNormalize", "./slidebar.demo", "react"], factory);
-	else if(typeof exports === 'object')
-		exports["slucky"] = factory(require("./login/highorder-loginWindow"), require("./message/highorder-message"), require("./nav/highorder-navNormalize"), require("./slidebar.demo"), require("react"));
-	else
-		root["slucky"] = factory(root["./login/highorder-loginWindow"], root["./message/highorder-message"], root["./nav/highorder-navNormalize"], root["./slidebar.demo"], root["react"]);
+	else {
+		var a = typeof exports === 'object' ? factory(require("./login/highorder-loginWindow"), require("./message/highorder-message"), require("./nav/highorder-navNormalize"), require("./slidebar.demo"), require("react")) : factory(root["./login/highorder-loginWindow"], root["./message/highorder-message"], root["./nav/highorder-navNormalize"], root["./slidebar.demo"], root["react"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
 })(window, function(__WEBPACK_EXTERNAL_MODULE__login_highorder_loginWindow__, __WEBPACK_EXTERNAL_MODULE__message_highorder_message__, __WEBPACK_EXTERNAL_MODULE__nav_highorder_navNormalize__, __WEBPACK_EXTERNAL_MODULE__slidebar_demo__, __WEBPACK_EXTERNAL_MODULE_react__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -103,7 +103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__login_highorder_loginWindow__;\n\n//# sourceURL=webpack://slucky/external_%22./login/highorder-loginWindow%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__login_highorder_loginWindow__;\n\n//# sourceURL=webpack:///external_%22./login/highorder-loginWindow%22?");
 
 /***/ }),
 
@@ -114,7 +114,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__login_highorder_loginWindow__;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__message_highorder_message__;\n\n//# sourceURL=webpack://slucky/external_%22./message/highorder-message%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__message_highorder_message__;\n\n//# sourceURL=webpack:///external_%22./message/highorder-message%22?");
 
 /***/ }),
 
@@ -125,7 +125,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__message_highorder_message__;\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__nav_highorder_navNormalize__;\n\n//# sourceURL=webpack://slucky/external_%22./nav/highorder-navNormalize%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__nav_highorder_navNormalize__;\n\n//# sourceURL=webpack:///external_%22./nav/highorder-navNormalize%22?");
 
 /***/ }),
 
@@ -136,7 +136,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__nav_highorder_navNormalize__;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__slidebar_demo__;\n\n//# sourceURL=webpack://slucky/external_%22./slidebar.demo%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__slidebar_demo__;\n\n//# sourceURL=webpack:///external_%22./slidebar.demo%22?");
 
 /***/ }),
 
@@ -148,7 +148,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__slidebar_demo__;\n\n//# source
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _highorderMessage = __webpack_require__(/*! ./message/highorder-message */ \"./message/highorder-message\");\n\nvar _highorderMessage2 = _interopRequireDefault(_highorderMessage);\n\nvar _slidebar = __webpack_require__(/*! ./slidebar.demo */ \"./slidebar.demo\");\n\nvar _slidebar2 = _interopRequireDefault(_slidebar);\n\nvar _highorderLoginWindow = __webpack_require__(/*! ./login/highorder-loginWindow */ \"./login/highorder-loginWindow\");\n\nvar _highorderLoginWindow2 = _interopRequireDefault(_highorderLoginWindow);\n\nvar _highorderNavNormalize = __webpack_require__(/*! ./nav/highorder-navNormalize */ \"./nav/highorder-navNormalize\");\n\nvar _highorderNavNormalize2 = _interopRequireDefault(_highorderNavNormalize);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar Global = function (_Component) {\n    _inherits(Global, _Component);\n\n    function Global(props) {\n        _classCallCheck(this, Global);\n\n        return _possibleConstructorReturn(this, (Global.__proto__ || Object.getPrototypeOf(Global)).call(this, props));\n    }\n\n    _createClass(Global, [{\n        key: \"render\",\n        value: function render() {\n            return _react2.default.createElement(\n                \"div\",\n                null,\n                _react2.default.createElement(_highorderNavNormalize2.default, null),\n                _react2.default.createElement(_slidebar2.default, null),\n                _react2.default.createElement(_highorderMessage2.default, null),\n                _react2.default.createElement(_highorderLoginWindow2.default, null)\n            );\n        }\n    }]);\n\n    return Global;\n}(_react.Component);\n\nexports.default = Global;\n\n//# sourceURL=webpack://slucky/./src/global.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _highorderMessage = __webpack_require__(/*! ./message/highorder-message */ \"./message/highorder-message\");\n\nvar _highorderMessage2 = _interopRequireDefault(_highorderMessage);\n\nvar _slidebar = __webpack_require__(/*! ./slidebar.demo */ \"./slidebar.demo\");\n\nvar _slidebar2 = _interopRequireDefault(_slidebar);\n\nvar _highorderLoginWindow = __webpack_require__(/*! ./login/highorder-loginWindow */ \"./login/highorder-loginWindow\");\n\nvar _highorderLoginWindow2 = _interopRequireDefault(_highorderLoginWindow);\n\nvar _highorderNavNormalize = __webpack_require__(/*! ./nav/highorder-navNormalize */ \"./nav/highorder-navNormalize\");\n\nvar _highorderNavNormalize2 = _interopRequireDefault(_highorderNavNormalize);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar Global = function (_Component) {\n    _inherits(Global, _Component);\n\n    function Global(props) {\n        _classCallCheck(this, Global);\n\n        return _possibleConstructorReturn(this, (Global.__proto__ || Object.getPrototypeOf(Global)).call(this, props));\n    }\n\n    _createClass(Global, [{\n        key: \"render\",\n        value: function render() {\n            return _react2.default.createElement(\n                \"div\",\n                null,\n                _react2.default.createElement(_highorderNavNormalize2.default, null),\n                _react2.default.createElement(_slidebar2.default, null),\n                _react2.default.createElement(_highorderMessage2.default, null),\n                _react2.default.createElement(_highorderLoginWindow2.default, null)\n            );\n        }\n    }]);\n\n    return Global;\n}(_react.Component);\n\nexports.default = Global;\n\n//# sourceURL=webpack:///./src/global.jsx?");
 
 /***/ }),
 
@@ -159,7 +159,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react__;\n\n//# sourceURL=webpack://slucky/external_%22react%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react__;\n\n//# sourceURL=webpack:///external_%22react%22?");
 
 /***/ })
 

@@ -1,0 +1,211 @@
+/*------------------------------------------------msg/alert--------------------------------*/
+
+.layout {
+    opacity: 1;
+    @include animate();
+}
+
+.layout-out {
+    // position: fixed;
+    // left: 100%;
+    // top: 0;
+    // width: 100%;
+    // height: 100%; // opacity: 0;
+    // z-index: -99;
+    display: none;
+}
+
+.dialog-mark {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 99;
+}
+
+.dialog-box {
+    position: fixed;
+    top: 0; // bottom: 0;
+    left: 0; // right: 0;
+    // margin: auto;
+    // width: 250px;
+    // height: 200px;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+
+.dialog {
+    padding-bottom: 8px;
+    text-align: left;
+}
+
+@media screen and (max-width:768px) {
+    .dialog {
+        width: 250px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .dialog {
+        max-width: 768px;
+        min-width: 480px;
+    }
+}
+
+.dialog-content {
+    padding: 8px 24px 10px 24px;
+}
+
+.dialog-select {
+    line-height: 32px;
+}
+
+.hint-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.hint-content {
+    padding: 16px 24px 12px 24px;
+}
+
+.hint-btn {
+    float: right;
+    background-color: transparent;
+    padding-left: 24px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.toastlists-normalize-box {
+    position: fixed;
+    float: right;
+    top: 0;
+    right: 0; // transition: all .3s;
+    z-index: 9;
+}
+
+.toastlist .toast-item {
+    float: right;
+    margin: 24px 24px 0px 0px;
+    animation: toast-fade-in .3s;
+    // color: #fff;
+    border-radius: 3px;
+    padding: 16px 24px 16px 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+// pop tips
+.pop-box {
+    display: inline-block;
+    position: relative;
+
+    .pop-main {
+        display: none;
+        position: absolute; // bottom: 105%;
+        // left: 0;
+        right: 95%;
+        top: 0;
+        border-radius: 2px;
+        z-index: 99;
+        animation: toast-fade-in .3s;
+        cursor: default;
+        .pop-content {}
+    }
+
+    .pop-main-r {
+        @extend .pop-main;
+        right: unset;
+        left: 95%;
+    }
+
+    .pop-toggle {
+        cursor: pointer;
+        &:hover .pop-main {
+            display: block;
+        }
+    }
+}
+
+.fadeIn {
+    animation: slideIn .3s;
+    display: block;
+    opacity: 1;
+
+    .fade-scale {
+        animation: fade-scale .3s;
+    }
+}
+
+.fadeOut {
+    animation: slideOut .3s;
+}
+
+@keyframes slideIn {
+    0% {
+        // display: block !important;
+        opacity: 0; // transform:translateY(20px)
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1; // background-color: blue;
+        // transform:translateY(0px)
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        // transform: scaleZ(1);
+        left: 0; // transform:translateY(0px);
+        opacity: 1;
+    }
+
+    50% {
+        left: 0; // transform: scaleZ(0.7);
+        opacity: 0.7;
+    }
+
+    100% {
+        left: 0; // transform: scaleZ(0);
+        // transform:translateY(-60px);
+        // display: none !important;
+        opacity: 0; // background-color: blue;
+    }
+}
+
+@keyframes fade-scale {
+    0% {
+        transform: scale(1.1, 1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes toast-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateX(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}

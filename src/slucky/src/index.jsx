@@ -17,6 +17,7 @@ import { Select } from "./component/select";
 import { Search } from "./component/search";
 import { Progress } from "./component/progress";
 import { Validator } from "./lib/validator";
+// import '../sass/normal.scss';
 
 export {
     Dialog,

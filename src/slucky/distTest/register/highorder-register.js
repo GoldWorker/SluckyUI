@@ -3,10 +3,10 @@
 		module.exports = factory(require("./data-register"), require("./display-register"), require("react-redux"));
 	else if(typeof define === 'function' && define.amd)
 		define(["./data-register", "./display-register", "react-redux"], factory);
-	else if(typeof exports === 'object')
-		exports["slucky"] = factory(require("./data-register"), require("./display-register"), require("react-redux"));
-	else
-		root["slucky"] = factory(root["./data-register"], root["./display-register"], root["react-redux"]);
+	else {
+		var a = typeof exports === 'object' ? factory(require("./data-register"), require("./display-register"), require("react-redux")) : factory(root["./data-register"], root["./display-register"], root["react-redux"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
 })(window, function(__WEBPACK_EXTERNAL_MODULE__data_register__, __WEBPACK_EXTERNAL_MODULE__display_register__, __WEBPACK_EXTERNAL_MODULE_react_redux__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -103,7 +103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__data_register__;\n\n//# sourceURL=webpack://slucky/external_%22./data-register%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__data_register__;\n\n//# sourceURL=webpack:///external_%22./data-register%22?");
 
 /***/ }),
 
@@ -114,7 +114,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__data_register__;\n\n//# source
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_register__;\n\n//# sourceURL=webpack://slucky/external_%22./display-register%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_register__;\n\n//# sourceURL=webpack:///external_%22./display-register%22?");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_register__;\n\n//# sou
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _displayRegister = __webpack_require__(/*! ./display-register */ \"./display-register\");\n\nvar _displayRegister2 = _interopRequireDefault(_displayRegister);\n\nvar _dataRegister = __webpack_require__(/*! ./data-register */ \"./data-register\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state) {\n\treturn {};\n};\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n\treturn {\n\t\thandleVerifyCodeSend: function handleVerifyCodeSend(email) {\n\t\t\treturn dispatch((0, _dataRegister.verifyEmail)({\n\t\t\t\temail: email\n\t\t\t}));\n\t\t},\n\t\tregisterConfirm: function registerConfirm(data) {\n\t\t\treturn dispatch((0, _dataRegister.register)(data));\n\t\t}\n\t};\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_displayRegister2.default);\n\n//# sourceURL=webpack://slucky/./src/register/highorder-register.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _displayRegister = __webpack_require__(/*! ./display-register */ \"./display-register\");\n\nvar _displayRegister2 = _interopRequireDefault(_displayRegister);\n\nvar _dataRegister = __webpack_require__(/*! ./data-register */ \"./data-register\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state) {\n\treturn {};\n};\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n\treturn {\n\t\thandleVerifyCodeSend: function handleVerifyCodeSend(email) {\n\t\t\treturn dispatch((0, _dataRegister.verifyEmail)({\n\t\t\t\temail: email\n\t\t\t}));\n\t\t},\n\t\tregisterConfirm: function registerConfirm(data) {\n\t\t\treturn dispatch((0, _dataRegister.register)(data));\n\t\t}\n\t};\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_displayRegister2.default);\n\n//# sourceURL=webpack:///./src/register/highorder-register.jsx?");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_redux__;\n\n//# sourceURL=webpack://slucky/external_%22react-redux%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_redux__;\n\n//# sourceURL=webpack:///external_%22react-redux%22?");
 
 /***/ })
 

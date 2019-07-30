@@ -1,0 +1,31 @@
+
+.img-box>img{
+    width: 100%;
+}
+
+.img-rounded{
+    @include bor-r();
+    width:144px;
+    height: 144px;    
+}
+.img-rounded-s{
+    @include bor-r();
+    width:56px;
+    height: 56px;    
+}
+.img-circle{
+    width:144px;
+    height: 144px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    overflow: hidden;
+}
+.img-thumbnail{
+    @include bor-r();
+    @extend .p4;
+    @include  box_sizing();
+    width:144px;
+    height: 144px;
+    border: 1px solid #ddd;
+}

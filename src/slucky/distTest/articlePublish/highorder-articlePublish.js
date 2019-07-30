@@ -3,10 +3,10 @@
 		module.exports = factory(require("../articleDetail/data-articleDetail"), require("./data-articlePublish"), require("./display-articlePublish"), require("react-redux"));
 	else if(typeof define === 'function' && define.amd)
 		define(["../articleDetail/data-articleDetail", "./data-articlePublish", "./display-articlePublish", "react-redux"], factory);
-	else if(typeof exports === 'object')
-		exports["slucky"] = factory(require("../articleDetail/data-articleDetail"), require("./data-articlePublish"), require("./display-articlePublish"), require("react-redux"));
-	else
-		root["slucky"] = factory(root["../articleDetail/data-articleDetail"], root["./data-articlePublish"], root["./display-articlePublish"], root["react-redux"]);
+	else {
+		var a = typeof exports === 'object' ? factory(require("../articleDetail/data-articleDetail"), require("./data-articlePublish"), require("./display-articlePublish"), require("react-redux")) : factory(root["../articleDetail/data-articleDetail"], root["./data-articlePublish"], root["./display-articlePublish"], root["react-redux"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
 })(window, function(__WEBPACK_EXTERNAL_MODULE__articleDetail_data_articleDetail__, __WEBPACK_EXTERNAL_MODULE__data_articlePublish__, __WEBPACK_EXTERNAL_MODULE__display_articlePublish__, __WEBPACK_EXTERNAL_MODULE_react_redux__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -103,7 +103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__articleDetail_data_articleDetail__;\n\n//# sourceURL=webpack://slucky/external_%22../articleDetail/data-articleDetail%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__articleDetail_data_articleDetail__;\n\n//# sourceURL=webpack:///external_%22../articleDetail/data-articleDetail%22?");
 
 /***/ }),
 
@@ -114,7 +114,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__articleDetail_data_articleDeta
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__data_articlePublish__;\n\n//# sourceURL=webpack://slucky/external_%22./data-articlePublish%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__data_articlePublish__;\n\n//# sourceURL=webpack:///external_%22./data-articlePublish%22?");
 
 /***/ }),
 
@@ -125,7 +125,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__data_articlePublish__;\n\n//# 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_articlePublish__;\n\n//# sourceURL=webpack://slucky/external_%22./display-articlePublish%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_articlePublish__;\n\n//# sourceURL=webpack:///external_%22./display-articlePublish%22?");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_articlePublish__;\n\n/
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _dataArticlePublish = __webpack_require__(/*! ./data-articlePublish */ \"./data-articlePublish\");\n\nvar _dataArticleDetail = __webpack_require__(/*! ../articleDetail/data-articleDetail */ \"../articleDetail/data-articleDetail\");\n\nvar _displayArticlePublish = __webpack_require__(/*! ./display-articlePublish */ \"./display-articlePublish\");\n\nvar _displayArticlePublish2 = _interopRequireDefault(_displayArticlePublish);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state) {\n    return {\n        item: state.articleDetailReducer.item\n    };\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n    return {\n        handlePublicClick: function handlePublicClick(art) {\n            return dispatch((0, _dataArticlePublish.publishArticle)(art));\n        },\n        handleClickUpdate: function handleClickUpdate(art) {\n            return dispatch((0, _dataArticlePublish.putArticle)(art));\n        },\n        fetchData: function fetchData(id) {\n            return dispatch((0, _dataArticleDetail.fetchArticleOne)(id));\n        }\n    };\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_displayArticlePublish2.default);\n\n//# sourceURL=webpack://slucky/./src/articlePublish/highorder-articlePublish.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _dataArticlePublish = __webpack_require__(/*! ./data-articlePublish */ \"./data-articlePublish\");\n\nvar _dataArticleDetail = __webpack_require__(/*! ../articleDetail/data-articleDetail */ \"../articleDetail/data-articleDetail\");\n\nvar _displayArticlePublish = __webpack_require__(/*! ./display-articlePublish */ \"./display-articlePublish\");\n\nvar _displayArticlePublish2 = _interopRequireDefault(_displayArticlePublish);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state) {\n    return {\n        item: state.articleDetailReducer.item\n    };\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n    return {\n        handlePublicClick: function handlePublicClick(art) {\n            return dispatch((0, _dataArticlePublish.publishArticle)(art));\n        },\n        handleClickUpdate: function handleClickUpdate(art) {\n            return dispatch((0, _dataArticlePublish.putArticle)(art));\n        },\n        fetchData: function fetchData(id) {\n            return dispatch((0, _dataArticleDetail.fetchArticleOne)(id));\n        }\n    };\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_displayArticlePublish2.default);\n\n//# sourceURL=webpack:///./src/articlePublish/highorder-articlePublish.jsx?");
 
 /***/ }),
 
@@ -148,7 +148,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_redux__;\n\n//# sourceURL=webpack://slucky/external_%22react-redux%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_redux__;\n\n//# sourceURL=webpack:///external_%22react-redux%22?");
 
 /***/ })
 

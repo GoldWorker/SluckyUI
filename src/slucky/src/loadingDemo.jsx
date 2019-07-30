@@ -2,17 +2,17 @@ import React, { Component } from 'react'
 import ReactDOMServer from 'react-dom/server';
 import ReactMarkdown from 'react-markdown'
 import Highlight from 'react-highlight'
-import { Progress, ProgressCircle, ProgressPie, ProgressWave } from "slucky/src/component/progress";
+import { Progress } from "slucky/src/component/progress";
 export default class LoadingDemo extends Component {
 
     render() {
 
         const demoString = '``` html' + `
-import { Progress, ProgressCircle, ProgressPie, ProgressWave } from "slucky";
+import { Progress } from "slucky";
 ...
-<ProgressCircle percent={30} radius={96} />
-<ProgressPie percent={40} />
-<ProgressWave percent={60} />
+<Progress.circle percent={30} radius={96} />
+<Progress.pie percent={40} />
+<Progress.wave percent={60} />
 <Progress percent={50} />
 
 <div className="wave-box-seed">
@@ -37,13 +37,13 @@ import { Progress, ProgressCircle, ProgressPie, ProgressWave } from "slucky";
         return (
             <div>
                 <div className="d-il m16">
-                    <ProgressCircle percent={30} radius={96} />
+                    <Progress.circle percent={30} radius={96} />
                 </div>
                 <div className="d-il m16">
-                    <ProgressPie percent={40} />
+                    <Progress.pie percent={40} />
                 </div>
                 <div className="d-il m16">
-                    <ProgressWave percent={60} />
+                    <Progress.wave percent={60} />
                 </div>
                 <div className="d-il m16">
                     <Progress percent={50} />

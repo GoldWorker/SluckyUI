@@ -3,10 +3,10 @@
 		module.exports = factory(require("./data-articleDetail"), require("./display-articleDetail"), require("react-redux"));
 	else if(typeof define === 'function' && define.amd)
 		define(["./data-articleDetail", "./display-articleDetail", "react-redux"], factory);
-	else if(typeof exports === 'object')
-		exports["slucky"] = factory(require("./data-articleDetail"), require("./display-articleDetail"), require("react-redux"));
-	else
-		root["slucky"] = factory(root["./data-articleDetail"], root["./display-articleDetail"], root["react-redux"]);
+	else {
+		var a = typeof exports === 'object' ? factory(require("./data-articleDetail"), require("./display-articleDetail"), require("react-redux")) : factory(root["./data-articleDetail"], root["./display-articleDetail"], root["react-redux"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
 })(window, function(__WEBPACK_EXTERNAL_MODULE__data_articleDetail__, __WEBPACK_EXTERNAL_MODULE__display_articleDetail__, __WEBPACK_EXTERNAL_MODULE_react_redux__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -103,7 +103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__data_articleDetail__;\n\n//# sourceURL=webpack://slucky/external_%22./data-articleDetail%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__data_articleDetail__;\n\n//# sourceURL=webpack:///external_%22./data-articleDetail%22?");
 
 /***/ }),
 
@@ -114,7 +114,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__data_articleDetail__;\n\n//# s
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_articleDetail__;\n\n//# sourceURL=webpack://slucky/external_%22./display-articleDetail%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_articleDetail__;\n\n//# sourceURL=webpack:///external_%22./display-articleDetail%22?");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_articleDetail__;\n\n//
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _displayArticleDetail = __webpack_require__(/*! ./display-articleDetail */ \"./display-articleDetail\");\n\nvar _displayArticleDetail2 = _interopRequireDefault(_displayArticleDetail);\n\nvar _dataArticleDetail = __webpack_require__(/*! ./data-articleDetail */ \"./data-articleDetail\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state) {\n    return {\n        item: state.articleDetailReducer.item,\n        isLogined: state.loginReducer.isLogined\n    };\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n    return {\n        handleFetchArticle: function handleFetchArticle(id) {\n            return dispatch((0, _dataArticleDetail.fetchArticleOne)(id));\n        },\n        handleDeleteClick: function handleDeleteClick(id) {\n            return dispatch((0, _dataArticleDetail.deleteArticleOne)(id));\n        }\n    };\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_displayArticleDetail2.default);\n\n//# sourceURL=webpack://slucky/./src/articleDetail/highorder-articleDetail.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _displayArticleDetail = __webpack_require__(/*! ./display-articleDetail */ \"./display-articleDetail\");\n\nvar _displayArticleDetail2 = _interopRequireDefault(_displayArticleDetail);\n\nvar _dataArticleDetail = __webpack_require__(/*! ./data-articleDetail */ \"./data-articleDetail\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state) {\n    return {\n        item: state.articleDetailReducer.item,\n        isLogined: state.loginReducer.isLogined\n    };\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n    return {\n        handleFetchArticle: function handleFetchArticle(id) {\n            return dispatch((0, _dataArticleDetail.fetchArticleOne)(id));\n        },\n        handleDeleteClick: function handleDeleteClick(id) {\n            return dispatch((0, _dataArticleDetail.deleteArticleOne)(id));\n        }\n    };\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_displayArticleDetail2.default);\n\n//# sourceURL=webpack:///./src/articleDetail/highorder-articleDetail.jsx?");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_redux__;\n\n//# sourceURL=webpack://slucky/external_%22react-redux%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_redux__;\n\n//# sourceURL=webpack:///external_%22react-redux%22?");
 
 /***/ })
 

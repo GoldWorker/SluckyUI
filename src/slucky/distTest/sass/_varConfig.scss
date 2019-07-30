@@ -1,0 +1,55 @@
+// var of self
+// --------------------------------------------------
+// Google design color
+$blue:					rgba(52, 152, 219, 1) !default;
+$blue_d:				rgba(41, 128, 185, 1) !default;
+$cyan: 					rgba(26, 188, 156, 1) !default;
+$cyan_d: 				rgba(22, 160, 133, 1) !default;
+$green: 				rgba(31, 204, 123, 1) !default;
+$green_d: 				rgba(39, 174, 96, 1) !default;
+$purple: 				rgba(155, 89, 182, 1) !default;
+$purple_d: 				rgba(142, 68, 173, 1) !default;
+$black: 				rgba(52, 73, 94, 1) !default;
+$black_d: 				rgba(44, 62, 80, 1) !default;
+$yellow: 				rgba(241, 196, 15, 1) !default;
+$yellow_d: 				rgba(243, 156, 18, 1) !default;
+$orange: 				rgba(255, 164, 4, 1) !default;
+$orange_d: 				rgba(211, 84, 0, 1) !default;
+$red: 					rgba(231, 76, 60, 1) !default;
+$red_d: 				rgba(192, 57, 43, 1) !default;
+$white: 				rgba(236, 240, 241, 1) !default;
+$white_d:			 	rgba(189, 195, 199, 1) !default;
+$grey: 					rgba(149, 165, 166, 1) !default;
+$grey_d: 				rgba(127, 140, 141, 1) !default;
+$pink: 					rgba(233, 30, 99, 1) !default;
+//base
+$base_color: 			rgba(241, 241, 241, 1) !default;
+$tran: 					rgba(221, 221, 221, 1) !default;
+//text color
+$divider_b:				rgba(black, .12) !default; //divider
+$hint_b:				rgba(black, .26) !default; //hint disable
+$icon_b:				rgba(black, .54) !default; //icon secondary
+$text_b:				rgba(black, .87) !default; //text
+$divider_w:				rgba(white, .12) !default; //divider
+$hint_w:				rgba(white, .3) !default; //hint disable
+$icon_w:				rgba(white, .7) !default; //icon secondary
+$text_w:				rgb(255, 255, 255) !default; //text
+//scale set
+$w_space:				-5px !default;
+$lh_base:				16 !default; //line-height-base
+$wid_base:				72 !default; //width-base
+$p_base:				8 !default; //padding&margin-base
+//color
+$paper_color:			#fff !default;
+$bor_color:				#ccc !default;
+$shadow_color:			rgba(0, 0, 0, .1) !default;
+$tp_color:				rgba(0, 0, 0, 0) !default;
+//input
+$tri_color:				#ccc !default;
+
+$b_input_down:			$theme_color !default;
+$c_input_down:			$text_b !default;
+$placeholder_input_down:$grey !default;
+$c_input_ps:			$red !default;
+$color_input_main:		$theme_color !default;
+

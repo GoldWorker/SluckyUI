@@ -3,10 +3,10 @@
 		module.exports = factory(require("./display-navNormalize"), require("react-redux"), require("react-router-dom"));
 	else if(typeof define === 'function' && define.amd)
 		define(["./display-navNormalize", "react-redux", "react-router-dom"], factory);
-	else if(typeof exports === 'object')
-		exports["slucky"] = factory(require("./display-navNormalize"), require("react-redux"), require("react-router-dom"));
-	else
-		root["slucky"] = factory(root["./display-navNormalize"], root["react-redux"], root["react-router-dom"]);
+	else {
+		var a = typeof exports === 'object' ? factory(require("./display-navNormalize"), require("react-redux"), require("react-router-dom")) : factory(root["./display-navNormalize"], root["react-redux"], root["react-router-dom"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
 })(window, function(__WEBPACK_EXTERNAL_MODULE__display_navNormalize__, __WEBPACK_EXTERNAL_MODULE_react_redux__, __WEBPACK_EXTERNAL_MODULE_react_router_dom__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -103,7 +103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_navNormalize__;\n\n//# sourceURL=webpack://slucky/external_%22./display-navNormalize%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_navNormalize__;\n\n//# sourceURL=webpack:///external_%22./display-navNormalize%22?");
 
 /***/ }),
 
@@ -115,7 +115,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE__display_navNormalize__;\n\n//#
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _displayNavNormalize = __webpack_require__(/*! ./display-navNormalize */ \"./display-navNormalize\");\n\nvar _displayNavNormalize2 = _interopRequireDefault(_displayNavNormalize);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state, ownProps) {\n    return {\n        isLogined: state.loginReducer.isLogined\n    };\n};\n\nvar mapDispatchToProps = {};\n\nexports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_displayNavNormalize2.default));\n\n//# sourceURL=webpack://slucky/./src/nav/highorder-navNormalize.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _displayNavNormalize = __webpack_require__(/*! ./display-navNormalize */ \"./display-navNormalize\");\n\nvar _displayNavNormalize2 = _interopRequireDefault(_displayNavNormalize);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar mapStateToProps = function mapStateToProps(state, ownProps) {\n    return {\n        isLogined: state.loginReducer.isLogined\n    };\n};\n\nvar mapDispatchToProps = {};\n\nexports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_displayNavNormalize2.default));\n\n//# sourceURL=webpack:///./src/nav/highorder-navNormalize.jsx?");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_redux__;\n\n//# sourceURL=webpack://slucky/external_%22react-redux%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_redux__;\n\n//# sourceURL=webpack:///external_%22react-redux%22?");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_redux__;\n\n//# sourceURL
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;\n\n//# sourceURL=webpack://slucky/external_%22react-router-dom%22?");
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_router_dom__;\n\n//# sourceURL=webpack:///external_%22react-router-dom%22?");
 
 /***/ })
 

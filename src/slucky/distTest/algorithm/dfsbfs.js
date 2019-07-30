@@ -3,10 +3,10 @@
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
-	else if(typeof exports === 'object')
-		exports["slucky"] = factory();
-	else
-		root["slucky"] = factory();
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
 })(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar deepTraversal2 = function deepTraversal2(node) {\n    var nodes = [];\n    console.log(node);\n    console.log(node.children);\n    if (node !== null) {\n        nodes.push(node);\n        var children = node.children;\n        for (var i = 0; i < children.length; i++) {\n            nodes = nodes.concat(deepTraversal2(children[i]));\n        }\n    }\n    return nodes;\n};\n\nvar widthTraversal2 = function widthTraversal2(node) {\n    var nodes = [];\n    var stack = [];\n    if (node) {\n        stack.push(node);\n        while (stack.length) {\n            var item = stack.shift();\n            var children = item.children;\n            nodes.push(item);\n            // 队列，先进先出\n            // nodes = [] stack = [parent]\n            // nodes = [parent] stack = [child1,child2,child3]\n            // nodes = [parent, child1] stack = [child2,child3,child1-1,child1-2]\n            // nodes = [parent,child1,child2]\n            for (var i = 0; i < children.length; i++) {\n                stack.push(children[i]);\n            }\n        }\n    }\n    return nodes;\n};\n\nnode = {\n    name: 'p',\n    children: [{\n        name: 1,\n        children: [{\n            name: 1.1,\n            children: []\n        }]\n    }, {\n        name: 2,\n        children: [{\n            name: 2.1,\n            children: []\n        }]\n    }]\n};\n\n//# sourceURL=webpack://slucky/./src/algorithm/dfsbfs.jsx?");
+eval("\n\nvar deepTraversal2 = function deepTraversal2(node) {\n    var nodes = [];\n    console.log(node);\n    console.log(node.children);\n    if (node !== null) {\n        nodes.push(node);\n        var children = node.children;\n        for (var i = 0; i < children.length; i++) {\n            nodes = nodes.concat(deepTraversal2(children[i]));\n        }\n    }\n    return nodes;\n};\n\nvar widthTraversal2 = function widthTraversal2(node) {\n    var nodes = [];\n    var stack = [];\n    if (node) {\n        stack.push(node);\n        while (stack.length) {\n            var item = stack.shift();\n            var children = item.children;\n            nodes.push(item);\n            // 队列，先进先出\n            // nodes = [] stack = [parent]\n            // nodes = [parent] stack = [child1,child2,child3]\n            // nodes = [parent, child1] stack = [child2,child3,child1-1,child1-2]\n            // nodes = [parent,child1,child2]\n            for (var i = 0; i < children.length; i++) {\n                stack.push(children[i]);\n            }\n        }\n    }\n    return nodes;\n};\n\nnode = {\n    name: 'p',\n    children: [{\n        name: 1,\n        children: [{\n            name: 1.1,\n            children: []\n        }]\n    }, {\n        name: 2,\n        children: [{\n            name: 2.1,\n            children: []\n        }]\n    }]\n};\n\n//# sourceURL=webpack:///./src/algorithm/dfsbfs.jsx?");
 
 /***/ })
 
