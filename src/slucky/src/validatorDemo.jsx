@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Validator, Toast } from "slucky/src";
 import { Input } from "slucky/src/component/input";
+// import { Input } from "slucky/distTest";
 import { Radio } from "slucky/src/component/radio";
 import { Checkbox } from "slucky/src/component/checkbox";
 import { Switch } from "slucky/src/component/switch";
@@ -61,7 +62,7 @@ export class ValidatorDemo extends Component {
     render() {
         return (
             <div className="bor b-side p32 mtb32">
-                
+
                 <Steps isCacheData={true} stepset={[{
                     title: '1',
                     content: (data) => {
@@ -95,7 +96,7 @@ export class ValidatorDemo extends Component {
                     handleNext: (data) => { return true; }
                 }]} onChange={(currentSept) => { console.log(currentSept) }} />
 
-                <Search onChange={(v) => { console.log(v) }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
+                <Search onSearch={(v) => { console.log(v) }} onChange={(v) => { console.log(v) }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 
                 <Select defaultValue="选项2" onChange={(v) => { console.log(v) }} option={[{
                     label: '选项1',

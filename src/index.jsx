@@ -23,10 +23,12 @@ import RenderRouter from './router'
 // import HighorderArticleDetail from "./component/articleDetail/highorder-articleDetail";
 // import HighorderRegister from "./component/register/highorder-register";
 
+// webpack动态引入资源 https://segmentfault.com/a/1190000015367490
 const requireAll = requireContext => requireContext
     .keys()
     .map(requireContext)
 const req = require.context('./icons', false, /\.svg$/)
+console.log('Icons', req.keys().map(req))
 requireAll(req)
 
 import __API__ from './config.js'

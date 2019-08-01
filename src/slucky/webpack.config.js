@@ -1,8 +1,9 @@
 const path = require('path');
 const glob = require("glob");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const pkg = require('./package.json')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CopyPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
     // devtool: 'source-map',
@@ -71,31 +72,32 @@ module.exports = {
                     }
                 }],
                 exclude: /node_modules/
-            }, {
-                test: /\.svg$/,
-                include: [path.resolve(__dirname, 'src/icons')],
-                use: [{
-                        loader: 'svg-sprite-loader',
-                        options: {
-                            symbolId: 'icon-[name]'
-                        }
-                    },
-                    'svg-fill-loader', {
-                        loader: 'svgo-loader',
-                        options: {
-                            plugins: [{
-                                removeTitle: true
-                            }, {
-                                convertColors: {
-                                    shorthex: false
-                                }
-                            }, {
-                                convertPathData: false
-                            }]
-                        }
-                    }
-                ]
-            }
+            },
+            // {
+            //     test: /\.svg$/,
+            //     include: [path.resolve(__dirname, 'src/icons')],
+            //     use: [{
+            //             loader: 'svg-sprite-loader',
+            //             options: {
+            //                 symbolId: 'icon-[name]'
+            //             }
+            //         },
+            //         'svg-fill-loader', {
+            //             loader: 'svgo-loader',
+            //             options: {
+            //                 plugins: [{
+            //                     removeTitle: true
+            //                 }, {
+            //                     convertColors: {
+            //                         shorthex: false
+            //                     }
+            //                 }, {
+            //                     convertPathData: false
+            //                 }]
+            //             }
+            //         }
+            //     ]
+            // }
         ]
     },
     plugins: [
@@ -103,8 +105,15 @@ module.exports = {
         new CleanWebpackPlugin('distTest', {
             verbose: false,
             watch: true,
-            "exclude": ['.git', '.npmignore', 'package.json', 'README.md', 'sass']
-        })
+            "exclude": ['.git', '.npmignore', 'package.json', 'README.md']
+        }),
+        new CopyPlugin([{
+            from: './sass',
+            to: './sass'
+        }, {
+            from: './src/icons',
+            to: './icons'
+        }])
     ]
 }
 

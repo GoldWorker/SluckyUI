@@ -473,6 +473,15 @@
     position: absolute;
 }
 
+.input-ghost {
+    border: none;
+    padding: 0;
+    margin: 0;
+    &:focus {
+        outline: none;
+    }
+}
+
 .input-normal {
     padding: 8px;
     // border: solid 1px $input_border_color;
@@ -483,7 +492,7 @@
     font-size: $input_fs;
     background-color: $tp_color;
     letter-spacing: 1px;
-    transition: border-color .3s;
+    transition: all .3s;
 
     &:focus {
         // outline: $input_outline_color auto 1px;
@@ -830,6 +839,10 @@
     position: relative;
     display: inline-block;
 
+    // &:focus-within .input-normal{
+    //     width: 150% !important;
+    // }
+
     &:focus-within .select-option {
         // display: block;
         visibility: visible;
@@ -856,6 +869,8 @@
     &:hover input {
         color: $text_b !important;
     }
+
+    .logo-search {}
 
     .select-down-icon {
         position: absolute;
@@ -946,6 +961,7 @@
         left: 0;
         width: 100%;
         z-index: 19;
+        // transition: all .3s;
 
         &>li {
             padding: 8px 32px 8px 8px;

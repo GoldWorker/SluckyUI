@@ -30,30 +30,40 @@ export class Search extends Component {
         })
     }
 
+    handleEnterKey(e) {
+        if (e.nativeEvent.keyCode === 13) {
+            this.props.onSearch && this.props.onSearch(e.target.value)
+        }
+    }
+
     render() {
         return (
             <div className="select-down-modern">
                 {
                     this.props.labelName ? <label htmlFor={this.id} className="pb4 mb0 fs12 d-b">{this.props.labelName}</label> : null
                 }
-                <div className="p-r">
+                <div className="input-normal p-r d-f ac" style={{ width: this.props.width || 196 + 'px' }}>
+                    <img className="icon logo-search mr8 s0" src={require('../icons/search.svg')} alt="" />
                     <input
-
                         id={this.id}
                         type="search"
-                        className="input-normal"
-                        style={{ width: this.props.width || 384 + 'px', paddingLeft: 32 + 'px', paddingRight: 32 + 'px' }}
+                        className="input-ghost w-full"
                         placeholder={this.props.placeholder || ''}
+                        maxLength={this.props.maxLength || 100}
                         onChange={(e) => this.handleChange(e.target.value)}
+                        onKeyPress={(e) => this.handleEnterKey(e)}
+                        onClick={() => this.props.onSearch && this.props.onSearch()}
                         value={this.state.value} />
                 </div>
-                <ul className="select-option paper" scrollbar='normal'>
-                    {
-                        this.state.dataCache.map((item, index) => {
-                            return <li onMouseDown={() => this.handleChange(item)} key={index}>{item}</li>
-                        })
-                    }
-                </ul>
+                {
+                    this.props.option ? <ul className="select-option paper" scrollbar='normal'>
+                        {
+                            this.state.dataCache.map((item, index) => {
+                                return <li onMouseDown={() => this.handleChange(item)} key={index}>{item}</li>
+                            })
+                        }
+                    </ul> : null
+                }
             </div>
         )
     }
