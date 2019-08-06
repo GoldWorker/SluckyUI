@@ -74,7 +74,7 @@ export class ValidatorDemo extends Component {
                         return true;
                     }
                 }, {
-                    title: '-> 2',
+                    title: '2',
                     content: (data) => {
                         return <Select defaultValue="选项2" onChange={(v) => { console.log(v) }} option={[{
                             label: '选项1',
@@ -89,7 +89,17 @@ export class ValidatorDemo extends Component {
                     },
                     handleNext: (data) => { return true; }
                 }, {
-                    title: '-> 3',
+                    title: '3',
+                    content: (data) => {
+                        return <Checkbox.GroupBorder className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected) }} option={[
+                            { label: 'Apple', value: 'Apple' },
+                            { label: <div className="border-sign">Pear</div>, value: 'Pear' },
+                            { label: 'Orange', value: 'Orange' }
+                        ]} />
+                    },
+                    handleNext: (data) => { return true; }
+                }, {
+                    title: '4',
                     content: (data) => {
                         return <div>{data.name}</div>
                     },
@@ -114,6 +124,11 @@ export class ValidatorDemo extends Component {
                     { label: 'Pear', value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }
                 ]} />
+                <Radio.GroupBorder className="pb32" defaultValue="Pear" onChange={(e) => { this.handleChangeRadio(e) }} option={[
+                    { label: 'Apple', value: 'Apple' },
+                    { label: 'Pear', value: 'Pear' },
+                    { label: 'Orange', value: 'Orange' }
+                ]} />
                 <Checkbox.Group className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected) }} option={[
                     { label: 'Apple', value: 'Apple' },
                     { label: 'Pear', value: 'Pear' },
@@ -123,6 +138,12 @@ export class ValidatorDemo extends Component {
                 <Checkbox.GroupFontIn className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected) }} option={[
                     { label: 'Apple', value: 'Apple' },
                     { label: 'Pear', value: 'Pear' },
+                    { label: 'Orange', value: 'Orange' }
+                ]} />
+
+                <Checkbox.GroupBorder className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected) }} option={[
+                    { label: 'Apple', value: 'Apple' },
+                    { label: <div className="border-sign">Pear</div>, value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }
                 ]} />
 

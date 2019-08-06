@@ -9,8 +9,6 @@
         height: 20px;
         line-height: 15px;
         border: solid 2px rgba(0, 0, 0, 0.12);
-        -webkit-transition: all 0.3s;
-        -o-transition: all 0.3s;
         transition: all 0.3s;
     }
 
@@ -319,6 +317,59 @@
     }
 }
 
+.trigger-box-border {
+    .trigger-border {
+        display: inline-block;
+        position: relative;
+        // padding: 4px 8px 4px 8px;
+        border: 1px solid $input_border_color;
+        transition: all .3s;
+        cursor: pointer;
+
+        &:after {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            line-height: 12px;
+            color: #fff;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent $theme_color $theme_color transparent;
+            transition: all .3s;
+        }
+    }
+
+    & input[trigger='core']:checked+.trigger-border {
+        color: $checkbox_focus_c;
+        border: 1px solid $theme_color;
+
+        .border-sign {
+            color: $theme_color;
+        }
+
+        &:after {
+            opacity: 1;
+        }
+
+        &:before {
+            opacity: 1;
+        }
+    }
+}
+
 //switch
 .switch-box-normalize {
     // @include bor-r(18px);
@@ -477,6 +528,7 @@
     border: none;
     padding: 0;
     margin: 0;
+
     &:focus {
         outline: none;
     }
@@ -492,7 +544,7 @@
     font-size: $input_fs;
     background-color: $tp_color;
     letter-spacing: 1px;
-    transition: all .3s;
+    transition: border-color .3s;
 
     &:focus {
         // outline: $input_outline_color auto 1px;
@@ -870,7 +922,9 @@
         color: $text_b !important;
     }
 
-    .logo-search {}
+    .logo-search {
+        cursor: pointer;
+    }
 
     .select-down-icon {
         position: absolute;

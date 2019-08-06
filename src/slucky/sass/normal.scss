@@ -195,6 +195,7 @@ $table_hover: #E8EBED;
 @import './bug.scss';
 @import './table';
 @import './paging';
+@import './step';
 
 // ----------------------------------基础布局样式----------------------------------------
 $space: 2;
@@ -400,19 +401,23 @@ $space: 2;
 
 // flex布局系列
 .flex1 {
-    @include flex();
+    // @include flex();
+    flex: 1;
 }
 
 .flex2 {
-    @include flex(2);
+    // @include flex(2);
+    flex: 2;
 }
 
 .flex3 {
-    @include flex(3);
+    // @include flex(3);
+    flex: 3;
 }
 
 .flex4 {
-    @include flex(4)
+    // @include flex(4)
+    flex: 4;
 }
 
 .ac {

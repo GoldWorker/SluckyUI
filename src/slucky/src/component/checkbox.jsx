@@ -23,47 +23,6 @@ export class Checkbox extends Component {
         )
     }
 }
-
-class Group extends Component {
-    constructor() {
-        super()
-        this.name = Math.random().toString(36).substring(2);
-        this.selected = []
-    }
-    onAction(e) {
-        const { value, checked } = e.target
-        if (checked) {
-            this.selected.push(value)
-        } else {
-            const ind = this.selected.indexOf(value)
-            ind != -1 && this.selected.splice(ind, 1)
-        }
-        this.props.onChange(this.selected)
-    }
-    render() {
-        return (
-            <div className={this.props.className || ''}>
-                {
-                    this.props.children ? null : this.props.option.map((item, index) => {
-                        if (this.props.defaultValue == item.value) {
-                            this.selected.push(item.value)
-                        }
-
-                        return <Checkbox
-                            key={index}
-                            defaultChecked={this.props.defaultValue == item.value}
-                            name={this.name}
-                            label={item.label}
-                            value={item.value}
-                            onAction={(e) => this.onAction(e)} />
-                    })
-                }
-            </div>
-        )
-    }
-}
-
-
 export class CheckboxFontIn extends Component {
     constructor() {
         super()
@@ -92,7 +51,36 @@ export class CheckboxFontIn extends Component {
     }
 }
 
-class GroupFontIn extends Component {
+export class CheckboxBorder extends Component {
+    constructor() {
+        super()
+        this.id = Math.random().toString(36).substring(2);
+    }
+    render() {
+        return (
+            <div className="trigger-box-border d-il mr16 mb8">
+                <input
+                    id={this.id}
+                    type="checkbox"
+                    trigger="core"
+                    className="d-n"
+                    name={this.props.name}
+                    value={this.props.value}
+                    defaultChecked={this.props.defaultChecked}
+                    onChange={(e) => this.props.onAction(e)} />
+                <label
+                    htmlFor={this.id}
+                    className="trigger-border mb0"
+                >
+                    {/* <span className="fontstyle-sign">✓</span> */}
+                    <span className="m0">{this.props.label || ''}</span>
+                </label>
+            </div>
+        )
+    }
+}
+
+const GroupContainer = (component) => class Group extends Component {
     constructor() {
         super()
         this.name = Math.random().toString(36).substring(2);
@@ -117,13 +105,14 @@ class GroupFontIn extends Component {
                             this.selected.push(item.value)
                         }
 
-                        return <CheckboxFontIn
-                            key={index}
-                            defaultChecked={this.props.defaultValue == item.value}
-                            name={this.name}
-                            label={item.label}
-                            value={item.value}
-                            onAction={(e) => this.onAction(e)} />
+                        return React.createElement(component, {
+                            key: index,
+                            defaultChecked: this.props.defaultValue == item.value,
+                            name: this.name,
+                            label: item.label,
+                            value: item.value,
+                            onAction: (e) => this.onAction(e),
+                        })
                     })
                 }
             </div>
@@ -131,7 +120,46 @@ class GroupFontIn extends Component {
     }
 }
 
+Checkbox.Group = GroupContainer(Checkbox)
+Checkbox.GroupFontIn = GroupContainer(CheckboxFontIn)
+Checkbox.GroupBorder = GroupContainer(CheckboxBorder)
 
+// Demo
+// class Group extends Component {
+//     constructor() {
+//         super()
+//         this.name = Math.random().toString(36).substring(2);
+//         this.selected = []
+//     }
+//     onAction(e) {
+//         const { value, checked } = e.target
+//         if (checked) {
+//             this.selected.push(value)
+//         } else {
+//             const ind = this.selected.indexOf(value)
+//             ind != -1 && this.selected.splice(ind, 1)
+//         }
+//         this.props.onChange(this.selected)
+//     }
+//     render() {
+//         return (
+//             <div className={this.props.className || ''}>
+//                 {
+//                     this.props.children ? null : this.props.option.map((item, index) => {
+//                         if (this.props.defaultValue == item.value) {
+//                             this.selected.push(item.value)
+//                         }
 
-Checkbox.Group = Group
-Checkbox.GroupFontIn = GroupFontIn
+//                         return <Checkbox
+//                             key={index}
+//                             defaultChecked={this.props.defaultValue == item.value}
+//                             name={this.name}
+//                             label={item.label}
+//                             value={item.value}
+//                             onAction={(e) => this.onAction(e)} />
+//                     })
+//                 }
+//             </div>
+//         )
+//     }
+// }

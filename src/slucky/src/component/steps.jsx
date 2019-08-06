@@ -47,28 +47,39 @@ export class Steps extends Component {
         }
     }
 
-    // async handelNextStep() {
-    //     await console.log('await')
-    // }
+    handleTitleStyle(index, currentStep) {
+        if (index > currentStep) {
+            return 'c-hint-b'
+        }
+        if (index < currentStep) {
+            return 'c-theme step-sign-active step-sign-ed'
+        }
+        return 'step-sign-active'
+    }
 
     render() {
         return (
             <div>
                 <div className="">
-                    {
-                        this.props.stepset.map((step, index) => {
-                            return (
-                                <div className="d-il step-title" key={index}>
-                                    <span className="tag-text ptb2 plr4" className={[index <= this.state.currentStep ? 'c-theme' : '', index > this.state.currentStep ? 'c-hint-b' : ''].join(' ')} onClick={() => this.handleClickEvent(step, index)}>{step.title}</span>
-                                </div>
-                            )
-                        })
-                    }
+                    <div className="d-f">
+                        {
+                            this.props.stepset.map((step, index) => {
+                                return (
+                                    <div key={index} className={['flex1 s0 step-item', this.handleTitleStyle(index, this.state.currentStep)].join(' ')}>
+                                        <div className="sign-box">
+                                            <div className={['step-sign'].join(' ')}><span className="step-sign-in">✓</span></div>
+                                        </div>
+                                        <div className="ptb8 fs12" onClick={() => this.handleClickEvent(step, index)}>{step.title}</div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                     {
                         this.props.stepset.map((step, index) => {
                             return (
                                 <div key={index} className="p-r">
-                                    <div className="step-content p-a v-h" style={index == this.state.currentStep ? { position: "relative", visibility: "visible" } : {}}>
+                                    <div className="step-content" style={index == this.state.currentStep ? { position: "relative", visibility: "visible", zIndex: 1, left: 0 } : {}}>
                                         {
                                             this.props.isCacheData ?
                                                 step.content && step.content(step.store || {})
