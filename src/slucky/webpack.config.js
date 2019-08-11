@@ -101,7 +101,7 @@ module.exports = {
         ]
     },
     plugins: [
-        // new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin(),
         new CleanWebpackPlugin('distTest', {
             verbose: false,
             watch: true,

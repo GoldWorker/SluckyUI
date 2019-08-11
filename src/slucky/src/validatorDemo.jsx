@@ -75,19 +75,13 @@ export class ValidatorDemo extends Component {
                     }
                 }, {
                     title: '2',
-                    content: (data) => {
-                        return <Select defaultValue="选项2" onChange={(v) => { console.log(v) }} option={[{
-                            label: '选项1',
-                            value: 'v1'
-                        }, {
-                            label: '选项2',
-                            value: 'v2'
-                        }, {
-                            label: '选项3',
-                            value: 'v3'
-                        }]} />
+                    content: (data, handelNext, handlePre) => {
+                        return <div>
+                            <button className="btn-n" onClick={handlePre}>上一步</button>
+                            <button className="btn-n" onClick={handelNext}>下一步</button>
+                        </div>
                     },
-                    handleNext: (data) => { return true; }
+                    isCustomCtrl: true
                 }, {
                     title: '3',
                     content: (data) => {

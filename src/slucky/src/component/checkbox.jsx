@@ -12,6 +12,7 @@ export class Checkbox extends Component {
                     id={this.id}
                     type="checkbox"
                     name={this.props.name}
+                    disabled={this.props.disabled}
                     value={this.props.value}
                     defaultChecked={this.props.defaultChecked}
                     onChange={(e) => this.props.onAction(e)} />
@@ -34,6 +35,7 @@ export class CheckboxFontIn extends Component {
                 <input
                     id={this.id}
                     type="checkbox"
+                    disabled={this.props.disabled}
                     className="d-n"
                     name={this.props.name}
                     value={this.props.value}
@@ -65,6 +67,7 @@ export class CheckboxBorder extends Component {
                     trigger="core"
                     className="d-n"
                     name={this.props.name}
+                    disabled={this.props.disabled}
                     value={this.props.value}
                     defaultChecked={this.props.defaultChecked}
                     onChange={(e) => this.props.onAction(e)} />
@@ -111,6 +114,7 @@ const GroupContainer = (component) => class Group extends Component {
                             name: this.name,
                             label: item.label,
                             value: item.value,
+                            disabled: item.disabled || this.props.disabled || false,
                             onAction: (e) => this.onAction(e),
                         })
                     })

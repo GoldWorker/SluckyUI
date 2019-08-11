@@ -20,6 +20,8 @@ export class Steps extends Component {
             console.log('pre');
             this.setState({
                 currentStep: this.state.currentStep - 1
+            }, () => {
+                this.props.stepset[this.state.currentStep].handlePre && this.props.stepset[this.state.currentStep].handlePre(this.props.stepset[this.state.currentStep], this.state.currentStep);
             })
             // return this.onAction(this.props.stepset[this.state.currentStep], this.state.currentStep, false);
         }
@@ -43,6 +45,16 @@ export class Steps extends Component {
                 }
             } else {
                 console.log('阻塞', AllowNext);
+            }
+        } else {
+            if (this.state.currentStep + 1 >= len) {
+                console.log('end');
+                // return this.onAction(this.props.stepset[this.state.currentStep], this.state.currentStep, true);
+            } else {
+                this.setState({
+                    currentStep: this.state.currentStep + 1
+                })
+                console.log('next');
             }
         }
     }
@@ -82,8 +94,8 @@ export class Steps extends Component {
                                     <div className="step-content" style={index == this.state.currentStep ? { position: "relative", visibility: "visible", zIndex: 1, left: 0 } : {}}>
                                         {
                                             this.props.isCacheData ?
-                                                step.content && step.content(step.store || {})
-                                                : (index == this.state.currentStep ? step.content && step.content(step.store || {}) : null)
+                                                step.content && step.content(step.store || {}, () => this.handelNextStep(), () => this.handelPreStep())
+                                                : (index == this.state.currentStep ? step.content && step.content(step.store || {}, () => this.handelNextStep(), () => this.handelPreStep()) : null)
                                         }
                                     </div>
                                 </div>
@@ -91,27 +103,14 @@ export class Steps extends Component {
                         })
                     }
                 </div>
-                <div className="ta-c pt16">
-                    {
-                        this.state.currentStep != 0 ? <button className="btn-w bor b-side ptb6 plr16 mr16" onClick={() => this.handelPreStep()}>上一步</button> : null
-                    }
-                    <button className="btn-n ptb6 plr16" onClick={() => this.handelNextStep()}>{(this.state.currentStep + 1) == this.props.stepset.length ? '确认' : '下一步'}</button>
-                </div>
-                {/* {
-                    this.props.children
-                } */}
-                {/* {
-                    this.props.stepset.map((step, index) => {
-                        return (
-                            index == this.state.currentStep ? <div className="ta-c pt16" key={index}>
-                                {
-                                    index != 0 ? <button className="btn-w bor b-side ptb6 plr16 mr16" onClick={() => this.handelPreStep()}>上一步</button> : null
-                                }
-                                <button className="btn-n ptb6 plr16" onClick={() => this.handelNextStep()}>{(index + 1) == this.props.stepset.length ? '确认' : '下一步'}</button>
-                            </div> : null
-                        )
-                    })
-                } */}
+                {
+                    !this.props.stepset[this.state.currentStep].isCustomCtrl && <div className="ta-c pt16">
+                        {
+                            this.state.currentStep != 0 ? <button className="btn-w bor b-side ptb6 plr16 mr16" onClick={() => this.handelPreStep()}>上一步</button> : null
+                        }
+                        <button className="btn-n ptb6 plr16" onClick={() => this.handelNextStep()}>{(this.state.currentStep + 1) == this.props.stepset.length ? '确认' : '下一步'}</button>
+                    </div>
+                }
             </div>
         )
     }
