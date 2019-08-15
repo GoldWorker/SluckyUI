@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import ReactDOMServer from 'react-dom/server';
-import ReactMarkdown from 'react-markdown'
-import Highlight from 'react-highlight'
-import { Dialog, Toast } from './index'
+import ReactMarkdown from 'react-markdown';
+import Highlight from 'react-highlight';
+import { Dialog, Toast } from './index';
 
 export class PopupDemo extends Component {
     constructor() {
-        super()
-        this.count = 0
+        super();
+        this.count = 0;
         this.state = {
             toggle: false
-        }
+        };
     }
 
     handleClickToggle() {
         this.setState({
             toggle: !this.state.toggle
-        })
+        });
     }
 
     render() {
@@ -89,7 +89,7 @@ class demo extends Component {
     }
 }
 
-`
+`;
         const demoString = '``` html' + `
  <div className="fadeIn p-r z10">
     <div className="dialog-mark"></div>
@@ -133,7 +133,7 @@ class demo extends Component {
         </div>
     </div>
 </div>
-`
+`;
         return (
             <div>
                 <Dialog open={this.state.toggle} onClose={() => this.setState({ toggle: false })}>
@@ -202,7 +202,7 @@ class demo extends Component {
                     </Highlight>
                 </details>
             </div>
-        )
+        );
     }
 }
 

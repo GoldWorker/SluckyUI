@@ -1,24 +1,24 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class Search extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             value: this.props.value || '',
             selectedValue: '',
             selectedLabel: this.props.defaultValue || '',
             data: this.props.option || [],
             dataCache: this.props.option || []
-        }
+        };
         this.id = Math.random().toString(36).substring(2);
     }
 
     handleChange(value) {
-        const dataCache = []
+        const dataCache = [];
         for (let i = 0; i < this.state.data.length; i++) {
             const item = this.state.data[i];
             if (item.indexOf(value) != -1) {
-                dataCache.push(item)
+                dataCache.push(item);
             }
         }
 
@@ -26,13 +26,13 @@ export class Search extends Component {
             value,
             dataCache
         }, () => {
-            this.props.onChange && this.props.onChange(value)
-        })
+            this.props.onChange && this.props.onChange(value);
+        });
     }
 
     handleEnterKey(e) {
         if (e.nativeEvent.keyCode === 13) {
-            this.props.onSearch && this.props.onSearch(e.target.value)
+            this.props.onSearch && this.props.onSearch(e.target.value);
         }
     }
 
@@ -43,7 +43,7 @@ export class Search extends Component {
                     this.props.labelName ? <label htmlFor={this.id} className="pb4 mb0 fs12 d-b">{this.props.labelName}</label> : null
                 }
                 <div className="input-normal p-r d-f ac" style={{ width: this.props.width || 196 + 'px' }}>
-                    <img className="icon logo-search mr8 s0" src={require('../icons/search.svg')} alt="" />
+                    <img className="icon logo-search mr8 s0" src={require('../icons/search.svg')} alt="" onClick={() => this.props.onSearch && this.props.onSearch()} />
                     <input
                         id={this.id}
                         type="search"
@@ -52,19 +52,18 @@ export class Search extends Component {
                         maxLength={this.props.maxLength || 100}
                         onChange={(e) => this.handleChange(e.target.value)}
                         onKeyPress={(e) => this.handleEnterKey(e)}
-                        onClick={() => this.props.onSearch && this.props.onSearch()}
                         value={this.state.value} />
                 </div>
                 {
                     this.props.option ? <ul className="select-option paper" scrollbar='normal'>
                         {
                             this.state.dataCache.map((item, index) => {
-                                return <li onMouseDown={() => this.handleChange(item)} key={index}>{item}</li>
+                                return <li onMouseDown={() => this.handleChange(item)} key={index}>{item}</li>;
                             })
                         }
                     </ul> : null
                 }
             </div>
-        )
+        );
     }
 }

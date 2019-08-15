@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import ReactDOMServer from 'react-dom/server';
-import ReactMarkdown from 'react-markdown'
-import Highlight from 'react-highlight'
-import { Progress } from "slucky/src/component/progress";
+import ReactMarkdown from 'react-markdown';
+import Highlight from 'react-highlight';
+import { Progress } from 'slucky/src/component/progress';
 export default class LoadingDemo extends Component {
 
     render() {
@@ -33,7 +33,7 @@ import { Progress } from "slucky";
         <div className="c-hint-b">该loading适用无法内嵌的Dom结构，该loading适用无法内嵌的Dom结构，该loading适用无法内嵌的Dom结构</div>
     </div>
 </div>
-`
+`;
         return (
             <div>
                 <div className="d-il m16">
@@ -43,10 +43,10 @@ import { Progress } from "slucky";
                     <Progress.pie percent={40} />
                 </div>
                 <div className="d-il m16">
-                    <Progress.wave percent={60} />
+                    <Progress.wave percent={60} content={'custom'}/>
                 </div>
                 <div className="d-il m16">
-                    <Progress percent={50} />
+                    <Progress status="" percent={50} />
                 </div>
 
                 <div className="wave-box-seed">
@@ -76,6 +76,6 @@ import { Progress } from "slucky";
                     </Highlight>
                 </details>
             </div >
-        )
+        );
     }
 }

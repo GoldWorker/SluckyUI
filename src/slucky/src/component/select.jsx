@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class Select extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             selectedValue: '',
             selectedLabel: this.props.defaultValue || ''
-        }
+        };
         this.id = Math.random().toString(36).substring(2);
     }
     handleClickSelected(label, value) {
@@ -14,8 +14,8 @@ export class Select extends Component {
             selectedLabel: label,
             selectedValue: value
         }, () => {
-            this.props.onChange && this.props.onChange(this.state.selectedValue)
-        })
+            this.props.onChange && this.props.onChange(this.state.selectedValue);
+        });
     }
 
     render() {
@@ -41,11 +41,11 @@ export class Select extends Component {
                 <ul className="select-option paper" scrollbar='normal'>
                     {
                         this.props.option ? this.props.option.map((item, index) => {
-                            return <li onMouseDown={() => this.handleClickSelected(item.label, item.value)} key={index}>{item.label}</li>
+                            return <li onMouseDown={() => this.handleClickSelected(item.label, item.value)} key={index}>{item.label}</li>;
                         }) : null
                     }
                 </ul>
             </div>
-        )
+        );
     }
 }

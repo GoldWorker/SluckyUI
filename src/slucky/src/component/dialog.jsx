@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 export class Dialog extends Component {
     constructor() {
@@ -6,7 +6,7 @@ export class Dialog extends Component {
     }
 
     render() {
-        const tar = this.props.open ? (<div className="fadeIn p-r z10">
+        const tar = this.props.open ? <div className="fadeIn p-r z10">
             <div className="dialog-mark"></div>
             <div className="dialog-box d-f ac jc">
                 <span>
@@ -29,36 +29,36 @@ export class Dialog extends Component {
                     </div>
                 </span>
             </div>
-        </div>) : null
-        return ReactDOM.createPortal(tar, document.body)//传送门的另一端DOM node
+        </div> : null;
+        return ReactDOM.createPortal(tar, document.body);//传送门的另一端DOM node
     }
 }
 
 Dialog.model = ({ content, onOk, title, footer }) => {
-    const closeDialog = (onOk) => {
-        onOk && onOk()
-        ReactDOM.render(React.cloneElement(component, { open: false }), div)
-        ReactDOM.unmountComponentAtNode(div)
-        div.remove()
-    }
-    const component = <Dialog open={true} onClose={closeDialog}>
+
+    const div = document.createElement('div');
+    const closeDialog = (onOk, component) => {
+        onOk && onOk();
+        ReactDOM.render(React.cloneElement(component, { open: false }), div);
+        ReactDOM.unmountComponentAtNode(div);
+        div.remove();
+    };
+    const component = <Dialog open={true} onClose={() => closeDialog('', component)}>
         {
             title && <p>{title}</p>
         }
         <div>{content}</div>
         {
-            !footer && (
-                <div className="ta-r pt8">
-                    <button className="tag-text ptb6 plr16" onClick={() => closeDialog()}>取消</button>
-                    {
-                        onOk && <button className="tag-text ptb6 plr16" onClick={() => closeDialog(onOk)}>确认</button>
-                    }
-                </div>
-            )
-        }
-    </Dialog>
+            !footer &&
+            <div className="ta-r pt8">
+                <button className="tag-text ptb6 plr16" onClick={() => closeDialog('', component)}>取消</button>
+                {
+                    onOk && <button className="tag-text ptb6 plr16" onClick={() => closeDialog(onOk, component)}>确认</button>
+                }
+            </div>
 
-    const div = document.createElement('div')
-    document.body.append(div)
-    ReactDOM.render(component, div)
-}
+        }
+    </Dialog>;
+    document.body.append(div);
+    ReactDOM.render(component, div);
+};

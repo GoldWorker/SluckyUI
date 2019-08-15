@@ -1,36 +1,36 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
 import ReactDOM from 'react-dom';
 
-var toastRef = ''
+let toastRef = '';
 export class Toast extends React.Component {
     constructor() {
         super(...arguments);
         this.state = {
             list: [],
             toggle: false
-        }
-        this.createPortalContainer()
-        this.timer = undefined
+        };
+        this.createPortalContainer();
+        this.timer = undefined;
     }
 
     add = ({ title, content, status }) => {
         if (this.state.list.length > 5) {
-            let data = this.state.list
-            data.shift()
-            this.setState({ list: data })
+            let data = this.state.list;
+            data.shift();
+            this.setState({ list: data });
         }
         if (!this.timer) {
             // console.log(this.timer,'timer');
             this.timer = setInterval(() => {
-                let data = this.state.list
-                data.shift()
-                this.setState({ list: data })
+                let data = this.state.list;
+                data.shift();
+                this.setState({ list: data });
 
                 if (!data.length) {
-                    this.timer = clearInterval(this.timer)
+                    this.timer = clearInterval(this.timer);
                 }
-            }, 3000)
+            }, 3000);
         }
         this.setState({
             list: [
@@ -40,8 +40,14 @@ export class Toast extends React.Component {
                     status
                 }
             ]
-        })
-        console.log(content, 'add succ');
+        });
+        // console.log(content, 'add succ');
+    }
+
+    handleClose(index) {
+        let data = this.state.list;
+        data.splice(index, 1);
+        this.setState({ list: data });
     }
 
     createPortalContainer() {
@@ -81,12 +87,12 @@ export class Toast extends React.Component {
             case 'fail':
                 return '重试';
             default:
-                return false
+                return false;
         }
     }
 
     render() {
-        console.log(this.props.toggle, this.state.list, this.node);
+        // console.log(this.props.toggle, this.state.list, this.node);
 
         return createPortal(
             <div className="toastlists-normalize-box">
@@ -96,44 +102,45 @@ export class Toast extends React.Component {
                     .map((item, index) => {
                         return (
                             <div className="toastlist" key={index}>
-                                <div className="toast-item paper" >
+                                <div className="toast-item paper p-r">
+                                    <span onClick={() => this.handleClose(index)} className="p-a" style={{ top: 4, right: 8 + 'px', cursor: 'pointer' }}>x</span>
                                     <div className={['pb8', this.handleMapStatus(item.status)].join(' ')} style={{ minWidth: 256 + 'px' }}>{item.title || this.handleMapTitle(item.status)}</div>
                                     <div className="">{item.content}</div>
                                 </div>
                             </div>
-                        )
+                        );
                     })}
             </div>
-            , this.node)
+            , this.node);
     }
 
     componentWillUnmount() {
-        this.clearPortalContainer()
+        this.clearPortalContainer();
     }
 }
 
 Toast.add = ({ title, content, status }) => {
     //保持一个实例
     if (!document.getElementById('slucky_toast')) {
-        toastRef = React.createRef()
-        const component = <Toast ref={toastRef} />
-        const div = document.createElement('div')
-        div.id = 'slucky_toast'
-        document.body.append(div)
-        ReactDOM.render(component, div)
+        toastRef = React.createRef();
+        const component = <Toast ref={toastRef} />;
+        const div = document.createElement('div');
+        div.id = 'slucky_toast';
+        document.body.append(div);
+        ReactDOM.render(component, div);
     }
-    toastRef.current.add({ title, content, status })
-}
+    toastRef.current.add({ title, content, status });
+};
 
 Toast.success = (content) => {
-    Toast.add({ title: '成功', content, status: 'success' })
-}
+    Toast.add({ title: '成功', content, status: 'success' });
+};
 
 Toast.error = (content) => {
-    Toast.add({ title: '错误', content, status: 'fail' })
-}
+    Toast.add({ title: '错误', content, status: 'fail' });
+};
 
 Toast.warn = (content) => {
-    Toast.add({ title: '提示', content, status: 'warn' })
-}
+    Toast.add({ title: '提示', content, status: 'warn' });
+};
 

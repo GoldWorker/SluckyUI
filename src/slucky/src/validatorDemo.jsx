@@ -1,25 +1,25 @@
-import React, { Component } from 'react'
-import { Validator, Toast } from "slucky/src";
-import { Input } from "slucky/src/component/input";
+import React, { Component } from 'react';
+import { Validator, Toast } from 'slucky/src';
+import { Input } from 'slucky/src/component/input';
 // import { Input } from "slucky/distTest";
-import { Radio } from "slucky/src/component/radio";
-import { Checkbox } from "slucky/src/component/checkbox";
-import { Switch } from "slucky/src/component/switch";
-import { Tab } from "slucky/src/component/tab";
-import { Select } from "slucky/src/component/select";
-import { Search } from "slucky/src/component/search";
-import { Steps } from "slucky/src/component/steps";
+import { Radio } from 'slucky/src/component/radio';
+import { Checkbox } from 'slucky/src/component/checkbox';
+import { Switch } from 'slucky/src/component/switch';
+import { Tab } from 'slucky/src/component/tab';
+import { Select } from 'slucky/src/component/select';
+import { Search } from 'slucky/src/component/search';
+import { Steps } from 'slucky/src/component/steps';
 // import { Search } from "slucky/distTest/component/search";
 
 export class ValidatorDemo extends Component {
     constructor() {
-        super()
+        super();
         this.state = {
             name: 'asdf',
             email: '123',
             password: ''
-        }
-        this.Validator = new Validator()
+        };
+        this.Validator = new Validator();
         Validator.types.isEmptyTest = {
             validate(value) {
                 return value !== '';
@@ -36,12 +36,12 @@ export class ValidatorDemo extends Component {
     handelClickSubmit = () => {
         //isSubmit只检测
         if (this.Validator.isSubmit(this.state)) {
-            Toast.add('ok')
+            Toast.add('ok');
         } else {
             Toast.add({
                 content: 'vali fail',
                 status: 'fail'
-            })
+            });
         }
         //更新校验信息
         this.forceUpdate();
@@ -67,8 +67,8 @@ export class ValidatorDemo extends Component {
                     title: '1',
                     content: (data) => {
                         return <div>
-                            <Search onChange={(v) => { console.log(v) }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
-                        </div>
+                            <Search onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
+                        </div>;
                     },
                     handleNext: (data) => {
                         return true;
@@ -79,30 +79,30 @@ export class ValidatorDemo extends Component {
                         return <div>
                             <button className="btn-n" onClick={handlePre}>上一步</button>
                             <button className="btn-n" onClick={handelNext}>下一步</button>
-                        </div>
+                        </div>;
                     },
                     isCustomCtrl: true
                 }, {
                     title: '3',
                     content: (data) => {
-                        return <Checkbox.GroupBorder className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected) }} option={[
+                        return <Checkbox.GroupBorder className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected); }} option={[
                             { label: 'Apple', value: 'Apple' },
                             { label: <div className="border-sign">Pear</div>, value: 'Pear' },
                             { label: 'Orange', value: 'Orange' }
-                        ]} />
+                        ]} />;
                     },
                     handleNext: (data) => { return true; }
                 }, {
                     title: '4',
                     content: (data) => {
-                        return <div>{data.name}</div>
+                        return <div>{data.name}</div>;
                     },
                     handleNext: (data) => { return true; }
-                }]} onChange={(currentSept) => { console.log(currentSept) }} />
+                }]} onChange={(currentSept) => { console.log(currentSept); }} />
 
-                <Search onSearch={(v) => { console.log(v) }} onChange={(v) => { console.log(v) }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
+                <Search onSearch={(v) => { console.log(v); }} onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 
-                <Select defaultValue="选项2" onChange={(v) => { console.log(v) }} option={[{
+                <Select defaultValue="选项2" onChange={(v) => { console.log(v); }} option={[{
                     label: '选项1',
                     value: 'v1'
                 }, {
@@ -113,29 +113,29 @@ export class ValidatorDemo extends Component {
                     value: 'v3'
                 }]} />
 
-                <Radio.Group className="pb32" defaultValue="Pear" onChange={(e) => { this.handleChangeRadio(e) }} option={[
+                <Radio.Group className="pb32" defaultValue="Pear" onChange={(e) => { this.handleChangeRadio(e); }} option={[
                     { label: 'Apple', value: 'Apple' },
                     { label: 'Pear', value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }
                 ]} />
-                <Radio.GroupBorder className="pb32" defaultValue="Pear" onChange={(e) => { this.handleChangeRadio(e) }} option={[
+                <Radio.GroupBorder className="pb32" defaultValue="Pear" onChange={(e) => { this.handleChangeRadio(e); }} option={[
                     { label: 'Apple', value: 'Apple' },
                     { label: 'Pear', value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }
                 ]} />
-                <Checkbox.Group className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected) }} option={[
-                    { label: 'Apple', value: 'Apple' },
-                    { label: 'Pear', value: 'Pear' },
-                    { label: 'Orange', value: 'Orange' }
-                ]} />
-
-                <Checkbox.GroupFontIn className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected) }} option={[
+                <Checkbox.Group className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected); }} option={[
                     { label: 'Apple', value: 'Apple' },
                     { label: 'Pear', value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }
                 ]} />
 
-                <Checkbox.GroupBorder className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected) }} option={[
+                <Checkbox.GroupFontIn className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected); }} option={[
+                    { label: 'Apple', value: 'Apple' },
+                    { label: 'Pear', value: 'Pear' },
+                    { label: 'Orange', value: 'Orange' }
+                ]} />
+
+                <Checkbox.GroupBorder className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected); }} option={[
                     { label: 'Apple', value: 'Apple' },
                     { label: <div className="border-sign">Pear</div>, value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }
@@ -153,25 +153,25 @@ export class ValidatorDemo extends Component {
                     <div className="w96 s0">
                         <label htmlFor="name">Name:</label>
                     </div>
-                    <Input disabled id="name" width="100%" value={this.state.name} onChange={(name) => { this.setState({ name }) }} error={() => this.Validator.formatRes('name')} />
+                    <Input disabled id="name" width="100%" value={this.state.name} onChange={(name) => { this.setState({ name }); }} error={() => this.Validator.formatRes('name')} />
                 </div>
                 <div className="d-f ac mb24">
                     <div className="w96 s0">
                         <label htmlFor="email">Email:</label>
                     </div>
-                    <Input readOnly id="email" value={this.state.email} onChange={(email) => { this.setState({ email }) }} error={() => this.Validator.formatRes('email')} />
+                    <Input readOnly id="email" value={this.state.email} onChange={(email) => { this.setState({ email }); }} error={() => this.Validator.formatRes('email')} />
                 </div>
                 <div className="d-f ac mb24">
                     <div className="w96 s0">
                         <label htmlFor="password">Password:</label>
                     </div>
-                    <Input id="password" onChange={(password) => { this.setState({ password }) }} error={() => this.Validator.formatRes('password')} />
+                    <Input id="password" onChange={(password) => { this.setState({ password }); }} error={() => this.Validator.formatRes('password')} />
                 </div>
                 <div className="w384 ta-c">
                     <button className="btn-n ml8 plr16 ptb8" onClick={this.handelClickSubmit}>校验表单</button>
                 </div>
 
             </div>
-        )
+        );
     }
 }

@@ -64,7 +64,7 @@
 }
 
 .progress-loading::-webkit-progress-value {
-    background: $theme_color;
+    background-color: currentColor;
     transition: all 1s;
     border-radius: 20px;
 }
@@ -167,7 +167,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: $theme_color;
+        background-color: currentColor;
     }
 
     .pie-left::before {
