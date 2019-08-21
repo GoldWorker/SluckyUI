@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.step-bar{
+    background-color: $steps_bar_bg;
+}
+
 .sign-box {
     position: relative;
 }
@@ -33,7 +37,7 @@
     width: 20px;
     height: 20px;
     line-height: 16px;
-    background-color: #fff;
+    background-color: $steps_bar_bg;
     z-index: 1;
     transition: all .3s;
 
@@ -64,7 +68,7 @@
     }
 }
 
-.step-content{
+.step-content {
     position: absolute;
     visibility: hidden;
     z-index: -1;

@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 // require("babel-polyfill");
 export class Steps extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             currentStep: this.props.currentStep || 0
-        }
+        };
     }
     // 为步骤灵活变化准备
     handleClickEvent(step, index) {
@@ -22,7 +22,7 @@ export class Steps extends Component {
                 currentStep: this.state.currentStep - 1
             }, () => {
                 this.props.stepset[this.state.currentStep].handlePre && this.props.stepset[this.state.currentStep].handlePre(this.props.stepset[this.state.currentStep], this.state.currentStep);
-            })
+            });
             // return this.onAction(this.props.stepset[this.state.currentStep], this.state.currentStep, false);
         }
     }
@@ -39,7 +39,7 @@ export class Steps extends Component {
                 } else {
                     this.setState({
                         currentStep: this.state.currentStep + 1
-                    })
+                    });
                     console.log('next');
                     // return this.onAction(this.props.stepset[this.state.currentStep], this.state.currentStep, true);
                 }
@@ -53,7 +53,7 @@ export class Steps extends Component {
             } else {
                 this.setState({
                     currentStep: this.state.currentStep + 1
-                })
+                });
                 console.log('next');
             }
         }
@@ -61,45 +61,47 @@ export class Steps extends Component {
 
     handleTitleStyle(index, currentStep) {
         if (index > currentStep) {
-            return 'c-hint-b'
+            return 'c-hint-b';
         }
         if (index < currentStep) {
-            return 'c-theme step-sign-active step-sign-ed'
+            return 'c-theme step-sign-active step-sign-ed';
         }
-        return 'step-sign-active'
+        return 'step-sign-active';
     }
 
     render() {
         return (
             <div>
-                <div className="">
-                    <div className="d-f">
-                        {
-                            this.props.stepset.map((step, index) => {
-                                return (
-                                    <div key={index} className={['flex1 s0 step-item', this.handleTitleStyle(index, this.state.currentStep)].join(' ')}>
-                                        <div className="sign-box">
-                                            <div className={['step-sign'].join(' ')}><span className="step-sign-in">✓</span></div>
+                <div>
+                    <div className="step-bar">
+                        <div className="d-f" style={{ width: this.props.width || 'auto', margin: '0 auto' }}>
+                            {
+                                this.props.stepset.map((step, index) => {
+                                    return (
+                                        <div key={index} className={['flex1 s0 step-item pt32 pb16', this.handleTitleStyle(index, this.state.currentStep)].join(' ')}>
+                                            <div className="sign-box">
+                                                <div className={['step-sign'].join(' ')}><span className="step-sign-in">✓</span></div>
+                                            </div>
+                                            <div className="ptb8 fs12" onClick={() => this.handleClickEvent(step, index)}>{step.title}</div>
                                         </div>
-                                        <div className="ptb8 fs12" onClick={() => this.handleClickEvent(step, index)}>{step.title}</div>
-                                    </div>
-                                )
-                            })
-                        }
+                                    );
+                                })
+                            }
+                        </div>
                     </div>
                     {
                         this.props.stepset.map((step, index) => {
                             return (
                                 <div key={index} className="p-r">
-                                    <div className="step-content" style={index == this.state.currentStep ? { position: "relative", visibility: "visible", zIndex: 1, left: 0 } : {}}>
+                                    <div className="step-content" style={index == this.state.currentStep ? { position: 'relative', visibility: 'visible', zIndex: 1, left: 0 } : {}}>
                                         {
                                             this.props.isCacheData ?
                                                 step.content && step.content(step.store || {}, () => this.handelNextStep(), () => this.handelPreStep())
-                                                : (index == this.state.currentStep ? step.content && step.content(step.store || {}, () => this.handelNextStep(), () => this.handelPreStep()) : null)
+                                                : index == this.state.currentStep ? step.content && step.content(step.store || {}, () => this.handelNextStep(), () => this.handelPreStep()) : null
                                         }
                                     </div>
                                 </div>
-                            )
+                            );
                         })
                     }
                 </div>
@@ -108,10 +110,10 @@ export class Steps extends Component {
                         {
                             this.state.currentStep != 0 ? <button className="btn-w bor b-side ptb6 plr16 mr16" onClick={() => this.handelPreStep()}>上一步</button> : null
                         }
-                        <button className="btn-n ptb6 plr16" onClick={() => this.handelNextStep()}>{(this.state.currentStep + 1) == this.props.stepset.length ? '确认' : '下一步'}</button>
+                        <button className="btn-n ptb6 plr16" onClick={() => this.handelNextStep()}>{this.state.currentStep + 1 == this.props.stepset.length ? '确认' : '下一步'}</button>
                     </div>
                 }
             </div>
-        )
+        );
     }
 }

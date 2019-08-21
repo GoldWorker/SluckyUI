@@ -63,7 +63,7 @@ export class ValidatorDemo extends Component {
         return (
             <div className="bor b-side p32 mtb32">
 
-                <Steps isCacheData={true} stepset={[{
+                <Steps width={500+'px'} isCacheData={true} stepset={[{
                     title: '1',
                     content: (data) => {
                         return <div>

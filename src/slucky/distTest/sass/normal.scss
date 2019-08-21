@@ -62,6 +62,9 @@ $table_header_c: #787E85 !default;
 $table_header_fs: 14px !default;
 $table_hover: #E8EBED;
 
+// steps
+$steps_bar_bg:$table_odd_bg !default;
+
 // ---------------------------模板------------------------
 @mixin cicle($size:28px) {
     flex-shrink: 0;

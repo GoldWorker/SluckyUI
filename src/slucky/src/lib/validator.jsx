@@ -1,8 +1,8 @@
 export class Validator {
   constructor() {
-    this.config = {}
-    this.result = {}
-    this.data = {}
+    this.config = {};
+    this.result = {};
+    this.data = {};
   }
 
   validate(data) {
@@ -35,7 +35,7 @@ export class Validator {
 
     // 遍历检查器
     for (let index = 0; index < checkerList.length; index++) {
-      const checkerName = checkerList[index]
+      const checkerName = checkerList[index];
       const isValid = Validator.types[checkerName].validate;
       // 只处理非法的情况
       if (!isValid.call(this, val)) {
@@ -74,7 +74,7 @@ export class Validator {
 }
 
 // 检查处理器
-Validator.types = {}
+Validator.types = {};
 
 Validator.types.isEmpty = {
   validate(value) {
@@ -87,7 +87,7 @@ Validator.types.isArrayEmpty = {
   validate(value) {
     return value.length !== 0;
   },
-  instruction: '请作出正确的选择'
+  instruction: '请作出合适的选择'
 };
 
 Validator.types.isSDK = {
@@ -130,9 +130,9 @@ Validator.types.isPwAgain = {
     console.log(this);
     if (this.data.password) {
       return this.data.password === value;
-    } else {
+    } 
       return false;
-    }
+    
   }
   ,
   instruction: '重复输入的密码不相同'
