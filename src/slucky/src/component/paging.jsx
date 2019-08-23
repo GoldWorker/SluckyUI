@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class Paging extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.start = 1;
         this.maxWidth = 5;
         this.minWidth = '';
@@ -22,7 +22,7 @@ export class Paging extends Component {
                 after: false,
                 currentPage: '' // 当前页
             }
-        }
+        };
     }
 
     componentDidMount() {
@@ -31,7 +31,7 @@ export class Paging extends Component {
 
     componentWillReceiveProps(nextProps) {
         // 在重新render之前更新state不会重新触发生命周期
-        // console.log('componentWillReceiveProps', nextProps, this.props)
+        // console.log('componentWillReceiveProps', nextProps, this.props);
         this.setState({
             pageInfo: {
                 total: nextProps.pageInfo.total || 0,
@@ -47,15 +47,15 @@ export class Paging extends Component {
             }
         }, () => {
             if (nextProps.pageInfo.currentPage && this.state.viewBox) {
-                this.init(this.handleChangePageSelf(nextProps.pageInfo.currentPage))
+                this.init(() => this.handleResizeViewBox(nextProps.pageInfo.currentPage));
             } else {
                 this.init();
             }
-        })
+        });
     }
 
     init(cb) {
-        const { pageInfo } = this.state
+        const { pageInfo } = this.state;
         this.end = Math.ceil(pageInfo.total / pageInfo.maxToShow);
         this.end > 0
             ? this.end
@@ -83,31 +83,25 @@ export class Paging extends Component {
                 currentPage: pageInfo.currentPage || 1
             }
         }, () => {
-            // console.log(this.state.viewBox);
-            cb && cb()
-        })
+            // console.log('init', this.state.viewBox);
+            cb && cb();
+        });
     }
-    handleChangePage(currentPage) {
-        // console.log(currentPage);
-        currentPage = parseInt(currentPage);
+    handleChangePage(currentPage, isOnAction = true) {
         // 保证临界条件
-        if (currentPage < this.start)
-            currentPage = this.start;
-        if (currentPage > this.end)
-            currentPage = this.end;
-        // console.log('currentPage', currentPage)
-        this.handleViewBox(currentPage);
-        this.props.onAction && this.props.onAction(currentPage);
+        let currentPageSelf = parseInt(currentPage);
+        if (currentPageSelf < this.start) { currentPageSelf = this.start; }
+        if (currentPageSelf > this.end) { currentPageSelf = this.end; }
+        this.props.isSingleDataFlow && this.handleResizeViewBox(currentPageSelf);
+        this.props.onAction && this.props.onAction(currentPageSelf);
     }
 
-    handleChangePageSelf(currentPage) {
-        currentPage = parseInt(currentPage);
+    handleResizeViewBox(currentPage) {
         // 保证临界条件
-        if (currentPage < this.start)
-            currentPage = this.start;
-        if (currentPage > this.end)
-            currentPage = this.end;
-        this.handleViewBox(currentPage);
+        let currentPageSelf = parseInt(currentPage);
+        if (currentPageSelf < this.start) { currentPageSelf = this.start; }
+        if (currentPageSelf > this.end) { currentPageSelf = this.end; }
+        this.handleViewBox(currentPageSelf);
     }
 
     handleChangePageLeft() {
@@ -120,6 +114,7 @@ export class Paging extends Component {
 
     // 维护viewBox
     handleViewBox(currentPage) {
+        // console.log('handleViewBox', this.state);
         let width = this.state.viewBox.width;
 
         // 多条件判断
@@ -140,7 +135,7 @@ export class Paging extends Component {
                     })
                 }, () => {
                     // console.log('handleViewBox l', this.state.viewBox)
-                })
+                });
             }
             // 右临界
             if (currentPage > this.end - Math.ceil(width / 2)) {
@@ -158,17 +153,15 @@ export class Paging extends Component {
                     })
                 }, () => {
                     // console.log('handleViewBox r', this.state.viewBox)
-                })
+                });
             }
             // 通常情况
             if (currentPage >= this.start + Math.floor(width / 2) && currentPage <= this.end - Math.ceil(width / 2)) {
                 let list = [];
                 let i = currentPage - Math.floor(width / 2);
                 // 重新判断临界条件
-                if (i < 2)
-                    i = 2;
-                if (i > this.end - width)
-                    i = this.end - width;
+                if (i < 2) { i = 2; }
+                if (i > this.end - width) { i = this.end - width; }
                 while (width--) {
                     list.push(i++);
                 }
@@ -182,7 +175,7 @@ export class Paging extends Component {
                     })
                 }, () => {
                     // console.log('handleViewBox n', this.state.viewBox)
-                })
+                });
             }
         } else {
             this.setState({
@@ -193,12 +186,12 @@ export class Paging extends Component {
                 })
             }, () => {
                 // console.log('handleViewBox', this.state.viewBox)
-            })
+            });
         }
     }
     render() {
         // console.log(this.start, this.end, this.state.viewBox.currentPage, this.state.viewBox.list);
-        const { pageInfo } = this.state
+        const { pageInfo } = this.state;
         return (
             <div>
                 <div className={['d-f ac jc-b', this.props.style || 'paging-normal'].join(' ')}>
@@ -214,7 +207,7 @@ export class Paging extends Component {
                                 // console.log(item, this.state.viewBox.currentPage);
                                 return (
                                     <span key={i} onClick={() => this.handleChangePage(item)} className={['btn-paging', item === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ')} >{item}</span>
-                                )
+                                );
                             })
                         }
                         {
@@ -227,6 +220,6 @@ export class Paging extends Component {
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }

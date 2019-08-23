@@ -1,31 +1,38 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import ReactDOMServer from 'react-dom/server';
-import ReactMarkdown from 'react-markdown'
-import Highlight from 'react-highlight'
-import { Table, Paging } from './index'
+import ReactMarkdown from 'react-markdown';
+import Highlight from 'react-highlight';
+import { Table, Paging } from './index';
 
 export class TableDemo extends Component {
     constructor() {
-        super()
+        super();
         this.state = {
             pageInfo: {
                 currentPage: 1,
-                total: 120,
-                maxToShow: 20
+                total: 84,
+                maxToShow: 10
             }
-        }
+        };
         setTimeout(() => {
             this.setState({
                 pageInfo: {
                     currentPage: 1,
-                    total: 150,
-                    maxToShow: 20
+                    total: 84,
+                    maxToShow: 10
                 }
-            })
-        }, 1000)
+            });
+        }, 1000);
     }
     handleChangePage = (currentPage) => {
         console.log(currentPage);
+        this.setState({
+            pageInfo: {
+                currentPage,
+                total: 84,
+                maxToShow: 10
+            }
+        });
     }
 
     render() {
@@ -136,14 +143,14 @@ class TableDemo extends Component {
         )
     }
 }
-`
+`;
         const dataconf = [
             {
                 title: '',
                 width: '10%',
                 checkbox: true,
                 handle: (list) => {
-                    console.log(list)
+                    console.log(list);
                 }
             },
             {
@@ -151,10 +158,10 @@ class TableDemo extends Component {
                 name: 'progress',
                 width: '25%',
                 progress: (data) => {
-                    return data['progress']
+                    return data['progress'];
                 },
                 pipe: (data) => {
-                    return `${data['progress']}%`
+                    return `${data['progress']}%`;
                 }
             },
             {
@@ -181,7 +188,7 @@ class TableDemo extends Component {
                             <pre className="c-text-w">SluckyUI的跨平台性质可快速加工成react，vue，angular的组件</pre>
                             <pre className="c-text-w">SluckyUI的跨平台性质可快速加工成react，vue，angular的组件</pre>
                         </div>
-                    )
+                    );
                 }
             },
             {
@@ -194,7 +201,7 @@ class TableDemo extends Component {
                         name: '配置',
                         btnType: 'text',
                         handle: (data) => {
-                            alert('配置')
+                            alert('配置');
                             console.log(data);
                         }
                     },
@@ -202,12 +209,12 @@ class TableDemo extends Component {
                         name: '删除',
                         btnType: 'text',
                         handle: (data) => {
-                            alert('备注')
+                            alert('备注');
                             console.log(data);
                         }
                     }]
             }
-        ]
+        ];
         const dataset = [{
             id: 1,
             name: 'Apple',
@@ -223,7 +230,7 @@ class TableDemo extends Component {
             name: 'Cat',
             height: 176,
             progress: 90
-        }]
+        }];
 
         return (
             <div>
@@ -236,7 +243,7 @@ class TableDemo extends Component {
                             <div class="bounce4"></div>
                         </div>} />
                     <div className="p16">
-                        <Paging pageInfo={this.state.pageInfo} onAction={this.handleChangePage}></Paging>
+                        <Paging style="paging-aurora" pageInfo={this.state.pageInfo} onAction={this.handleChangePage}></Paging>
                         {console.log(this.state.pageInfo)}
                     </div>
                 </div>
@@ -248,7 +255,7 @@ class TableDemo extends Component {
                     </Highlight>
                 </details>
             </div>
-        )
+        );
     }
 }
 
