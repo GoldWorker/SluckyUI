@@ -1,15 +1,15 @@
-import "slucky/sass/normal.scss";
-import "./fixed.scss";
+import 'slucky/sass/normal.scss';
+import './fixed.scss';
 import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom';
 import Loadable from 'react-loadable';
-import Demo1 from './demo1'
+import Demo1 from './demo1';
 import { HashRouter, BrowserRouter, Route, Switch, Router } from 'react-router-dom';
-import { Provider, connect } from 'react-redux'
-import { getStore } from 'slucky/src/store'
-import "../node_modules/highlight.js/styles/tomorrow.css";
-import Global from "slucky/src/global";
-import RenderRouter from './router'
+import { Provider, connect } from 'react-redux';
+import { getStore } from 'slucky/src/store';
+import '../node_modules/highlight.js/styles/tomorrow.css';
+import Global from 'slucky/src/global';
+import RenderRouter from './router';
 // import App from './app'
 // import HighorderArticle from "./component/article/highorder-article";
 // const HighorderArticle = React.lazy(() => import('./component/article/highorder-article'));
@@ -26,18 +26,18 @@ import RenderRouter from './router'
 // webpack动态引入资源 https://segmentfault.com/a/1190000015367490
 const requireAll = requireContext => requireContext
     .keys()
-    .map(requireContext)
-const req = require.context('./icons', false, /\.svg$/)
-console.log('Icons', req.keys().map(req))
-requireAll(req)
+    .map(requireContext);
+const req = require.context('./icons', false, /\.svg$/);
+console.log('Icons', req.keys().map(req));
+requireAll(req);
 
-import __API__ from './config.js'
-window.__API__ = __API__
+import __API__ from './config.js';
+window.__API__ = __API__;
 
 if (module.hot) {
     module
         .hot
-        .accept()
+        .accept();
 }
 
 // if(module.hot){     module.hot.accept(moduleId, callback); } if (module.hot)
@@ -46,7 +46,7 @@ if (module.hot) {
 // updated printMe module!');         // printMe();       console.log('okok');
 // }) }]
 
-const store = getStore()
+const store = getStore();
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
@@ -57,4 +57,4 @@ ReactDOM.render(
                 </Switch>
             </div>
         </BrowserRouter>
-    </Provider>, document.getElementById('root'))
+    </Provider>, document.getElementById('root'));

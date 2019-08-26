@@ -1,15 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import NavDemo from "slucky/src/navDemo";
-import LoadingDemo from "slucky/src/loadingDemo";
-import ButtonDemo from "slucky/src/buttonDemo";
-import { PopupDemo } from "slucky/src/popupDemo";
-import Transfrom3DDemo from "slucky/src/transfrom3DDemo";
-import FormDemo from "slucky/src/formDemo";
-import ColorDemo from "slucky/src/colorDemo";
-import ImageDemo from "slucky/src/imageDemo";
-import { TableDemo } from "slucky/src/tableDemo";
-import { Toast } from "slucky"
+import NavDemo from 'slucky/src/navDemo';
+import LoadingDemo from 'slucky/src/loadingDemo';
+import ButtonDemo from 'slucky/src/buttonDemo';
+import { PopupDemo } from 'slucky/src/popupDemo';
+import Transfrom3DDemo from 'slucky/src/transfrom3DDemo';
+import FormDemo from 'slucky/src/formDemo';
+import ColorDemo from 'slucky/src/colorDemo';
+import ImageDemo from 'slucky/src/imageDemo';
+import { TableDemo } from 'slucky/src/tableDemo';
+import { Toast } from 'slucky';
+import StepsDemo from 'slucky/src/stepsDemo';
 
 export default class App extends Component {
     constructor() {
@@ -26,8 +27,8 @@ export default class App extends Component {
                     <div className="p-a pt16 pl32 z1" style={{ right: 0 }}>
                         <span className="fs24"></span>
                         The seed of Components 1874©
-                        <a href="https://www.npmjs.com/search?q=slucky" target="_brank"><img className="w32 ml16 mr8" src={require("./images/npm.jpeg")} alt="" /></a>
-                        <a href="https://github.com/GoldWorker/SluckyUI" target="_brank"><img className="w32" src={require("./images/github.jpeg")} alt="" /></a>
+                        <a href="https://www.npmjs.com/search?q=slucky" target="_brank"><img className="w32 ml16 mr8" src={require('./images/npm.jpeg')} alt="" /></a>
+                        <a href="https://github.com/GoldWorker/SluckyUI" target="_brank"><img className="w32" src={require('./images/github.jpeg')} alt="" /></a>
                     </div>
                     <svg className="fullscreen p-r" style={{ top: -58 + 'px' }}>
                         <use xlinkHref="#icon-sluckyUILogo2"></use>
@@ -124,12 +125,21 @@ export default class App extends Component {
                                 <div className="tab-content w-full">
                                     <ImageDemo />
                                 </div>
+
+                                <input type="radio" id="tab_10" name="tab" />
+                                <label className="mr8" htmlFor="tab_10">
+                                    <div className="radio-out"></div>
+                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">步骤管理Steps</span>
+                                </label>
+                                <div className="tab-content w-full">
+                                    <StepsDemo />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
             </div>
-        )
+        );
     }
 }

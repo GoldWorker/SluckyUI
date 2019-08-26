@@ -63,7 +63,7 @@ export class ValidatorDemo extends Component {
         return (
             <div className="bor b-side p32 mtb32">
 
-                <Steps width={500+'px'} isCacheData={true} stepset={[{
+                {/* <Steps width={500+'px'} isCacheData={true} stepset={[{
                     title: '1',
                     content: (data) => {
                         return <div>
@@ -98,7 +98,7 @@ export class ValidatorDemo extends Component {
                         return <div>{data.name}</div>;
                     },
                     handleNext: (data) => { return true; }
-                }]} onChange={(currentSept) => { console.log(currentSept); }} />
+                }]} onChange={(currentSept) => { console.log(currentSept); }} /> */}
 
                 <Search onSearch={(v) => { console.log(v); }} onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 

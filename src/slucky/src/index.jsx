@@ -1,22 +1,22 @@
-import { Dialog } from "./component/dialog";
-import { Paging } from "./component/paging";
-import { Table } from "./component/table";
-import { Toast } from "./component/toast";
-import { Input } from "./component/input";
-import { Checkbox } from "./component/checkbox";
-import { Curmb } from "./component/curmb";
-import { Menu } from "./component/menu";
-import { Radio } from "./component/radio";
-import { Slidebar } from "./component/slidebar";
-import { Steps } from "./component/steps";
-import { Switch } from "./component/switch";
-import { Testarea } from "./component/testarea";
-import { Transfrom3D } from "./component/transfrom3D";
-import { Tab } from "./component/tab";
-import { Select } from "./component/select";
-import { Search } from "./component/search";
-import { Progress } from "./component/progress";
-import { Validator } from "./lib/validator";
+import { Dialog } from './component/dialog';
+import { Paging } from './component/paging';
+import { Table } from './component/table';
+import { Toast } from './component/toast';
+import { Input } from './component/input';
+import { Checkbox } from './component/checkbox';
+import { Curmb } from './component/curmb';
+import { Menu } from './component/menu';
+import { Radio } from './component/radio';
+import { Slidebar } from './component/slidebar';
+import { Steps } from './component/steps';
+import { Switch } from './component/switch';
+import { Testarea } from './component/testarea';
+import { Transfrom3D } from './component/transfrom3D';
+import { Tab } from './component/tab';
+import { Select } from './component/select';
+import { Search } from './component/search';
+import { Progress } from './component/progress';
+import { Validator } from './lib/validator';
 // import '../sass/normal.scss';
 
 export {
@@ -39,4 +39,4 @@ export {
     Search,
     Validator,
     Progress
-}
+};

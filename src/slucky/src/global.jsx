@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import HighorderMessage from "./message/highorder-message";
-import Slidebar from "./slidebar.demo";
-import HighorderLoginWindow from "./login/highorder-loginWindow";
-import HighorderNavNormalize from "./nav/highorder-navNormalize"
+import React, { Component } from 'react';
+import HighorderMessage from './message/highorder-message';
+import Slidebar from './slidebar.demo';
+import HighorderLoginWindow from './login/highorder-loginWindow';
+import HighorderNavNormalize from './nav/highorder-navNormalize';
 export default class Global extends Component {
     constructor(props) {
-        super(props)
+        super(props);
     }
 
     render() {
@@ -17,6 +17,6 @@ export default class Global extends Component {
                 <HighorderMessage />
                 <HighorderLoginWindow />
             </div>
-        )
+        );
     }
 }

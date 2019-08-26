@@ -15,7 +15,6 @@ export class Steps extends Component {
     handelPreStep() {
         if (this.state.currentStep - 1 < 0) {
             console.log('start');
-            // return this.onAction(this.props.stepset[0], this.state.currentStep, false);
         } else {
             console.log('pre');
             this.setState({
@@ -23,7 +22,6 @@ export class Steps extends Component {
             }, () => {
                 this.props.stepset[this.state.currentStep].handlePre && this.props.stepset[this.state.currentStep].handlePre(this.props.stepset[this.state.currentStep], this.state.currentStep);
             });
-            // return this.onAction(this.props.stepset[this.state.currentStep], this.state.currentStep, false);
         }
     }
 
@@ -35,13 +33,11 @@ export class Steps extends Component {
             if (AllowNext) {
                 if (this.state.currentStep + 1 >= len) {
                     console.log('end');
-                    // return this.onAction(this.props.stepset[this.state.currentStep], this.state.currentStep, true);
                 } else {
                     this.setState({
                         currentStep: this.state.currentStep + 1
                     });
                     console.log('next');
-                    // return this.onAction(this.props.stepset[this.state.currentStep], this.state.currentStep, true);
                 }
             } else {
                 console.log('阻塞', AllowNext);
@@ -49,7 +45,6 @@ export class Steps extends Component {
         } else {
             if (this.state.currentStep + 1 >= len) {
                 console.log('end');
-                // return this.onAction(this.props.stepset[this.state.currentStep], this.state.currentStep, true);
             } else {
                 this.setState({
                     currentStep: this.state.currentStep + 1
@@ -59,11 +54,11 @@ export class Steps extends Component {
         }
     }
 
-    handleTitleStyle(index, currentStep) {
-        if (index > currentStep) {
+    handleTitleStyle(stepIndex, currentStep) {
+        if (stepIndex > currentStep) {
             return 'c-hint-b';
         }
-        if (index < currentStep) {
+        if (stepIndex < currentStep) {
             return 'c-theme step-sign-active step-sign-ed';
         }
         return 'step-sign-active';
