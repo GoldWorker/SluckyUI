@@ -40,9 +40,9 @@ module.exports = {
     // }),
     // externals: /^(react|\$)$/i,
     externals: [
-        //只编译jsx
         function(context, request, callback) {
-            if (/.jsx$/g.test(request)) {
+            // 允许编译以下后缀文件
+            if (/.jsx|.jpg|.png|.gif|.svg|.jpeg$/g.test(request)) {
                 console.log('Request', request);
                 return callback();
             }
@@ -65,10 +65,7 @@ module.exports = {
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        limit: 8192,
-                        mimetype: 'image/png',
-                        fallback: 'responsive-loader',
-                        quality: 100
+                        limit: true
                     }
                 }],
                 exclude: /node_modules/
