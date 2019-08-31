@@ -5,7 +5,7 @@
  * @version $Id$
  */
 
-import React from 'react'
+import React from 'react';
 
 let renderNav = (arr) => {
 	return (
@@ -13,7 +13,7 @@ let renderNav = (arr) => {
 	        {
 	        	arr.map(function(node,index){
 	        		if (Array.isArray(node)) {
-	        			var str = node.shift();
+	        			let str = node.shift();
 		     			return (
 		     					<li key={index} className="menu-flag">
 				                    <a href="#">{str}</a>
@@ -21,17 +21,17 @@ let renderNav = (arr) => {
 				                    	renderNav(node)
 				                    }
 				                </li>
-		     				)
-	        		}else{
+		     				);
+	        		}
 	        			return (
 								<li key={index}><a href="#">{node}</a></li>
-							)
-		        	}
+							);
+		        	
 		        })
 	        }
 	     </ul>
-	)
-}
+	);
+};
 
 const Nav = (props) => {
 
@@ -40,7 +40,7 @@ const Nav = (props) => {
 		{
 			props.navTree.map(function(node,index){
 				if(Array.isArray(node)){
-					var str = node.shift();
+					let str = node.shift();
 					return (
 							<li key={index} className="nav-flag">
 					            <a href="#">{str}</a>
@@ -51,25 +51,25 @@ const Nav = (props) => {
 					            	renderNav(node)
 					            }
 					        </li>
-						)
-				}else{
+						);
+				}
 					return (
 							<li key={index} className="nav-flag">
 					            <a href="#">{node}</a>
 					        </li>
-						)
-				}
+						);
+				
 			})
 		}
     	</nav>
-	)
-}
+	);
+};
 
 // 传入导航数组
 Nav.defaultProps = {
 	navTree: ['首页', '文章', '编辑', ['脚手架', ['slucky', 'some']],
 		['关于', '联系方式', ['zxc', 'ads', 'num']]
 	]
-}
+};
 
-export default Nav
+export default Nav;

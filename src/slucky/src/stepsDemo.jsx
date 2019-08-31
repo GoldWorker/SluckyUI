@@ -5,6 +5,7 @@ import Highlight from 'react-highlight';
 import { Checkbox } from './component/checkbox';
 import { Search } from './component/search';
 import { Steps } from './component/steps';
+import { Tree } from './component/tree';
 
 export default class StepsDemo extends Component {
     handleChangeCheckbox = (selected) => {
@@ -57,6 +58,7 @@ import { Steps } from 'slucky';
         `;
         return (
             <div className="pt32">
+                <Tree/>
                 <Steps isCacheData={true} stepset={[{
                     title: '步骤1',
                     content: (data) => {

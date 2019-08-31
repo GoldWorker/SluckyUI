@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class Input extends Component {
     constructor() {
-        super()
+        super();
         this.id = Math.random().toString(36).substring(2);
     }
 
@@ -47,6 +47,23 @@ export class Input extends Component {
                     // console.log(this.props.error, this.props.error && this.props.error() && 'b-fail')
                 }
             </div>
-        )
+        );
     }
 }
+
+class InputNumber extends Component {
+
+    render() {
+        return (
+            <div className="d-f">
+                <Input onChange={this.props.onChange} />
+                <div className="d-il input-ctrl">
+                    <div className="ctrl-up"></div>
+                    <div className="ctrl-down"></div>
+                </div>
+            </div>
+        );
+    }
+}
+
+Input.Number = InputNumber;

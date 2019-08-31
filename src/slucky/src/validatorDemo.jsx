@@ -63,42 +63,7 @@ export class ValidatorDemo extends Component {
         return (
             <div className="bor b-side p32 mtb32">
 
-                {/* <Steps width={500+'px'} isCacheData={true} stepset={[{
-                    title: '1',
-                    content: (data) => {
-                        return <div>
-                            <Search onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
-                        </div>;
-                    },
-                    handleNext: (data) => {
-                        return true;
-                    }
-                }, {
-                    title: '2',
-                    content: (data, handelNext, handlePre) => {
-                        return <div>
-                            <button className="btn-n" onClick={handlePre}>上一步</button>
-                            <button className="btn-n" onClick={handelNext}>下一步</button>
-                        </div>;
-                    },
-                    isCustomCtrl: true
-                }, {
-                    title: '3',
-                    content: (data) => {
-                        return <Checkbox.GroupBorder className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected); }} option={[
-                            { label: 'Apple', value: 'Apple' },
-                            { label: <div className="border-sign">Pear</div>, value: 'Pear' },
-                            { label: 'Orange', value: 'Orange' }
-                        ]} />;
-                    },
-                    handleNext: (data) => { return true; }
-                }, {
-                    title: '4',
-                    content: (data) => {
-                        return <div>{data.name}</div>;
-                    },
-                    handleNext: (data) => { return true; }
-                }]} onChange={(currentSept) => { console.log(currentSept); }} /> */}
+                <Input.Number onChange={(e)=>{console.log(e);}}/>
 
                 <Search onSearch={(v) => { console.log(v); }} onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 

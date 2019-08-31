@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class Checkbox extends Component {
     constructor() {
-        super()
+        super();
         this.id = Math.random().toString(36).substring(2);
     }
     render() {
@@ -21,12 +21,12 @@ export class Checkbox extends Component {
                 </span>
                 <label htmlFor={this.id} className="p-r z10 pl8">{this.props.label || ''}</label>
             </div>
-        )
+        );
     }
 }
 export class CheckboxFontIn extends Component {
     constructor() {
-        super()
+        super();
         this.id = Math.random().toString(36).substring(2);
     }
     render() {
@@ -49,13 +49,13 @@ export class CheckboxFontIn extends Component {
                     <span className="m0">{this.props.label || ''}</span>
                 </label>
             </div>
-        )
+        );
     }
 }
 
 export class CheckboxBorder extends Component {
     constructor() {
-        super()
+        super();
         this.id = Math.random().toString(36).substring(2);
     }
     render() {
@@ -79,25 +79,25 @@ export class CheckboxBorder extends Component {
                     <span className="m0">{this.props.label || ''}</span>
                 </label>
             </div>
-        )
+        );
     }
 }
 
 const GroupContainer = (component) => class Group extends Component {
     constructor() {
-        super()
+        super();
         this.name = Math.random().toString(36).substring(2);
-        this.selected = []
+        this.selected = [];
     }
     onAction(e) {
-        const { value, checked } = e.target
+        const { value, checked } = e.target;
         if (checked) {
-            this.selected.push(value)
+            this.selected.push(value);
         } else {
-            const ind = this.selected.indexOf(value)
-            ind != -1 && this.selected.splice(ind, 1)
+            const ind = this.selected.indexOf(value);
+            ind != -1 && this.selected.splice(ind, 1);
         }
-        this.props.onChange(this.selected)
+        this.props.onChange(this.selected);
     }
     render() {
         return (
@@ -105,7 +105,7 @@ const GroupContainer = (component) => class Group extends Component {
                 {
                     this.props.children ? null : this.props.option.map((item, index) => {
                         if (this.props.defaultValue == item.value) {
-                            this.selected.push(item.value)
+                            this.selected.push(item.value);
                         }
 
                         return React.createElement(component, {
@@ -115,18 +115,18 @@ const GroupContainer = (component) => class Group extends Component {
                             label: item.label,
                             value: item.value,
                             disabled: item.disabled || this.props.disabled || false,
-                            onAction: (e) => this.onAction(e),
-                        })
+                            onAction: (e) => this.onAction(e)
+                        });
                     })
                 }
             </div>
-        )
+        );
     }
-}
+};
 
-Checkbox.Group = GroupContainer(Checkbox)
-Checkbox.GroupFontIn = GroupContainer(CheckboxFontIn)
-Checkbox.GroupBorder = GroupContainer(CheckboxBorder)
+Checkbox.Group = GroupContainer(Checkbox);
+Checkbox.GroupFontIn = GroupContainer(CheckboxFontIn);
+Checkbox.GroupBorder = GroupContainer(CheckboxBorder);
 
 // Demo
 // class Group extends Component {

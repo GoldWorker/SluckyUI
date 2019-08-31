@@ -1,33 +1,33 @@
 import React, {
-	Component,
-} from 'react'
-import cookie from 'react-cookie'
-import CommentShow from '../comment/highorder-commentShow'
-import CommentInput from '../comment/highorder-commentInput'
-import Markdown from 'react-markdown'
+	Component
+} from 'react';
+import cookie from 'react-cookie';
+import CommentShow from '../comment/highorder-commentShow';
+import CommentInput from '../comment/highorder-commentInput';
+import Markdown from 'react-markdown';
 // import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import { CSSTransitionGroup } from 'react-transition-group'
+import { CSSTransitionGroup } from 'react-transition-group';
 import Moment from 'moment';
-import ReactMarkdown from 'react-markdown'
-import Highlight from 'react-highlight'
+import ReactMarkdown from 'react-markdown';
+import Highlight from 'react-highlight';
 import ReactDOMServer from 'react-dom/server';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 // article show in markdown
 class ArticleDetail extends Component {
 	constructor(props) {
-		super(props)
-		this.params = new URLSearchParams(location.search)
-		this.artId = this.params.get('id')
+		super(props);
+		this.params = new URLSearchParams(location.search);
+		this.artId = this.params.get('id');
 		// console.log(this.params.get('id'), this.props);
 	}
 	componentDidMount() {
-		console.log('componentDidMount', this.props)
+		console.log('componentDidMount', this.props);
 		const {
 			handleFetchArticle
-		} = this.props
+		} = this.props;
 		// this.artId = this.props.params.id
-		handleFetchArticle(this.artId)
+		handleFetchArticle(this.artId);
 	}
 
 	render() {
@@ -36,11 +36,11 @@ class ArticleDetail extends Component {
 			title,
 			content,
 			date
-		} = this.props.item
+		} = this.props.item;
 		const {
 			handleDeleteClick,
 			isLogined
-		} = this.props
+		} = this.props;
 		return (
 			<div>
 				<CSSTransitionGroup
@@ -75,16 +75,16 @@ class ArticleDetail extends Component {
 					</div>
 				</CSSTransitionGroup>
 			</div>
-		)
+		);
 	}
 }
 
 ArticleDetail.defaultProps = {
 	item: {
-		id: "",
-		title: "",
-		content: "# Loding..."
+		id: '',
+		title: '',
+		content: '# Loding...'
 	}
-}
+};
 
-export default ArticleDetail
+export default ArticleDetail;

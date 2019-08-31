@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class Transfrom3D extends Component {
     render() {
@@ -6,6 +6,6 @@ export class Transfrom3D extends Component {
             <div>
                 
             </div>
-        )
+        );
     }
 }
