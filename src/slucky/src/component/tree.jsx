@@ -46,36 +46,44 @@ export class Tree extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            _Tree: this.props.data || DEMO_TREE || []
+            _Tree: this.props.data || RootTree || {}
         };
     }
 
     handleClickNode(node) {
-        // Tree.getNodeRouter(node);
-        // console.log('Node', node);
         // Tree.delNode(node);
-        Tree.mergeTree();
+        // Tree.mergeTree();
         // Tree.cloneTree(node);
-        // this.props.onSelect && this.props.onSelect(this.cloneTree(node), this.getNodeRouter());
+        // Tree.getNodeRouter(node);
+        this.props.onSelect && this.props.onSelect(Tree.cloneTree(node), Tree.getNodeRouter(node));
     }
 
     render() {
         return (
             <div className="pl16">
-                <TreeNode data={DEMO_TREE} onClick={(node) => this.handleClickNode(node)} />
+                <TreeNode data={this.props.data} onClick={(node) => this.handleClickNode(node)} />
             </div>
         );
     }
 }
 
-Tree.mergeTree = (tree = RootTree, node = { pid: 3, id: 31 }) => {
-    const nodeList = Tree.getTree2List(node);
-    console.log('nodeList', nodeList);
+/**
+ * @description: 合并树
+ * @param {tree} 
+ * @return: tree
+ */
+Tree.mergeTree = (tree = { id: 0 }, node = { pid: 0, id: '' }) => {
+    //遍历更新树
+    const nodeList = Tree.getTree2List(node, true);
     while (nodeList.length) {
         const item = nodeList.shift();
         const isExist = Tree.getNodeById(item.id, tree);
-        // debugger;
-        if (!isExist) {
+        // 节点相同时更新属性，不同时，添加节点
+        if (isExist) {
+            let treeItem = Tree.getNodeById(item.id, tree);
+            const { ch } = treeItem;
+            treeItem = Object.assign(treeItem, Object.assign(item, ch ? { ch } : {}));
+        } else {
             const pNode = Tree.getNodeById(item.pid, tree);
             if (pNode.ch) {
                 pNode.ch.push(item);
@@ -84,30 +92,47 @@ Tree.mergeTree = (tree = RootTree, node = { pid: 3, id: 31 }) => {
             }
         }
     }
-    console.log(tree);
+    return tree;
 };
 
-Tree.getTree2List = (node, isDeep = false) => {
+/**
+ * @description: 树形数据结构扁平化
+ * @param {tree} 
+ * @param {isDeep} 是否深度复制/不保留子节点信息
+ * @return: list
+ */
+Tree.getTree2List = (node, isDeep = false, attr = {}) => {
+    //遍历目标树
     const queue = [];
     const stack = [];
     queue.push(node);
     while (queue.length) {
         const item = queue.shift();
         if (item.ch) {
-            isDeep ? stack.push(Object.assign({}, { ...item }, { ch: [] })) : stack.push(item);
+            isDeep ? stack.push(Object.assign({}, { ...item }, { ch: [], ...attr })) : stack.push(Object.assign(item, { ...attr }));
             queue.unshift(...item.ch);
         } else {
-            isDeep ? stack.push(Object.assign({}, { ...item })) : stack.push(item);
+            isDeep ? stack.push(Object.assign({}, { ...item }, { ...attr })) : stack.push(Object.assign(item, { ...attr }));
         }
     }
     return stack;
 };
 
-Tree.getNodeById = (id, node = RootTree) => {
+/**
+ * @description: 根据节点id获取节点
+ * @param {type} 
+ * @return: 
+ */
+Tree.getNodeById = (id, node = { id: 0 }) => {
     const map = Tree.getNodeList2Map(Tree.getTree2List(node));
     return map[id] ? map[id] : undefined;
 };
 
+/**
+ * @description: 获取list的map结构
+ * @param {type} 
+ * @return: 
+ */
 Tree.getNodeList2Map = (nodeList = []) => {
     const map = {};
     nodeList.forEach((item) => {
@@ -116,55 +141,84 @@ Tree.getNodeList2Map = (nodeList = []) => {
     return map;
 };
 
-Tree.delNode = (targetNode, node = RootTree) => {
-    // console.log('targetNode', targetNode);
-    // node.ch.splice(0, 1);
-    const queue = [];
-    const nodeList = Tree.getTree2List(RootTree);
+/**
+ * @description: 删除节点
+ * @param {type} 
+ * @return: 
+ */
+Tree.delNode = (targetNode, tree = { id: 0 }) => {
+    const nodeList = Tree.getTree2List(tree);
     const map = Tree.getNodeList2Map(nodeList);
-    queue.push(node);
-
-    while (queue.length) {
-        const item = queue.shift();
-        if (item.id == targetNode.id && map[item.pid] && map[item.pid].ch) {
-            //找到父节点&del node
-            for (let i = 0; i < map[item.pid].ch.length; i++) {
-                const elem = map[item.pid].ch[i];
-                if (elem.id == targetNode.id) {
-                    map[item.pid].ch.splice(i, 1);
-                }
+    const pNode = map[targetNode.pid];
+    
+    if (pNode && pNode.ch) {
+        for (let i = 0; i < pNode.ch.length; i++) {
+            const elem = pNode.ch[i];
+            if (elem.id == targetNode.id) {
+                pNode.ch.splice(i, 1);
             }
-            // console.log('Del', node, item, map);
-            return node;
-        }
-        if (item.ch) {
-            queue.unshift(...item.ch);
         }
     }
-    // console.log('not Del', node, map);
-    return node;
+    return tree;
+
+    // const queue = [];
+    // queue.push(tree);
+    // while (queue.length) {
+    //     const item = queue.shift();
+    //     if (item.id == targetNode.id && map[item.pid] && map[item.pid].ch) {
+    //         //找到父节点&del node
+    //         for (let i = 0; i < map[item.pid].ch.length; i++) {
+    //             const elem = map[item.pid].ch[i];
+    //             if (elem.id == targetNode.id) {
+    //                 map[item.pid].ch.splice(i, 1);
+    //             }
+    //         }
+    //         return tree;
+    //     }
+    //     if (item.ch) {
+    //         queue.unshift(...item.ch);
+    //     }
+    // }
+    // return tree;
 };
 
+/**
+ * @description: 克隆树
+ * @param {type} 
+ * @return: 
+ */
 Tree.cloneTree = (node = RootTree) => {
     const nodeList = Tree.getTree2List(node, true);
     return Tree.buildTree(nodeList);
 };
 
+/**
+ * @description: 为节点添加属性，包括子节点
+ * @param {type} 
+ * @return: 
+ */
+Tree.addAttr2Tree = (node = RootTree, attr = { checked: true }) => {
+    const nodeList = Tree.getTree2List(node, false, attr) || [];
+    return nodeList[0];
+};
+
+/**
+ * @description: 获取溯源树
+ * @param {type} 
+ * @return: 
+ */
 Tree.getNodeRouter = (searchNode = {}) => {
     const stack = [];
-    console.log('searchNode', searchNode);
     const dfs = (node = RootTree) => {
         if (node.ch) {
             stack.push(Object.assign({}, { ...node }, { ch: [] }));
             //处理父节点
-            console.log(node);
             if (node.id == searchNode.id) {
                 return false;
             }
             const children = node.ch;
             for (let i = 0; i < children.length; i++) {
                 const child = children[i];
-                // console.log(child);
                 const flag = dfs(child);
                 if (!flag) {
                     return false;
@@ -173,7 +227,6 @@ Tree.getNodeRouter = (searchNode = {}) => {
         } else {
             stack.push(Object.assign({}, { ...node }));
             //处理叶子节点
-            console.log(node);
             if (node.id == searchNode.id) {
                 return false;
             }
@@ -182,10 +235,14 @@ Tree.getNodeRouter = (searchNode = {}) => {
         return true;
     };
     dfs();
-    // console.log('stack', stack, Tree.buildTree(stack));
     return Tree.buildTree(stack);
 };
 
+/**
+ * @description: 构建树
+ * @param {type} 
+ * @return: 
+ */
 Tree.buildTree = (nodeList = []) => {
     //创建map，方便根据id/pid引用相关对象
     if (nodeList && nodeList.length) {
@@ -195,6 +252,5 @@ Tree.buildTree = (nodeList = []) => {
             map[item.pid] && map[item.pid].ch && map[item.pid].ch.push(item);
         }
     }
-    // console.log(nodeList, map);
     return nodeList && nodeList[0];
 };

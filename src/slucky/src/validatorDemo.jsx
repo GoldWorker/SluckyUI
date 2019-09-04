@@ -17,7 +17,8 @@ export class ValidatorDemo extends Component {
         this.state = {
             name: 'asdf',
             email: '123',
-            password: ''
+            password: '',
+            checked: false
         };
         this.Validator = new Validator();
         Validator.types.isEmptyTest = {
@@ -63,7 +64,9 @@ export class ValidatorDemo extends Component {
         return (
             <div className="bor b-side p32 mtb32">
 
-                <Input.Number onChange={(e)=>{console.log(e);}}/>
+                <button className="btn-n" onClick={() => { this.setState({ checked: !this.state.checked }, () => console.log(this.state)); }}>TEST</button>
+
+                <Input.Number onChange={(e) => { console.log(e); }} />
 
                 <Search onSearch={(v) => { console.log(v); }} onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 
@@ -88,9 +91,9 @@ export class ValidatorDemo extends Component {
                     { label: 'Pear', value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }
                 ]} />
-                <Checkbox.Group className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected); }} option={[
+                <Checkbox.Group className="pb32" onChange={(selected) => { this.handleChangeCheckbox(selected); }} option={[
                     { label: 'Apple', value: 'Apple' },
-                    { label: 'Pear', value: 'Pear' },
+                    { label: 'Pear', value: 'Pear', checked: this.state.checked },
                     { label: 'Orange', value: 'Orange' }
                 ]} />
 

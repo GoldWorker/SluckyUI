@@ -10,14 +10,14 @@ import { Radio } from './component/radio';
 import { Slidebar } from './component/slidebar';
 import { Steps } from './component/steps';
 import { Switch } from './component/switch';
-import { Testarea } from './component/testarea';
+import { Textarea } from './component/textarea';
 import { Transfrom3D } from './component/transfrom3D';
 import { Tab } from './component/tab';
 import { Select } from './component/select';
 import { Search } from './component/search';
 import { Progress } from './component/progress';
+import { Tree } from './component/tree';
 import { Validator } from './lib/validator';
-// import '../sass/normal.scss';
 
 export {
     Dialog,
@@ -32,11 +32,12 @@ export {
     Slidebar,
     Steps,
     Switch,
-    Testarea,
+    Textarea,
     Transfrom3D,
     Tab,
     Select,
     Search,
     Validator,
-    Progress
+    Progress,
+    Tree
 };

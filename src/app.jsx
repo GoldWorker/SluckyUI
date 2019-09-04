@@ -9,7 +9,7 @@ import FormDemo from 'slucky/src/formDemo';
 import ColorDemo from 'slucky/src/colorDemo';
 import ImageDemo from 'slucky/src/imageDemo';
 import { TableDemo } from 'slucky/src/tableDemo';
-import { Toast } from 'slucky';
+import { Toast } from 'slucky/src';
 import StepsDemo from 'slucky/src/stepsDemo';
 
 export default class App extends Component {

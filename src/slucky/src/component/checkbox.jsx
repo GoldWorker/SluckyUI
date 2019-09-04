@@ -1,10 +1,31 @@
 import React, { Component } from 'react';
 
 export class Checkbox extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.id = Math.random().toString(36).substring(2);
+        this.state = {
+            checked: this.props.checked || this.props.defaultChecked || false
+        };
     }
+
+    componentWillReceiveProps(nextProps) {
+        // console.log('componentWillReceiveProps', nextProps.checked);
+        this.setState({
+            checked: nextProps.checked
+        });
+    }
+
+    handleChange(e) {
+        this.props.onAction(e);
+    }
+
+    handleClick(e) {
+        // console.log('handleClick', e.target.checked);
+        this.setState({ checked: e.target.checked });
+        this.props.onAction(e);
+    }
+
     render() {
         return (
             <div className="checkbox-box-normalize mr16 mb8">
@@ -14,8 +35,12 @@ export class Checkbox extends Component {
                     name={this.props.name}
                     disabled={this.props.disabled}
                     value={this.props.value}
-                    defaultChecked={this.props.defaultChecked}
-                    onChange={(e) => this.props.onAction(e)} />
+                    checked={this.state.checked}
+                    // checked={this.props.checked || this.props.defaultChecked || false}
+                    // defaultChecked={this.props.defaultChecked}
+                    onClick={(e) => this.handleClick(e)}
+                    onChange={(e) => this.handleChange(e)}
+                />
                 <span className="checkbox-hook ta-c">
                     <span className="checkbox-hook-in fs12 op0">✓</span>
                 </span>
@@ -25,10 +50,29 @@ export class Checkbox extends Component {
     }
 }
 export class CheckboxFontIn extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.id = Math.random().toString(36).substring(2);
+        this.state = {
+            checked: this.props.checked || this.props.defaultChecked || false
+        };
     }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            checked: nextProps.checked
+        });
+    }
+
+    handleChange(e) {
+        this.props.onAction(e);
+    }
+
+    handleClick(e) {
+        this.setState({ checked: e.target.checked });
+        this.props.onAction(e);
+    }
+
     render() {
         return (
             <div className="checkbox-box-fontstyle d-il mr16 mb8">
@@ -39,8 +83,13 @@ export class CheckboxFontIn extends Component {
                     className="d-n"
                     name={this.props.name}
                     value={this.props.value}
-                    defaultChecked={this.props.defaultChecked}
-                    onChange={(e) => this.props.onAction(e)} />
+                    // checked={this.props.checked || this.props.defaultChecked || false}
+                    // defaultChecked={this.props.defaultChecked}
+                    // onChange={(e) => this.props.onAction(e)} 
+                    checked={this.state.checked}
+                    onClick={(e) => this.handleClick(e)}
+                    onChange={(e) => this.handleChange(e)}
+                />
                 <label
                     htmlFor={this.id}
                     className="checkbox-fontstyle mb0"
@@ -54,10 +103,23 @@ export class CheckboxFontIn extends Component {
 }
 
 export class CheckboxBorder extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.id = Math.random().toString(36).substring(2);
+        this.state = {
+            checked: this.props.checked || this.props.defaultChecked || false
+        };
     }
+
+    handleChange(e) {
+        this.props.onAction(e);
+    }
+
+    handleClick(e) {
+        this.setState({ checked: e.target.checked });
+        this.props.onAction(e);
+    }
+
     render() {
         return (
             <div className="trigger-box-border d-il mr16 mb8">
@@ -69,8 +131,13 @@ export class CheckboxBorder extends Component {
                     name={this.props.name}
                     disabled={this.props.disabled}
                     value={this.props.value}
-                    defaultChecked={this.props.defaultChecked}
-                    onChange={(e) => this.props.onAction(e)} />
+                    // checked={this.props.checked || this.props.defaultChecked || false}
+                    // defaultChecked={this.props.defaultChecked}
+                    // onChange={(e) => this.props.onAction(e)} 
+                    checked={this.state.checked}
+                    onClick={(e) => this.handleClick(e)}
+                    onChange={(e) => this.handleChange(e)}
+                />
                 <label
                     htmlFor={this.id}
                     className="trigger-border mb0"
@@ -111,6 +178,7 @@ const GroupContainer = (component) => class Group extends Component {
                         return React.createElement(component, {
                             key: index,
                             defaultChecked: this.props.defaultValue == item.value,
+                            checked: item.checked,
                             name: this.name,
                             label: item.label,
                             value: item.value,

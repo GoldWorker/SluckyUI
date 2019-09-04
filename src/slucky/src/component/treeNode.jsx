@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Checkbox } from '..';
 
 export default class TreeNode extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            _Tree: this.props.data || []
+            _Tree: this.props.data || {}
         };
     }
 
@@ -12,17 +13,43 @@ export default class TreeNode extends Component {
         this.props.onClick && this.props.onClick(node);
     }
 
+    handleChangeCheckbox(selected, item) {
+        // item.checked = !item.checked;
+        console.log(item);
+        this.handleClickNode(item);
+    }
+
     render() {
+        const children = this.state._Tree.ch;
         return (
             <div className="pl16">
                 {
+                    children && children.map((item, index) => {
+                        if (item.ch) {
+                            return <details key={index} className="tree-details">
+                                <summary className="bor-b b-side mb8">
+                                    <Checkbox.Group className="d-il" onChange={(selected) => { this.handleChangeCheckbox(selected, item); }} option={[
+                                        { label: <div className="ptb8 d-il">{item.content || item.id}</div>, value: item.id, checked: !!item.checked }
+                                    ]} />
+                                </summary>
+                                <TreeNode data={item} onClick={(node) => this.handleClickNode(node)} />
+                            </details>;
+                        }
+                        return <div key={index} className="pl14">
+                            <Checkbox.Group className="d-il" onChange={(selected) => { this.handleChangeCheckbox(selected, item); }} option={[
+                                { label: <div className="ptb8 d-il">{item.content || item.id}</div>, value: item.id, checked: !!item.checked }
+                            ]} />
+                        </div>;
+                    })
+                }
+                {/* {
                     this.state._Tree.length && this.state._Tree.map((item, index) => {
                         if (item.ch) {
-                            return <details key={index}><summary><span onClick={() => this.handleClickNode(item)}>{item.id}</span></summary><TreeNode data={item.ch} /></details>;
+                            return <details key={index}><summary><span onClick={() => this.handleClickNode(item)}>{item.id}</span></summary><TreeNode data={item.ch} onClick={(node) => this.handleClickNode(node)} /></details>;
                         }
                         return <div key={index} className="pl14"><span onClick={() => this.handleClickNode(item)}>{item.id}</span></div>;
                     })
-                }
+                } */}
             </div>
         );
     }

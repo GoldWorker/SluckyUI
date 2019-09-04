@@ -811,6 +811,13 @@ $space: 2;
     @include ellip(3);
 }
 
+details {
+    summary {
+        outline: none;
+        // cursor: pointer;
+    }
+}
+
 //inline button 边距跟字体大小自己调
 .btn {
     @include btn($btn_radius);

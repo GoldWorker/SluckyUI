@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class Slidebar extends Component {
     render() {
@@ -48,6 +48,6 @@ export default class Slidebar extends Component {
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
