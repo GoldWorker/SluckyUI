@@ -1,52 +1,11 @@
 import React, { Component } from 'react';
 import TreeNode from './treeNode';
 
-const DEMO_TREE = [{
-    pid: 0,
-    id: 1,
-    ch: [{
-        pid: 1,
-        id: 11
-    }, {
-        pid: 1,
-        id: 12,
-        ch: [{
-            pid: 12,
-            id: 121,
-            ch: [{
-                pid: 121,
-                id: 1211
-            }]
-        }]
-    }, {
-        pid: 1,
-        id: 13
-    }]
-}, {
-    pid: 0,
-    id: 2,
-    ch: [{
-        pid: 2,
-        id: 21
-    }, {
-        pid: 2,
-        id: 22
-    }]
-}, {
-    pid: 0,
-    id: 3
-}];
-
-const RootTree = {
-    id: 0,
-    ch: DEMO_TREE
-};
-
 export class Tree extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            _Tree: this.props.data || RootTree || {}
+            _Tree: this.props.data || {}
         };
     }
 
@@ -55,12 +14,12 @@ export class Tree extends Component {
         // Tree.mergeTree();
         // Tree.cloneTree(node);
         // Tree.getNodeRouter(node);
-        this.props.onSelect && this.props.onSelect(Tree.cloneTree(node), Tree.getNodeRouter(node));
+        this.props.onSelect && this.props.onSelect(Tree.cloneTree(node), Tree.getNodeRouter(node, this.state._Tree));
     }
 
     render() {
         return (
-            <div className="pl16">
+            <div>
                 <TreeNode data={this.props.data} onClick={(node) => this.handleClickNode(node)} />
             </div>
         );
@@ -150,7 +109,7 @@ Tree.delNode = (targetNode, tree = { id: 0 }) => {
     const nodeList = Tree.getTree2List(tree);
     const map = Tree.getNodeList2Map(nodeList);
     const pNode = map[targetNode.pid];
-    
+
     if (pNode && pNode.ch) {
         for (let i = 0; i < pNode.ch.length; i++) {
             const elem = pNode.ch[i];
@@ -187,7 +146,7 @@ Tree.delNode = (targetNode, tree = { id: 0 }) => {
  * @param {type} 
  * @return: 
  */
-Tree.cloneTree = (node = RootTree) => {
+Tree.cloneTree = (node = { id: 0 }) => {
     const nodeList = Tree.getTree2List(node, true);
     return Tree.buildTree(nodeList);
 };
@@ -197,7 +156,7 @@ Tree.cloneTree = (node = RootTree) => {
  * @param {type} 
  * @return: 
  */
-Tree.addAttr2Tree = (node = RootTree, attr = { checked: true }) => {
+Tree.addAttr2Tree = (node = { id: 0 }, attr = { checked: true }) => {
     const nodeList = Tree.getTree2List(node, false, attr) || [];
     return nodeList[0];
 };
@@ -207,16 +166,16 @@ Tree.addAttr2Tree = (node = RootTree, attr = { checked: true }) => {
  * @param {type} 
  * @return: 
  */
-Tree.getNodeRouter = (searchNode = {}) => {
+Tree.getNodeRouter = (searchNode = {}, node = { id: 0 }) => {
     const stack = [];
-    const dfs = (node = RootTree) => {
-        if (node.ch) {
-            stack.push(Object.assign({}, { ...node }, { ch: [] }));
+    const dfs = (tree) => {
+        if (tree.ch) {
+            stack.push(Object.assign({}, { ...tree }, { ch: [] }));
             //处理父节点
-            if (node.id == searchNode.id) {
+            if (tree.id == searchNode.id) {
                 return false;
             }
-            const children = node.ch;
+            const children = tree.ch;
             for (let i = 0; i < children.length; i++) {
                 const child = children[i];
                 const flag = dfs(child);
@@ -225,16 +184,16 @@ Tree.getNodeRouter = (searchNode = {}) => {
                 }
             }
         } else {
-            stack.push(Object.assign({}, { ...node }));
+            stack.push(Object.assign({}, { ...tree }));
             //处理叶子节点
-            if (node.id == searchNode.id) {
+            if (tree.id == searchNode.id) {
                 return false;
             }
         }
         stack.pop();
         return true;
     };
-    dfs();
+    dfs(node);
     return Tree.buildTree(stack);
 };
 

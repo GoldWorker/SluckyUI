@@ -17,7 +17,7 @@ export class Checkbox extends Component {
     }
 
     handleChange(e) {
-        this.props.onAction(e);
+        // this.props.onAction(e);
     }
 
     handleClick(e) {

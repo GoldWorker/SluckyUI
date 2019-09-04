@@ -17,6 +17,7 @@ import { Select } from './component/select';
 import { Search } from './component/search';
 import { Progress } from './component/progress';
 import { Tree } from './component/tree';
+import { Transfer } from './component/transfer';
 import { Validator } from './lib/validator';
 
 export {
@@ -39,5 +40,6 @@ export {
     Search,
     Validator,
     Progress,
-    Tree
+    Tree,
+    Transfer
 };

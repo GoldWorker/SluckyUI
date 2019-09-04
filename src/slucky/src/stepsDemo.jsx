@@ -5,82 +5,19 @@ import Highlight from 'react-highlight';
 import { Checkbox } from './component/checkbox';
 import { Search } from './component/search';
 import { Steps } from './component/steps';
-import { Tree } from './component/tree';
-const RootTree = {
-    id: 0,
-    ch: [{
-        pid: 0,
-        id: 1,
-        ch: [{
-            pid: 1,
-            id: 11
-        }, {
-            pid: 1,
-            id: 12,
-            ch: [{
-                pid: 12,
-                id: 121,
-                ch: [{
-                    pid: 121,
-                    id: 1211
-                }]
-            }]
-        }, {
-            pid: 1,
-            id: 13
-        }]
-    }, {
-        pid: 0,
-        id: 2,
-        ch: [{
-            pid: 2,
-            id: 21
-        }, {
-            pid: 2,
-            id: 22
-        }]
-    }, {
-        pid: 0,
-        id: 3
-    }]
-};
+import { Transfer } from './component/transfer';
+
 export default class StepsDemo extends Component {
     constructor() {
         super();
-
-        this.state = {
-            sourceTree: RootTree,
-            tarTree: { id: 0, ch: [] },
-            checked: true
-        };
     }
 
     handleChangeCheckbox = (selected) => {
         console.log(selected);
     }
 
-    handleSelectTree(node, walkerTree) {
-        const { tarTree, sourceTree } = this.state;
-        //将溯源树添加到目标树中
-        const newTree = Tree.mergeTree(tarTree, walkerTree);
-        //目标树更新属性
-        const attrTree = Tree.addAttr2Tree(newTree, { checked: true });
-        this.setState({
-            tarTree: attrTree,
-            sourceTree: Tree.mergeTree(sourceTree, attrTree)
-        });
-    }
-
-    handleSelectTarTree(node) {
-        const { tarTree, sourceTree } = this.state;
-        //剪除目标树节点
-        const delTree = Tree.delNode(node, tarTree);
-        //以剪除的节点为基准，将源树的节点更新属性
-        const attrTree = Tree.addAttr2Tree(Tree.getNodeById(node.id, sourceTree), { checked: false });
-        this.setState({
-            tarTree: delTree,
-            sourceTree: Tree.mergeTree(sourceTree, attrTree)
-        });
+    handleChangeTranfer(list) {
+        console.log(list);
     }
 
     render() {
@@ -129,14 +66,7 @@ import { Steps } from 'slucky';
         `;
         return (
             <div className="pt32">
-                <div className="d-f">
-                    <div className="flex1 s0">
-                        <Tree data={this.state.sourceTree} onSelect={(node, route) => this.handleSelectTree(node, route)} />
-                    </div>
-                    <div className="flex1 s0">
-                        <Tree data={this.state.tarTree} onSelect={(node, route) => this.handleSelectTarTree(node, route)} />
-                    </div>
-                </div>
+                <Transfer onChange={(nodeList) => this.handleChangeTranfer(nodeList)} />
 
                 <Steps isCacheData={true} stepset={[{
                     title: '步骤1',
