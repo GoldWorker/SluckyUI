@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Tree } from '..';
+import { Tree } from '../component/tree';
+import { Checkbox } from '../component/checkbox';
 
 const DEMO_TREE = [{
     pid: 0,
@@ -51,8 +52,9 @@ export class Transfer extends Component {
         };
     }
 
-    handleSelectTree(node, walkerTree) {
+    handleSelectTree(node) {
         const { tarTree, sourceTree } = this.state;
+        const walkerTree = Tree.getNodeRouter(node, sourceTree);
         //将溯源树添加到目标树中
         const newTree = Tree.mergeTree(tarTree, walkerTree);
         //目标树更新属性
@@ -77,14 +79,29 @@ export class Transfer extends Component {
         this.props.onChange && this.props.onChange(Tree.getTree2List(delTree, true));
     }
 
+    handleChangeCheckbox() { }
+
     render() {
         return (
             <div className="d-f" style={{ width: this.props.width || 'auto' }}>
                 <div className="flex1 s0 bor-r b-side">
-                    <Tree data={this.state.sourceTree} onSelect={(node, route) => this.handleSelectTree(node, route)} />
+                    <Tree
+                        data={this.state.sourceTree}
+                        onSelect={(node, route) => this.handleSelectTree(node, route)}
+                        item={(item) => {
+                            return <Checkbox.Group className="d-il" onChange={() => { this.handleSelectTree(item); }} option={[
+                                { label: <div className="ptb8 d-il">{item.content || item.id}</div>, value: item.id, checked: !!item.checked, disabled: !!item.disabled }
+                            ]} />;
+                        }} />
                 </div>
                 <div className="flex1 s0">
-                    <Tree data={this.state.tarTree} onSelect={(node, route) => this.handleSelectTarTree(node, route)} />
+                    <Tree
+                        data={this.state.tarTree}
+                        onSelect={(node, route) => this.handleSelectTarTree(node, route)}
+                        open={true}
+                        item={(item) => {
+                            return <div className="d-il">{item.id}<span onClick={() => this.handleSelectTarTree(item)} className="plr8" style={{ cursor: 'pointer' }}>x</span></div>;
+                        }} />
                 </div>
             </div>
         );

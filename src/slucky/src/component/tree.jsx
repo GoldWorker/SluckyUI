@@ -9,6 +9,8 @@ export class Tree extends Component {
         };
     }
 
+    handleChangeCheckbox() { }
+
     handleClickNode(node) {
         // Tree.delNode(node);
         // Tree.mergeTree();
@@ -20,7 +22,7 @@ export class Tree extends Component {
     render() {
         return (
             <div>
-                <TreeNode data={this.props.data} onClick={(node) => this.handleClickNode(node)} />
+                <TreeNode data={this.props.data} onClick={(node) => this.handleClickNode(node)} open={this.props.open || false} item={(item) => this.props.item && this.props.item(item)} />
             </div>
         );
     }

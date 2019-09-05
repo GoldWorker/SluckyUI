@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import ReactDOMServer from 'react-dom/server';
-import ReactMarkdown from 'react-markdown'
-import Highlight from 'react-highlight'
-import { ValidatorDemo } from "./validatorDemo";
+import ReactMarkdown from 'react-markdown';
+import Highlight from 'react-highlight';
+import { ValidatorDemo } from './validatorDemo';
 
 export default class FormDemo extends Component {
     constructor() {
-        super()
+        super();
     }
 
     render() {
@@ -75,7 +75,7 @@ class ValidatorDemo extends Component {
         )
     }
 }
-        `
+        `;
         const demoStringInput = '``` html' + `
 
 <div className="d-f ac mb32">
@@ -158,7 +158,7 @@ class ValidatorDemo extends Component {
         <img alt="" />
     </div>
 </div>
-`
+`;
 
         const demoStringSelect = '``` html' + `
 <div className="mb32">
@@ -186,7 +186,7 @@ class ValidatorDemo extends Component {
         </select>
     </div>
 </div>
-`
+`;
 
         const demoStringCheckbox = '``` html' + `
 <div className="checkbox-box-normalize mr16">
@@ -298,7 +298,7 @@ Breaking news, sport, TV, radio and a whole lot more. The BBC informs, educates 
         </div>
     </label>
 </div>
-`
+`;
 
         const demoStringRadio = '``` html' + `
 <div className="radio-box-normalize d-il pr16">
@@ -329,11 +329,11 @@ Breaking news, sport, TV, radio and a whole lot more. The BBC informs, educates 
         <span className="pl8">SluckyUI的跨平台性质可快速加工成react，vue，angular的组件</span>
     </label>
 </div>
-`
+`;
 
         const demoStringTextarea = '``` html' + `
 <textarea name="" id="" cols="50" rows="6" className="textarea"></textarea>
-`
+`;
         return (
             <div>
                 <p className="bor-l b-theme pl8 fs18 mt32">表单校验 Validator</p>
@@ -567,7 +567,7 @@ Breaking news, sport, TV, radio and a whole lot more. The BBC informs, educates 
                     <input id="isSelectPackage" type="checkbox" className="d-n" />
                     <label htmlFor="isSelectPackage" className="checkbox-papertoggle d-f">
                         <div className="checkbox-imgbox s0">
-                            <img src={require("../images/bg_test.jpg")} alt="" />
+                            <img src={require('../images/bg_test.jpg')} alt="" />
                         </div>
                         <div className="pt12 pl16">
                             描述Title
@@ -653,6 +653,6 @@ Breaking news, sport, TV, radio and a whole lot more. The BBC informs, educates 
             //         </div>
             //     </div>
             // </div>
-        )
+        );
     }
 }

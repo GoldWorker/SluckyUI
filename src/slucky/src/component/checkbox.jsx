@@ -28,7 +28,7 @@ export class Checkbox extends Component {
 
     render() {
         return (
-            <div className="checkbox-box-normalize mr16 mb8">
+            <div className="checkbox-box-normalize mr16 mb8" style={{ display: this.props.display || 'inline-block' }}>
                 <input
                     id={this.id}
                     type="checkbox"
@@ -182,7 +182,8 @@ const GroupContainer = (component) => class Group extends Component {
                             name: this.name,
                             label: item.label,
                             value: item.value,
-                            disabled: item.disabled || this.props.disabled || false,
+                            disabled: item.disabled || this.props.disabled,
+                            display: item.display,
                             onAction: (e) => this.onAction(e)
                         });
                     })

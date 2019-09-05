@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Checkbox } from '..';
+import { Checkbox } from '../component/checkbox';
 
 export default class TreeNode extends Component {
     constructor(props) {
@@ -14,7 +14,6 @@ export default class TreeNode extends Component {
     }
 
     handleChangeCheckbox(selected, item) {
-        // item.checked = !item.checked;
         console.log(item);
         this.handleClickNode(item);
     }
@@ -26,30 +25,30 @@ export default class TreeNode extends Component {
                 {
                     children && children.map((item, index) => {
                         if (item.ch) {
-                            return <details key={index} className="tree-details">
+                            return <details key={index} className="tree-details" open={this.props.open || false}>
                                 <summary className="bor-b b-side mb8">
-                                    <Checkbox.Group className="d-il" onChange={(selected) => { this.handleChangeCheckbox(selected, item); }} option={[
-                                        { label: <div className="ptb8 d-il">{item.content || item.id}</div>, value: item.id, checked: !!item.checked }
-                                    ]} />
+                                    {/* <Checkbox.Group className="d-il" onChange={(selected) => { this.handleChangeCheckbox(selected, item); }} option={[
+                                        { label: <div className="ptb8 d-il">{item.content || item.id}</div>, value: item.id, checked: !!item.checked, disabled: !!item.disabled }
+                                    ]} /> */}
+                                    {
+                                        this.props.item&&this.props.item(item)
+                                    }
                                 </summary>
-                                <TreeNode data={item} onClick={(node) => this.handleClickNode(node)} />
+                                <TreeNode data={item} onClick={(node) => this.handleClickNode(node)} open={this.props.open || false} item={(item)=>{
+                                    return this.props.item&&this.props.item(item);
+                                }} />
                             </details>;
                         }
                         return <div key={index} className="pl14">
-                            <Checkbox.Group className="d-il" onChange={(selected) => { this.handleChangeCheckbox(selected, item); }} option={[
-                                { label: <div className="ptb8 d-il">{item.content || item.id}</div>, value: item.id, checked: !!item.checked }
-                            ]} />
+                            {/* <Checkbox.Group className="d-il" onChange={(selected) => { this.handleChangeCheckbox(selected, item); }} option={[
+                                { label: <div className="ptb8 d-il">{item.content || item.id}</div>, value: item.id, checked: !!item.checked, disabled: !!item.disabled }
+                            ]} /> */}
+                            {
+                                this.props.item&&this.props.item(item)
+                            }
                         </div>;
                     })
                 }
-                {/* {
-                    this.state._Tree.length && this.state._Tree.map((item, index) => {
-                        if (item.ch) {
-                            return <details key={index}><summary><span onClick={() => this.handleClickNode(item)}>{item.id}</span></summary><TreeNode data={item.ch} onClick={(node) => this.handleClickNode(node)} /></details>;
-                        }
-                        return <div key={index} className="pl14"><span onClick={() => this.handleClickNode(item)}>{item.id}</span></div>;
-                    })
-                } */}
             </div>
         );
     }
@@ -57,7 +56,7 @@ export default class TreeNode extends Component {
 
 
 //Base，复杂度O(n)，分解式
-// cloneTree(node = { id: 0, ch: DEMO_TREE }) {
+// cloneTree(node = { id: 0, ch: [] }) {
 //     if (node.ch) {
 //         const source = [Object.assign({}, { ...node }, { ch: [] })];
 //         const map = {};
