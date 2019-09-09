@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class Table extends Component {
     constructor() {
-        super()
-        this.checkboxList = []
-        this.isAllSelect = false
+        super();
+        this.checkboxList = [];
+        this.isAllSelect = false;
     }
 
     handleCheckboxChange(data, i, checked, callback) {
@@ -36,24 +36,24 @@ export class Table extends Component {
                 return {
                     ...item,
                     checked: true
-                }
-            })
-            console.log(this.props.dataset)
-            this.forceUpdate()
+                };
+            });
+            console.log(this.props.dataset);
+            this.forceUpdate();
         } else {
             this.checkboxList = [];
         }
         console.log(this.checkboxList, e.target.checked);
-        this.forceUpdate()
+        this.forceUpdate();
         callback(this.checkboxList);
     }
 
     handleDisplay(callback, data, i) {
         if (callback === undefined) {
             return true;
-        } else {
+        } 
             return callback(data, i);
-        }
+        
     }
     handleClass(btnType) {
         switch (btnType) {
@@ -71,11 +71,11 @@ export class Table extends Component {
             <div>
                 <div className="p-r">
                     {
-                        this.props.loading ? (<div className="d-f ac jc table-loading" >
+                        this.props.loading ? <div className="d-f ac jc table-loading" >
                             {
                                 this.props.loadingOption ? this.props.loadingOption : <div data-loader='circle'></div>
                             }
-                        </div>) : null
+                        </div> : null
                     }
 
                     <div className="slucky-table" style={{ 'width': this.props.maxWidth, 'maxHeight': this.props.maxHeight }}>
@@ -85,7 +85,7 @@ export class Table extends Component {
                                 this.props.dataconf.map((conf, i) => {
                                     // 全选选项
                                     if (conf.checkbox) {
-                                        return <div key={i} className="ptb24 plr6 d-il ta-c table-title s0" style={{ 'width': conf.width }}></div>
+                                        return <div key={i} className="ptb24 plr6 d-il ta-c table-title s0" style={{ 'width': conf.width }}></div>;
                                         return (
                                             <div key={i} className="ptb16 plr6 d-il ta-c table-title s0" style={{ 'width': conf.width }}>
                                                 <div className="checkbox-box-normalize">
@@ -97,20 +97,20 @@ export class Table extends Component {
                                                     <label htmlFor="checkbox_normalize_title" className="p-r z10"></label>
                                                 </div>
                                             </div>
-                                        )
+                                        );
                                     }
                                     return (
                                         !conf.checkbox && conf.title ? <div className="ptb24 d-il ta-c table-title s0" style={{ 'width': conf.width }} key={i}>{conf.title}</div> : null
-                                    )
+                                    );
                                 })
                             }
                         </div>
 
                         <div className="table-content">
                             {
-                                this.props.dataset && this.props.dataset.length == 0 ? (<div className="ta-c pt32 pb16 c-hint-b" >
+                                this.props.dataset && this.props.dataset.length == 0 ? <div className="ta-c pt32 pb16 c-hint-b" >
                                     <p>暂无数据</p>
-                                </div>) : null
+                                </div> : null
                             }
                             {/* main content */}
                             {/* 列循环 */}
@@ -123,10 +123,10 @@ export class Table extends Component {
                                                 this.props.dataconf.map((conf, i) => {
                                                     if (conf.progress) {
                                                         return <progress key={i} className="p-a w-full" style={{ height: conf.progressWidth || 2 + 'px', top: 'unset', bottom: 0 }} max="100" value={conf.progress && conf.progress(data)}
-                                                            className="progress-loading-table"></progress>
-                                                    } else {
-                                                        return null
-                                                    }
+                                                            className="progress-loading-table"></progress>;
+                                                    } 
+                                                        return null;
+                                                    
                                                 })
                                             }
                                             {
@@ -140,37 +140,37 @@ export class Table extends Component {
                                                             }
                                                             {/* 复杂情况，有多种handle */}
                                                             {
-                                                                conf.handles ? (
+                                                                conf.handles ? 
                                                                     Table.handleActions(this, conf.handles, data, i)
-                                                                ) : null
+                                                                 : null
                                                             }
                                                             {/* Pipe */}
                                                             {
-                                                                conf.pipe ? (
+                                                                conf.pipe ? 
                                                                     <span className="p-r z10">{conf.pipe(data, i)}</span>
-                                                                ) : null
+                                                                 : null
                                                             }
                                                             {/* Textarea */}
                                                             {
-                                                                conf.textarea ? (
+                                                                conf.textarea ? 
                                                                     <textarea rows="4" className="textarea w-full" value={data[conf.name]} readonly></textarea>
-                                                                ) : null
+                                                                 : null
                                                             }
                                                             {/* Progress */}
                                                             {
-                                                                conf.progress && conf.progress(data) ? (
+                                                                conf.progress && conf.progress(data) ? 
                                                                     Table.handleProgress(data, conf)
-                                                                ) : null
+                                                                 : null
                                                             }
                                                             {/* checkbox */}
                                                             {
-                                                                conf.checkbox ? (
+                                                                conf.checkbox ? 
                                                                     Table.handleCheckbox(this, data, i, conf)
-                                                                ) : null
+                                                                 : null
                                                             }
                                                             {/* popup */}
                                                             {
-                                                                conf.popup ? (
+                                                                conf.popup ? 
                                                                     <div className="pop-box">
                                                                         <div className="b-theme pop-toggle plr4">
                                                                             <span className="c-theme">{conf.name || ''}</span>
@@ -183,60 +183,60 @@ export class Table extends Component {
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                ) : null
+                                                                 : null
                                                             }
                                                         </div>
-                                                    )
+                                                    );
                                                 })
                                             }
                                         </div>
-                                    )
+                                    );
                                 })
                             }
                         </div>
                     </div>
                 </div>
             </div >
-        )
+        );
     }
 }
 
 Table.handleActions = (self_this, handles, data, i) => {
     return handles.map((handleItem, j) => {
         return (
-            self_this.handleDisplay(handleItem.display, data, i) ? (
+            self_this.handleDisplay(handleItem.display, data, i) ? 
                 <div className="pop-box" key={j}>
                     <div className={['pop-toggle ptb4 mlr4', self_this.handleClass(handleItem.btnType)].join(' ')} onClick={() => handleItem.handle && handleItem.handle(data, i)}>
                         <span>{handleItem.name}</span>
                         {
-                            handleItem.pipe ? (
+                            handleItem.pipe ? 
                                 <div className="pop-main pr8" style={{ 'minWidth': handleItem.width }}>
                                     <div className="pop-content paper bor b-side ptb16 plr12 shadow c-text-b">
                                         {handleItem.pipe(data, i)}
                                     </div>
                                 </div>
-                            ) : null
+                             : null
                         }
                     </div>
                 </div>
-            ) : null
-        )
-    })
-}
+             : null
+        );
+    });
+};
 
 Table.handleProgress = (data, conf) => {
     return (
         <div className="d-il">
             {
-                !conf.pipe ? (
+                !conf.pipe ? 
                     <span className="p-r z10">{data[conf.name]}</span>
-                ) : null
+                 : null
             }
             {/* <progress max="100" value={conf.progress && conf.progress(data)}
                 className="progress-loading"></progress> */}
         </div>
-    )
-}
+    );
+};
 
 Table.handleCheckbox = (self_this, data, i, conf) => {
     return (
@@ -249,8 +249,8 @@ Table.handleCheckbox = (self_this, data, i, conf) => {
             </span>
             <label htmlFor={'checkbox_normalize_table' + i} className="p-r z10"></label>
         </div>
-    )
-}
+    );
+};
 
 Table.handelPopup = (handleItem) => {
     return (
@@ -263,5 +263,5 @@ Table.handelPopup = (handleItem) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};

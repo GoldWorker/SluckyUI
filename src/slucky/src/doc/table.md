@@ -1,49 +1,26 @@
-import React, { Component } from 'react';
-import ReactDOMServer from 'react-dom/server';
-import ReactMarkdown from 'react-markdown';
-import Highlight from 'react-highlight';
-import { Table, Paging } from './index';
-const tableMd = require('./doc/table.md');
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-09 10:17:23
+ * @LastEditTime: 2019-09-09 10:26:59
+ * @LastEditors: Please set LastEditors
+ -->
+``` jsx
+import React, { Component } from 'react'
+import { Table, Paging } from 'slucky'
 
-export class TableDemo extends Component {
-    constructor() {
-        super();
-        this.state = {
-            pageInfo: {
-                currentPage: 1,
-                total: 84,
-                maxToShow: 10
-            }
-        };
-        setTimeout(() => {
-            this.setState({
-                pageInfo: {
-                    currentPage: 1,
-                    total: 84,
-                    maxToShow: 10
-                }
-            });
-        }, 1000);
-    }
+class TableDemo extends Component {
     handleChangePage = (currentPage) => {
         console.log(currentPage);
-        this.setState({
-            pageInfo: {
-                currentPage,
-                total: 84,
-                maxToShow: 10
-            }
-        });
     }
-
-    render() {
+    render(){
         const dataconf = [
             {
                 title: '',
                 width: '10%',
                 checkbox: true,
                 handle: (list) => {
-                    console.log(list);
+                    console.log(list)
                 }
             },
             {
@@ -51,10 +28,10 @@ export class TableDemo extends Component {
                 name: 'progress',
                 width: '25%',
                 progress: (data) => {
-                    return data['progress'];
+                    return data['progress']
                 },
                 pipe: (data) => {
-                    return `${data['progress']}%`;
+                    return {data['progress']}
                 }
             },
             {
@@ -81,7 +58,7 @@ export class TableDemo extends Component {
                             <pre className="c-text-w">SluckyUI的跨平台性质可快速加工成react，vue，angular的组件</pre>
                             <pre className="c-text-w">SluckyUI的跨平台性质可快速加工成react，vue，angular的组件</pre>
                         </div>
-                    );
+                    )
                 }
             },
             {
@@ -94,7 +71,7 @@ export class TableDemo extends Component {
                         name: '配置',
                         btnType: 'text',
                         handle: (data) => {
-                            alert('配置');
+                            alert('配置')
                             console.log(data);
                         }
                     },
@@ -102,12 +79,12 @@ export class TableDemo extends Component {
                         name: '删除',
                         btnType: 'text',
                         handle: (data) => {
-                            alert('备注');
+                            alert('备注')
                             console.log(data);
                         }
                     }]
             }
-        ];
+        ]
         const dataset = [{
             id: 1,
             name: 'Apple',
@@ -123,35 +100,21 @@ export class TableDemo extends Component {
             name: 'Cat',
             height: 176,
             progress: 90
-        }];
-
-        return (
-            <div>
-                <div className="ptb32">
-                    <Table dataconf={dataconf} dataset={dataset} loading={false} loadingOption={
-                        <div data-loader='bounce'>
-                            <div class="bounce1"></div>
-                            <div class="bounce2"></div>
-                            <div class="bounce3"></div>
-                            <div class="bounce4"></div>
-                        </div>} />
-                    <div className="p16">
-                        <Paging style="paging-aurora" pageInfo={this.state.pageInfo} onAction={this.handleChangePage}></Paging>
-                        {console.log(this.state.pageInfo)}
-                    </div>
-                </div>
-
-                <details className="pb16 mb16 bor-b b-side-s" open>
-                    <summary className="btn-n pl8 pr64 ptb8">显示使用例子</summary>
-                    <Highlight innerHTML={true}>
-                        {/* {ReactDOMServer.renderToStaticMarkup(<ReactMarkdown source={demoString + tableString} />)} */}
-                        {/* {ReactDOMServer.renderToStaticMarkup(tableMd)} */}
-                        {tableMd}
-                    </Highlight>
-                </details>
-            </div>
-        );
+        }]
+        
+        const pageInfo = {
+            total: 119,
+            maxToShow: 20
+        }
+        return(
+            <Table dataconf={dataconf} dataset={dataset} />
+            <Paging pageInfo={pageInfo} onAction={this.handleChangePage} />
+        )
     }
 }
+```
 
-
+header 1 | header 2
+---|---
+row 1 col 1 | row 1 col 2
+row 2 col 1 | row 2 col 2

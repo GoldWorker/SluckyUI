@@ -1,13 +1,20 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-02-19 17:51:34
+ * @LastEditTime: 2019-09-09 00:29:02
+ * @LastEditors: Please set LastEditors
+ */
 const path = require('path');
-const ExtractTextWebapckPlugin = require("extract-text-webpack-plugin");
+const ExtractTextWebapckPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const sassExtract = new ExtractTextWebapckPlugin('./slucky.css');
-const UglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const Autoprefixer = require('autoprefixer')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require("webpack")
-const ENV_CONF = require("./environment/dev.env.ts")
+const webpack = require('webpack');
+const ENV_CONF = require('./environment/dev.env.ts');
 //构建前删除dist目录 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -25,15 +32,15 @@ module.exports = {
         }, {
             test: /\.scss$/,
             // exclude: /node_modules/,
-            use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'sass-loader'],
+            use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
             include: [
                 path.join(__dirname, 'src/'),
                 path.join(__dirname, 'node_modules/slucky/sass/')
-            ],
+            ]
         }, {
             test: /.jsx$/, //使用loader的目标文件。这里是.jsx
             use: {
-                loader: 'babel-loader',
+                loader: 'babel-loader'
             },
             // exclude: /node_modules/
             include: [
@@ -43,9 +50,9 @@ module.exports = {
         }, {
             test: /\.js$/,
             use: {
-                loader: 'babel-loader',
+                loader: 'babel-loader'
             },
-            exclude: /node_modules/,
+            exclude: /node_modules/
             // include: [
             //     path.resolve(__dirname, 'node_modules/slucky/')
             // ]
@@ -57,7 +64,7 @@ module.exports = {
                     options: {
                         symbolId: 'icon-[name]'
                     }
-                },
+                }
                 // 'svg-fill-loader', {
                 //     loader: 'svgo-loader',
                 //     options: {
@@ -85,7 +92,7 @@ module.exports = {
                 path.join(__dirname, 'node_modules/slucky/')
             ],
             exclude: [
-                path.resolve(__dirname, 'src/icons/'),
+                path.resolve(__dirname, 'src/icons/')
                 // path.resolve(__dirname, 'node_modules/')
             ]
         }, {
@@ -95,6 +102,18 @@ module.exports = {
         }, {
             test: /\.(html|htm)$/,
             use: 'html-withimg-loader'
+        }, {
+            test: /\.md$/,
+            use: [{
+                    loader: 'html-loader'
+                },
+                {
+                    loader: 'markdown-loader',
+                    options: {
+                        /* your options here */
+                    }
+                }
+            ]
         }]
     },
     plugins: [
@@ -105,20 +124,20 @@ module.exports = {
             'process.env': JSON.stringify(ENV_CONF)
         }),
         new MiniCssExtractPlugin({
-            filename: "slucky.css"
+            filename: 'slucky.css'
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'index.html'), //模板
             filename: 'index.html',
             // chunks:['index'],
             hash: true, //防止缓存
-            title: "slucky",
+            title: 'slucky',
             minify: false
         }),
         require('autoprefixer'),
         // sassExtract,
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(), //用户名替代id,更新组件时在控制台输出组件的路径而不是数字ID，用在开发模式
+        new webpack.NamedModulesPlugin() //用户名替代id,更新组件时在控制台输出组件的路径而不是数字ID，用在开发模式
         // new webpack.HashedModuleIdsPlugin(), // 用在生产模式 new
         // CleanWebpackPlugin(['dist','build'],{     verbose:false,
         // exclude:['img']//不删除img静态资源 }),
@@ -137,7 +156,7 @@ module.exports = {
         overlay: { //当有编译错误或者警告的时候显示一个全屏overlay
             errors: true,
             warnings: true
-        },
+        }
         // proxy: {
         //     '/api': {
         //         target: 'https://www.brandf.cn',
@@ -150,4 +169,4 @@ module.exports = {
         //     }
         // }
     }
-}
+};
