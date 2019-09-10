@@ -11,6 +11,7 @@ import ImageDemo from 'slucky/src/imageDemo';
 import { TableDemo } from 'slucky/src/tableDemo';
 import { Toast } from 'slucky/src';
 import StepsDemo from 'slucky/src/stepsDemo';
+import TreeDemo from 'slucky/src/treeDemo';
 
 export default class App extends Component {
     constructor() {
@@ -22,7 +23,7 @@ export default class App extends Component {
         // console.log(Toast);
         return (
             <div className="d-f jc">
-                
+
                 <div className="p-r">
                     <div className="p-a pt16 pl32 z1" style={{ right: 0 }}>
                         <span className="fs24"></span>
@@ -133,6 +134,15 @@ export default class App extends Component {
                                 </label>
                                 <div className="tab-content w-full">
                                     <StepsDemo />
+                                </div>
+
+                                <input type="radio" id="tab_11" name="tab" />
+                                <label className="mr8" htmlFor="tab_11">
+                                    <div className="radio-out"></div>
+                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">操作树&穿梭框Steps</span>
+                                </label>
+                                <div className="tab-content w-full">
+                                    <TreeDemo />
                                 </div>
                             </div>
                         </div>
