@@ -97,9 +97,9 @@ export class ValidatorDemo extends Component {
                     { label: 'Orange', value: 'Orange', disabled: true }
                 ]} />
 
-                <Checkbox.GroupFontIn className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected); }} option={[
-                    { label: 'Apple', value: 'Apple' },
-                    { label: 'Pear', value: 'Pear' },
+                <Checkbox.GroupFontIn className="pb32" onChange={(selected) => { this.handleChangeCheckbox(selected); }} option={[
+                    { label: 'Apple', value: 'Apple', checked: true },
+                    { label: 'Pear', value: 'Pear', checked: true },
                     { label: 'Orange', value: 'Orange' }
                 ]} />
 

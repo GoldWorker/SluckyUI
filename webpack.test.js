@@ -1,15 +1,22 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-05-27 17:35:26
+ * @LastEditTime: 2019-05-27 17:35:26
+ * @LastEditors: your name
+ */
 const path = require('path');
-const ExtractTextWebapckPlugin = require("extract-text-webpack-plugin");
+const ExtractTextWebapckPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const sassExtract = new ExtractTextWebapckPlugin('./slucky.css');
-const UglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // 图表分析
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // const Autoprefixer = require('autoprefixer')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require("webpack")
-const ENV_CONF = require("./environment/dev.env.ts")
+const webpack = require('webpack');
+const ENV_CONF = require('./environment/dev.env.ts');
 //构建前删除dist目录 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -25,12 +32,12 @@ module.exports = {
             {
                 test: /\.scss$/,
                 exclude: /node_modules/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'sass-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
             },
             {
                 test: /\.less$/,
                 exclude: /node_modules/,
-                use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'less-loader']
+                use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
             }, {
                 test: /.jsx$/, //使用loader的目标文件。这里是.jsx
                 loader: 'babel-loader'
@@ -39,7 +46,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     query: {
-                        presets: ["env", "stage-0"]
+                        presets: ['env', 'stage-0']
                     }
                 },
                 exclude: /node_modules/
@@ -91,6 +98,18 @@ module.exports = {
             }, {
                 test: /\.(html|htm)$/,
                 use: 'html-withimg-loader'
+            }, {
+                test: /\.md$/,
+                use: [{
+                        loader: 'html-loader'
+                    },
+                    {
+                        loader: 'markdown-loader',
+                        options: {
+                            /* your options here */
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -121,17 +140,17 @@ module.exports = {
         new CleanWebpackPlugin('dist', {
             verbose: false,
             watch: true,
-            "exclude": ['.git']
+            'exclude': ['.git']
         }), //打包前先清空
         new MiniCssExtractPlugin({
-            filename: "slucky.css"
+            filename: 'slucky.css'
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'index.html'), //模板
             filename: 'index.html',
             // chunks:['index'],
             hash: true, //防止缓存
-            title: "slucky",
+            title: 'slucky',
             minify: {
                 removeAttributeQuotes: true, //压缩 去掉引号
                 collapseWhitespace: true,
@@ -164,4 +183,4 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.HashedModuleIdsPlugin()
     ]
-}
+};

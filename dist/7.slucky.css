@@ -762,6 +762,74 @@
   .textarea:focus {
     outline: #26a597 auto 1px; }
 
+.input-number input::-webkit-outer-spin-button,
+.input-number input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0; }
+
+.input-number .ctrl-up {
+  position: relative;
+  display: inline-block;
+  cursor: pointer; }
+  .input-number .ctrl-up:after {
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    right: 0;
+    margin: 0 8px 0 8px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: transparent transparent #ccc transparent;
+    z-index: 0; }
+  .input-number .ctrl-up:before {
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    right: 0;
+    margin: 0 10px 0 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    z-index: 1; }
+
+.input-number .ctrl-down {
+  position: relative;
+  cursor: pointer; }
+  .input-number .ctrl-down:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    margin: 0 8px 0 8px;
+    right: 0;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #ccc transparent transparent transparent;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    z-index: 0; }
+  .input-number .ctrl-down:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    margin: 0 10px 0 10px;
+    right: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    z-index: 1; }
+
+.input-number:hover .ctrl-up:after {
+  border-color: transparent transparent #222222 transparent; }
+
+.input-number:hover .ctrl-down:after {
+  border-color: #222222 transparent transparent transparent; }
+
 .select-down-modern {
   position: relative;
   display: inline-block; }
@@ -2570,6 +2638,158 @@ figure > img {
   left: 0;
   text-align: center;
   z-index: 19; }
+
+table {
+  background-color: transparent; }
+
+caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #222222;
+  text-align: left; }
+
+th {
+  text-align: left; }
+
+.table, table {
+  width: 100%;
+  max-width: 100%; }
+  .table > thead > tr > th, table > thead > tr > th,
+  .table > thead > tr > td,
+  table > thead > tr > td,
+  .table > tbody > tr > th,
+  table > tbody > tr > th,
+  .table > tbody > tr > td,
+  table > tbody > tr > td,
+  .table > tfoot > tr > th,
+  table > tfoot > tr > th,
+  .table > tfoot > tr > td,
+  table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.42857;
+    vertical-align: top;
+    border-top: 1px solid #E5E5E5; }
+  .table > thead > tr > th, table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #E5E5E5; }
+  .table > caption + thead > tr:first-child > th, table > caption + thead > tr:first-child > th,
+  .table > caption + thead > tr:first-child > td,
+  table > caption + thead > tr:first-child > td,
+  .table > colgroup + thead > tr:first-child > th,
+  table > colgroup + thead > tr:first-child > th,
+  .table > colgroup + thead > tr:first-child > td,
+  table > colgroup + thead > tr:first-child > td,
+  .table > thead:first-child > tr:first-child > th,
+  table > thead:first-child > tr:first-child > th,
+  .table > thead:first-child > tr:first-child > td,
+  table > thead:first-child > tr:first-child > td {
+    border-top: 0; }
+  .table > tbody + tbody, table > tbody + tbody {
+    border-top: 2px solid #E5E5E5; }
+  .table .table, table .table, .table table, table table {
+    background-color: white; }
+
+.table-condensed > thead > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > th,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > th,
+.table-condensed > tfoot > tr > td {
+  padding: 5px; }
+
+.table-bordered, table {
+  border: 1px solid #E5E5E5; }
+  .table-bordered > thead > tr > th, table > thead > tr > th,
+  .table-bordered > thead > tr > td,
+  table > thead > tr > td,
+  .table-bordered > tbody > tr > th,
+  table > tbody > tr > th,
+  .table-bordered > tbody > tr > td,
+  table > tbody > tr > td,
+  .table-bordered > tfoot > tr > th,
+  table > tfoot > tr > th,
+  .table-bordered > tfoot > tr > td,
+  table > tfoot > tr > td {
+    border: 1px solid #E5E5E5; }
+  .table-bordered > thead > tr > th, table > thead > tr > th,
+  .table-bordered > thead > tr > td,
+  table > thead > tr > td {
+    border-bottom-width: 2px; }
+
+.table-striped > tbody > tr:nth-of-type(odd), table > tbody > tr:nth-of-type(odd) {
+  background-color: #F6F8F9; }
+
+.table-hover > tbody > tr:hover, table > tbody > tr:hover {
+  background-color: #E8EBED; }
+
+table col[class*="col-"] {
+  position: static;
+  float: none;
+  display: table-column; }
+
+table td[class*="col-"],
+table th[class*="col-"] {
+  position: static;
+  float: none;
+  display: table-cell; }
+
+.table-responsive {
+  overflow-x: auto;
+  min-height: 0.01%; }
+  @media screen and (max-width: 767px) {
+    .table-responsive {
+      width: 100%;
+      overflow-y: hidden;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+      border: 1px solid #E5E5E5; }
+      .table-responsive > .table, .table-responsive > table {
+        margin-bottom: 0; }
+        .table-responsive > .table > thead > tr > th, .table-responsive > table > thead > tr > th,
+        .table-responsive > .table > thead > tr > td,
+        .table-responsive > table > thead > tr > td,
+        .table-responsive > .table > tbody > tr > th,
+        .table-responsive > table > tbody > tr > th,
+        .table-responsive > .table > tbody > tr > td,
+        .table-responsive > table > tbody > tr > td,
+        .table-responsive > .table > tfoot > tr > th,
+        .table-responsive > table > tfoot > tr > th,
+        .table-responsive > .table > tfoot > tr > td,
+        .table-responsive > table > tfoot > tr > td {
+          white-space: nowrap; }
+      .table-responsive > .table-bordered, .table-responsive > table {
+        border: 0; }
+        .table-responsive > .table-bordered > thead > tr > th:first-child, .table-responsive > table > thead > tr > th:first-child,
+        .table-responsive > .table-bordered > thead > tr > td:first-child,
+        .table-responsive > table > thead > tr > td:first-child,
+        .table-responsive > .table-bordered > tbody > tr > th:first-child,
+        .table-responsive > table > tbody > tr > th:first-child,
+        .table-responsive > .table-bordered > tbody > tr > td:first-child,
+        .table-responsive > table > tbody > tr > td:first-child,
+        .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+        .table-responsive > table > tfoot > tr > th:first-child,
+        .table-responsive > .table-bordered > tfoot > tr > td:first-child,
+        .table-responsive > table > tfoot > tr > td:first-child {
+          border-left: 0; }
+        .table-responsive > .table-bordered > thead > tr > th:last-child, .table-responsive > table > thead > tr > th:last-child,
+        .table-responsive > .table-bordered > thead > tr > td:last-child,
+        .table-responsive > table > thead > tr > td:last-child,
+        .table-responsive > .table-bordered > tbody > tr > th:last-child,
+        .table-responsive > table > tbody > tr > th:last-child,
+        .table-responsive > .table-bordered > tbody > tr > td:last-child,
+        .table-responsive > table > tbody > tr > td:last-child,
+        .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+        .table-responsive > table > tfoot > tr > th:last-child,
+        .table-responsive > .table-bordered > tfoot > tr > td:last-child,
+        .table-responsive > table > tfoot > tr > td:last-child {
+          border-right: 0; }
+        .table-responsive > .table-bordered > tbody > tr:last-child > th, .table-responsive > table > tbody > tr:last-child > th,
+        .table-responsive > .table-bordered > tbody > tr:last-child > td,
+        .table-responsive > table > tbody > tr:last-child > td,
+        .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+        .table-responsive > table > tfoot > tr:last-child > th,
+        .table-responsive > .table-bordered > tfoot > tr:last-child > td,
+        .table-responsive > table > tfoot > tr:last-child > td {
+          border-bottom: 0; } }
 
 .paging-normal .btn-paging {
   cursor: pointer;
@@ -9159,6 +9379,9 @@ figure > img {
   overflow: hidden;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical; }
+
+details summary {
+  outline: none; }
 
 .btn {
   display: inline-block;

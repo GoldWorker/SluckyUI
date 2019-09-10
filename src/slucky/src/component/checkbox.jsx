@@ -65,7 +65,7 @@ export class CheckboxFontIn extends Component {
     }
 
     handleChange(e) {
-        this.props.onAction(e);
+        // this.props.onAction(e);
     }
 
     handleClick(e) {
@@ -112,7 +112,7 @@ export class CheckboxBorder extends Component {
     }
 
     handleChange(e) {
-        this.props.onAction(e);
+        // this.props.onAction(e);
     }
 
     handleClick(e) {
@@ -151,10 +151,15 @@ export class CheckboxBorder extends Component {
 }
 
 const GroupContainer = (component) => class Group extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.name = Math.random().toString(36).substring(2);
         this.selected = [];
+        this.props.option && this.props.option.forEach(item => {
+            if (item.checked) {
+                this.selected.push(item.value);
+            }
+        });
     }
     onAction(e) {
         const { value, checked } = e.target;
