@@ -6,101 +6,101 @@
 // 	}
 // 	info:{}
 // }
-import fetch from 'isomorphic-fetch'
+import fetch from 'isomorphic-fetch';
 import {
     pushInQueue
-} from '../message/data-message'
+} from '../message/data-message';
 import {
     addReducer
-} from '../store'
+} from '../store';
 
 const postSuccess = (data) => {
     return {
-        type: "PUBLIC_ARTICLE_SUCCESS",
+        type: 'PUBLIC_ARTICLE_SUCCESS',
         info: data
-    }
-}
+    };
+};
 
 const postError = (err) => {
     return {
-        type: "PUBLIC_ARTICLE_ERROR",
+        type: 'PUBLIC_ARTICLE_ERROR',
         error: err
-    }
-}
+    };
+};
 
 const putSuccess = (data) => {
     return {
-        type: "UPDATE_ARTICLE_SUCCESS",
+        type: 'UPDATE_ARTICLE_SUCCESS',
         info: data
-    }
-}
+    };
+};
 
 const putError = (err) => {
     return {
-        type: "UPDATE_ARTICLE_ERROR",
+        type: 'UPDATE_ARTICLE_ERROR',
         error: err
-    }
-}
+    };
+};
 
 export const publishArticle = (art = {}) => {
     return (dispatch) => {
         fetch(__API__.articleEdit, {
-            method: "POST",
-            credentials: "include",
+            method: 'POST',
+            credentials: 'include',
             body: JSON.stringify(art)
         }).then(data => data.json()).then(data => {
             if (data.error) {
-                dispatch(postError(data))
+                dispatch(postError(data));
                 dispatch(pushInQueue({
-                    info: "No Access",
-                    flag: "hint"
-                }))
+                    info: 'No Access',
+                    flag: 'hint'
+                }));
             } else {
-                dispatch(postSuccess(data))
+                dispatch(postSuccess(data));
                 dispatch(pushInQueue({
-                    info: "Publish Article Success",
-                    flag: "success"
-                }))
+                    info: 'Publish Article Success',
+                    flag: 'success'
+                }));
             }
         }).catch(err => {
-            dispatch(postError(err))
+            dispatch(postError(err));
             dispatch(pushInQueue({
-                info: "Internet Error",
-                flag: "warning"
-            }))
-        })
-    }
-}
+                info: 'Internet Error',
+                flag: 'warning'
+            }));
+        });
+    };
+};
 
 export const putArticle = (art = {}) => {
     return (dispatch) => {
         fetch(__API__.articleEdit, {
-            method: "PUT",
-            credentials: "include",
+            method: 'PUT',
+            credentials: 'include',
             body: JSON.stringify(art)
         }).then(data => data.json()).then(data => {
             if (data.error) {
-                dispatch(putError(data))
+                dispatch(putError(data));
                 dispatch(pushInQueue({
-                    info: "No Access",
-                    flag: "hint"
-                }))
+                    info: 'No Access',
+                    flag: 'hint'
+                }));
             } else {
-                dispatch(putSuccess(data))
+                dispatch(putSuccess(data));
                 dispatch(pushInQueue({
-                    info: "Update Article Success",
-                    flag: "success"
-                }))
+                    info: 'Update Article Success',
+                    flag: 'success'
+                }));
             }
         }).catch(err => {
-            dispatch(putError(err))
+            dispatch(putError(err));
             dispatch(pushInQueue({
-                info: "Internet Error",
-                flag: "warning"
-            }))
-        })
-    }
-}
+                info: 'Internet Error',
+                flag: 'warning'
+            }));
+        });
+    };
+};
 
 
 const articlePublicReducer = (state = {
@@ -108,29 +108,29 @@ const articlePublicReducer = (state = {
     isUpdate: false
 }, action) => {
     switch (action.type) {
-        case "PUBLIC_ARTICLE_SUCCESS":
+        case 'PUBLIC_ARTICLE_SUCCESS':
             return Object.assign({}, state, {
                 isPublish: true,
                 info: action.info
-            })
-        case "PUBLIC_ARTICLE_ERROR":
+            });
+        case 'PUBLIC_ARTICLE_ERROR':
             return Object.assign({}, state, {
                 isPublish: false,
                 info: action.info
-            })
-        case "UPDATE_ARTICLE_SUCCESS":
+            });
+        case 'UPDATE_ARTICLE_SUCCESS':
             return Object.assign({}, state, {
                 isUpdate: true,
                 info: action.info
-            })
-        case "UPDATE_ARTICLE_ERROR":
+            });
+        case 'UPDATE_ARTICLE_ERROR':
             return Object.assign({}, state, {
                 isUpdate: false,
                 info: action.info
-            })
+            });
         default:
-            return state
+            return state;
     }
-}
+};
 
-addReducer(articlePublicReducer, 'articlePublicReducer')
+addReducer(articlePublicReducer, 'articlePublicReducer');

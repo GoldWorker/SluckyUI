@@ -1,62 +1,45 @@
 import React, { Component } from 'react';
 import { Tree } from '../component/tree';
-import { Checkbox } from '../component/checkbox';
-
-const DEMO_TREE = [{
-    pid: 0,
-    id: 1,
-    ch: [{
-        pid: 1,
-        id: 11
-    }, {
-        pid: 1,
-        id: 12,
-        ch: [{
-            pid: 12,
-            id: 121,
-            ch: [{
-                pid: 121,
-                id: 1211
-            }]
-        }]
-    }, {
-        pid: 1,
-        id: 13
-    }]
-}, {
-    pid: 0,
-    id: 2,
-    ch: [{
-        pid: 2,
-        id: 21
-    }, {
-        pid: 2,
-        id: 22
-    }]
-}, {
-    pid: 0,
-    id: 3
-}];
-
-const RootTree = {
-    id: 0,
-    ch: DEMO_TREE
-};
+import { Checkbox, CheckboxFontIn } from '../component/checkbox';
 
 export class Transfer extends Component {
     constructor(props) {
         super(props);
+        const { data, value } = this.props;
+        const valueCopy = Tree.cloneList(value);
+        const value2Tree = Tree.buildTree(valueCopy);
+        const attrTree = Tree.addAttr2Tree(value2Tree, { checked: true });
+        const initAttrTree = Tree.addAttr2Tree(data, { checked: false });
         this.state = {
-            sourceTree: this.props.data || RootTree,
-            tarTree: { id: 0, ch: [] }
+            sourceTree: Tree.mergeTree(initAttrTree, attrTree),
+            tarTree: attrTree || { id: 0, ch: [] }
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const { data, value } = nextProps;
+        //不能影响源
+        const valueCopy = Tree.cloneList(value);
+        if (value) {
+            const value2Tree = Tree.buildTree(valueCopy);
+            //更新目标树
+            const attrTree = Tree.addAttr2Tree(value2Tree, { checked: true });
+            //刷新源树
+            const initAttrTree = Tree.addAttr2Tree(data, { checked: false });
+            this.setState({
+                sourceTree: Tree.mergeTree(initAttrTree, attrTree),
+                tarTree: attrTree
+            });
+        }
     }
 
     handleSelectTree(node) {
         const { tarTree, sourceTree } = this.state;
+        const childTree = node;
         const walkerTree = Tree.getNodeRouter(node, sourceTree);
+
         //将溯源树添加到目标树中
-        const newTree = Tree.mergeTree(tarTree, walkerTree);
+        const newTree = Tree.mergeTree(Tree.mergeTree(tarTree, walkerTree), childTree);
         //目标树更新属性
         const attrTree = Tree.addAttr2Tree(newTree, { checked: true });
         this.setState({
@@ -89,9 +72,13 @@ export class Transfer extends Component {
                         data={this.state.sourceTree}
                         onSelect={(node, route) => this.handleSelectTree(node, route)}
                         item={(item) => {
-                            return <Checkbox.Group className="d-il" onChange={() => { this.handleSelectTree(item); }} option={[
-                                { label: <div className="ptb8 d-il">{item.content || item.id}</div>, value: item.id, checked: !!item.checked, disabled: !!item.disabled }
-                            ]} />;
+                            return <Checkbox
+                                onChange={(e) => { this.handleSelectTree(item, e); }}
+                                label={<div className="ptb8 d-il">{item.content || item.id}</div>}
+                                value={item.id}
+                                checked={!!item.checked}
+                                disabled={!!item.checked}
+                            />;
                         }} />
                 </div>
                 <div className="flex1 s0">
@@ -100,7 +87,7 @@ export class Transfer extends Component {
                         onSelect={(node, route) => this.handleSelectTarTree(node, route)}
                         open={true}
                         item={(item) => {
-                            return <div className="d-il">{item.id}<span onClick={() => this.handleSelectTarTree(item)} className="plr8" style={{ cursor: 'pointer' }}>x</span></div>;
+                            return <div className="d-il mtb8">{item.content || item.id}<span onClick={() => this.handleSelectTarTree(item)} className="plr8" style={{ cursor: 'pointer' }}>x</span></div>;
                         }} />
                 </div>
             </div>

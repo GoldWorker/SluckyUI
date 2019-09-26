@@ -9,6 +9,12 @@ export default class TreeNode extends Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            _Tree: nextProps.data
+        });
+    }
+
     handleClickNode(node) {
         this.props.onClick && this.props.onClick(node);
     }
@@ -21,30 +27,33 @@ export default class TreeNode extends Component {
     render() {
         const children = this.state._Tree.ch;
         return (
-            <div className="pl16">
+            <div className="pl24">
                 {
                     children && children.map((item, index) => {
                         if (item.ch) {
-                            return <details key={index} className="tree-details" open={this.props.open || false}>
-                                <summary className="bor-b b-side mb8">
-                                    {/* <Checkbox.Group className="d-il" onChange={(selected) => { this.handleChangeCheckbox(selected, item); }} option={[
-                                        { label: <div className="ptb8 d-il">{item.content || item.id}</div>, value: item.id, checked: !!item.checked, disabled: !!item.disabled }
-                                    ]} /> */}
+                            return <div className="d-f">
+                                <div>
                                     {
-                                        this.props.item&&this.props.item(item)
+                                        this.props.item && this.props.item(item)
                                     }
-                                </summary>
-                                <TreeNode data={item} onClick={(node) => this.handleClickNode(node)} open={this.props.open || false} item={(item)=>{
-                                    return this.props.item&&this.props.item(item);
-                                }} />
-                            </details>;
+                                </div>
+                                <div className="flex1">
+                                    <details key={index} className="tree-details" open={this.props.open || false}>
+                                        <summary className="mtb8">
+                                            {/* {
+                                                this.props.item&&this.props.item(item)
+                                            } */}
+                                        </summary>
+                                        <TreeNode data={item} onClick={(node) => this.handleClickNode(node)} open={this.props.open || false} item={(item) => {
+                                            return this.props.item && this.props.item(item);
+                                        }} />
+                                    </details>
+                                </div>
+                            </div>;
                         }
-                        return <div key={index} className="pl14">
-                            {/* <Checkbox.Group className="d-il" onChange={(selected) => { this.handleChangeCheckbox(selected, item); }} option={[
-                                { label: <div className="ptb8 d-il">{item.content || item.id}</div>, value: item.id, checked: !!item.checked, disabled: !!item.disabled }
-                            ]} /> */}
+                        return <div key={index} className="">
                             {
-                                this.props.item&&this.props.item(item)
+                                this.props.item && this.props.item(item)
                             }
                         </div>;
                     })

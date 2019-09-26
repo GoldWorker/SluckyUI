@@ -9,6 +9,7 @@ import { Tab } from 'slucky/src/component/tab';
 import { Select } from 'slucky/src/component/select';
 import { Search } from 'slucky/src/component/search';
 import { Steps } from 'slucky/src/component/steps';
+// import { Checkbox } from 'antd';
 // import { Search } from "slucky/distTest/component/search";
 
 export class ValidatorDemo extends Component {
@@ -18,7 +19,12 @@ export class ValidatorDemo extends Component {
             name: 'asdf',
             email: '123',
             password: '',
-            checked: false
+            checked: false,
+            checkboxDefaultValue: ['Apple'],
+            testDemoList: [],
+            selected: ['Pear'],
+            radioValue: 'Pear',
+            numberValue: 1
         };
         this.Validator = new Validator();
         Validator.types.isEmptyTest = {
@@ -50,10 +56,16 @@ export class ValidatorDemo extends Component {
 
     handleChangeRadio = (e) => {
         console.log(e.target.value);
+        this.setState({
+            radioValue: e.target.value
+        });
     }
 
     handleChangeCheckbox = (selected) => {
         console.log(selected);
+        this.setState({
+            selected
+        });
     }
 
     handleChangeSwitch = (e) => {
@@ -63,10 +75,29 @@ export class ValidatorDemo extends Component {
     render() {
         return (
             <div className="bor b-side p32 mtb32">
+                <button className="btn-n" onClick={() => this.setState({ selected: ['Apple', 'Pear'] })}>t</button>
+                {/* <Checkbox.Group
+                    options={[
+                        { label: 'Apple', value: 'Apple' },
+                        { label: 'Pear', value: 'Pear' },
+                        { label: 'Orange', value: 'Orange' }
+                    ]}
+                    disabled
+                    defaultValue={this.state.checkboxDefaultValue}
+                    onChange={(checkedValues) => this.handleChangeCheckbox(checkedValues)}
+                /> */}
+                <button className="btn-n" onClick={() => {
+                    this.setState({
+                        testDemoList: [
+                            { label: 'Apple', value: '1', checked: true },
+                            { label: 'Pear', value: '2', checked: true },
+                            { label: 'Orange', value: '3' },
+                            { label: 'Orange', value: '4' }
+                        ]
+                    }, () => console.log(this.state));
+                }}>TEST</button>
 
-                <button className="btn-n" onClick={() => { this.setState({ checked: !this.state.checked }, () => console.log(this.state)); }}>TEST</button>
-
-                <Input.Number onChange={(e) => { console.log(e); }} />
+                <Input.Number value={this.state.numberValue} onChange={(value) => this.setState({ numberValue: value })} />
 
                 <Search onSearch={(v) => { console.log(v); }} onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 
@@ -81,33 +112,58 @@ export class ValidatorDemo extends Component {
                     value: 'v3'
                 }]} />
 
-                <Radio.Group className="pb32" defaultValue="Pear" onChange={(e) => { this.handleChangeRadio(e); }} option={[
+                <Radio.Group value={this.state.radioValue} className="pb32" onChange={(e) => { this.handleChangeRadio(e); }} option={[
                     { label: 'Apple', value: 'Apple' },
                     { label: 'Pear', value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }
                 ]} />
-                <Radio.GroupBorder className="pb32" defaultValue="Pear" onChange={(e) => { this.handleChangeRadio(e); }} option={[
+                <Radio.GroupBorder className="pb32" onChange={(e) => { this.handleChangeRadio(e); }} option={[
                     { label: 'Apple', value: 'Apple' },
                     { label: 'Pear', value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }
                 ]} />
-                <Checkbox.Group className="pb32" onChange={(selected) => { this.handleChangeCheckbox(selected); }} option={[
-                    { label: 'Apple', value: 'Apple', display: 'block' },
-                    { label: 'Pear', value: 'Pear', checked: this.state.checked },
-                    { label: 'Orange', value: 'Orange', disabled: true }
-                ]} />
 
-                <Checkbox.GroupFontIn className="pb32" onChange={(selected) => { this.handleChangeCheckbox(selected); }} option={[
-                    { label: 'Apple', value: 'Apple', checked: true },
-                    { label: 'Pear', value: 'Pear', checked: true },
-                    { label: 'Orange', value: 'Orange' }
-                ]} />
 
-                <Checkbox.GroupBorder className="pb32" defaultValue="Pear" onChange={(selected) => { this.handleChangeCheckbox(selected); }} option={[
+                {/* <Checkbox.Group className="pb32" onChange={(selected, res) => { this.handleChangeCheckbox(selected, res); }} option={this.state.testDemoList} /> */}
+
+                <Checkbox.Group
+                    values={this.state.selected}
+                    defaultValue={['Pear']}
+                    className="pb32"
+                    onChange={(selected) => { this.handleChangeCheckbox(selected); }}
+                    option={[
+                        { label: 'Apple', value: 'Apple' },
+                        { label: 'Pear', value: 'Pear' },
+                        { label: 'Orange', value: 'Orange' }
+                    ]} />
+
+                <Checkbox.GroupFontIn
+                    values={this.state.selected}
+                    defaultValue={['Pear']}
+                    className="pb32"
+                    onChange={(selected) => { this.handleChangeCheckbox(selected); }}
+                    option={[
+                        { label: 'Apple', value: 'Apple' },
+                        { label: 'Pear', value: 'Pear' },
+                        { label: 'Orange', value: 'Orange' }
+                    ]} />
+
+                <Checkbox.GroupBorder
+                    values={this.state.selected}
+                    defaultValue={['Pear']}
+                    className="pb32"
+                    onChange={(selected) => { this.handleChangeCheckbox(selected); }}
+                    option={[
+                        { label: 'Apple', value: 'Apple' },
+                        { label: 'Pear', value: 'Pear' },
+                        { label: 'Orange', value: 'Orange' }
+                    ]} />
+
+                {/* <Checkbox.GroupBorder className="pb32" defaultValue={['Apple', 'Pear']} onChange={(selected) => { this.handleChangeCheckbox(selected); }} option={[
                     { label: 'Apple', value: 'Apple' },
                     { label: <div className="border-sign">Pear</div>, value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }
-                ]} />
+                ]} /> */}
 
                 <Switch />
 

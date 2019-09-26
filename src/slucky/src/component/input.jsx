@@ -56,34 +56,27 @@ class InputNumber extends Component {
         super(props);
         this.state = {
             step: this.props.step || 1,
-            value: this.props.defaultValue || 0,
+            value: this.props.value || 0,
             max: this.props.max || Infinity,
             min: this.props.min || 0
         };
     }
 
     handleChange(value) {
-        this.setState({
-            value
-        }, this.props.onChange && this.props.onChange(value));
+        this.props.onChange && this.props.onChange(value);
     }
 
     handleClickCtrl(type) {
-        console.log(type);
-        const v = new Number(this.state.value);
+        const v = new Number(this.props.value);
         switch (type) {
             case 'UP':
                 if (v < this.state.max) {
-                    this.setState({
-                        value: v + this.state.step
-                    }, this.props.onChange && this.props.onChange(this.state.value));
+                    this.props.onChange && this.props.onChange(v + this.state.step);
                 }
                 break;
             case 'DOWM':
                 if (v > this.state.min) {
-                    this.setState({
-                        value: v - this.state.step
-                    }, this.props.onChange && this.props.onChange(this.state.value));
+                    this.props.onChange && this.props.onChange(v - this.state.step);
                 }
                 break;
         }
@@ -92,7 +85,7 @@ class InputNumber extends Component {
     render() {
         return (
             <div className="d-f input-number">
-                <Input type='number' onChange={(v) => this.handleChange(v)} value={this.state.value} width={this.props.width || 128 + 'px'} />
+                <Input type='number' onChange={(v) => this.handleChange(v)} value={this.props.value} width={this.props.width || 128 + 'px'} />
                 <div className="d-il input-ctrl">
                     <div className="ctrl-up" onClick={() => this.handleClickCtrl('UP')}></div>
                     <div className="ctrl-down" onClick={() => this.handleClickCtrl('DOWM')}></div>

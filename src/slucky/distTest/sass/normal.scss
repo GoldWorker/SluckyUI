@@ -814,8 +814,11 @@ $space: 2;
 details {
     summary {
         outline: none;
+        cursor: pointer;
         // cursor: pointer;
+        // pointer-events: none;
     }
+    
 }
 
 //inline button 边距跟字体大小自己调

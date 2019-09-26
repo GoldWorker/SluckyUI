@@ -9,6 +9,12 @@ export class Tree extends Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            _Tree: nextProps.data
+        });
+    }
+
     handleChangeCheckbox() { }
 
     handleClickNode(node) {
@@ -148,9 +154,22 @@ Tree.delNode = (targetNode, tree = { id: 0 }) => {
  * @param {type} 
  * @return: 
  */
-Tree.cloneTree = (node = { id: 0 }) => {
-    const nodeList = Tree.getTree2List(node, true);
+Tree.cloneTree = (node = { id: 0 }, isDeep = true) => {
+    const nodeList = Tree.getTree2List(node, isDeep);
     return Tree.buildTree(nodeList);
+};
+
+Tree.cloneList = (nodeList) => {
+    const res = [];
+    for (let i = 0; i < nodeList.length; i++) {
+        const item = nodeList[i];
+        const cloneItem = Object.assign({}, { ...item });
+        if(cloneItem.ch){
+            delete cloneItem.ch;
+        }
+        res.push(cloneItem);
+    }
+    return res;
 };
 
 /**
@@ -210,7 +229,16 @@ Tree.buildTree = (nodeList = []) => {
         const map = Tree.getNodeList2Map(nodeList);
         for (let i = 1; i < nodeList.length; i++) {
             const item = nodeList[i];
-            map[item.pid] && map[item.pid].ch && map[item.pid].ch.push(item);
+            if (map[item.pid]) {
+                map[item.pid].ch ? map[item.pid].ch.push(item) : map[item.pid].ch = [item];
+            }
+            // map[item.pid] && map[item.pid].ch && map[item.pid].ch.push(item);
+        }
+    }
+    for (let i = 0; i < nodeList.length; i++) {
+        const item = nodeList[i];
+        if (!item.id) {
+            return nodeList[i];
         }
     }
     return nodeList && nodeList[0];

@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-30 14:29:50
+ * @LastEditTime: 2019-07-30 14:29:50
+ * @LastEditors: your name
+ -->
 ## SluckyUI
 
 [Blog & Doc](http://www.brandf.cn)
@@ -139,31 +146,6 @@ handleChangePage = (currentPage) => {
 Step 1
 ```
 npm i -d slucky
-```
-Step 2
-```
-// webpack config
-// 处理图片，一些高阶组件包含示例图片，如果你没有引用， 则忽略这条配置
-// Handle images, Some higher-order components contain sample images. If you do not have a reference, ignore this configuration
-{
-    test: /\.(jpg|png|gif|svg)$/,
-    use: [{
-        loader: 'url-loader'
-    }],
-    include: [
-        path.join(__dirname, 'node_modules/slucky/')
-    ]
-},
-// 处理样式，sluckyUI的基础样式库，必须配置
-// Handle styles, sluckyUI's base style library, must be configured
-{
-    test: /\.scss$/,
-    use: ['sass-loader'],
-    include: [
-        path.join(__dirname, 'src/'),
-        path.join(__dirname, 'node_modules/slucky/sass/')
-    ]
-}
 ```
 
 ## Target

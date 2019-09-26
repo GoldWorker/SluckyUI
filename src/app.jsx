@@ -12,6 +12,7 @@ import { TableDemo } from 'slucky/src/tableDemo';
 import { Toast } from 'slucky/src';
 import StepsDemo from 'slucky/src/stepsDemo';
 import TreeDemo from 'slucky/src/treeDemo';
+import SecurityDemo from 'slucky/src/securityDemo';
 
 export default class App extends Component {
     constructor() {
@@ -143,6 +144,14 @@ export default class App extends Component {
                                 </label>
                                 <div className="tab-content w-full">
                                     <TreeDemo />
+                                </div>
+                                <input type="radio" id="tab_12" name="tab" />
+                                <label className="mr8" htmlFor="tab_12">
+                                    <div className="radio-out"></div>
+                                    <span className="btn p-r ptb6 plr8 mlr8 regularLineMove">web攻防Security</span>
+                                </label>
+                                <div className="tab-content w-full">
+                                    <SecurityDemo />
                                 </div>
                             </div>
                         </div>

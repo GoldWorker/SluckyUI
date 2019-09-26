@@ -12,7 +12,7 @@
         transition: all 0.3s;
     }
 
-    & input {
+    & input[trigger='core'] {
         position: absolute;
         top: 0;
         left: 0;
@@ -23,12 +23,17 @@
         cursor: pointer;
     }
 
-    & input[type='checkbox']:checked+.checkbox-hook {
+    & input[trigger='core']:checked+.checkbox-hook {
         border-color: $theme_color;
     }
 
-    & input[type='checkbox']:checked+.checkbox-hook>.checkbox-hook-in {
-        opacity: 1 !important;
+    & input[trigger='core']:checked+.checkbox-hook>.checkbox-hook-in {
+        opacity: 1;
+    }
+
+    & input[trigger='core']:disabled+.checkbox-hook {
+        border-color: $disable;
+        cursor: not-allowed;
     }
 
     & label {

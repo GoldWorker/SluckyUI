@@ -4,43 +4,38 @@ export class Checkbox extends Component {
     constructor(props) {
         super(props);
         this.id = Math.random().toString(36).substring(2);
-        this.state = {
-            checked: this.props.checked || this.props.defaultChecked || false
-        };
-    }
-
-    componentWillReceiveProps(nextProps) {
-        // console.log('componentWillReceiveProps', nextProps.checked);
-        this.setState({
-            checked: nextProps.checked
-        });
     }
 
     handleChange(e) {
-        // this.props.onAction(e);
-    }
-
-    handleClick(e) {
-        // console.log('handleClick', e.target.checked);
-        this.setState({ checked: e.target.checked });
-        this.props.onAction(e);
+        this.props.onChange(e);
     }
 
     render() {
         return (
             <div className="checkbox-box-normalize mr16 mb8" style={{ display: this.props.display || 'inline-block' }}>
-                <input
-                    id={this.id}
-                    type="checkbox"
-                    name={this.props.name}
-                    disabled={this.props.disabled}
-                    value={this.props.value}
-                    checked={this.state.checked}
-                    // checked={this.props.checked || this.props.defaultChecked || false}
-                    // defaultChecked={this.props.defaultChecked}
-                    onClick={(e) => this.handleClick(e)}
-                    onChange={(e) => this.handleChange(e)}
-                />
+                {
+                    this.props.checked == undefined ? <input
+                        id={this.id}
+                        trigger='core'
+                        type="checkbox"
+                        disabled={this.props.disabled}
+                        className="d-n"
+                        name={this.props.name}
+                        value={this.props.value}
+                        defaultChecked={this.props.defaultChecked || false}
+                        onChange={(e) => this.handleChange(e)}
+                    /> : <input
+                            id={this.id}
+                            trigger='core'
+                            type="checkbox"
+                            disabled={this.props.disabled}
+                            className="d-n"
+                            name={this.props.name}
+                            value={this.props.value}
+                            checked={this.props.checked || false}
+                            onChange={(e) => this.handleChange(e)}
+                        />
+                }
                 <span className="checkbox-hook ta-c">
                     <span className="checkbox-hook-in fs12 op0">✓</span>
                 </span>
@@ -53,48 +48,41 @@ export class CheckboxFontIn extends Component {
     constructor(props) {
         super(props);
         this.id = Math.random().toString(36).substring(2);
-        this.state = {
-            checked: this.props.checked || this.props.defaultChecked || false
-        };
-    }
-
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            checked: nextProps.checked
-        });
     }
 
     handleChange(e) {
-        // this.props.onAction(e);
-    }
-
-    handleClick(e) {
-        this.setState({ checked: e.target.checked });
-        this.props.onAction(e);
+        this.props.onChange(e);
     }
 
     render() {
         return (
             <div className="checkbox-box-fontstyle d-il mr16 mb8">
-                <input
-                    id={this.id}
-                    type="checkbox"
-                    disabled={this.props.disabled}
-                    className="d-n"
-                    name={this.props.name}
-                    value={this.props.value}
-                    // checked={this.props.checked || this.props.defaultChecked || false}
-                    // defaultChecked={this.props.defaultChecked}
-                    // onChange={(e) => this.props.onAction(e)} 
-                    checked={this.state.checked}
-                    onClick={(e) => this.handleClick(e)}
-                    onChange={(e) => this.handleChange(e)}
-                />
+                {
+                    this.props.checked == undefined ? <input
+                        id={this.id}
+                        trigger='core'
+                        type="checkbox"
+                        disabled={this.props.disabled}
+                        className="d-n"
+                        name={this.props.name}
+                        value={this.props.value}
+                        defaultChecked={this.props.defaultChecked || false}
+                        onChange={(e) => this.handleChange(e)}
+                    /> : <input
+                            id={this.id}
+                            trigger='core'
+                            type="checkbox"
+                            disabled={this.props.disabled}
+                            className="d-n"
+                            name={this.props.name}
+                            value={this.props.value}
+                            checked={this.props.checked || false}
+                            onChange={(e) => this.handleChange(e)}
+                        />
+                }
                 <label
                     htmlFor={this.id}
-                    className="checkbox-fontstyle mb0"
-                >
-                    {/* <span className="fontstyle-sign">✓</span> */}
+                    className="checkbox-fontstyle mb0">
                     <span className="m0">{this.props.label || ''}</span>
                 </label>
             </div>
@@ -106,43 +94,42 @@ export class CheckboxBorder extends Component {
     constructor(props) {
         super(props);
         this.id = Math.random().toString(36).substring(2);
-        this.state = {
-            checked: this.props.checked || this.props.defaultChecked || false
-        };
     }
 
     handleChange(e) {
-        // this.props.onAction(e);
-    }
-
-    handleClick(e) {
-        this.setState({ checked: e.target.checked });
-        this.props.onAction(e);
+        this.props.onChange(e);
     }
 
     render() {
         return (
             <div className="trigger-box-border d-il mr16 mb8">
-                <input
-                    id={this.id}
-                    type="checkbox"
-                    trigger="core"
-                    className="d-n"
-                    name={this.props.name}
-                    disabled={this.props.disabled}
-                    value={this.props.value}
-                    // checked={this.props.checked || this.props.defaultChecked || false}
-                    // defaultChecked={this.props.defaultChecked}
-                    // onChange={(e) => this.props.onAction(e)} 
-                    checked={this.state.checked}
-                    onClick={(e) => this.handleClick(e)}
-                    onChange={(e) => this.handleChange(e)}
-                />
+                {
+                    this.props.checked == undefined ? <input
+                        id={this.id}
+                        trigger='core'
+                        type="checkbox"
+                        disabled={this.props.disabled}
+                        className="d-n"
+                        name={this.props.name}
+                        value={this.props.value}
+                        defaultChecked={this.props.defaultChecked || false}
+                        onChange={(e) => this.handleChange(e)}
+                    /> : <input
+                            id={this.id}
+                            trigger='core'
+                            type="checkbox"
+                            disabled={this.props.disabled}
+                            className="d-n"
+                            name={this.props.name}
+                            value={this.props.value}
+                            checked={this.props.checked || false}
+                            onChange={(e) => this.handleChange(e)}
+                        />
+                }
                 <label
                     htmlFor={this.id}
                     className="trigger-border mb0"
                 >
-                    {/* <span className="fontstyle-sign">✓</span> */}
                     <span className="m0">{this.props.label || ''}</span>
                 </label>
             </div>
@@ -154,42 +141,73 @@ const GroupContainer = (component) => class Group extends Component {
     constructor(props) {
         super(props);
         this.name = Math.random().toString(36).substring(2);
-        this.selected = [];
-        this.props.option && this.props.option.forEach(item => {
-            if (item.checked) {
-                this.selected.push(item.value);
-            }
+        this.state = {
+            option: this.props.option,
+            values: this.props.values,
+            selected: this.props.defaultValue ? [...this.props.defaultValue] : []
+        };
+    }
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            option: nextProps.option,
+            values: nextProps.values
         });
     }
-    onAction(e) {
+    onChange(e) {
         const { value, checked } = e.target;
-        if (checked) {
-            this.selected.push(value);
+        const { values, selected } = this.state;
+        let res = [];
+        if (values) {
+            //受控
+            if (checked) {
+                res = [...values, value];
+            } else {
+                const index = values.indexOf(value);
+                if (index != -1) {
+                    values.splice(index, 1);
+                    res = [...values];
+                }
+            }
+            this.setState({
+                values: res
+            }, () => this.props.onChange(this.state.values));
         } else {
-            const ind = this.selected.indexOf(value);
-            ind != -1 && this.selected.splice(ind, 1);
+            //非受控，values为undefined
+            if (checked) {
+                res = [...selected, value];
+            } else {
+                const index = selected.indexOf(value);
+                if (index != -1) {
+                    selected.splice(index, 1);
+                    res = [...selected];
+                }
+            }
+            this.setState({
+                selected: res
+            }, () => this.props.onChange(this.state.selected));
         }
-        this.props.onChange(this.selected);
+    }
+    isInArray(arr, value) {
+        if (Array.isArray(arr)) {
+            return arr.indexOf(value) != -1;
+        }
+        return undefined;
     }
     render() {
         return (
             <div className={this.props.className || ''}>
                 {
-                    this.props.children ? null : this.props.option.map((item, index) => {
-                        if (this.props.defaultValue == item.value) {
-                            this.selected.push(item.value);
-                        }
-
+                    this.props.children ? null : this.state.option.map((item, index) => {
                         return React.createElement(component, {
                             key: index,
-                            defaultChecked: this.props.defaultValue == item.value,
-                            checked: item.checked,
+                            defaultChecked: this.isInArray(this.props.defaultValue || [], item.value),
+                            checked: this.isInArray(this.state.values, item.value),
                             name: this.name,
                             label: item.label,
                             value: item.value,
                             disabled: item.disabled || this.props.disabled,
                             display: item.display,
-                            onAction: (e) => this.onAction(e)
+                            onChange: (e) => this.onChange(e)
                         });
                     })
                 }
@@ -209,7 +227,7 @@ Checkbox.GroupBorder = GroupContainer(CheckboxBorder);
 //         this.name = Math.random().toString(36).substring(2);
 //         this.selected = []
 //     }
-//     onAction(e) {
+//     onChange(e) {
 //         const { value, checked } = e.target
 //         if (checked) {
 //             this.selected.push(value)
@@ -234,7 +252,7 @@ Checkbox.GroupBorder = GroupContainer(CheckboxBorder);
 //                             name={this.name}
 //                             label={item.label}
 //                             value={item.value}
-//                             onAction={(e) => this.onAction(e)} />
+//                             onChange={(e) => this.onChange(e)} />
 //                     })
 //                 }
 //             </div>
