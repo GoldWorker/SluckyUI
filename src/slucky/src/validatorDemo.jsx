@@ -117,7 +117,7 @@ export class ValidatorDemo extends Component {
                     { label: 'Pear', value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }
                 ]} />
-                <Radio.GroupBorder className="pb32" onChange={(e) => { this.handleChangeRadio(e); }} option={[
+                <Radio.GroupBorder value={this.state.radioValue} className="pb32" onChange={(e) => { this.handleChangeRadio(e); }} option={[
                     { label: 'Apple', value: 'Apple' },
                     { label: 'Pear', value: 'Pear' },
                     { label: 'Orange', value: 'Orange' }

@@ -44,15 +44,25 @@ export class RadioBorder extends Component {
     render() {
         return (
             <div className="trigger-box-border d-il mr16 mb8">
-                <input
-                    id={this.id}
-                    type="radio"
-                    trigger="core"
-                    className="d-n"
-                    name={this.props.name}
-                    value={this.props.value}
-                    defaultChecked={this.props.defaultChecked}
-                    onChange={(e) => this.props.onAction(e)} />
+                {
+                    this.props.checked == undefined ? <input
+                        trigger="core"
+                        id={this.id}
+                        name={this.props.name}
+                        value={this.props.value}
+                        defaultChecked={this.props.defaultChecked}
+                        onChange={(e) => this.props.onAction(e)}
+                        type="radio"
+                        className="d-n" /> : <input
+                            trigger="core"
+                            id={this.id}
+                            name={this.props.name}
+                            value={this.props.value}
+                            checked={this.props.checked}
+                            onChange={(e) => this.props.onAction(e)}
+                            type="radio"
+                            className="d-n" />
+                }
                 <label
                     htmlFor={this.id}
                     className="trigger-border mb0"

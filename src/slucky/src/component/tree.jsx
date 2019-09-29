@@ -164,7 +164,7 @@ Tree.cloneList = (nodeList) => {
     for (let i = 0; i < nodeList.length; i++) {
         const item = nodeList[i];
         const cloneItem = Object.assign({}, { ...item });
-        if(cloneItem.ch){
+        if (cloneItem.ch) {
             delete cloneItem.ch;
         }
         res.push(cloneItem);
