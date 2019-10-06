@@ -9,7 +9,6 @@ export class Table extends Component {
 
     handleCheckboxChange(data, i, checked, callback) {
         console.log(checked);
-        // data.checked = checked
         if (checked) {
             this
                 .checkboxList
@@ -51,9 +50,9 @@ export class Table extends Component {
     handleDisplay(callback, data, i) {
         if (callback === undefined) {
             return true;
-        } 
-            return callback(data, i);
-        
+        }
+        return callback(data, i);
+
     }
     handleClass(btnType) {
         switch (btnType) {
@@ -86,18 +85,18 @@ export class Table extends Component {
                                     // 全选选项
                                     if (conf.checkbox) {
                                         return <div key={i} className="ptb24 plr6 d-il ta-c table-title s0" style={{ 'width': conf.width }}></div>;
-                                        return (
-                                            <div key={i} className="ptb16 plr6 d-il ta-c table-title s0" style={{ 'width': conf.width }}>
-                                                <div className="checkbox-box-normalize">
-                                                    <input id="checkbox_normalize_title" type="checkbox" name="c_n"
-                                                        checked={this.isAllSelect} onChange={(e) => this.handleCheckboxTieleChange(e, conf.handle, this.props.dataset)} />
-                                                    <span className="checkbox-hook ta-c">
-                                                        <span className="checkbox-hook-in fs12 op0">✓</span>
-                                                    </span>
-                                                    <label htmlFor="checkbox_normalize_title" className="p-r z10"></label>
-                                                </div>
-                                            </div>
-                                        );
+                                        // return (
+                                        //     <div key={i} className="ptb16 plr6 d-il ta-c table-title s0" style={{ 'width': conf.width }}>
+                                        //         <div className="checkbox-box-normalize">
+                                        //             <input id="checkbox_normalize_title" type="checkbox" name="c_n"
+                                        //                 checked={this.isAllSelect} onChange={(e) => this.handleCheckboxTieleChange(e, conf.handle, this.props.dataset)} />
+                                        //             <span className="checkbox-hook ta-c">
+                                        //                 <span className="checkbox-hook-in fs12 op0">✓</span>
+                                        //             </span>
+                                        //             <label htmlFor="checkbox_normalize_title" className="p-r z10"></label>
+                                        //         </div>
+                                        //     </div>
+                                        // );
                                     }
                                     return (
                                         !conf.checkbox && conf.title ? <div className="ptb24 d-il ta-c table-title s0" style={{ 'width': conf.width }} key={i}>{conf.title}</div> : null
@@ -124,9 +123,9 @@ export class Table extends Component {
                                                     if (conf.progress) {
                                                         return <progress key={i} className="p-a w-full" style={{ height: conf.progressWidth || 2 + 'px', top: 'unset', bottom: 0 }} max="100" value={conf.progress && conf.progress(data)}
                                                             className="progress-loading-table"></progress>;
-                                                    } 
-                                                        return null;
-                                                    
+                                                    }
+                                                    return null;
+
                                                 })
                                             }
                                             {
@@ -140,37 +139,37 @@ export class Table extends Component {
                                                             }
                                                             {/* 复杂情况，有多种handle */}
                                                             {
-                                                                conf.handles ? 
+                                                                conf.handles ?
                                                                     Table.handleActions(this, conf.handles, data, i)
-                                                                 : null
+                                                                    : null
                                                             }
                                                             {/* Pipe */}
                                                             {
-                                                                conf.pipe ? 
+                                                                conf.pipe ?
                                                                     <span className="p-r z10">{conf.pipe(data, i)}</span>
-                                                                 : null
+                                                                    : null
                                                             }
                                                             {/* Textarea */}
                                                             {
-                                                                conf.textarea ? 
+                                                                conf.textarea ?
                                                                     <textarea rows="4" className="textarea w-full" value={data[conf.name]} readonly></textarea>
-                                                                 : null
+                                                                    : null
                                                             }
                                                             {/* Progress */}
                                                             {
-                                                                conf.progress && conf.progress(data) ? 
+                                                                conf.progress && conf.progress(data) ?
                                                                     Table.handleProgress(data, conf)
-                                                                 : null
+                                                                    : null
                                                             }
                                                             {/* checkbox */}
                                                             {
-                                                                conf.checkbox ? 
+                                                                conf.checkbox ?
                                                                     Table.handleCheckbox(this, data, i, conf)
-                                                                 : null
+                                                                    : null
                                                             }
                                                             {/* popup */}
                                                             {
-                                                                conf.popup ? 
+                                                                conf.popup ?
                                                                     <div className="pop-box">
                                                                         <div className="b-theme pop-toggle plr4">
                                                                             <span className="c-theme">{conf.name || ''}</span>
@@ -183,7 +182,7 @@ export class Table extends Component {
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                 : null
+                                                                    : null
                                                             }
                                                         </div>
                                                     );
@@ -204,22 +203,22 @@ export class Table extends Component {
 Table.handleActions = (self_this, handles, data, i) => {
     return handles.map((handleItem, j) => {
         return (
-            self_this.handleDisplay(handleItem.display, data, i) ? 
+            self_this.handleDisplay(handleItem.display, data, i) ?
                 <div className="pop-box" key={j}>
                     <div className={['pop-toggle ptb4 mlr4', self_this.handleClass(handleItem.btnType)].join(' ')} onClick={() => handleItem.handle && handleItem.handle(data, i)}>
                         <span>{handleItem.name}</span>
                         {
-                            handleItem.pipe ? 
+                            handleItem.pipe ?
                                 <div className="pop-main pr8" style={{ 'minWidth': handleItem.width }}>
                                     <div className="pop-content paper bor b-side ptb16 plr12 shadow c-text-b">
                                         {handleItem.pipe(data, i)}
                                     </div>
                                 </div>
-                             : null
+                                : null
                         }
                     </div>
                 </div>
-             : null
+                : null
         );
     });
 };
@@ -228,9 +227,9 @@ Table.handleProgress = (data, conf) => {
     return (
         <div className="d-il">
             {
-                !conf.pipe ? 
+                !conf.pipe ?
                     <span className="p-r z10">{data[conf.name]}</span>
-                 : null
+                    : null
             }
             {/* <progress max="100" value={conf.progress && conf.progress(data)}
                 className="progress-loading"></progress> */}
@@ -241,7 +240,10 @@ Table.handleProgress = (data, conf) => {
 Table.handleCheckbox = (self_this, data, i, conf) => {
     return (
         <div className="checkbox-box-normalize">
-            <input id={'checkbox_normalize_table' + i} type="checkbox" name="c_n"
+            <input id={'checkbox_normalize_table' + i}
+                type="checkbox"
+                name="c_n"
+                trigger='core'
                 // checked={data.checked}
                 onChange={(e) => self_this.handleCheckboxChange(data, i, e.target.checked, conf.handle)} />
             <span className="checkbox-hook ta-c">
@@ -255,13 +257,13 @@ Table.handleCheckbox = (self_this, data, i, conf) => {
 Table.handelPopup = (handleItem) => {
     return (
         <div class="pop-box">
-            <div className="pop-toggle ptb4 mlr4">
+            {/* <div className="pop-toggle ptb4 mlr4">
                 <div className="pop-main pr8">
                     <div className="pop-content">
                         {handleItem.pipe(data, i)}
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

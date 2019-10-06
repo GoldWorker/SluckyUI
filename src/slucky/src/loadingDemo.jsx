@@ -40,7 +40,7 @@ export default class LoadingDemo extends Component {
                         </div>
                     </div>
                 </div>
-                <details className="pb16 mb16 bor-b b-side-s">
+                <details className="pb16 mb16 bor-b b-side-s" open>
                     <summary className="btn-n pl8 pr64 ptb8">显示Demo代码</summary>
                     <Highlight innerHTML={true}>
                         {require('./doc/loading.md')}

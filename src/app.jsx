@@ -13,6 +13,7 @@ import { Toast } from 'slucky/src';
 import StepsDemo from 'slucky/src/stepsDemo';
 import TreeDemo from 'slucky/src/treeDemo';
 import SecurityDemo from 'slucky/src/securityDemo';
+import { TabLR } from 'slucky/src/component/tab';
 
 export default class App extends Component {
     constructor() {
@@ -23,10 +24,9 @@ export default class App extends Component {
         // const portalContainer = document.getElementById('dialog');
         // console.log(Toast);
         return (
-            <div className="d-f jc">
-
-                <div className="p-r">
-                    <div className="p-a pt16 pl32 z1" style={{ right: 0 }}>
+            <div className="">
+                <div className="p-r w-full">
+                    <div className="p-a pt16 plr32 z1" style={{ right: 0 }}>
                         <span className="fs24"></span>
                         The seed of Components 1874©
                         <a href="https://www.npmjs.com/search?q=slucky" target="_brank"><img className="w32 ml16 mr8" src={require('./images/npm.jpeg')} alt="" /></a>
@@ -41,8 +41,82 @@ export default class App extends Component {
                         </svg>
                     </div>
 
+                    <TabLR minHeight='1080px' className='plr64' option={[{
+                        label: <span className="btn p-r pb4 regularLineMove">按钮<span className="c-hint-b pl8">Button</span></span>,
+                        content: <ButtonDemo />
+                    }, {
+                        label: <span className="btn p-r pb4 regularLineMove">菜单列表导航栏<span className="c-hint-b pl8">Nav</span></span>,
+                        content: <NavDemo />
+                    }, {
+                        label: <span className="btn p-r pb4 regularLineMove">加载状态<span className="c-hint-b pl8">Loading</span></span>,
+                        content: <LoadingDemo />
+                    }, {
+                        label: <span className="btn p-r pb4 regularLineMove">弹框<span className="c-hint-b pl8">Popup</span></span>,
+                        content: <PopupDemo />
+                    }, {
+                        label: <span className="btn p-r pb4 regularLineMove">3D效果<span className="c-hint-b pl8">Transfrom3D</span></span>,
+                        content: <Transfrom3DDemo />
+                    }, {
+                        label: <span className="btn p-r pb4 regularLineMove">表单<span className="c-hint-b pl8">Form</span></span>,
+                        content: <FormDemo />
+                    }, {
+                        label: <span className="btn p-r pb4 regularLineMove">颜色标准<span className="c-hint-b pl8">Color</span></span>,
+                        content: <ColorDemo />
+                    }, {
+                        label: <span className="btn p-r pb4 regularLineMove">表格&分页<span className="c-hint-b pl8">Table&paging</span></span>,
+                        content: <TableDemo />
+                    }, {
+                        label: <span className="btn p-r pb4 regularLineMove">图片相关<span className="c-hint-b pl8">Image</span></span>,
+                        content: <ImageDemo />
+                    }, {
+                        label: <span className="btn p-r pb4 regularLineMove">步骤管理<span className="c-hint-b pl8">Steps</span></span>,
+                        content: <StepsDemo />
+                    }, {
+                        label: <span className="btn p-r pb4 regularLineMove">操作树&穿梭框<span className="c-hint-b pl8">Steps</span></span>,
+                        content: <TreeDemo />
+                    }]} />
 
-                    <div className="plr32">
+                    {/* <div className="tab-box-mod d-f">
+                        <div className="tab-contrl s0">
+                            <label htmlFor="tab_1">
+                                <span className="btn p-r pb4 regularLineMove">菜单列表导航栏<span className="c-hint-b pl8">Nav</span></span>
+                            </label>
+                            <label htmlFor="tab_3">
+                                <span className="btn p-r pb4 regularLineMove">按钮<span className="c-hint-b pl8">Button</span></span>
+                            </label>
+                            <label htmlFor="tab_2">
+                                <span className="btn p-r pb4 regularLineMove">加载状态<span className="c-hint-b pl8">Loading</span></span>
+                            </label>
+                            <label htmlFor="tab_4">
+                                <span className="btn p-r pb4 regularLineMove">弹框<span className="c-hint-b pl8">Popup</span></span>
+                            </label>
+                        </div>
+
+                        <div className="tab-container flex1 bor-l b-side pl16">
+                            <input type="radio" id="tab_1" name="tab" defaultChecked />
+                            <div className="tab-content">
+                                <NavDemo />
+                            </div>
+
+                            <input type="radio" id="tab_3" name="tab" />
+                            <div className="tab-content">
+                                <ButtonDemo />
+                            </div>
+
+                            <input type="radio" id="tab_2" name="tab" />
+                            <div className="tab-content">
+                                <LoadingDemo />
+                            </div>
+
+                            <input type="radio" id="tab_4" name="tab" />
+                            <div className="tab-content">
+                                <PopupDemo />
+                            </div>
+                        </div>
+                    </div> */}
+
+
+                    {/* <div className="plr32">
                         <div className="tab-box-tb w-full">
                             <div className="tab-contrl">
                                 <input type="radio" id="tab_1" name="tab" defaultChecked />
@@ -155,7 +229,7 @@ export default class App extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
             </div>

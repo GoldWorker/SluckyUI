@@ -2,9 +2,40 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-09 10:17:23
- * @LastEditTime: 2019-09-09 10:26:59
+ * @LastEditTime: 2019-10-04 13:58:24
  * @LastEditors: Please set LastEditors
  -->
+## 交流与学习
+
+[Re从零开始的UI库编写生活-表格组件](https://juejin.im/post/5d2b052251882557e1179140)
+
+## Table Component
+
+| 属性                   | 描述                                     | 类型       | 默认值 |
+|  ------------- ------------ | ------------- ---------------------- -------- | ----- ------- - | ---- ------ - |
+| dataset             | 源数据                                 | Array     | -           |
+| dataconf           | 数据配置列表                     | Array     | -           |
+| loading             | 显示加载状态                     | Boolean | false   |
+| loadingOption | 自定义加载时的显示组件 | Object   | -           |
+| maxWidth           | 最大宽度                             | String   | -           |
+| maxHeight         | 最大高度                             | String   | -           |
+| fixTitle           | 固定表头                             | Boolean | -           |
+
+## Paging Component
+
+| 属性          | 描述                   | 类型    | 默认值 |
+| ------------- | ---------------------- | ------- | ------ |
+| dataset       | 源数据                 | Array   | -      |
+| dataconf      | 数据配置列表           | Array   | -      |
+| loading       | 显示加载状态           | Boolean | false  |
+| loadingOption | 自定义加载时的显示组件 | Object  | -      |
+| maxWidth      | 最大宽度               | String  | -      |
+| maxHeight     | 最大高度               | String  | -      |
+| fixTitle      | 固定表头               | Boolean | -      |
+
+> 标有*为测试Bata属性
+
+## 使用例子
 ``` jsx
 import React, { Component } from 'react'
 import { Table, Paging } from 'slucky'
@@ -113,8 +144,3 @@ class TableDemo extends Component {
     }
 }
 ```
-
-header 1 | header 2
----|---
-row 1 col 1 | row 1 col 2
-row 2 col 1 | row 2 col 2

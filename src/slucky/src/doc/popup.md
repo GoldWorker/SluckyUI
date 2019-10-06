@@ -2,9 +2,31 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-09 20:26:26
- * @LastEditTime: 2019-09-09 20:27:05
+ * @LastEditTime: 2019-10-06 17:07:49
  * @LastEditors: Please set LastEditors
  -->
+
+## API
+
+
+### Toast Component
+组件提供了一些静态方法，使用方式和参数如下：
+- `toast.add({title,content,status})`
+- `toast.success(content)`
+- `toast.warn(content)`
+- `toast.error(content)`
+
+### Dialog Component
+组件提供了一些静态方法，使用方式和参数如下：
+- `Dialog.model({title,content,onOk|function,footer|customComponent})`
+
+| 属性    | 描述               | 类型     | 默认值 |
+| ------- | ------------------ | -------- | ------ |
+| open    | 控制Dialog是否显示 | Boolean  | false  |
+| onClose | 关闭Dialog时的回调 | Function | -      |
+
+> 标有*为测试Bata属性
+
 ``` jsx
 // Style1：使用函数式直接调用
 

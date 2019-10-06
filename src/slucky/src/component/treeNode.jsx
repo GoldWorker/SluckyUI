@@ -31,7 +31,7 @@ export default class TreeNode extends Component {
                 {
                     children && children.map((item, index) => {
                         if (item.ch) {
-                            return <div className="d-f">
+                            return <div className="d-f" key={index}>
                                 <div>
                                     {
                                         this.props.item && this.props.item(item)

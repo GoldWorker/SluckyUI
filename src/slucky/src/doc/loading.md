@@ -2,9 +2,18 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-09 20:24:14
- * @LastEditTime: 2019-09-09 20:24:27
+ * @LastEditTime: 2019-10-06 16:48:31
  * @LastEditors: Please set LastEditors
  -->
+## Loading Component
+
+| 属性    | 描述      | 类型   | 默认值 |
+| ------- | --------- | ------ | ------ |
+| percent | 占比（%） | Number | 0      |
+| radius  | 半径      | Number | 0      |
+
+> 标有*为测试Bata属性
+
 ``` jsx
 import { Progress } from "slucky";
 ...

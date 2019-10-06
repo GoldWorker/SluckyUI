@@ -74,7 +74,7 @@ export class PopupDemo extends Component {
                     </div>
                 </div>
 
-                <details className="pb16 mb16 bor-b b-side-s">
+                <details className="pb16 mb16 bor-b b-side-s" open>
                     <summary className="btn-n pl8 pr64 ptb8">显示使用例子</summary>
                     <Highlight innerHTML={true}>
                         {require('./doc/popup.md')}
@@ -82,7 +82,7 @@ export class PopupDemo extends Component {
                     </Highlight>
                 </details>
 
-                <details className="pb16 mb16 bor-b b-side-s">
+                <details className="pb16 mb16 bor-b b-side-s" open>
                     <summary className="btn-n pl8 pr64 ptb8">显示样式代码</summary>
                     <Highlight innerHTML={true}>
                         {require('./doc/popupStyle.md')}

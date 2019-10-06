@@ -2,9 +2,17 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-09 20:22:22
- * @LastEditTime: 2019-09-09 20:22:47
+ * @LastEditTime: 2019-10-06 16:40:39
  * @LastEditors: Please set LastEditors
  -->
+## Button Component
+
+| 属性          | 描述             | 类型    | 默认值 |
+| ------------- | ---------------- | ------- | ------ |
+| disabled      | 是否禁用         | Boolean | -      |
+| loader-inline | 是否显示加载状态 | String  | circle |
+> 标有*为测试Bata属性
+
 ``` html
 <div className="btn p-r m32 ptb6 svgMutiLine plr16">
     <svg
@@ -24,6 +32,12 @@
 <div className="btn p-r m32 ptb6 regularShadowMove plr16">SluckyUI</div>
 
 <button className="btn-n ptb6 plr16 m32">SluckyUI</button>
+
+<button className="btn-n ptb6 plr16 m32" disabled={true}>SluckyUI</button>
+
+<div loader-inline='circle'>
+    <button className="btn-n ptb6 plr16 m32">SluckyUI</button>
+</div>
 
 <button className="btn-w bor b-side ptb6 plr16 m32">SluckyUI</button>
 
