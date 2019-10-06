@@ -227,6 +227,46 @@
         line-height: 48px;
         border-radius: 3px 3px 0 0; }
 
+.tab-box-mod {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; }
+  .tab-box-mod .tab-contrl {
+    height: 100%;
+    z-index: 1; }
+    .tab-box-mod .tab-contrl > label {
+      padding: 4px 16px 8px 16px;
+      position: relative;
+      display: block;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      cursor: pointer;
+      z-index: 2; }
+  .tab-box-mod .tab-container > input[type="radio"] {
+    display: none; }
+  .tab-box-mod .tab-container > input[type="radio"]:checked + .tab-content {
+    top: 0;
+    visibility: visible;
+    position: relative;
+    opacity: 1;
+    z-index: 1;
+    -webkit-transition: top .3s ease-out, opacity .3s ease-out, visibility .3s ease-out;
+    transition: top .3s ease-out, opacity .3s ease-out, visibility .3s ease-out; }
+  .tab-box-mod .tab-container > input[type="radio"]:checked + .tab-content ~ .tab-content {
+    top: 100%;
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    z-index: -1; }
+  .tab-box-mod .tab-container > .tab-content {
+    position: absolute;
+    top: -100%;
+    background-color: #fff;
+    border-radius: 3px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1; }
+
 .checkbox-box-normalize {
   display: inline-block;
   position: relative; }
@@ -238,7 +278,7 @@
     border: solid 2px rgba(0, 0, 0, 0.12);
     -webkit-transition: all 0.3s;
     transition: all 0.3s; }
-  .checkbox-box-normalize input {
+  .checkbox-box-normalize input[trigger='core'] {
     position: absolute;
     top: 0;
     left: 0;
@@ -247,10 +287,13 @@
     z-index: 10;
     opacity: 0;
     cursor: pointer; }
-  .checkbox-box-normalize input[type='checkbox']:checked + .checkbox-hook {
+  .checkbox-box-normalize input[trigger='core']:checked + .checkbox-hook {
     border-color: #26a597; }
-  .checkbox-box-normalize input[type='checkbox']:checked + .checkbox-hook > .checkbox-hook-in {
-    opacity: 1 !important; }
+  .checkbox-box-normalize input[trigger='core']:checked + .checkbox-hook > .checkbox-hook-in {
+    opacity: 1; }
+  .checkbox-box-normalize input[trigger='core']:disabled + .checkbox-hook {
+    border-color: #898183;
+    cursor: not-allowed; }
   .checkbox-box-normalize label {
     cursor: pointer; }
 
@@ -9381,7 +9424,8 @@ table th[class*="col-"] {
   -webkit-box-orient: vertical; }
 
 details summary {
-  outline: none; }
+  outline: none;
+  cursor: pointer; }
 
 .btn {
   display: inline-block;

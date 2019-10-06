@@ -7,6 +7,9 @@ export default class ButtonDemo extends Component {
     render() {
         return (
             <div>
+                <div className="c-hint-b pb16">
+                    简介：SluckyUI是一个组件种子库，已将大部分功能组件解耦成样式和DOM结构，为开发团队提供一个可快速二次开发成更加贴合自身业务组件库的渠道。SluckyUI更加关注跨平台性，即可快速二次开发成React,Vue,Angular组件。现在slucky已集成了React组件。
+                </div>
                 <div className="d-f ac fw">
                     <button className="btn p-r mr32 mt16 mb16 ptb6 svgMutiLine plr16 tp">
                         <svg

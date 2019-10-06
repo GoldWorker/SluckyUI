@@ -41,6 +41,10 @@ export default class App extends Component {
                         </svg>
                     </div>
 
+                    {/* <div className='plr64'>
+                        <p className="pl16 pr128 c-hint-b">简介：SluckyUI是一个组件种子库，已将大部分功能组件解耦成样式和DOM结构，为开发团队提供一个可快速二次开发成更加贴合自身业务组件库的渠道。SluckyUI更加关注跨平台性，即可快速二次开发成React,Vue,Angular组件。现在slucky已集成了React组件。</p>
+                    </div> */}
+
                     <TabLR minHeight='1080px' className='plr64' option={[{
                         label: <span className="btn p-r pb4 regularLineMove">按钮<span className="c-hint-b pl8">Button</span></span>,
                         content: <ButtonDemo />

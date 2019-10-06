@@ -2,12 +2,11 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-09 20:26:26
- * @LastEditTime: 2019-10-06 17:07:49
+ * @LastEditTime: 2019-10-06 17:09:49
  * @LastEditors: Please set LastEditors
  -->
 
 ## API
-
 
 ### Toast Component
 组件提供了一些静态方法，使用方式和参数如下：
