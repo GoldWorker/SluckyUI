@@ -52,10 +52,12 @@ Tree.mergeTree = (tree = { id: 0 }, node = { pid: 0, id: '' }) => {
             treeItem = Object.assign(treeItem, Object.assign(item, ch ? { ch } : {}));
         } else {
             const pNode = Tree.getNodeById(item.pid, tree);
-            if (pNode.ch) {
-                pNode.ch.push(item);
-            } else {
-                pNode.ch = [item];
+            if (pNode) {
+                if (pNode.ch) {
+                    pNode.ch.push(item);
+                } else {
+                    pNode.ch = [item];
+                }
             }
         }
     }
@@ -227,7 +229,7 @@ Tree.buildTree = (nodeList = []) => {
     //创建map，方便根据id/pid引用相关对象
     if (nodeList && nodeList.length) {
         const map = Tree.getNodeList2Map(nodeList);
-        for (let i = 1; i < nodeList.length; i++) {
+        for (let i = 0; i < nodeList.length; i++) {
             const item = nodeList[i];
             if (map[item.pid]) {
                 map[item.pid].ch ? map[item.pid].ch.push(item) : map[item.pid].ch = [item];

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Radio } from '..';
 
 export class Tab extends Component {
     constructor() {
@@ -7,7 +8,7 @@ export class Tab extends Component {
     }
     render() {
         return (
-            <div className="tab-item">
+            <React.Fragment>
                 <input type="radio" id={this.cid} name={this.props.name} defaultChecked={this.props.defaultChecked || false} />
                 <label htmlFor={this.cid}>
                     <div className="tab-container">
@@ -21,7 +22,7 @@ export class Tab extends Component {
                 <div className="tab-content w-full">
                     <div>{this.props.children}</div>
                 </div>
-            </div>
+            </React.Fragment>
         );
     }
 }
@@ -51,6 +52,9 @@ export class TabLR extends Component {
     constructor() {
         super();
         this.id = Math.random().toString(36).substring(2);
+        this.state = {
+            currentTab: 0
+        };
     }
     render() {
         return (
@@ -59,10 +63,10 @@ export class TabLR extends Component {
                     {
                         this.props.option.map((item, index) => {
                             return (
-                                <label htmlFor={this.id + index} key={index}>
-                                    {
-                                        item.label
-                                    }
+                                <label htmlFor={this.id + index} key={index} onClick={() => this.setState({ currentTab: index })} className={[this.state.currentTab == index ? 'tab-label-active' : ''].join(' ')}>
+                                    {/* <input type="radio" className="d-n" name={this.id + 'label'} id={this.id + 'label' + index} defaultChecked={index == 0} /> */}
+                                    {/* <label htmlFor={this.id + 'label' + index}>{item.label}</label> */}
+                                    {item.label}
                                 </label>
                             );
                         })
@@ -90,36 +94,6 @@ export class TabLR extends Component {
                     }
                 </div>
 
-            </div>
-        );
-    }
-}
-
-class TabLRItem extends Component {
-    constructor(props) {
-        super(props);
-        this.cid = this.id = Math.random().toString(36).substring(2);
-        console.log(this.props);
-    }
-    render() {
-        return (
-            <div className="tab-box-mod d-f">
-                <div className="tab-contrl s0">
-                    <label htmlFor={this.cid}>
-                        {
-                            this.props.label
-                        }
-                    </label>
-                </div>
-
-                <div className="tab-container flex1 bor-l b-side pl16">
-                    <input type="radio" id={this.cid} name={this.props.name} defaultChecked />
-                    <div className="tab-content">
-                        {
-                            this.props.content
-                        }
-                    </div>
-                </div>
             </div>
         );
     }

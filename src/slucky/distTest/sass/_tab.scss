@@ -186,22 +186,27 @@
             opacity: 1;
         }
 
+        // 正常状态
         &>input[type="radio"]:checked+label+.tab-content {
             top: 100%; // left: 0;
             // display: block;
             visibility: visible;
+            // position: relative;
             opacity: 1;
             z-index: 1;
         }
 
+        // 上飘
         &>input[type="radio"]:checked+label~label+.tab-content {
             top: 200%; // left: 100%;
             // display: none;
             visibility: hidden;
+            // position: absolute;
             opacity: 0;
             z-index: -1;
         }
 
+        // 下飘
         &>.tab-content {
             @include box_sizing();
             position: absolute; // left: -100%;
@@ -226,7 +231,6 @@
         border-radius: 3px 3px 0 0;
 
         &>.tab-toggle {
-
             &>.tab-decoration {}
         }
     }
@@ -239,53 +243,50 @@
     .tab-contrl {
         height: 48px;
 
-        .tab-item {
+        &>label {
             display: inline-block;
-            &>label {
-                display: inline-block;
-                box-sizing: border-box;
-                cursor: pointer;
-                z-index: 1;
-            }
+            box-sizing: border-box;
+            cursor: pointer;
+            z-index: 1;
+        }
 
-            &>input[type="radio"] {
-                display: none;
-            }
+        &>input[type="radio"] {
+            display: none;
+        }
 
-            &>input[type="radio"]:checked+label .tab-toggle>.tab-decoration {
-                background-color: #fff;
-                color: $theme_color;
-                border-bottom: 1px $theme_color solid;
-            }
+        &>input[type="radio"]:checked+label .tab-toggle>.tab-decoration {
+            background-color: #fff;
+            color: $theme_color;
+            border-bottom: 1px $theme_color solid;
+        }
 
-            &>input[type="radio"]:checked+label+.tab-content {
-                left: 0; 
-                visibility: visible;
-                opacity: 1;
-                z-index: 1;
-            }
+        &>input[type="radio"]:checked+label+.tab-content {
+            left: 0;
+            visibility: visible;
+            opacity: 1;
+            z-index: 1;
+        }
 
-            //这里换成新dom结构后有问题，无法实现回溯，故无法生效
-            &>input[type="radio"]:checked+label~label+.tab-content {
-                // top: 100%;  
-                left: 100%; 
-                visibility: hidden;
-                opacity: 0;
-                z-index: -1;
-            }
+        //这里换成新dom结构后有问题，无法实现回溯，故无法生效
+        &>input[type="radio"]:checked+label~label+.tab-content {
+            // top: 100%;  
+            left: 100%;
+            visibility: hidden;
+            opacity: 0;
+            z-index: -1;
+        }
 
-            &>.tab-content {
-                @include box_sizing();
-                position: absolute;
-                left: -100%;
-                top: 48px;
-                background-color: #fff;
-                border-radius: 3px; // z-index: 1;
-                transition: opacity .2s ease-out, visibility .2s ease-out; // display: none;
-                visibility: hidden;
-                opacity: 0;
-                z-index: -1; // overflow: hidden;
-            }
+        &>.tab-content {
+            @include box_sizing();
+            position: absolute;
+            left: -100%;
+            top: 48px;
+            background-color: #fff;
+            border-radius: 3px; // z-index: 1;
+            transition: opacity .2s ease-out, visibility .2s ease-out; // display: none;
+            visibility: hidden;
+            opacity: 0;
+            z-index: -1; // overflow: hidden;
         }
     }
 
@@ -303,6 +304,68 @@
                 line-height: 48px;
                 border-radius: 3px 3px 0 0;
             }
+        }
+    }
+}
+
+
+.tab-box-mod {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+
+    .tab-contrl {
+        height: 100%;
+        z-index: 1;
+
+        &>label {
+            padding: 10px 16px 8px 16px;
+            position: relative;
+            display: block;
+            border-radius: 2px 0 0 2px;
+            z-index: 2;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .tab-label-active {
+            background-color: $side_b;
+        }
+    }
+
+    .tab-container {
+        &>input[type="radio"] {
+            display: none;
+        }
+
+        // 正常状态
+        &>input[type="radio"]:checked+.tab-content {
+            top: 0;
+            visibility: visible;
+            position: relative;
+            opacity: 1;
+            z-index: 1;
+            transition: top .3s ease-out, opacity .3s ease-out, visibility .3s ease-out;
+        }
+
+        // 上部分
+        &>input[type="radio"]:checked+.tab-content~.tab-content {
+            top: 100%;
+            visibility: hidden;
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        // 下部分
+        &>.tab-content {
+            position: absolute;
+            top: -100%;
+            background-color: #fff;
+            border-radius: 3px;
+            visibility: hidden;
+            opacity: 0;
+            z-index: -1;
         }
     }
 }

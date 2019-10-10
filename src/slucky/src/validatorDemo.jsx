@@ -167,12 +167,6 @@ export class ValidatorDemo extends Component {
 
                 <Switch />
 
-                {/* <Tab.Group>
-                    <Tab title='hello' defaultChecked={true}>123</Tab>
-                    <Tab title='123'>qwer</Tab>
-                    <Tab title='qwe'>12asdf3</Tab>
-                </Tab.Group> */}
-
                 <div className="d-f ac mb24 mt36">
                     <div className="w96 s0">
                         <label htmlFor="name">Name:</label>

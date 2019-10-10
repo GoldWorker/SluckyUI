@@ -2,9 +2,14 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-09 17:12:47
- * @LastEditTime: 2019-09-09 17:16:16
+ * @LastEditTime: 2019-10-09 13:45:32
  * @LastEditors: Please set LastEditors
  -->
+### Validator
+关于校验类slucky提供了一些静态方法，使用方式和参数如下：
+- `Validator.isSubmit(data)`
+- `Validator.formatRes(type,splitSign)`
+
 ``` jsx
 class ValidatorDemo extends Component {
     constructor() {
