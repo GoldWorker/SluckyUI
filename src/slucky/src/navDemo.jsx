@@ -354,11 +354,11 @@ export default class NavDemo extends Component {
                     </ul>
                 </div>
 
-                {/* <Tab.Group>
-                    <Tab title='hello' defaultChecked={true}>123</Tab>
-                    <Tab title='123'>qwer</Tab>
-                    <Tab title='qwe'>12asdf3</Tab>
-                </Tab.Group> */}
+                <Tab.Group layout="tb">
+                    <Tab label='hello' defaultChecked={true}>123</Tab>
+                    <Tab label='123'>qwer</Tab>
+                    <Tab label='qwe'>12asdf3</Tab>
+                </Tab.Group>
 
                 <details className="pb16 mb16 bor-b b-side-s" open>
                     <summary className="btn-n pl8 pr64 ptb8">显示Demo代码</summary>
