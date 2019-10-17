@@ -16,7 +16,7 @@ export class ValidatorDemo extends Component {
     constructor() {
         super();
         this.state = {
-            name: 'asdf',
+            name: 1,
             email: '123',
             password: '',
             checked: false,
@@ -171,7 +171,7 @@ export class ValidatorDemo extends Component {
                     <div className="w96 s0">
                         <label htmlFor="name">Name:</label>
                     </div>
-                    <Input disabled id="name" width="100%" value={this.state.name} onChange={(name) => { this.setState({ name }); }} error={() => this.Validator.formatRes('name')} />
+                    <Input type="money" id="name" width="100%" value={this.state.name} onChange={(name) => { this.setState({ name }); }} error={() => this.Validator.formatRes('name')} />
                 </div>
                 <div className="d-f ac mb24">
                     <div className="w96 s0">

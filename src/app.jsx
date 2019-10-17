@@ -78,6 +78,9 @@ export default class App extends Component {
                     }, {
                         label: <span className="btn p-r pb4 regularLineMove">操作树&穿梭框<span className="c-hint-b pl8">Steps</span></span>,
                         content: <TreeDemo />
+                    }, {
+                        label: <span className="btn p-r pb4 regularLineMove">实验区<span className="c-hint-b pl8">Steps</span></span>,
+                        content: <SecurityDemo />
                     }]} />
 
                     {/* <div className="tab-box-mod d-f">

@@ -12,9 +12,19 @@ export class Toast extends React.Component {
         };
         this.createPortalContainer();
         this.timer = undefined;
+        this.isStop = false;
+    }
+
+    stop() {
+        this.isStop = true;
+    }
+
+    goon() {
+        this.isStop = false;
     }
 
     add = ({ title, content, status }) => {
+        //超过5个就弹出一个
         if (this.state.list.length > 5) {
             let data = this.state.list;
             data.shift();
@@ -32,16 +42,17 @@ export class Toast extends React.Component {
                 }
             }, 3000);
         }
-        this.setState({
-            list: [
-                ...this.state.list, {
-                    title,
-                    content,
-                    status
-                }
-            ]
-        });
-        // console.log(content, 'add succ');
+        if (!this.isStop) {
+            this.setState({
+                list: [
+                    ...this.state.list, {
+                        title,
+                        content,
+                        status
+                    }
+                ]
+            });
+        }
     }
 
     handleClose(index) {
@@ -142,5 +153,13 @@ Toast.error = (content) => {
 
 Toast.warn = (content) => {
     Toast.add({ title: '提示', content, status: 'warn' });
+};
+
+Toast.stop = () => {
+    toastRef.current.stop();
+};
+
+Toast.goon = () => {
+    toastRef.current.goon();
 };
 

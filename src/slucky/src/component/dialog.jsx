@@ -8,7 +8,7 @@ export class Dialog extends Component {
 
     render() {
         const tar = this.props.open ? <div className="fadeIn p-r z10">
-            <div className="dialog-mark d-f ac jc" id={this.id} onClick={(e) => e.target.id == this.id && this.props.onClose()}>
+            <div className="dialog-mark d-f ac jc" id={this.id} onClick={(e) => e.target.id == this.id && (this.props.maskClosable || false) && this.props.onClose()}>
                 <div className="dialog paper fade-scale mlr64">
                     <div className="ta-r">
                         <div className="mt4 mr4 pt4 plr8 ta-r">

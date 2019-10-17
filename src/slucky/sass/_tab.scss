@@ -411,6 +411,7 @@
         &>input[type="radio"]:checked+.tab-content {
             left: 0;
             visibility: visible;
+            display: block;
             position: relative;
             opacity: 1;
             z-index: 1;
@@ -422,6 +423,7 @@
             left: 100%;
             visibility: hidden;
             position: absolute;
+            width: 100%;
             opacity: 0;
             z-index: -1;
         }
@@ -429,6 +431,7 @@
         // 下部分
         &>.tab-content {
             position: absolute;
+            width: 100%;
             left: -100%;
             background-color: #fff;
             border-radius: 3px;

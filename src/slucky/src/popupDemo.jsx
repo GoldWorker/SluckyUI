@@ -45,11 +45,14 @@ export class PopupDemo extends Component {
                     onClick={() => this.setState({ toggle: true })}>弹出自定义对话框</button>
                 <button
                     className="tag-text ptb6 plr16 m32"
-                    onClick={() => Toast.add({
-                        title: '自定义',
-                        content: '内容...',
-                        status: 'success'
-                    })}>弹出自定义消息提示</button>
+                    onClick={() => {
+                        Toast.add({
+                            title: '自定义',
+                            content: '内容...',
+                            status: 'success'
+                        }); 
+                        Toast.stop();
+                    }}>弹出自定义消息提示</button>
                 <button
                     className="tag-text ptb6 plr16 m32"
                     onClick={() => Toast.error(`内容${this.count++}`)}>弹出错误消息提示</button>
@@ -89,7 +92,7 @@ export class PopupDemo extends Component {
                         {/* {ReactDOMServer.renderToStaticMarkup(<ReactMarkdown source={demoString} />)} */}
                     </Highlight>
                 </details>
-            </div>
+            </div >
         );
     }
 }
