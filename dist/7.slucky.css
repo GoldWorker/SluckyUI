@@ -119,120 +119,16 @@
 .tab-overflow-fix {
   overflow-y: -webkit-paged-x; }
 
-.tab-box-tb {
-  position: relative;
-  display: inline-block; }
-  .tab-box-tb .tab-contrl {
-    height: 100%;
-    z-index: 1; }
-    .tab-box-tb .tab-contrl > label {
-      position: relative;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      cursor: pointer;
-      z-index: 2; }
-    .tab-box-tb .tab-contrl > input[type="radio"] {
-      display: none; }
-    .tab-box-tb .tab-contrl > input[type="radio"]:checked + label > .tab-decoration {
-      background-color: #fff;
-      color: #26a597;
-      border-bottom: 1px #26a597 solid; }
-    .tab-box-tb .tab-contrl > input[type="radio"]:checked + label > .radio-out {
-      border-color: #222222; }
-    .tab-box-tb .tab-contrl > input[type='radio']:checked + label > .radio-out > .radio-in {
-      border-color: #222222;
-      opacity: 1; }
-    .tab-box-tb .tab-contrl > input[type="radio"]:checked + label + .tab-content {
-      top: 100%;
-      visibility: visible;
-      opacity: 1;
-      z-index: 1; }
-    .tab-box-tb .tab-contrl > input[type="radio"]:checked + label ~ label + .tab-content {
-      top: 200%;
-      visibility: hidden;
-      opacity: 0;
-      z-index: -1; }
-    .tab-box-tb .tab-contrl > .tab-content {
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      position: absolute;
-      top: -100%;
-      background-color: #fff;
-      border-radius: 3px;
-      -webkit-transition: top .2s ease-out, opacity .2s ease-out, visibility .2s ease-out;
-      transition: top .2s ease-out, opacity .2s ease-out, visibility .2s ease-out;
-      visibility: hidden;
-      opacity: 0;
-      z-index: -1; }
-  .tab-box-tb .tab-decoration {
-    display: inline-block;
-    position: relative;
-    padding-left: 16px;
-    padding-right: 32px;
-    height: 48px;
-    line-height: 48px;
-    border-radius: 3px 3px 0 0; }
-
 .tab-box-lr {
   position: relative;
-  display: inline-block; }
-  .tab-box-lr .tab-contrl {
-    height: 48px; }
-    .tab-box-lr .tab-contrl > label {
-      display: inline-block;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      cursor: pointer;
-      z-index: 1; }
-    .tab-box-lr .tab-contrl > input[type="radio"] {
-      display: none; }
-    .tab-box-lr .tab-contrl > input[type="radio"]:checked + label .tab-toggle > .tab-decoration {
-      background-color: #fff;
-      color: #26a597;
-      border-bottom: 1px #26a597 solid; }
-    .tab-box-lr .tab-contrl > input[type="radio"]:checked + label + .tab-content {
-      left: 0;
-      visibility: visible;
-      opacity: 1;
-      z-index: 1; }
-    .tab-box-lr .tab-contrl > input[type="radio"]:checked + label ~ label + .tab-content {
-      left: 100%;
-      visibility: hidden;
-      opacity: 0;
-      z-index: -1; }
-    .tab-box-lr .tab-contrl > .tab-content {
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      position: absolute;
-      left: -100%;
-      top: 48px;
-      background-color: #fff;
-      border-radius: 3px;
-      -webkit-transition: opacity .2s ease-out, visibility .2s ease-out;
-      transition: opacity .2s ease-out, visibility .2s ease-out;
-      visibility: hidden;
-      opacity: 0;
-      z-index: -1; }
-  .tab-box-lr .tab-container {
-    display: inline-block; }
-    .tab-box-lr .tab-container > .tab-toggle {
-      width: 100%; }
-      .tab-box-lr .tab-container > .tab-toggle > .tab-decoration {
-        position: relative;
-        padding-left: 16px;
-        padding-right: 32px;
-        height: 48px;
-        line-height: 48px;
-        border-radius: 3px 3px 0 0; }
-
-.tab-box-mod {
-  position: relative;
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   overflow: hidden; }
-  .tab-box-mod .tab-contrl {
+  .tab-box-lr .tab-contrl {
     height: 100%;
     z-index: 1; }
-    .tab-box-mod .tab-contrl > label {
+    .tab-box-lr .tab-contrl > label {
       padding: 10px 16px 8px 16px;
       position: relative;
       display: block;
@@ -241,32 +137,84 @@
       -webkit-transition: background-color 0.3s;
       transition: background-color 0.3s;
       cursor: pointer; }
-    .tab-box-mod .tab-contrl .tab-label-active {
+    .tab-box-lr .tab-contrl .tab-label-active {
       background-color: #f4f4f4; }
-  .tab-box-mod .tab-container > input[type="radio"] {
-    display: none; }
-  .tab-box-mod .tab-container > input[type="radio"]:checked + .tab-content {
-    top: 0;
-    visibility: visible;
-    position: relative;
-    opacity: 1;
-    z-index: 1;
-    -webkit-transition: top .3s ease-out, opacity .3s ease-out, visibility .3s ease-out;
-    transition: top .3s ease-out, opacity .3s ease-out, visibility .3s ease-out; }
-  .tab-box-mod .tab-container > input[type="radio"]:checked + .tab-content ~ .tab-content {
-    top: 100%;
-    visibility: hidden;
-    position: absolute;
-    opacity: 0;
-    z-index: -1; }
-  .tab-box-mod .tab-container > .tab-content {
-    position: absolute;
-    top: -100%;
-    background-color: #fff;
-    border-radius: 3px;
-    visibility: hidden;
-    opacity: 0;
-    z-index: -1; }
+  .tab-box-lr > .tab-container {
+    border-left-width: 1px;
+    border-left-style: solid; }
+    .tab-box-lr > .tab-container > input[type="radio"] {
+      display: none; }
+    .tab-box-lr > .tab-container > input[type="radio"]:checked + .tab-content {
+      top: 0;
+      visibility: visible;
+      position: relative;
+      opacity: 1;
+      z-index: 1;
+      -webkit-transition: top .3s ease-out, opacity .3s ease-out, visibility .3s ease-out;
+      transition: top .3s ease-out, opacity .3s ease-out, visibility .3s ease-out; }
+    .tab-box-lr > .tab-container > input[type="radio"]:checked + .tab-content ~ .tab-content {
+      top: 100%;
+      visibility: hidden;
+      position: absolute;
+      opacity: 0;
+      z-index: -1; }
+    .tab-box-lr > .tab-container > .tab-content {
+      position: absolute;
+      top: -100%;
+      background-color: #fff;
+      border-radius: 3px;
+      visibility: hidden;
+      opacity: 0;
+      z-index: -1; }
+
+.tab-box-tb {
+  position: relative;
+  overflow: hidden; }
+  .tab-box-tb .tab-contrl {
+    height: 100%;
+    z-index: 1; }
+    .tab-box-tb .tab-contrl > label {
+      padding: 10px 16px 8px 16px;
+      position: relative;
+      display: inline-block;
+      border-radius: 2px 0 0 2px;
+      z-index: 2;
+      -webkit-transition: background-color 0.3s;
+      transition: background-color 0.3s;
+      cursor: pointer; }
+    .tab-box-tb .tab-contrl .tab-label-active {
+      background-color: #f4f4f4;
+      color: #26a597; }
+  .tab-box-tb > .tab-container {
+    border-top-width: 1px;
+    border-top-style: solid; }
+    .tab-box-tb > .tab-container > input[type="radio"] {
+      display: none; }
+    .tab-box-tb > .tab-container > input[type="radio"]:checked + .tab-content {
+      left: 0;
+      visibility: visible;
+      display: block;
+      position: relative;
+      opacity: 1;
+      z-index: 1;
+      -webkit-transition: left .3s ease-out, opacity .3s ease-out, visibility .3s ease-out;
+      transition: left .3s ease-out, opacity .3s ease-out, visibility .3s ease-out; }
+    .tab-box-tb > .tab-container > input[type="radio"]:checked + .tab-content ~ .tab-content {
+      left: 100%;
+      visibility: hidden;
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      z-index: -1; }
+    .tab-box-tb > .tab-container > .tab-content {
+      position: absolute;
+      width: 100%;
+      left: -100%;
+      background-color: #fff;
+      border-radius: 3px;
+      visibility: hidden;
+      opacity: 0;
+      z-index: -1; }
 
 .checkbox-box-normalize {
   display: inline-block;
@@ -1469,6 +1417,80 @@ textarea:-ms-input-placeholder {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   overflow: hidden; }
+
+.stretching-column {
+  overflow: hidden;
+  border: 1px solid #E5E5E5;
+  height: calc(100vh - 94px);
+  line-height: 20px;
+  font-size: 16px; }
+  .stretching-column .left {
+    overflow: hidden;
+    float: left;
+    position: relative;
+    height: 100%; }
+  .stretching-column .right {
+    overflow: hidden;
+    padding: 10px;
+    height: 100%;
+    word-break: break-all; }
+
+.resize-bar {
+  overflow: scroll;
+  width: 50vw;
+  height: 100%;
+  opacity: 0;
+  resize: horizontal; }
+  .resize-bar::-webkit-scrollbar {
+    height: 100%; }
+  .resize-bar:hover ~ .resize-line, .resize-bar:active ~ .resize-line {
+    border-left: 1px dashed #26a597; }
+
+.resize-line {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid #E5E5E5;
+  border-right: 2px solid #E5E5E5;
+  pointer-events: none; }
+
+.resize-content {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 5px;
+  top: 0;
+  bottom: 0;
+  word-break: break-all; }
+  .resize-content textarea {
+    width: 100%;
+    height: 100%;
+    border-color: transparent !important; }
+    .resize-content textarea:focus {
+      outline: none; }
+
+.indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(50%, #26a597), color-stop(50%, transparent)) no-repeat;
+  background: linear-gradient(to right top, #26a597 50%, transparent 50%) no-repeat;
+  background-size: 100% calc(100% - 100vh);
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: darken; }
+  .indicator:after {
+    content: '';
+    position: fixed;
+    top: 2px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #fff;
+    z-index: 1; }
 
 .circle, .circle-s, .circle-m, .circle-l {
   -webkit-box-sizing: border-box;

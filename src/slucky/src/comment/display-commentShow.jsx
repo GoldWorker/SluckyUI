@@ -15,13 +15,14 @@ class CommentShow extends Component {
 		} = this.props;
 		fetchCommentData(this.artId);
 	}
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.items[0]) {
+			// this.refs.storeXSS.innerHTML = nextProps.items[0].comment;
+		}
+	}
 	handleDate(date) {
 		// return (new Date(date)).toLocaleString()
 		return Moment(date).format('YYYY-MM-DD HH:mm:ss');
-	}
-	showComment(self, content) {
-		// this.refs[self].innerHTML = content;
-		console.log('refs', this.refs);
 	}
 	render() {
 		const {
@@ -31,8 +32,11 @@ class CommentShow extends Component {
 		// console.log("ITEMS")
 		// console.log(items)
 		return (
-
 			<div>
+				<div className="p16">
+					最新评论：
+					<span ref="storeXSS"></span>
+				</div>
 				{
 					this.props.items.map((elem, index) => {
 						let replyInputData = {
@@ -46,8 +50,7 @@ class CommentShow extends Component {
 									<figcaption className="ta-c">{elem.name}</figcaption>
 								</figure>
 								<div className="comment-content pl16">
-									{/* <p>{elem.comment}</p> */}
-									<p ref={`comment${index}`}>{this.showComment(`comment${index}`, elem.comment)}</p>
+									<p>{elem.comment}</p>
 									<ul className="reply-normalize-box bg-divider-b" style={elem.reply.length == 0 ? { 'display': 'none' } : {}}>
 										{
 											elem.reply.map((elem, index) => {

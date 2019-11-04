@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOMServer from 'react-dom/server';
-import ReactMarkdown from 'react-markdown';
 import Highlight from 'react-highlight';
 import { Checkbox } from './component/checkbox';
 import { Search } from './component/search';
@@ -58,7 +56,7 @@ export default class StepsDemo extends Component {
                     handleNext: (data) => { return true; }
                 }]} onChange={(currentSept) => { console.log(currentSept); }} />
 
-                <details className="pb16 mb16 bor-b b-side-s">
+                <details open className="pb16 mb16 bor-b b-side-s">
                     <summary className="btn-n pl8 pr64 ptb8">显示使用例子</summary>
                     <Highlight innerHTML={true}>
                         {require('./doc/steps.md')}

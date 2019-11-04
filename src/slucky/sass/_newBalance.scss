@@ -7,6 +7,7 @@
     list-style: none;
     position: relative;
     z-index: 10;
+
     &>nav {
         position: relative;
         // padding: 20px; // font-size: 24px;
@@ -15,6 +16,7 @@
         transition: 0.1s all linear;
         cursor: pointer;
     }
+
     &>nav::before {
         content: "";
         position: absolute;
@@ -25,6 +27,7 @@
         border-bottom: 1px solid #000;
         transition: 0.1s all linear;
     }
+
     &>nav:hover::before {
         width: 100%;
         top: 0;
@@ -32,14 +35,17 @@
         border-bottom-color: #000;
         z-index: -1;
     }
+
     &>nav:hover~nav::before {
         left: 0;
     }
+
     &>nav:active {
         // background: #000;
         color: #000;
     }
-    .nav-item{
+
+    .nav-item {
         display: inline-block;
         color: inherit;
         padding: 20px;
@@ -47,7 +53,8 @@
         height: 100%;
         text-decoration: none;
     }
-    .nav-item-active{
+
+    .nav-item-active {
         color: $theme_color;
     }
 }
@@ -60,6 +67,7 @@
         width: 100%;
         height: 130%;
         color: $theme_color;
+
         &>rect {
             position: absolute;
             left: 0; // top: -10%;
@@ -67,6 +75,7 @@
             height: 100%;
         }
     }
+
     .shape {
         fill: transparent;
         stroke-width: 2px;
@@ -75,6 +84,7 @@
         stroke-dashoffset: -265;
         transition: all .8s;
     }
+
     &:hover {
         .shape {
             stroke: $theme_color;
@@ -82,6 +92,7 @@
             stroke-dashoffset: 0;
             stroke-width: 2px;
         }
+
         .btn-svgMutiLine {
             opacity: 1;
         }
@@ -102,10 +113,12 @@
 .regularShadowScale {
     color: $theme_color;
     border: 1px solid $theme_color;
+
     &:hover {
         // text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         // box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2);
     }
+
     &::after {
         position: absolute;
         content: "";
@@ -120,6 +133,7 @@
         outline-color: rgba($color:$theme_color, $alpha: 0);
         outline-offset: 0px;
     }
+
     &:hover::after {
         top: 10px;
         left: 10px;
@@ -138,10 +152,12 @@
     color: $theme_color;
     border: 1px solid $theme_color;
     overflow: hidden;
+
     &:hover {
         // text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         // box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2);
     }
+
     &::before {
         content: "";
         position: absolute;
@@ -152,6 +168,7 @@
         transition: .5s all cubic-bezier(0.2, 1, 0.25, 1);
         left: -50%;
     }
+
     &:hover::before {
         left: 150%;
     }
@@ -161,6 +178,7 @@
     &:hover {
         // text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     }
+
     &::before {
         content: "";
         position: absolute;
@@ -171,6 +189,7 @@
         background-color: #000;
         transition: .2s all;
     }
+
     &:hover::before {
         left: 0;
         width: 100%;
@@ -230,4 +249,106 @@
     left: 50%;
     transform: translate(-50%, -50%); // border-radius: 50%;
     overflow: hidden;
+}
+
+// https://www.zhangxinxu.com/wordpress/2019/06/cssconf-css-idea/
+// https://codepen.io/JowayYoung/pen/JjPEdWO?editors=1100
+.stretching-column {
+    overflow: hidden;
+    border: 1px solid $divider_b;
+    // width: 600px;
+    height: calc(100vh - 94px);
+    line-height: 20px;
+    font-size: 16px;
+    // color: #f90;
+
+    .left {
+        overflow: hidden;
+        float: left;
+        position: relative;
+        height: 100%;
+    }
+
+    .right {
+        overflow: hidden;
+        padding: 10px;
+        height: 100%;
+        // background-color: #f0f0f0;
+        word-break: break-all;
+    }
+}
+
+.resize-bar {
+    overflow: scroll;
+    width: 50vw;
+    height: 100%;
+    opacity: 0;
+    resize: horizontal;
+
+    &::-webkit-scrollbar {
+        // width: 200px;
+        height: 100%;
+    }
+
+    &:hover,
+    &:active {
+        &~.resize-line {
+            border-left: 1px dashed $theme_color;
+        }
+    }
+}
+
+.resize-line {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid $divider_b;
+    border-right: 2px solid $divider_b;
+    pointer-events: none;
+}
+
+.resize-content {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 5px;
+    top: 0;
+    bottom: 0;
+    word-break: break-all;
+
+    textarea {
+        width: 100%;
+        height: 100%;
+        border-color: transparent !important;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+// https://www.zhangxinxu.com/wordpress/2019/06/better-css-scroll-indicator/
+.indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(to right top, $theme_color 50%, transparent 50%) no-repeat;
+    background-size: 100% calc(100% - 100vh);
+    z-index: 1;
+    pointer-events: none;
+    mix-blend-mode: darken;
+
+    &:after {
+        content: '';
+        position: fixed;
+        top: 2px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: #fff;
+        z-index: 1;
+    }
 }

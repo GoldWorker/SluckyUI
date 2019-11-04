@@ -14,6 +14,10 @@
 
 > 标有*为测试Bata属性
 
+## 交流与学习
+
+[Re从零开始的UI库编写生活-进度条组件](https://juejin.im/post/5d38223b6fb9a07ec956502d)
+
 ``` jsx
 import { Progress } from "slucky";
 ...

@@ -34,11 +34,11 @@ requireAll(req);
 import __API__ from './config.js';
 window.__API__ = __API__;
 
-if (module.hot) {
-    module
-        .hot
-        .accept();
-}
+// if (module.hot) {
+//     module
+//         .hot
+//         .accept();
+// }
 
 // if(module.hot){     module.hot.accept(moduleId, callback); } if (module.hot)
 // {     // console.log('Accepting the updated printMe module!');

@@ -13,6 +13,10 @@
 | loader-inline | 是否显示加载状态 | String  | circle |
 > 标有*为测试Bata属性
 
+## 交流与学习
+
+[Re从零开始的UI库编写生活-按钮](https://juejin.im/post/5cd4dd15f265da03914d7d07)
+
 ``` html
 <div className="btn p-r m32 ptb6 svgMutiLine plr16">
     <svg

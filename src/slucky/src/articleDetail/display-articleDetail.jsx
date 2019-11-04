@@ -42,7 +42,8 @@ class ArticleDetail extends Component {
 			isLogined
 		} = this.props;
 		return (
-			<div>
+			<div className="p-r">
+				<div className="indicator"></div>
 				<CSSTransitionGroup
 					transitionName="example"
 					transitionAppear={true}

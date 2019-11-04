@@ -1,31 +1,31 @@
 import React, {
 	Component
-} from 'react'
-import ArticleItem from './display-articleItem'
+} from 'react';
+import ArticleItem from './display-articleItem';
 // import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import { CSSTransitionGroup } from 'react-transition-group'
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class ArticleLists extends Component {
 	constructor(props) {
-		super(props)
-		this.fetchArticleByPage = this.props.fetchArticleByPage.bind(this)
-		this.initialComponent = this.props.initialComponent.bind(this)
+		super(props);
+		this.fetchArticleByPage = this.props.fetchArticleByPage.bind(this);
+		this.initialComponent = this.props.initialComponent.bind(this);
 		this.state = {
 			counter: 0,
 			_interval: 10
-		}
+		};
 		console.log(this.props);
 	}
 	nextPage() {
-		return this.state.counter += this.state._interval
+		return this.state.counter += this.state._interval;
 	}
 
 	// 首屏加载
 	componentDidMount() {
 		// window.addEventListener('scroll', this.handleScroll.bind(this))
 		// this.initialComponent()
-		const { fetchArticle } = this.props
-		fetchArticle()
+		const { fetchArticle } = this.props;
+		fetchArticle();
 	}
 
 	// componentWillUnmount() {
@@ -43,7 +43,7 @@ class ArticleLists extends Component {
 	// 	}
 	// }
 	handleClick() {
-		this.fetchArticle(this.nextPage())
+		this.fetchArticle(this.nextPage());
 	}
 	render() {
 		return (
@@ -60,15 +60,15 @@ class ArticleLists extends Component {
 								key={index}>
 								<ArticleItem article={elem} key={index} />
 							</CSSTransitionGroup>
-						)
+						);
 					})
 				}
 				{/* <div className="ta-c">
 					<button className="tag-text m16 plr16 ptb6" onClick={this.handleClick.bind(this)}>加载更多</button>
 				</div> */}
 			</div>
-		)
+		);
 	}
 }
 
-export default ArticleLists
+export default ArticleLists;
