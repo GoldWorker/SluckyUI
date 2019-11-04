@@ -86,37 +86,17 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 8192,
-                        mimetype: 'image/png',
+                        // mimetype: 'image/png',
                         fallback: 'responsive-loader',
                         quality: 100
                     }
                 }],
-                include: [
-                    path.join(__dirname, 'src/'),
-                    path.join(__dirname, 'node_modules/slucky/')
-                ],
+                include: path.join(__dirname, './src'),
                 exclude: [
-                    path.resolve(__dirname, 'src/icons/')
+                    path.resolve(__dirname, 'src/icons'),
+                    path.resolve(__dirname, '/node_modules/')
                 ]
-            },
-            // {
-            //     test: /\.(jpg|png|gif|svg|jpeg)$/,
-            //     use: [{
-            //         loader: 'url-loader',
-            //         options: {
-            //             limit: 8192,
-            //             mimetype: 'image/png',
-            //             fallback: 'responsive-loader',
-            //             quality: 100
-            //         }
-            //     }],
-            //     include: path.join(__dirname, './src'),
-            //     exclude: [
-            //         path.resolve(__dirname, 'src/icons'),
-            //         path.resolve(__dirname, '/node_modules/')
-            //     ]
-            // }, 
-            {
+            }, {
                 test: /\.(eot|ttf|woff)$/,
                 use: 'file-loader'
             }, {
