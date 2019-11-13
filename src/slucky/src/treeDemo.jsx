@@ -83,8 +83,7 @@ export default class TreeDemo extends Component {
                         pid: 2,
                         id: 22
                     }]
-                })}>test</button>
-                <button className="btn-n" onClick={() => this.setState({ con: this.state.con + 1 })}>+1</button>
+                })}>Reset</button>
                 <Transfer
                     value={this.state.selectedTree}
                     data={RootTree}

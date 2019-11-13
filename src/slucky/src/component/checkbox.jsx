@@ -12,14 +12,14 @@ export class Checkbox extends Component {
 
     render() {
         return (
-            <div className="checkbox-box-normalize mr16 mb8" style={{ display: this.props.display || 'inline-block' }}>
+            <div className="checkbox-box-normalize mr16 d-il" style={{ display: this.props.display || '' }}>
                 {
                     this.props.checked == undefined ? <input
                         id={this.id}
                         trigger='core'
                         type="checkbox"
                         disabled={this.props.disabled}
-                        className="d-n"
+                        className=""
                         name={this.props.name}
                         value={this.props.value}
                         defaultChecked={this.props.defaultChecked || false}
@@ -29,7 +29,7 @@ export class Checkbox extends Component {
                             trigger='core'
                             type="checkbox"
                             disabled={this.props.disabled}
-                            className="d-n"
+                            className=""
                             name={this.props.name}
                             value={this.props.value}
                             checked={this.props.checked || false}

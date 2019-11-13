@@ -296,6 +296,22 @@ $space: 2;
     position: absolute;
 }
 
+.l0 {
+    left: 0;
+}
+
+.r0 {
+    right: 0;
+}
+
+.t0 {
+    top: 0;
+}
+
+.b0 {
+    bottom: 0;
+}
+
 //overflow
 .ov-h {
     overflow: hidden;
@@ -741,6 +757,10 @@ $space: 2;
     opacity: 0;
 }
 
+.cp {
+    cursor: pointer;
+}
+
 // ---------------------------------常用模块----------------------------
 // 用于全屏居中（容器）
 .center-fullscreen {
@@ -818,7 +838,7 @@ details {
         // cursor: pointer;
         // pointer-events: none;
     }
-    
+
 }
 
 //inline button 边距跟字体大小自己调

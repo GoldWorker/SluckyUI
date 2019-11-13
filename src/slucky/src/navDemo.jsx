@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import ReactMarkdown from 'react-markdown';
 import Highlight from 'react-highlight';
-import { Tab } from './component/tab';
+import { Tab, Details } from './component/tab';
 
 export default class NavDemo extends Component {
     render() {
@@ -359,6 +359,10 @@ export default class NavDemo extends Component {
                     <Tab label='123'>qwer</Tab>
                     <Tab label='qwe'>12asdf3</Tab>
                 </Tab.Group>
+
+                <Details summary="test">
+                    aafd123
+                </Details>
 
                 <details className="pb16 mb16 bor-b b-side-s" open>
                     <summary className="btn-n pl8 pr64 ptb8">显示Demo代码</summary>

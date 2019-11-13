@@ -18,6 +18,7 @@ import { Search } from './component/search';
 import { Progress } from './component/progress';
 import { Tree } from './component/tree';
 import { Transfer } from './component/transfer';
+import { Text } from './component/text';
 import { Validator } from './lib/validator';
 
 export {
@@ -41,5 +42,6 @@ export {
     Validator,
     Progress,
     Tree,
-    Transfer
+    Transfer,
+    Text
 };

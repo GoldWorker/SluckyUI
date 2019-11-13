@@ -1,6 +1,6 @@
 // checkbox-normalize
 .checkbox-box-normalize {
-    display: inline-block;
+    // display: inline-block;
     position: relative;
 
     & .checkbox-hook {
@@ -15,7 +15,9 @@
     & input[trigger='core'] {
         position: absolute;
         top: 0;
+        bottom: 0;
         left: 0;
+        margin: auto;
         width: 20px;
         height: 20px;
         z-index: 10;
@@ -29,6 +31,10 @@
 
     & input[trigger='core']:checked+.checkbox-hook>.checkbox-hook-in {
         opacity: 1;
+    }
+
+    & input[trigger='core']:disabled {
+        cursor: not-allowed;
     }
 
     & input[trigger='core']:disabled+.checkbox-hook {
@@ -540,7 +546,7 @@
 }
 
 .input-normal {
-    padding: 8px;
+    padding: 6px 8px 6px 8px;
     // border: solid 1px $input_border_color;
     border-style: solid;
     border-width: 1px;

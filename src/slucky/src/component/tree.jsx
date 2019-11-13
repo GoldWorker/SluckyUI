@@ -35,7 +35,7 @@ export class Tree extends Component {
 }
 
 /**
- * @description: 合并树
+ * @description: 合并树的属性
  * @param {tree} 
  * @return: tree
  */
@@ -93,7 +93,12 @@ Tree.getTree2List = (node, isDeep = false, attr = {}) => {
  * @return: 
  */
 Tree.getNodeById = (id, node = { id: 0 }) => {
-    const map = Tree.getNodeList2Map(Tree.getTree2List(node));
+    let map = undefined;
+    if (Array.isArray(node)) {
+        map = Tree.getNodeList2Map(node);
+    } else {
+        map = Tree.getNodeList2Map(Tree.getTree2List(node));
+    }
     return map[id] ? map[id] : undefined;
 };
 

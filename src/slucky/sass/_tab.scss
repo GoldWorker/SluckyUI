@@ -441,3 +441,17 @@
         }
     }
 }
+
+.details-normalize {
+
+    .details-trigger[type="checkbox"]:checked+.details-content {
+        position: absolute;
+        top: -100%;
+        opacity: 0;
+        z-index: -99;
+    }
+
+    .details-content {
+        transition: all .3s;
+    }
+}

@@ -128,7 +128,7 @@ export class TableDemo extends Component {
         return (
             <div>
                 <div className="ptb32">
-                    <Table dataconf={dataconf} dataset={dataset} loading={false} loadingOption={
+                    <Table textAlign="" dataconf={dataconf} dataset={dataset} loading={false} loadingOption={
                         <div data-loader='bounce'>
                             <div class="bounce1"></div>
                             <div class="bounce2"></div>

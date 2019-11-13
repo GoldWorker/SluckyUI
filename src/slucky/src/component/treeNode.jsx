@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Checkbox } from '../component/checkbox';
+import { Details } from './tab';
 
 export default class TreeNode extends Component {
     constructor(props) {
@@ -32,22 +32,27 @@ export default class TreeNode extends Component {
                     children && children.map((item, index) => {
                         if (item.ch) {
                             return <div className="d-f" key={index}>
-                                <div>
+                                {/* <div>
                                     {
                                         this.props.item && this.props.item(item)
                                     }
-                                </div>
+                                </div> */}
                                 <div className="flex1">
-                                    <details key={index} className="tree-details" open={this.props.open || false}>
+                                    <Details key={index} open={this.props.open || false} summary={this.props.item && this.props.item(item)}>
+                                        <TreeNode data={item} onClick={(node) => this.handleClickNode(node)} open={this.props.open || false} item={(item) => {
+                                            return this.props.item && this.props.item(item);
+                                        }} />
+                                    </Details>
+                                    {/* <details key={index} className="tree-details" open={this.props.open || false}>
                                         <summary className="mtb8">
-                                            {/* {
+                                            {
                                                 this.props.item&&this.props.item(item)
-                                            } */}
+                                            }
                                         </summary>
                                         <TreeNode data={item} onClick={(node) => this.handleClickNode(node)} open={this.props.open || false} item={(item) => {
                                             return this.props.item && this.props.item(item);
                                         }} />
-                                    </details>
+                                    </details> */}
                                 </div>
                             </div>;
                         }
