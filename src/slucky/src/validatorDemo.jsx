@@ -9,7 +9,7 @@ import { Tab } from 'slucky/src/component/tab';
 import { Select } from 'slucky/src/component/select';
 import { Search } from 'slucky/src/component/search';
 import { Steps } from 'slucky/src/component/steps';
-import Text from './component/text';
+import { Text } from './component/text';
 // import { Checkbox } from 'antd';
 // import { Search } from "slucky/distTest/component/search";
 
@@ -76,7 +76,7 @@ export class ValidatorDemo extends Component {
     render() {
         return (
             <div className="bor b-side p32 mtb32">
-                <Text.Money value={123123123}/>
+                <Text.Money value={123123123} />
                 <button className="btn-n" onClick={() => this.setState({ selected: ['Apple', 'Pear'] })}>t</button>
                 {/* <Checkbox.Group
                     options={[
