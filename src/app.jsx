@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import NavDemo from 'slucky/src/navDemo';
-import LoadingDemo from 'slucky/src/loadingDemo';
-import ButtonDemo from 'slucky/src/buttonDemo';
-import { PopupDemo } from 'slucky/src/popupDemo';
-import Transfrom3DDemo from 'slucky/src/transfrom3DDemo';
-import FormDemo from 'slucky/src/formDemo';
-import ColorDemo from 'slucky/src/colorDemo';
-import ImageDemo from 'slucky/src/imageDemo';
-import { TableDemo } from 'slucky/src/tableDemo';
-import Toast from 'slucky/src';
-import StepsDemo from 'slucky/src/stepsDemo';
-import TreeDemo from 'slucky/src/treeDemo';
-import SecurityDemo from 'slucky/src/securityDemo';
-import Tab from 'slucky/src/component/tab';
-
+import NavDemo from './pages/demo/navDemo';
+import LoadingDemo from './pages/demo/loadingDemo';
+import ButtonDemo from './pages/demo/buttonDemo';
+import { PopupDemo } from './pages/demo/popupDemo';
+import Transfrom3DDemo from './pages/demo/transfrom3DDemo';
+import FormDemo from './pages/demo/formDemo';
+import ColorDemo from './pages/demo/colorDemo';
+import ImageDemo from './pages/demo/imageDemo';
+import { TableDemo } from './pages/demo/tableDemo';
+import StepsDemo from './pages/demo/stepsDemo';
+import TreeDemo from './pages/demo/treeDemo';
+import SecurityDemo from './pages/demo/securityDemo';
+import { Tab } from 'slucky/src';
 export default class App extends Component {
     constructor() {
         super();

@@ -14,9 +14,10 @@ const Loading = () => {
         <div>L</div>
     </div>;
 };
+
 const HighorderArticle = (store) => {
     return Loadable({
-        loader: () => import('slucky/src/article/highorder-article'),
+        loader: () => import('./pages/article/highorder-article'),
         loading: Loading,
         render(loaded, props) {
             let Component = loaded.default;
@@ -28,7 +29,7 @@ const HighorderArticle = (store) => {
 
 const HighorderArticlePublish = (store) => {
     return Loadable({
-        loader: () => import('slucky/src/articlePublish/highorder-articlePublish'),
+        loader: () => import('./pages/articlePublish/highorder-articlePublish'),
         loading: Loading,
         render(loaded, props) {
             let Component = loaded.default;
@@ -40,7 +41,7 @@ const HighorderArticlePublish = (store) => {
 
 const HighorderArticleDetail = (store) => {
     return Loadable({
-        loader: () => import('slucky/src/articleDetail/highorder-articleDetail'),
+        loader: () => import('./pages/articleDetail/highorder-articleDetail'),
         loading: Loading,
         render(loaded, props) {
             let Component = loaded.default;
@@ -52,7 +53,7 @@ const HighorderArticleDetail = (store) => {
 
 const HighorderRegister = (store) => {
     return Loadable({
-        loader: () => import('slucky/src/register/highorder-register'),
+        loader: () => import('./pages/register/highorder-register'),
         loading: Loading,
         render(loaded, props) {
             let Component = loaded.default;

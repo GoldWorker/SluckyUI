@@ -3,13 +3,12 @@ import './fixed.scss';
 import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom';
 import Loadable from 'react-loadable';
-import Demo1 from './demo1';
 import { HashRouter, BrowserRouter, Route, Switch, Router } from 'react-router-dom';
 import { Provider, connect } from 'react-redux';
 import { getStore } from 'slucky/src/store';
 import '../node_modules/highlight.js/styles/tomorrow.css';
-import Global from 'slucky/src/global';
 import RenderRouter from './router';
+import Global from './pages/global';
 // import App from './app'
 // import HighorderArticle from "./component/article/highorder-article";
 // const HighorderArticle = React.lazy(() => import('./component/article/highorder-article'));
@@ -24,11 +23,11 @@ import RenderRouter from './router';
 // import HighorderRegister from "./component/register/highorder-register";
 
 // webpack动态引入资源 https://segmentfault.com/a/1190000015367490
+
 const requireAll = requireContext => requireContext
     .keys()
     .map(requireContext);
 const req = require.context('./icons', false, /\.svg$/);
-// console.log('Icons', req.keys().map(req));
 requireAll(req);
 
 import __API__ from './config.js';

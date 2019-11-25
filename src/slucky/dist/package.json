@@ -1,0 +1,21 @@
+{
+    "name": "slucky",
+    "version": "0.3.20",
+    "description": "sluckyUI component base on react",
+    "main": "index.jsx",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {},
+    "keywords": [
+        "react",
+        "ui",
+        "component",
+        "slucky",
+        "sluckyUI"
+    ],
+    "author": "Flyteng",
+    "license": "ISC",
+    "dependencies": {},
+    "devDependencies": {}
+}

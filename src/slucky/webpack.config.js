@@ -57,7 +57,7 @@ module.exports = {
         }]
     },
     plugins: [
-        new BundleAnalyzerPlugin(),
+        // new BundleAnalyzerPlugin(),
         new CleanWebpackPlugin('dist', {
             verbose: false,
             watch: true,

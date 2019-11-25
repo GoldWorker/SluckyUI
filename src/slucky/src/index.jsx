@@ -22,7 +22,6 @@ import Text from './component/text';
 import Details from './component/details';
 import Validator from './component/validator';
 
-
 export {
     Dialog,
     Paging,
