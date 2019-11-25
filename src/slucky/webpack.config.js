@@ -4,33 +4,18 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyPlugin = require('copy-webpack-plugin');
 
-
 module.exports = {
     // devtool: 'source-map',
-    //入口配置
-    // entry: ['babel-polyfill', path.resolve(__dirname, 'src', 'index.jsx')],
-    entry: addEntry(),
-    // entry: path.resolve(__dirname, 'src', 'index.jsx'),
-    //出口配置
+    entry: getEntryConfig(),
     output: {
-        // path: path.resolve(__dirname, 'distTest'),
-        // filename: '[name].js',
         filename: (chunkData) => {
             let filePath = chunkData.chunk.name;
-            const filename = filePath.replace('.jsx', '');
-            console.log('filename', filename);
-            return filename + '.js';
-            // let res = filePath.match(/\/(\w|\-)+.jsx/)
-            // if (res) {
-            //     const filename = filePath.replace('.jsx', '').replace('/', '')
-            //     return filename + '.js'
-            // }
-            // console.log(chunkData.chunk.name)
+            const filename = filePath.replace('.jsx', '.js');
+            console.log('output_filename', filename);
+            return filename;
             // return '[name].js'
         },
-        path: __dirname + '/distTest',
-        // chunkFilename: '[name].js',
-        // publicPath: '/public'
+        path: __dirname + '/dist',
         // library: 'slucky',
         libraryTarget: 'umd'
     },
@@ -43,7 +28,7 @@ module.exports = {
         function(context, request, callback) {
             // 允许编译以下后缀文件
             if (/.jsx|.jpg|.png|.gif|.svg|.jpeg$/g.test(request)) {
-                console.log('Request', request);
+                console.log('filter_Request', request);
                 return callback();
             }
             callback(null, request);
@@ -57,52 +42,26 @@ module.exports = {
     },
     module: {
         rules: [{
-                test: /.jsx$/, //使用loader的目标文件。这里是.jsx
-                loader: 'babel-loader',
-                exclude: /node_modules/
-            }, {
-                test: /\.(jpg|png|gif|svg|jpeg)$/,
-                use: [{
-                    loader: 'url-loader',
-                    options: {
-                        limit: true
-                    }
-                }],
-                exclude: /node_modules/
-            }
-            // {
-            //     test: /\.svg$/,
-            //     include: [path.resolve(__dirname, 'src/icons')],
-            //     use: [{
-            //             loader: 'svg-sprite-loader',
-            //             options: {
-            //                 symbolId: 'icon-[name]'
-            //             }
-            //         },
-            //         'svg-fill-loader', {
-            //             loader: 'svgo-loader',
-            //             options: {
-            //                 plugins: [{
-            //                     removeTitle: true
-            //                 }, {
-            //                     convertColors: {
-            //                         shorthex: false
-            //                     }
-            //                 }, {
-            //                     convertPathData: false
-            //                 }]
-            //             }
-            //         }
-            //     ]
-            // }
-        ]
+            test: /.jsx|.js$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/
+        }, {
+            test: /\.(jpg|png|gif|svg|jpeg)$/,
+            use: [{
+                loader: 'url-loader'
+                // options: {
+                //     limit: true
+                // }
+            }],
+            exclude: /node_modules/
+        }]
     },
     plugins: [
-        // new BundleAnalyzerPlugin(),
-        new CleanWebpackPlugin('distTest', {
+        new BundleAnalyzerPlugin(),
+        new CleanWebpackPlugin('dist', {
             verbose: false,
             watch: true,
-            'exclude': ['.git', '.npmignore', 'package.json', 'README.md']
+            exclude: ['.git', '.npmignore', 'package.json', 'README.md']
         }),
         new CopyPlugin([{
             from: './sass',
@@ -114,26 +73,17 @@ module.exports = {
     ]
 };
 
-function getEntry() {
-    let globPath = './src/**/*.jsx';
+function getFileCollection() {
+    const globPath = './src/**/*.jsx';
     // (\/|\\\\) 这种写法是为了兼容 windows和 mac系统目录路径的不同写法
-    let pathDir = './src(\/|\\\\)(.*?)(\/|\\\\)jsx';
-    let files = glob.sync(globPath);
-    let dirname, entries = [];
-    for (let i = 0; i < files.length; i++) {
-        dirname = path.dirname(files[i]);
-        // console.log(path.basename(files[i],'.jsx'));
-        entries.push(files[i]);
-        // entries.push(dirname.replace(new RegExp('^' + pathDir), '$2'))
-    }
-    // console.log(entries);
-    return entries;
+    // const pathDir = './src(\/|\\\\)(.*?)(\/|\\\\)jsx';
+    const files = glob.sync(globPath);
+    return files;
 }
 
-function addEntry() {
+function getEntryConfig() {
     let entryObj = {};
-    getEntry().forEach(item => {
-        // console.log(item.search(pathDir))
+    getFileCollection().forEach(item => {
         const filePath = item.replace('./src', '');
         entryObj[filePath] = path.resolve(__dirname, item);
     });

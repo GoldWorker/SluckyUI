@@ -1,652 +1,178 @@
-'use strict';
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("./component/details"), require("./component/tab"), require("react"), require("react-dom/server"), require("react-highlight"), require("react-markdown"));
+	else if(typeof define === 'function' && define.amd)
+		define(["./component/details", "./component/tab", "react", "react-dom/server", "react-highlight", "react-markdown"], factory);
+	else {
+		var a = typeof exports === 'object' ? factory(require("./component/details"), require("./component/tab"), require("react"), require("react-dom/server"), require("react-highlight"), require("react-markdown")) : factory(root["./component/details"], root["./component/tab"], root["react"], root["react-dom/server"], root["react-highlight"], root["react-markdown"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(window, function(__WEBPACK_EXTERNAL_MODULE__component_details__, __WEBPACK_EXTERNAL_MODULE__component_tab__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom_server__, __WEBPACK_EXTERNAL_MODULE_react_highlight__, __WEBPACK_EXTERNAL_MODULE_react_markdown__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/navDemo.jsx");
+/******/ })
+/************************************************************************/
+/******/ ({
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
+/***/ "./component/details":
+/*!**************************************!*\
+  !*** external "./component/details" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__component_details__;\n\n//# sourceURL=webpack:///external_%22./component/details%22?");
+
+/***/ }),
+
+/***/ "./component/tab":
+/*!**********************************!*\
+  !*** external "./component/tab" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__component_tab__;\n\n//# sourceURL=webpack:///external_%22./component/tab%22?");
+
+/***/ }),
+
+/***/ "./src/navDemo.jsx":
+/*!*************************!*\
+  !*** ./src/navDemo.jsx ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n\nvar _server2 = _interopRequireDefault(_server);\n\nvar _reactMarkdown = __webpack_require__(/*! react-markdown */ \"react-markdown\");\n\nvar _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);\n\nvar _reactHighlight = __webpack_require__(/*! react-highlight */ \"react-highlight\");\n\nvar _reactHighlight2 = _interopRequireDefault(_reactHighlight);\n\nvar _tab = __webpack_require__(/*! ./component/tab */ \"./component/tab\");\n\nvar _tab2 = _interopRequireDefault(_tab);\n\nvar _details = __webpack_require__(/*! ./component/details */ \"./component/details\");\n\nvar _details2 = _interopRequireDefault(_details);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar NavDemo = function (_Component) {\n    _inherits(NavDemo, _Component);\n\n    function NavDemo() {\n        _classCallCheck(this, NavDemo);\n\n        return _possibleConstructorReturn(this, (NavDemo.__proto__ || Object.getPrototypeOf(NavDemo)).apply(this, arguments));\n    }\n\n    _createClass(NavDemo, [{\n        key: 'render',\n        value: function render() {\n            var demoString = '``` html' + '\\n<ul className=\"nav-normal\">\\n    <li>A</li>\\n    <li>B</li>\\n    <li>123</li>\\n    <li>adf</li>\\n    <li>Aadfs1233</li>\\n</ul>\\n\\n<nav className=\"nav bor b-side bg-b c-text-w fw\">\\n    <li className=\"nav-flag\">\\n        <a href=\"#\">asd</a>\\n        <svg className=\"icon icon-test\">\\n            <use xlinkHref=\"#icon-test\"></use>\\n        </svg>\\n        <ul className=\"paper menu bor b-side\">\\n            <li>\\n                <a href=\"#\">1</a>\\n            </li>\\n            <li>\\n                <a href=\"#\">2</a>\\n            </li>\\n            <li>\\n                <a href=\"#\">3</a>\\n            </li>\\n        </ul>\\n    </li>\\n    <li className=\"nav-flag\">\\n        <a href=\"#\">dddddd</a>\\n        <svg className=\"icon icon-test\">\\n            <use xlinkHref=\"#icon-test\"></use>\\n        </svg>\\n        <ul className=\"paper menu bor b-side\">\\n            <li className=\"menu-flag\">\\n                <a href=\"#\">zxcxzc</a>\\n                <ul className=\"paper menu bor b-side\">\\n                    <li className=\"menu-flag\">\\n                        <a href=\"#\">zxcxzc</a>\\n                        <ul className=\"paper menu bor b-side\">\\n                            <li>\\n                                <a href=\"#\">1</a>\\n                            </li>\\n                            <li>\\n                                <a href=\"#\">2</a>\\n                            </li>\\n                            <li>\\n                                <a href=\"#\">3</a>\\n                            </li>\\n                        </ul>\\n                    </li>\\n                    <li>\\n                        <a href=\"#\">qwf</a>\\n                    </li>\\n                    <li>\\n                        <a href=\"#\">cvvf</a>\\n                    </li>\\n                </ul>\\n            </li>\\n            <li>\\n                <a href=\"#\">qwf</a>\\n            </li>\\n            <li>\\n                <a href=\"#\">cvvf</a>\\n            </li>\\n        </ul>\\n    </li>\\n    <li>\\n        <a href=\"#\">zxcxzc</a>\\n    </li>\\n    <li>\\n        <a href=\"#\">qwf</a>\\n    </li>\\n    <li className=\"nav-flag\">\\n        <a href=\"#\">cvvf</a>\\n        <svg className=\"icon icon-test\">\\n            <use xlinkHref=\"#icon-test\"></use>\\n        </svg>\\n        <ul className=\"paper menu bor b-side\">\\n            <li>\\n                <a href=\"#\">1</a>\\n            </li>\\n            <li>\\n                <a href=\"#\">2</a>\\n            </li>\\n            <li>\\n                <a href=\"#\">3</a>\\n            </li>\\n        </ul>\\n    </li>\\n    <li className=\"nav-flag\">\\n        <a href=\"#\">\\u5173\\u4E8E</a>\\n        <svg className=\"icon icon-test\">\\n            <use xlinkHref=\"#icon-test\"></use>\\n        </svg>\\n        <ul className=\"paper menu bor b-side\">\\n            <li className=\"menu-flag\">\\n                <a href=\"#\">\\u8054\\u7CFB\\u65B9\\u5F0F</a>\\n                <ul className=\"paper menu bor b-side\">\\n                    <li className=\"menu-flag\">\\n                        <a href=\"#\">\\u554A\\u53D1\\u987A\\u4E30cxzc</a>\\n                        <ul className=\"paper menu bor b-side\">\\n                            <li>\\n                                <a href=\"#\">\\u53D1\\u6325</a>\\n                            </li>\\n                            <li>\\n                                <a href=\"#\">\\u5176\\u5473\\u65E0\\u7A77</a>\\n                            </li>\\n                            <li>\\n                                <a href=\"#\">\\u963F\\u65AF\\u987F\\u6CD5\\u56FD</a>\\n                            </li>\\n                        </ul>\\n                    </li>\\n                    <li>\\n                        <a href=\"#\">\\u81EA\\u884C\\u8F66</a>\\n                    </li>\\n                    <li>\\n                        <a href=\"#\">\\u521D\\u6B65</a>\\n                    </li>\\n                </ul>\\n            </li>\\n            <li>\\n                <a href=\"#\">qwf</a>\\n            </li>\\n            <li>\\n                <a href=\"#\">cvvf</a>\\n            </li>\\n        </ul>\\n    </li>\\n</nav>\\n' + '```';\n            return _react2.default.createElement(\n                'div',\n                null,\n                _react2.default.createElement(\n                    'div',\n                    { className: 'd-n' },\n                    _react2.default.createElement(\n                        'svg',\n                        null,\n                        _react2.default.createElement(\n                            'symbol',\n                            { id: 'icon-test', viewBox: '0 0 16 16' },\n                            _react2.default.createElement(\n                                'title',\n                                null,\n                                'test'\n                            ),\n                            _react2.default.createElement('path', {\n                                className: 'path1',\n                                d: 'M16 9.226l-8-6.21-8 6.21v-2.532l8-6.21 8 6.21zM14 9v6h-4v-4h-4v4h-4v-6l6-4.5z' })\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'mb32' },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'nav-normal' },\n                        _react2.default.createElement(\n                            'nav',\n                            { className: 'plr8 pb8' },\n                            '\\u5BFC\\u822A\\u680F1'\n                        ),\n                        _react2.default.createElement(\n                            'nav',\n                            { className: 'plr8 pb8' },\n                            '\\u5BFC\\u822A\\u680F2'\n                        ),\n                        _react2.default.createElement(\n                            'nav',\n                            { className: 'plr8 pb8' },\n                            '\\u5BFC\\u822A\\u680F3'\n                        ),\n                        _react2.default.createElement(\n                            'nav',\n                            { className: 'plr8 pb8' },\n                            '\\u5BFC\\u822A\\u680F4'\n                        ),\n                        _react2.default.createElement(\n                            'nav',\n                            { className: 'plr8 pb8' },\n                            '\\u5BFC\\u822A\\u680F5'\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'mb32' },\n                    _react2.default.createElement(\n                        'nav',\n                        { className: 'nav bor b-side bg-b c-text-w fw' },\n                        _react2.default.createElement(\n                            'li',\n                            { className: 'nav-flag' },\n                            _react2.default.createElement(\n                                'a',\n                                { href: '#' },\n                                '\\u5BFC\\u822A\\u680F1'\n                            ),\n                            _react2.default.createElement(\n                                'svg',\n                                { className: 'icon icon-test' },\n                                _react2.default.createElement('use', { xlinkHref: '#icon-test' })\n                            ),\n                            _react2.default.createElement(\n                                'ul',\n                                { className: 'paper menu bor b-side' },\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u5BFC\\u822A\\u680F12'\n                                    )\n                                ),\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u5BFC\\u822A\\u680F12'\n                                    )\n                                ),\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u5BFC\\u822A\\u680F13'\n                                    )\n                                )\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'li',\n                            { className: 'nav-flag' },\n                            _react2.default.createElement(\n                                'a',\n                                { href: '#' },\n                                '\\u5BFC\\u822A\\u680F2'\n                            ),\n                            _react2.default.createElement(\n                                'svg',\n                                { className: 'icon icon-test' },\n                                _react2.default.createElement('use', { xlinkHref: '#icon-test' })\n                            ),\n                            _react2.default.createElement(\n                                'ul',\n                                { className: 'paper menu bor b-side' },\n                                _react2.default.createElement(\n                                    'li',\n                                    { className: 'menu-flag' },\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u5BFC\\u822A\\u680F21'\n                                    ),\n                                    _react2.default.createElement(\n                                        'ul',\n                                        { className: 'paper menu bor b-side' },\n                                        _react2.default.createElement(\n                                            'li',\n                                            { className: 'menu-flag' },\n                                            _react2.default.createElement(\n                                                'a',\n                                                { href: '#' },\n                                                '\\u5BFC\\u822A\\u680F211'\n                                            ),\n                                            _react2.default.createElement(\n                                                'ul',\n                                                { className: 'paper menu bor b-side' },\n                                                _react2.default.createElement(\n                                                    'li',\n                                                    null,\n                                                    _react2.default.createElement(\n                                                        'a',\n                                                        { href: '#' },\n                                                        '\\u5BFC\\u822A\\u680F2111'\n                                                    )\n                                                ),\n                                                _react2.default.createElement(\n                                                    'li',\n                                                    null,\n                                                    _react2.default.createElement(\n                                                        'a',\n                                                        { href: '#' },\n                                                        '\\u5BFC\\u822A\\u680F2112'\n                                                    )\n                                                ),\n                                                _react2.default.createElement(\n                                                    'li',\n                                                    null,\n                                                    _react2.default.createElement(\n                                                        'a',\n                                                        { href: '#' },\n                                                        '\\u5BFC\\u822A\\u680F2113'\n                                                    )\n                                                )\n                                            )\n                                        ),\n                                        _react2.default.createElement(\n                                            'li',\n                                            null,\n                                            _react2.default.createElement(\n                                                'a',\n                                                { href: '#' },\n                                                '\\u5BFC\\u822A\\u680F212'\n                                            )\n                                        ),\n                                        _react2.default.createElement(\n                                            'li',\n                                            null,\n                                            _react2.default.createElement(\n                                                'a',\n                                                { href: '#' },\n                                                '\\u5BFC\\u822A\\u680F213'\n                                            )\n                                        )\n                                    )\n                                ),\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u5BFC\\u822A\\u680F22'\n                                    )\n                                ),\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u5BFC\\u822A\\u680F23'\n                                    )\n                                )\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'li',\n                            null,\n                            _react2.default.createElement(\n                                'a',\n                                { href: '#' },\n                                '\\u5BFC\\u822A\\u680F3'\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'li',\n                            null,\n                            _react2.default.createElement(\n                                'a',\n                                { href: '#' },\n                                '\\u5BFC\\u822A\\u680F4'\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'li',\n                            { className: 'nav-flag' },\n                            _react2.default.createElement(\n                                'a',\n                                { href: '#' },\n                                '\\u5BFC\\u822A\\u680F5'\n                            ),\n                            _react2.default.createElement(\n                                'svg',\n                                { className: 'icon icon-test' },\n                                _react2.default.createElement('use', { xlinkHref: '#icon-test' })\n                            ),\n                            _react2.default.createElement(\n                                'ul',\n                                { className: 'paper menu bor b-side' },\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '1'\n                                    )\n                                ),\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '2'\n                                    )\n                                ),\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '3'\n                                    )\n                                )\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'li',\n                            { className: 'nav-flag' },\n                            _react2.default.createElement(\n                                'a',\n                                { href: '#' },\n                                '\\u5BFC\\u822A\\u680F6'\n                            ),\n                            _react2.default.createElement(\n                                'svg',\n                                { className: 'icon icon-test' },\n                                _react2.default.createElement('use', { xlinkHref: '#icon-test' })\n                            ),\n                            _react2.default.createElement(\n                                'ul',\n                                { className: 'paper menu bor b-side' },\n                                _react2.default.createElement(\n                                    'li',\n                                    { className: 'menu-flag' },\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u5BFC\\u822A\\u680F61'\n                                    ),\n                                    _react2.default.createElement(\n                                        'ul',\n                                        { className: 'paper menu bor b-side' },\n                                        _react2.default.createElement(\n                                            'li',\n                                            { className: 'menu-flag' },\n                                            _react2.default.createElement(\n                                                'a',\n                                                { href: '#' },\n                                                '\\u5BFC\\u822A\\u680F611'\n                                            ),\n                                            _react2.default.createElement(\n                                                'ul',\n                                                { className: 'paper menu bor b-side' },\n                                                _react2.default.createElement(\n                                                    'li',\n                                                    null,\n                                                    _react2.default.createElement(\n                                                        'a',\n                                                        { href: '#' },\n                                                        '\\u5BFC\\u822A\\u680F6111'\n                                                    )\n                                                ),\n                                                _react2.default.createElement(\n                                                    'li',\n                                                    null,\n                                                    _react2.default.createElement(\n                                                        'a',\n                                                        { href: '#' },\n                                                        '\\u5BFC\\u822A\\u680F6112'\n                                                    )\n                                                ),\n                                                _react2.default.createElement(\n                                                    'li',\n                                                    null,\n                                                    _react2.default.createElement(\n                                                        'a',\n                                                        { href: '#' },\n                                                        '\\u5BFC\\u822A\\u680F6113'\n                                                    )\n                                                )\n                                            )\n                                        ),\n                                        _react2.default.createElement(\n                                            'li',\n                                            null,\n                                            _react2.default.createElement(\n                                                'a',\n                                                { href: '#' },\n                                                '\\u5BFC\\u822A\\u680F612'\n                                            )\n                                        ),\n                                        _react2.default.createElement(\n                                            'li',\n                                            null,\n                                            _react2.default.createElement(\n                                                'a',\n                                                { href: '#' },\n                                                '\\u5BFC\\u822A\\u680F613'\n                                            )\n                                        )\n                                    )\n                                ),\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u5BFC\\u822A\\u680F62'\n                                    )\n                                ),\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u5BFC\\u822A\\u680F63'\n                                    )\n                                )\n                            )\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'mb32' },\n                    _react2.default.createElement(\n                        'ul',\n                        { className: 'paper menu bor b-side m16' },\n                        _react2.default.createElement(\n                            'li',\n                            { className: 'menu-flag' },\n                            _react2.default.createElement(\n                                'a',\n                                { href: '#' },\n                                '\\u83DC\\u53551'\n                            ),\n                            _react2.default.createElement(\n                                'ul',\n                                { className: 'paper menu bor b-side' },\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u83DC\\u535511'\n                                    )\n                                ),\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u83DC\\u535512'\n                                    )\n                                ),\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u83DC\\u535513'\n                                    )\n                                )\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'li',\n                            { className: 'menu-flag' },\n                            _react2.default.createElement(\n                                'a',\n                                { href: '#' },\n                                '\\u83DC\\u53552'\n                            ),\n                            _react2.default.createElement(\n                                'ul',\n                                { className: 'paper menu bor b-side' },\n                                _react2.default.createElement(\n                                    'li',\n                                    { className: 'menu-flag' },\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u83DC\\u535521'\n                                    ),\n                                    _react2.default.createElement(\n                                        'ul',\n                                        { className: 'paper menu bor b-side' },\n                                        _react2.default.createElement(\n                                            'li',\n                                            { className: 'menu-flag' },\n                                            _react2.default.createElement(\n                                                'a',\n                                                { href: '#' },\n                                                '\\u83DC\\u5355211'\n                                            ),\n                                            _react2.default.createElement(\n                                                'ul',\n                                                { className: 'paper menu bor b-side' },\n                                                _react2.default.createElement(\n                                                    'li',\n                                                    null,\n                                                    _react2.default.createElement(\n                                                        'a',\n                                                        { href: '#' },\n                                                        '\\u83DC\\u53552111'\n                                                    )\n                                                ),\n                                                _react2.default.createElement(\n                                                    'li',\n                                                    null,\n                                                    _react2.default.createElement(\n                                                        'a',\n                                                        { href: '#' },\n                                                        '\\u83DC\\u53552112'\n                                                    )\n                                                ),\n                                                _react2.default.createElement(\n                                                    'li',\n                                                    null,\n                                                    _react2.default.createElement(\n                                                        'a',\n                                                        { href: '#' },\n                                                        '\\u83DC\\u53552113'\n                                                    )\n                                                )\n                                            )\n                                        ),\n                                        _react2.default.createElement(\n                                            'li',\n                                            null,\n                                            _react2.default.createElement(\n                                                'a',\n                                                { href: '#' },\n                                                '\\u83DC\\u5355212'\n                                            )\n                                        ),\n                                        _react2.default.createElement(\n                                            'li',\n                                            null,\n                                            _react2.default.createElement(\n                                                'a',\n                                                { href: '#' },\n                                                '\\u83DC\\u5355213'\n                                            )\n                                        )\n                                    )\n                                ),\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u83DC\\u535522'\n                                    )\n                                ),\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u83DC\\u535523'\n                                    )\n                                )\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'li',\n                            null,\n                            _react2.default.createElement(\n                                'a',\n                                { href: '#' },\n                                '\\u83DC\\u53553'\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'li',\n                            null,\n                            _react2.default.createElement(\n                                'a',\n                                { href: '#' },\n                                '\\u83DC\\u53554'\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'li',\n                            { className: 'menu-flag' },\n                            _react2.default.createElement(\n                                'a',\n                                { href: '#' },\n                                '\\u83DC\\u53555'\n                            ),\n                            _react2.default.createElement(\n                                'ul',\n                                { className: 'paper menu bor b-side' },\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u83DC\\u535551'\n                                    )\n                                ),\n                                _react2.default.createElement(\n                                    'li',\n                                    null,\n                                    _react2.default.createElement(\n                                        'a',\n                                        { href: '#' },\n                                        '\\u83DC\\u535552'\n                                    )\n                                )\n                            )\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    _tab2.default.Group,\n                    { layout: 'tb' },\n                    _react2.default.createElement(\n                        _tab2.default,\n                        { label: 'hello', defaultChecked: true },\n                        '123'\n                    ),\n                    _react2.default.createElement(\n                        _tab2.default,\n                        { label: '123' },\n                        'qwer'\n                    ),\n                    _react2.default.createElement(\n                        _tab2.default,\n                        { label: 'qwe' },\n                        '12asdf3'\n                    )\n                ),\n                _react2.default.createElement(\n                    _details2.default,\n                    { summary: 'test' },\n                    'aafd123'\n                ),\n                _react2.default.createElement(\n                    'details',\n                    { className: 'pb16 mb16 bor-b b-side-s', open: true },\n                    _react2.default.createElement(\n                        'summary',\n                        { className: 'btn-n pl8 pr64 ptb8' },\n                        '\\u663E\\u793ADemo\\u4EE3\\u7801'\n                    ),\n                    _react2.default.createElement(\n                        _reactHighlight2.default,\n                        { innerHTML: true },\n                        _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoString }))\n                    )\n                )\n            );\n        }\n    }]);\n\n    return NavDemo;\n}(_react.Component);\n\nexports.default = NavDemo;\n\n//# sourceURL=webpack:///./src/navDemo.jsx?");
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react__;\n\n//# sourceURL=webpack:///external_%22react%22?");
+
+/***/ }),
+
+/***/ "react-dom/server":
+/*!***********************************!*\
+  !*** external "react-dom/server" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom_server__;\n\n//# sourceURL=webpack:///external_%22react-dom/server%22?");
+
+/***/ }),
+
+/***/ "react-highlight":
+/*!**********************************!*\
+  !*** external "react-highlight" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_highlight__;\n\n//# sourceURL=webpack:///external_%22react-highlight%22?");
+
+/***/ }),
+
+/***/ "react-markdown":
+/*!*********************************!*\
+  !*** external "react-markdown" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_markdown__;\n\n//# sourceURL=webpack:///external_%22react-markdown%22?");
+
+/***/ })
+
+/******/ });
 });
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _server = require('react-dom/server');
-
-var _server2 = _interopRequireDefault(_server);
-
-var _reactMarkdown = require('react-markdown');
-
-var _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);
-
-var _reactHighlight = require('react-highlight');
-
-var _reactHighlight2 = _interopRequireDefault(_reactHighlight);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var NavDemo = function (_Component) {
-    _inherits(NavDemo, _Component);
-
-    function NavDemo() {
-        _classCallCheck(this, NavDemo);
-
-        return _possibleConstructorReturn(this, (NavDemo.__proto__ || Object.getPrototypeOf(NavDemo)).apply(this, arguments));
-    }
-
-    _createClass(NavDemo, [{
-        key: 'render',
-        value: function render() {
-            var demoString = '``` html' + '\n<ul className="nav-normal">\n    <li>A</li>\n    <li>B</li>\n    <li>123</li>\n    <li>adf</li>\n    <li>Aadfs1233</li>\n</ul>\n\n<nav className="nav bor b-side bg-b c-text-w fw">\n    <li className="nav-flag">\n        <a href="#">asd</a>\n        <svg className="icon icon-test">\n            <use xlinkHref="#icon-test"></use>\n        </svg>\n        <ul className="paper menu bor b-side">\n            <li>\n                <a href="#">1</a>\n            </li>\n            <li>\n                <a href="#">2</a>\n            </li>\n            <li>\n                <a href="#">3</a>\n            </li>\n        </ul>\n    </li>\n    <li className="nav-flag">\n        <a href="#">dddddd</a>\n        <svg className="icon icon-test">\n            <use xlinkHref="#icon-test"></use>\n        </svg>\n        <ul className="paper menu bor b-side">\n            <li className="menu-flag">\n                <a href="#">zxcxzc</a>\n                <ul className="paper menu bor b-side">\n                    <li className="menu-flag">\n                        <a href="#">zxcxzc</a>\n                        <ul className="paper menu bor b-side">\n                            <li>\n                                <a href="#">1</a>\n                            </li>\n                            <li>\n                                <a href="#">2</a>\n                            </li>\n                            <li>\n                                <a href="#">3</a>\n                            </li>\n                        </ul>\n                    </li>\n                    <li>\n                        <a href="#">qwf</a>\n                    </li>\n                    <li>\n                        <a href="#">cvvf</a>\n                    </li>\n                </ul>\n            </li>\n            <li>\n                <a href="#">qwf</a>\n            </li>\n            <li>\n                <a href="#">cvvf</a>\n            </li>\n        </ul>\n    </li>\n    <li>\n        <a href="#">zxcxzc</a>\n    </li>\n    <li>\n        <a href="#">qwf</a>\n    </li>\n    <li className="nav-flag">\n        <a href="#">cvvf</a>\n        <svg className="icon icon-test">\n            <use xlinkHref="#icon-test"></use>\n        </svg>\n        <ul className="paper menu bor b-side">\n            <li>\n                <a href="#">1</a>\n            </li>\n            <li>\n                <a href="#">2</a>\n            </li>\n            <li>\n                <a href="#">3</a>\n            </li>\n        </ul>\n    </li>\n    <li className="nav-flag">\n        <a href="#">\u5173\u4E8E</a>\n        <svg className="icon icon-test">\n            <use xlinkHref="#icon-test"></use>\n        </svg>\n        <ul className="paper menu bor b-side">\n            <li className="menu-flag">\n                <a href="#">\u8054\u7CFB\u65B9\u5F0F</a>\n                <ul className="paper menu bor b-side">\n                    <li className="menu-flag">\n                        <a href="#">\u554A\u53D1\u987A\u4E30cxzc</a>\n                        <ul className="paper menu bor b-side">\n                            <li>\n                                <a href="#">\u53D1\u6325</a>\n                            </li>\n                            <li>\n                                <a href="#">\u5176\u5473\u65E0\u7A77</a>\n                            </li>\n                            <li>\n                                <a href="#">\u963F\u65AF\u987F\u6CD5\u56FD</a>\n                            </li>\n                        </ul>\n                    </li>\n                    <li>\n                        <a href="#">\u81EA\u884C\u8F66</a>\n                    </li>\n                    <li>\n                        <a href="#">\u521D\u6B65</a>\n                    </li>\n                </ul>\n            </li>\n            <li>\n                <a href="#">qwf</a>\n            </li>\n            <li>\n                <a href="#">cvvf</a>\n            </li>\n        </ul>\n    </li>\n</nav>\n' + '```';
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                    'div',
-                    { className: 'd-n' },
-                    _react2.default.createElement(
-                        'svg',
-                        null,
-                        _react2.default.createElement(
-                            'symbol',
-                            { id: 'icon-test', viewBox: '0 0 16 16' },
-                            _react2.default.createElement(
-                                'title',
-                                null,
-                                'test'
-                            ),
-                            _react2.default.createElement('path', {
-                                className: 'path1',
-                                d: 'M16 9.226l-8-6.21-8 6.21v-2.532l8-6.21 8 6.21zM14 9v6h-4v-4h-4v4h-4v-6l6-4.5z' })
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mb32' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'nav-normal' },
-                        _react2.default.createElement(
-                            'nav',
-                            { className: 'plr8 pb8' },
-                            '\u963F\u5C14\u6CD5'
-                        ),
-                        _react2.default.createElement(
-                            'nav',
-                            { className: 'plr8 pb8' },
-                            '\u8D1D\u5854'
-                        ),
-                        _react2.default.createElement(
-                            'nav',
-                            { className: 'plr8 pb8' },
-                            '\u4F3D\u739B'
-                        ),
-                        _react2.default.createElement(
-                            'nav',
-                            { className: 'plr8 pb8' },
-                            '\u6B27\u7C73\u4F3D'
-                        ),
-                        _react2.default.createElement(
-                            'nav',
-                            { className: 'plr8 pb8' },
-                            '\u897F\u683C\u739B'
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mb32' },
-                    _react2.default.createElement(
-                        'nav',
-                        { className: 'nav bor b-side bg-b c-text-w fw' },
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'nav-flag' },
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                '\u963F\u5C14\u6CD5'
-                            ),
-                            _react2.default.createElement(
-                                'svg',
-                                { className: 'icon icon-test' },
-                                _react2.default.createElement('use', { xlinkHref: '#icon-test' })
-                            ),
-                            _react2.default.createElement(
-                                'ul',
-                                { className: 'paper menu bor b-side' },
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '1'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '2'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '3'
-                                    )
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'nav-flag' },
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                '\u8D1D\u5854'
-                            ),
-                            _react2.default.createElement(
-                                'svg',
-                                { className: 'icon icon-test' },
-                                _react2.default.createElement('use', { xlinkHref: '#icon-test' })
-                            ),
-                            _react2.default.createElement(
-                                'ul',
-                                { className: 'paper menu bor b-side' },
-                                _react2.default.createElement(
-                                    'li',
-                                    { className: 'menu-flag' },
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'zxcxzc'
-                                    ),
-                                    _react2.default.createElement(
-                                        'ul',
-                                        { className: 'paper menu bor b-side' },
-                                        _react2.default.createElement(
-                                            'li',
-                                            { className: 'menu-flag' },
-                                            _react2.default.createElement(
-                                                'a',
-                                                { href: '#' },
-                                                'zxcxzc'
-                                            ),
-                                            _react2.default.createElement(
-                                                'ul',
-                                                { className: 'paper menu bor b-side' },
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    _react2.default.createElement(
-                                                        'a',
-                                                        { href: '#' },
-                                                        '1'
-                                                    )
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    _react2.default.createElement(
-                                                        'a',
-                                                        { href: '#' },
-                                                        '2'
-                                                    )
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    _react2.default.createElement(
-                                                        'a',
-                                                        { href: '#' },
-                                                        '3'
-                                                    )
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'li',
-                                            null,
-                                            _react2.default.createElement(
-                                                'a',
-                                                { href: '#' },
-                                                'qwf'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'li',
-                                            null,
-                                            _react2.default.createElement(
-                                                'a',
-                                                { href: '#' },
-                                                'cvvf'
-                                            )
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'qwf'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'cvvf'
-                                    )
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                '\u6B27\u7C73\u4F3D'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                '\u897F\u683C\u739B'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'nav-flag' },
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                'BR&F'
-                            ),
-                            _react2.default.createElement(
-                                'svg',
-                                { className: 'icon icon-test' },
-                                _react2.default.createElement('use', { xlinkHref: '#icon-test' })
-                            ),
-                            _react2.default.createElement(
-                                'ul',
-                                { className: 'paper menu bor b-side' },
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '1'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '2'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '3'
-                                    )
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'nav-flag' },
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                '\u5173\u4E8E'
-                            ),
-                            _react2.default.createElement(
-                                'svg',
-                                { className: 'icon icon-test' },
-                                _react2.default.createElement('use', { xlinkHref: '#icon-test' })
-                            ),
-                            _react2.default.createElement(
-                                'ul',
-                                { className: 'paper menu bor b-side' },
-                                _react2.default.createElement(
-                                    'li',
-                                    { className: 'menu-flag' },
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '\u8054\u7CFB\u65B9\u5F0F'
-                                    ),
-                                    _react2.default.createElement(
-                                        'ul',
-                                        { className: 'paper menu bor b-side' },
-                                        _react2.default.createElement(
-                                            'li',
-                                            { className: 'menu-flag' },
-                                            _react2.default.createElement(
-                                                'a',
-                                                { href: '#' },
-                                                '\u554A\u53D1\u987A\u4E30cxzc'
-                                            ),
-                                            _react2.default.createElement(
-                                                'ul',
-                                                { className: 'paper menu bor b-side' },
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    _react2.default.createElement(
-                                                        'a',
-                                                        { href: '#' },
-                                                        '\u53D1\u6325'
-                                                    )
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    _react2.default.createElement(
-                                                        'a',
-                                                        { href: '#' },
-                                                        '\u5176\u5473\u65E0\u7A77'
-                                                    )
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    _react2.default.createElement(
-                                                        'a',
-                                                        { href: '#' },
-                                                        '\u963F\u65AF\u987F\u6CD5\u56FD'
-                                                    )
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'li',
-                                            null,
-                                            _react2.default.createElement(
-                                                'a',
-                                                { href: '#' },
-                                                '\u81EA\u884C\u8F66'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'li',
-                                            null,
-                                            _react2.default.createElement(
-                                                'a',
-                                                { href: '#' },
-                                                '\u521D\u6B65'
-                                            )
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'qwf'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'cvvf'
-                                    )
-                                )
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mb32' },
-                    _react2.default.createElement(
-                        'ul',
-                        { className: 'paper menu bor b-side m16' },
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'menu-flag' },
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                '\u963F\u5C14\u6CD5'
-                            ),
-                            _react2.default.createElement(
-                                'ul',
-                                { className: 'paper menu bor b-side' },
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '\u8FDE\u6D77\u5E73'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '\u5171\u6F6E\u751F'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '\u5343\u4E07\u91CC'
-                                    )
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'menu-flag' },
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                '\u8D1D\u5854'
-                            ),
-                            _react2.default.createElement(
-                                'ul',
-                                { className: 'paper menu bor b-side' },
-                                _react2.default.createElement(
-                                    'li',
-                                    { className: 'menu-flag' },
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '\u65E0\u6708\u660E'
-                                    ),
-                                    _react2.default.createElement(
-                                        'ul',
-                                        { className: 'paper menu bor b-side' },
-                                        _react2.default.createElement(
-                                            'li',
-                                            { className: 'menu-flag' },
-                                            _react2.default.createElement(
-                                                'a',
-                                                { href: '#' },
-                                                '\u7ED5\u82B3\u7538'
-                                            ),
-                                            _react2.default.createElement(
-                                                'ul',
-                                                { className: 'paper menu bor b-side' },
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    _react2.default.createElement(
-                                                        'a',
-                                                        { href: '#' },
-                                                        '\u7686\u4F3C\u9730'
-                                                    )
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    _react2.default.createElement(
-                                                        'a',
-                                                        { href: '#' },
-                                                        '\u4E0D\u89C9\u98DE'
-                                                    )
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    _react2.default.createElement(
-                                                        'a',
-                                                        { href: '#' },
-                                                        '\u770B\u4E0D\u89C1'
-                                                    )
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'li',
-                                            null,
-                                            _react2.default.createElement(
-                                                'a',
-                                                { href: '#' },
-                                                '\u65E0\u7EA4\u5C18'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'li',
-                                            null,
-                                            _react2.default.createElement(
-                                                'a',
-                                                { href: '#' },
-                                                '\u5B64\u6708\u8F6E'
-                                            )
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '\u521D\u89C1\u6708'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '\u521D\u7167\u4EBA'
-                                    )
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                '\u4F3D\u9A6C'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                '\u6B27\u7C73\u4F3D'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'menu-flag' },
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                '\u897F\u683C\u739B'
-                            ),
-                            _react2.default.createElement(
-                                'ul',
-                                { className: 'paper menu bor b-side' },
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '\u65E0\u7A77\u5DF2'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        '\u671B\u76F8\u4F3C'
-                                    )
-                                )
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'details',
-                    { className: 'pb16 mb16 bor-b b-side-s' },
-                    _react2.default.createElement(
-                        'summary',
-                        { className: 'btn-n pl8 pr64 ptb8' },
-                        '\u663E\u793ADemo\u4EE3\u7801'
-                    ),
-                    _react2.default.createElement(
-                        _reactHighlight2.default,
-                        { innerHTML: true },
-                        _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoString }))
-                    )
-                )
-            );
-        }
-    }]);
-
-    return NavDemo;
-}(_react.Component);
-
-exports.default = NavDemo;

@@ -1,207 +1,189 @@
-'use strict';
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("./component/paging"), require("./component/table"), require("./doc/table.md"), require("react"), require("react-dom/server"), require("react-highlight"), require("react-markdown"));
+	else if(typeof define === 'function' && define.amd)
+		define(["./component/paging", "./component/table", "./doc/table.md", "react", "react-dom/server", "react-highlight", "react-markdown"], factory);
+	else {
+		var a = typeof exports === 'object' ? factory(require("./component/paging"), require("./component/table"), require("./doc/table.md"), require("react"), require("react-dom/server"), require("react-highlight"), require("react-markdown")) : factory(root["./component/paging"], root["./component/table"], root["./doc/table.md"], root["react"], root["react-dom/server"], root["react-highlight"], root["react-markdown"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(window, function(__WEBPACK_EXTERNAL_MODULE__component_paging__, __WEBPACK_EXTERNAL_MODULE__component_table__, __WEBPACK_EXTERNAL_MODULE__doc_table_md__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom_server__, __WEBPACK_EXTERNAL_MODULE_react_highlight__, __WEBPACK_EXTERNAL_MODULE_react_markdown__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/tableDemo.jsx");
+/******/ })
+/************************************************************************/
+/******/ ({
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
+/***/ "./component/paging":
+/*!*************************************!*\
+  !*** external "./component/paging" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__component_paging__;\n\n//# sourceURL=webpack:///external_%22./component/paging%22?");
+
+/***/ }),
+
+/***/ "./component/table":
+/*!************************************!*\
+  !*** external "./component/table" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__component_table__;\n\n//# sourceURL=webpack:///external_%22./component/table%22?");
+
+/***/ }),
+
+/***/ "./doc/table.md":
+/*!*********************************!*\
+  !*** external "./doc/table.md" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__doc_table_md__;\n\n//# sourceURL=webpack:///external_%22./doc/table.md%22?");
+
+/***/ }),
+
+/***/ "./src/tableDemo.jsx":
+/*!***************************!*\
+  !*** ./src/tableDemo.jsx ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.TableDemo = undefined;\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n\nvar _server2 = _interopRequireDefault(_server);\n\nvar _reactMarkdown = __webpack_require__(/*! react-markdown */ \"react-markdown\");\n\nvar _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);\n\nvar _reactHighlight = __webpack_require__(/*! react-highlight */ \"react-highlight\");\n\nvar _reactHighlight2 = _interopRequireDefault(_reactHighlight);\n\nvar _table = __webpack_require__(/*! ./component/table */ \"./component/table\");\n\nvar _table2 = _interopRequireDefault(_table);\n\nvar _paging = __webpack_require__(/*! ./component/paging */ \"./component/paging\");\n\nvar _paging2 = _interopRequireDefault(_paging);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar tableMd = __webpack_require__(/*! ./doc/table.md */ \"./doc/table.md\");\n\nvar TableDemo = exports.TableDemo = function (_Component) {\n    _inherits(TableDemo, _Component);\n\n    function TableDemo() {\n        _classCallCheck(this, TableDemo);\n\n        var _this = _possibleConstructorReturn(this, (TableDemo.__proto__ || Object.getPrototypeOf(TableDemo)).call(this));\n\n        _this.handleChangePage = function (currentPage) {\n            console.log(currentPage);\n            _this.setState({\n                pageInfo: {\n                    currentPage: currentPage,\n                    total: 84,\n                    maxToShow: 10\n                }\n            });\n        };\n\n        _this.state = {\n            pageInfo: {\n                currentPage: 1,\n                total: 84,\n                maxToShow: 10\n            }\n        };\n        setTimeout(function () {\n            _this.setState({\n                pageInfo: {\n                    currentPage: 1,\n                    total: 84,\n                    maxToShow: 10\n                }\n            });\n        }, 1000);\n        return _this;\n    }\n\n    _createClass(TableDemo, [{\n        key: 'render',\n        value: function render() {\n            var dataconf = [{\n                title: '',\n                width: '10%',\n                checkbox: true,\n                handle: function handle(list) {\n                    console.log(list);\n                }\n            }, {\n                title: 'progress',\n                name: 'progress',\n                width: '25%',\n                progress: function progress(data) {\n                    return data['progress'];\n                },\n                pipe: function pipe(data) {\n                    return data['progress'] + '%';\n                }\n            }, {\n                title: 'ID',\n                name: 'id',\n                width: '10%'\n            }, {\n                title: '姓名',\n                name: 'name',\n                width: '10%'\n            }, {\n                title: '身高',\n                name: 'height',\n                width: '10%'\n            }, {\n                width: '10%',\n                name: '提示',\n                popup: function popup(data) {\n                    return _react2.default.createElement(\n                        'div',\n                        null,\n                        _react2.default.createElement(\n                            'pre',\n                            { className: 'c-text-w fs18' },\n                            'Title'\n                        ),\n                        _react2.default.createElement(\n                            'pre',\n                            { className: 'c-text-w' },\n                            'SluckyUI\\u7684\\u8DE8\\u5E73\\u53F0\\u6027\\u8D28\\u53EF\\u5FEB\\u901F\\u52A0\\u5DE5\\u6210react\\uFF0Cvue\\uFF0Cangular\\u7684\\u7EC4\\u4EF6'\n                        ),\n                        _react2.default.createElement(\n                            'pre',\n                            { className: 'c-text-w' },\n                            'SluckyUI\\u7684\\u8DE8\\u5E73\\u53F0\\u6027\\u8D28\\u53EF\\u5FEB\\u901F\\u52A0\\u5DE5\\u6210react\\uFF0Cvue\\uFF0Cangular\\u7684\\u7EC4\\u4EF6'\n                        ),\n                        _react2.default.createElement(\n                            'pre',\n                            { className: 'c-text-w' },\n                            'SluckyUI\\u7684\\u8DE8\\u5E73\\u53F0\\u6027\\u8D28\\u53EF\\u5FEB\\u901F\\u52A0\\u5DE5\\u6210react\\uFF0Cvue\\uFF0Cangular\\u7684\\u7EC4\\u4EF6'\n                        )\n                    );\n                }\n            }, {\n                title: '',\n                width: '25%',\n                name: 'action2',\n                type: 'action',\n                handles: [{\n                    name: '配置',\n                    btnType: 'text',\n                    handle: function handle(data) {\n                        alert('配置');\n                        console.log(data);\n                    }\n                }, {\n                    name: '删除',\n                    btnType: 'text',\n                    handle: function handle(data) {\n                        alert('备注');\n                        console.log(data);\n                    }\n                }]\n            }];\n            var dataset = [{\n                id: 1,\n                name: 'Apple',\n                height: 178,\n                progress: 30\n            }, {\n                id: 2,\n                name: 'Boy',\n                height: 177,\n                progress: 60\n            }, {\n                id: 3,\n                name: 'Cat',\n                height: 176,\n                progress: 90\n            }];\n\n            return _react2.default.createElement(\n                'div',\n                null,\n                _react2.default.createElement(\n                    'div',\n                    { className: 'ptb32' },\n                    _react2.default.createElement(_table2.default, { textAlign: '', dataconf: dataconf, dataset: dataset, loading: false, loadingOption: _react2.default.createElement(\n                            'div',\n                            { 'data-loader': 'bounce' },\n                            _react2.default.createElement('div', { 'class': 'bounce1' }),\n                            _react2.default.createElement('div', { 'class': 'bounce2' }),\n                            _react2.default.createElement('div', { 'class': 'bounce3' }),\n                            _react2.default.createElement('div', { 'class': 'bounce4' })\n                        ) }),\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'p16' },\n                        _react2.default.createElement(_paging2.default, { style: 'paging-aurora', pageInfo: this.state.pageInfo, onAction: this.handleChangePage }),\n                        console.log(this.state.pageInfo)\n                    )\n                ),\n                _react2.default.createElement(\n                    'details',\n                    { className: 'pb16 mb16 bor-b b-side-s', open: true },\n                    _react2.default.createElement(\n                        'summary',\n                        { className: 'btn-n pl8 pr64 ptb8' },\n                        '\\u663E\\u793A\\u4F7F\\u7528\\u4F8B\\u5B50'\n                    ),\n                    _react2.default.createElement(\n                        _reactHighlight2.default,\n                        { innerHTML: true },\n                        tableMd\n                    )\n                )\n            );\n        }\n    }]);\n\n    return TableDemo;\n}(_react.Component);\n\n//# sourceURL=webpack:///./src/tableDemo.jsx?");
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react__;\n\n//# sourceURL=webpack:///external_%22react%22?");
+
+/***/ }),
+
+/***/ "react-dom/server":
+/*!***********************************!*\
+  !*** external "react-dom/server" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom_server__;\n\n//# sourceURL=webpack:///external_%22react-dom/server%22?");
+
+/***/ }),
+
+/***/ "react-highlight":
+/*!**********************************!*\
+  !*** external "react-highlight" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_highlight__;\n\n//# sourceURL=webpack:///external_%22react-highlight%22?");
+
+/***/ }),
+
+/***/ "react-markdown":
+/*!*********************************!*\
+  !*** external "react-markdown" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_markdown__;\n\n//# sourceURL=webpack:///external_%22react-markdown%22?");
+
+/***/ })
+
+/******/ });
 });
-exports.TableDemo = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _server = require('react-dom/server');
-
-var _server2 = _interopRequireDefault(_server);
-
-var _reactMarkdown = require('react-markdown');
-
-var _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);
-
-var _reactHighlight = require('react-highlight');
-
-var _reactHighlight2 = _interopRequireDefault(_reactHighlight);
-
-var _index = require('./index');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var TableDemo = exports.TableDemo = function (_Component) {
-    _inherits(TableDemo, _Component);
-
-    function TableDemo() {
-        _classCallCheck(this, TableDemo);
-
-        var _this = _possibleConstructorReturn(this, (TableDemo.__proto__ || Object.getPrototypeOf(TableDemo)).call(this));
-
-        _this.handleChangePage = function (currentPage) {
-            console.log(currentPage);
-        };
-
-        _this.state = {
-            pageInfo: {
-                currentPage: 1,
-                total: 120,
-                maxToShow: 20
-            }
-        };
-        setTimeout(function () {
-            _this.setState({
-                pageInfo: {
-                    currentPage: 1,
-                    total: 150,
-                    maxToShow: 20
-                }
-            });
-        }, 1000);
-        return _this;
-    }
-
-    _createClass(TableDemo, [{
-        key: 'render',
-        value: function render() {
-            var demoString = '``` jsx' + '\nimport React, { Component } from \'react\'\nimport { Table, Paging } from \'slucky\'\n\nclass TableDemo extends Component {\n    handleChangePage = (currentPage) => {\n        console.log(currentPage);\n    }\n    render(){\n        const dataconf = [\n            {\n                title: \'\',\n                width: \'10%\',\n                checkbox: true,\n                handle: (list) => {\n                    console.log(list)\n                }\n            },\n            {\n                title: \'progress\',\n                name: \'progress\',\n                width: \'25%\',\n                progress: (data) => {\n                    return data[\'progress\']\n                },\n                pipe: (data) => {\n                    return {data[\'progress\']}\n                }\n            },\n            {\n                title: \'ID\',\n                name: \'id\',\n                width: \'10%\'\n            }, {\n                title: \'\u59D3\u540D\',\n                name: \'name\',\n                width: \'10%\'\n            }, {\n                title: \'\u8EAB\u9AD8\',\n                name: \'height\',\n                width: \'10%\'\n            },\n            {\n                width: \'10%\',\n                name: \'\u63D0\u793A\',\n                popup: (data) => {\n                    return (\n                        <div>\n                            <pre className="c-text-w fs18">Title</pre>\n                            <pre className="c-text-w">SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6</pre>\n                            <pre className="c-text-w">SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6</pre>\n                            <pre className="c-text-w">SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6</pre>\n                        </div>\n                    )\n                }\n            },\n            {\n                title: \'\',\n                width: \'25%\',\n                name: \'action2\',\n                type: \'action\',\n                handles: [\n                    {\n                        name: \'\u914D\u7F6E\',\n                        btnType: \'text\',\n                        handle: (data) => {\n                            alert(\'\u914D\u7F6E\')\n                            console.log(data);\n                        }\n                    },\n                    {\n                        name: \'\u5220\u9664\',\n                        btnType: \'text\',\n                        handle: (data) => {\n                            alert(\'\u5907\u6CE8\')\n                            console.log(data);\n                        }\n                    }]\n            }\n        ]\n        const dataset = [{\n            id: 1,\n            name: \'Apple\',\n            height: 178,\n            progress: 30\n        }, {\n            id: 2,\n            name: \'Boy\',\n            height: 177,\n            progress: 60\n        }, {\n            id: 3,\n            name: \'Cat\',\n            height: 176,\n            progress: 90\n        }]\n        \n        const pageInfo = {\n            total: 119,\n            maxToShow: 20\n        }\n        return(\n            <Table dataconf={dataconf} dataset={dataset} />\n            <Paging pageInfo={pageInfo} onAction={this.handleChangePage} />\n        )\n    }\n}\n';
-            var dataconf = [{
-                title: '',
-                width: '10%',
-                checkbox: true,
-                handle: function handle(list) {
-                    console.log(list);
-                }
-            }, {
-                title: 'progress',
-                name: 'progress',
-                width: '25%',
-                progress: function progress(data) {
-                    return data['progress'];
-                },
-                pipe: function pipe(data) {
-                    return data['progress'] + '%';
-                }
-            }, {
-                title: 'ID',
-                name: 'id',
-                width: '10%'
-            }, {
-                title: '姓名',
-                name: 'name',
-                width: '10%'
-            }, {
-                title: '身高',
-                name: 'height',
-                width: '10%'
-            }, {
-                width: '10%',
-                name: '提示',
-                popup: function popup(data) {
-                    return _react2.default.createElement(
-                        'div',
-                        null,
-                        _react2.default.createElement(
-                            'pre',
-                            { className: 'c-text-w fs18' },
-                            'Title'
-                        ),
-                        _react2.default.createElement(
-                            'pre',
-                            { className: 'c-text-w' },
-                            'SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6'
-                        ),
-                        _react2.default.createElement(
-                            'pre',
-                            { className: 'c-text-w' },
-                            'SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6'
-                        ),
-                        _react2.default.createElement(
-                            'pre',
-                            { className: 'c-text-w' },
-                            'SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6'
-                        )
-                    );
-                }
-            }, {
-                title: '',
-                width: '25%',
-                name: 'action2',
-                type: 'action',
-                handles: [{
-                    name: '配置',
-                    btnType: 'text',
-                    handle: function handle(data) {
-                        alert('配置');
-                        console.log(data);
-                    }
-                }, {
-                    name: '删除',
-                    btnType: 'text',
-                    handle: function handle(data) {
-                        alert('备注');
-                        console.log(data);
-                    }
-                }]
-            }];
-            var dataset = [{
-                id: 1,
-                name: 'Apple',
-                height: 178,
-                progress: 30
-            }, {
-                id: 2,
-                name: 'Boy',
-                height: 177,
-                progress: 60
-            }, {
-                id: 3,
-                name: 'Cat',
-                height: 176,
-                progress: 90
-            }];
-
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                    'div',
-                    { className: 'ptb32' },
-                    _react2.default.createElement(_index.Table, { dataconf: dataconf, dataset: dataset, loading: false, loadingOption: _react2.default.createElement(
-                            'div',
-                            { 'data-loader': 'bounce' },
-                            _react2.default.createElement('div', { 'class': 'bounce1' }),
-                            _react2.default.createElement('div', { 'class': 'bounce2' }),
-                            _react2.default.createElement('div', { 'class': 'bounce3' }),
-                            _react2.default.createElement('div', { 'class': 'bounce4' })
-                        ) }),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'p16' },
-                        _react2.default.createElement(_index.Paging, { pageInfo: this.state.pageInfo, onAction: this.handleChangePage }),
-                        console.log(this.state.pageInfo)
-                    )
-                ),
-                _react2.default.createElement(
-                    'details',
-                    { className: 'pb16 mb16 bor-b b-side-s' },
-                    _react2.default.createElement(
-                        'summary',
-                        { className: 'btn-n pl8 pr64 ptb8' },
-                        '\u663E\u793A\u4F7F\u7528\u4F8B\u5B50'
-                    ),
-                    _react2.default.createElement(
-                        _reactHighlight2.default,
-                        { innerHTML: true },
-                        _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoString }))
-                    )
-                )
-            );
-        }
-    }]);
-
-    return TableDemo;
-}(_react.Component);

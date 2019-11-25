@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import ReactMarkdown from 'react-markdown';
 import Highlight from 'react-highlight';
-import { Dialog, Toast } from './index';
+import Toast from './component/toast';
+import Dialog from './component/dialog';
 
 export class PopupDemo extends Component {
     constructor() {

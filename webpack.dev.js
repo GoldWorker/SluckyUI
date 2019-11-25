@@ -18,6 +18,13 @@ const ENV_CONF = require('./environment/dev.env.ts');
 //构建前删除dist目录 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+    //出口配置
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].[hash].js'
+        // publicPath: '/public'
+    },
     watch: true,
     watchOptions: {
         ignored: /node_modules/, //忽略不用监听变更的目录
@@ -64,26 +71,24 @@ module.exports = {
                     options: {
                         symbolId: 'icon-[name]'
                     }
+                },
+                'svg-fill-loader', {
+                    loader: 'svgo-loader',
+                    options: {
+                        plugins: [{
+                            removeTitle: true
+                        }, {
+                            convertColors: {
+                                shorthex: false
+                            }
+                        }, {
+                            convertPathData: false
+                        }]
+                    }
                 }
-                // 'svg-fill-loader', {
-                //     loader: 'svgo-loader',
-                //     options: {
-                //         plugins: [
-                //             {
-                //                 removeTitle: true
-                //             }, {
-                //                 convertColors: {
-                //                     shorthex: false
-                //                 }
-                //             }, {
-                //                 convertPathData: false
-                //             }
-                //         ]
-                //     }
-                // }
             ]
         }, {
-            test: /\.(jpg|png|gif|svg|jpeg)$/,
+            test: /\.(jpg|png|gif|jpeg|svg)$/,
             use: [{
                 loader: 'url-loader'
             }],

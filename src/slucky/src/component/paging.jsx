@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Paging extends Component {
+export default class Paging extends Component {
     constructor(props) {
         super(props);
         this.start = 1;

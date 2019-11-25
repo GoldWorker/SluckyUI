@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-export class Dialog extends Component {
+export default class Dialog extends Component {
     constructor() {
         super(...arguments);
         this.id = Math.random().toString(36).substring(2);

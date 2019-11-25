@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // require("babel-polyfill");
-export class Steps extends Component {
+export default class Steps extends Component {
     constructor(props) {
         super(props);
         this.state = {

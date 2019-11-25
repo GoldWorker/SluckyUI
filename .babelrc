@@ -10,10 +10,17 @@
             }
         }],
         "react",
-        "es2015",
+        // "es2015",
         "stage-0"
     ],
     "plugins": [
+        // ["import", {
+        //     "libraryName": "slucky",
+        //     "libraryDirectory": "component",
+        // }, {
+        //     "libraryName": "antd",
+        //     "libraryDirectory": "es"
+        // }],
         "react-hot-loader/babel",
         "syntax-dynamic-import",
         [
@@ -24,6 +31,6 @@
                 "regenerator": true,
                 "moduleName": "babel-runtime"
             }
-        ]
+        ],
     ]
 }

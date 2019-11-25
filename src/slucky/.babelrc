@@ -10,7 +10,7 @@
             }
         }],
         "react",
-        "es2015",
+        // "es2015",
         "stage-0"
     ],
     "plugins": [
@@ -19,8 +19,8 @@
             {
                 "helpers": false,
                 "polyfill": false,
-                "regenerator": true,
-                "moduleName": "babel-runtime"
+                // "regenerator": true,
+                // "moduleName": "babel-runtime"
             }
         ]
     ]

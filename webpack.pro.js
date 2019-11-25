@@ -20,6 +20,13 @@ const ENV_CONF = require('./environment/pro.env.ts');
 //构建前删除dist目录 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+    //出口配置
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].[chunkHash].js',
+        chunkFilename: '[name].[chunkHash].js'
+        // publicPath: '/public'
+    },
     //module.rules 加载loaders
     module: {
         rules: [{
@@ -40,19 +47,10 @@ module.exports = {
             }, {
                 test: /\.less$/,
                 exclude: /node_modules/,
-                use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
             }, {
-                test: /.jsx$/, //使用loader的目标文件。这里是.jsx
+                test: /.jsx|.js$/, 
                 loader: 'babel-loader',
-                exclude: /node_modules/
-            }, {
-                test: /\.js/,
-                use: {
-                    loader: 'babel-loader',
-                    query: {
-                        presets: ['env', 'stage-0']
-                    }
-                },
                 exclude: /node_modules/
             },
             {
@@ -81,7 +79,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpg|png|gif|svg|jpeg)$/,
+                test: /\.(jpg|png|gif|jpeg|svg)$/,
                 use: [{
                     loader: 'url-loader',
                     options: {
@@ -180,11 +178,11 @@ module.exports = {
                     unused: false
                 }
             },
-            sourceMap: true,
+            sourceMap: false,
             cache: true
         }),
         // sassExtract,
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
         new webpack.HashedModuleIdsPlugin()
     ]
 };

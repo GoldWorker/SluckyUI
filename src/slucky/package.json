@@ -13,7 +13,7 @@
         "build": "npm run build_index && npm run build_src",
         "pub": "npm run build && npm publish",
         "t": "webpack --mode development",
-        "publishByWebpack": "webpack --mode development && npm publish ./distTest"
+        "publishByWebpack": "webpack --mode development && npm publish ./dist"
     },
     "keywords": [
         "react",

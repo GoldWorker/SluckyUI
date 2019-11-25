@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Checkbox extends Component {
+export default class Checkbox extends Component {
     constructor(props) {
         super(props);
         this.id = Math.random().toString(36).substring(2);

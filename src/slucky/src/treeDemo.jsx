@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Transfer } from './component/transfer';
+import Transfer from './component/transfer';
 
 const DEMO_TREE = [{
     pid: 0,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Details } from './tab';
+import Details from './details';
 
 export default class TreeNode extends Component {
     constructor(props) {

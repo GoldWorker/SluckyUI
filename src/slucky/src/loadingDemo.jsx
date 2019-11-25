@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import ReactMarkdown from 'react-markdown';
 import Highlight from 'react-highlight';
-import { Progress } from 'slucky/src/component/progress';
+import Progress from './component/progress';
 export default class LoadingDemo extends Component {
     render() {
         return (

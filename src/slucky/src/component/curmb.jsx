@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Curmb extends Component {
+export default class Curmb extends Component {
     test() {
         let a;
     }

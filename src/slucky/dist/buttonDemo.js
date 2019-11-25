@@ -1,132 +1,167 @@
-'use strict';
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("./doc/button.md"), require("react"), require("react-dom/server"), require("react-highlight"), require("react-markdown"));
+	else if(typeof define === 'function' && define.amd)
+		define(["./doc/button.md", "react", "react-dom/server", "react-highlight", "react-markdown"], factory);
+	else {
+		var a = typeof exports === 'object' ? factory(require("./doc/button.md"), require("react"), require("react-dom/server"), require("react-highlight"), require("react-markdown")) : factory(root["./doc/button.md"], root["react"], root["react-dom/server"], root["react-highlight"], root["react-markdown"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(window, function(__WEBPACK_EXTERNAL_MODULE__doc_button_md__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom_server__, __WEBPACK_EXTERNAL_MODULE_react_highlight__, __WEBPACK_EXTERNAL_MODULE_react_markdown__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/buttonDemo.jsx");
+/******/ })
+/************************************************************************/
+/******/ ({
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
+/***/ "./doc/button.md":
+/*!**********************************!*\
+  !*** external "./doc/button.md" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__doc_button_md__;\n\n//# sourceURL=webpack:///external_%22./doc/button.md%22?");
+
+/***/ }),
+
+/***/ "./src/buttonDemo.jsx":
+/*!****************************!*\
+  !*** ./src/buttonDemo.jsx ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n\nvar _server2 = _interopRequireDefault(_server);\n\nvar _reactMarkdown = __webpack_require__(/*! react-markdown */ \"react-markdown\");\n\nvar _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);\n\nvar _reactHighlight = __webpack_require__(/*! react-highlight */ \"react-highlight\");\n\nvar _reactHighlight2 = _interopRequireDefault(_reactHighlight);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar ButtonDemo = function (_Component) {\n    _inherits(ButtonDemo, _Component);\n\n    function ButtonDemo() {\n        _classCallCheck(this, ButtonDemo);\n\n        return _possibleConstructorReturn(this, (ButtonDemo.__proto__ || Object.getPrototypeOf(ButtonDemo)).apply(this, arguments));\n    }\n\n    _createClass(ButtonDemo, [{\n        key: 'render',\n        value: function render() {\n            return _react2.default.createElement(\n                'div',\n                null,\n                _react2.default.createElement(\n                    'div',\n                    { className: 'c-hint-b pb16' },\n                    '\\u7B80\\u4ECB\\uFF1ASluckyUI\\u662F\\u4E00\\u4E2A\\u7EC4\\u4EF6\\u79CD\\u5B50\\u5E93\\uFF0C\\u5DF2\\u5C06\\u5927\\u90E8\\u5206\\u529F\\u80FD\\u7EC4\\u4EF6\\u89E3\\u8026\\u6210\\u6837\\u5F0F\\u548CDOM\\u7ED3\\u6784\\uFF0C\\u4E3A\\u5F00\\u53D1\\u56E2\\u961F\\u63D0\\u4F9B\\u4E00\\u4E2A\\u53EF\\u5FEB\\u901F\\u4E8C\\u6B21\\u5F00\\u53D1\\u6210\\u66F4\\u52A0\\u8D34\\u5408\\u81EA\\u8EAB\\u4E1A\\u52A1\\u7EC4\\u4EF6\\u5E93\\u7684\\u6E20\\u9053\\u3002SluckyUI\\u66F4\\u52A0\\u5173\\u6CE8\\u8DE8\\u5E73\\u53F0\\u6027\\uFF0C\\u5373\\u53EF\\u5FEB\\u901F\\u4E8C\\u6B21\\u5F00\\u53D1\\u6210React,Vue,Angular\\u7EC4\\u4EF6\\u3002\\u73B0\\u5728slucky\\u5DF2\\u96C6\\u6210\\u4E86React\\u7EC4\\u4EF6\\u3002'\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'd-f ac fw' },\n                    _react2.default.createElement(\n                        'button',\n                        { className: 'btn p-r mr32 mt16 mb16 ptb6 svgMutiLine plr16 tp' },\n                        _react2.default.createElement(\n                            'svg',\n                            {\n                                className: 'btn-svgMutiLine',\n                                viewBox: '0 0 180 64',\n                                version: '1.1',\n                                xmlns: 'http://www.w3.org/2000/svg' },\n                            _react2.default.createElement('rect', { className: 'shape' })\n                        ),\n                        _react2.default.createElement(\n                            'div',\n                            null,\n                            'SluckyUI'\n                        )\n                    ),\n                    _react2.default.createElement(\n                        'button',\n                        { className: 'btn p-r mr32 mt16 mb16 ptb6 regularLineMove plr16 tp' },\n                        'SluckyUI'\n                    ),\n                    _react2.default.createElement(\n                        'button',\n                        { className: 'btn p-r mr32 mt16 mb16 ptb6 regularShadowScale plr16 tp' },\n                        'SluckyUI'\n                    ),\n                    _react2.default.createElement(\n                        'button',\n                        { className: 'btn p-r mr32 mt16 mb16 ptb6 regularShadowMove plr16 tp' },\n                        'SluckyUI'\n                    ),\n                    _react2.default.createElement(\n                        'button',\n                        { className: 'btn-n ptb6 plr16 mr32 mt16 mb16' },\n                        'SluckyUI'\n                    ),\n                    _react2.default.createElement(\n                        'button',\n                        { className: 'btn-n ptb6 plr16 mr32 mt16 mb16', disabled: true },\n                        'SluckyUI'\n                    ),\n                    _react2.default.createElement(\n                        'div',\n                        { 'loader-inline': 'circle', className: 'mr32 mt16 mb16' },\n                        _react2.default.createElement(\n                            'button',\n                            { className: 'btn-n ptb6 plr16 ' },\n                            'SluckyUI'\n                        )\n                    ),\n                    _react2.default.createElement(\n                        'button',\n                        { className: 'btn-w bor b-side ptb6 plr16 mr32 mt16 mb16' },\n                        'SluckyUI'\n                    ),\n                    _react2.default.createElement(\n                        'button',\n                        { className: 'btn-hollow ptb6 plr16 mr32 mt16 mb16' },\n                        'SluckyUI'\n                    ),\n                    _react2.default.createElement(\n                        'button',\n                        { className: 'tag-text ptb6 plr16 mr32 mt16 mb16' },\n                        'SluckyUI'\n                    ),\n                    _react2.default.createElement(\n                        'button',\n                        { className: 'btn-action ptb6 plr16 mr32 mt16 mb16' },\n                        'SluckyUI'\n                    )\n                ),\n                _react2.default.createElement(\n                    'details',\n                    { className: 'pb16 mb16 bor-b b-side-s', open: true },\n                    _react2.default.createElement(\n                        'summary',\n                        { className: 'btn-n pl8 pr64 ptb8' },\n                        '\\u663E\\u793ADemo\\u4EE3\\u7801'\n                    ),\n                    _react2.default.createElement(\n                        _reactHighlight2.default,\n                        { innerHTML: true },\n                        __webpack_require__(/*! ./doc/button.md */ \"./doc/button.md\")\n                    )\n                )\n            );\n        }\n    }]);\n\n    return ButtonDemo;\n}(_react.Component);\n\nexports.default = ButtonDemo;\n\n//# sourceURL=webpack:///./src/buttonDemo.jsx?");
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react__;\n\n//# sourceURL=webpack:///external_%22react%22?");
+
+/***/ }),
+
+/***/ "react-dom/server":
+/*!***********************************!*\
+  !*** external "react-dom/server" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom_server__;\n\n//# sourceURL=webpack:///external_%22react-dom/server%22?");
+
+/***/ }),
+
+/***/ "react-highlight":
+/*!**********************************!*\
+  !*** external "react-highlight" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_highlight__;\n\n//# sourceURL=webpack:///external_%22react-highlight%22?");
+
+/***/ }),
+
+/***/ "react-markdown":
+/*!*********************************!*\
+  !*** external "react-markdown" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_markdown__;\n\n//# sourceURL=webpack:///external_%22react-markdown%22?");
+
+/***/ })
+
+/******/ });
 });
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _server = require('react-dom/server');
-
-var _server2 = _interopRequireDefault(_server);
-
-var _reactMarkdown = require('react-markdown');
-
-var _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);
-
-var _reactHighlight = require('react-highlight');
-
-var _reactHighlight2 = _interopRequireDefault(_reactHighlight);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ButtonDemo = function (_Component) {
-    _inherits(ButtonDemo, _Component);
-
-    function ButtonDemo() {
-        _classCallCheck(this, ButtonDemo);
-
-        return _possibleConstructorReturn(this, (ButtonDemo.__proto__ || Object.getPrototypeOf(ButtonDemo)).apply(this, arguments));
-    }
-
-    _createClass(ButtonDemo, [{
-        key: 'render',
-        value: function render() {
-            var demoString = '``` html' + '\n<div className="btn p-r m32 ptb6 svgMutiLine plr16">\n    <svg\n        className="btn-svgMutiLine"\n        viewBox="0 0 180 64"\n        version="1.1"\n        xmlns="http://www.w3.org/2000/svg">\n        <rect className="shape"></rect>\n    </svg>\n    <div>SluckyUI</div>\n</div>\n\n<div className="btn p-r m32 ptb6 regularLineMove plr16">SluckyUI</div>\n\n<div className="btn p-r m32 ptb6 regularShadowScale plr16">SluckyUI</div>\n\n<div className="btn p-r m32 ptb6 regularShadowMove plr16">SluckyUI</div>\n\n<button className="btn-n ptb6 plr16 m32">SluckyUI</button>\n\n<button className="btn-w bor b-side ptb6 plr16 m32">SluckyUI</button>\n\n<button className="btn-hollow ptb6 plr16 m32">SluckyUI</button>\n\n<button className="tag-hollow ptb6 plr16 m32">SluckyUI</button>\n\n<button className="tag-text ptb6 plr16 m32">SluckyUI</button>\n' + '```';
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                    'div',
-                    { className: 'd-f ac fw' },
-                    _react2.default.createElement(
-                        'button',
-                        { className: 'btn p-r m32 ptb6 svgMutiLine plr16 tp' },
-                        _react2.default.createElement(
-                            'svg',
-                            {
-                                className: 'btn-svgMutiLine',
-                                viewBox: '0 0 180 64',
-                                version: '1.1',
-                                xmlns: 'http://www.w3.org/2000/svg' },
-                            _react2.default.createElement('rect', { className: 'shape' })
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            null,
-                            'SluckyUI'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        { className: 'btn p-r m32 ptb6 regularLineMove plr16 tp' },
-                        'SluckyUI'
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        { className: 'btn p-r m32 ptb6 regularShadowScale plr16 tp' },
-                        'SluckyUI'
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        { className: 'btn p-r m32 ptb6 regularShadowMove plr16 tp' },
-                        'SluckyUI'
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        { className: 'btn-n ptb6 plr16 m32' },
-                        'SluckyUI'
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        { className: 'btn-w bor b-side ptb6 plr16 m32' },
-                        'SluckyUI'
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        { className: 'btn-hollow ptb6 plr16 m32' },
-                        'SluckyUI'
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        { className: 'tag-text ptb6 plr16 m32' },
-                        'SluckyUI'
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        { className: 'btn-action ptb6 plr16 m32' },
-                        'SluckyUI'
-                    )
-                ),
-                _react2.default.createElement(
-                    'details',
-                    { className: 'pb16 mb16 bor-b b-side-s' },
-                    _react2.default.createElement(
-                        'summary',
-                        { className: 'btn-n pl8 pr64 ptb8' },
-                        '\u663E\u793ADemo\u4EE3\u7801'
-                    ),
-                    _react2.default.createElement(
-                        _reactHighlight2.default,
-                        { innerHTML: true },
-                        _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoString }))
-                    )
-                )
-            );
-        }
-    }]);
-
-    return ButtonDemo;
-}(_react.Component);
-
-exports.default = ButtonDemo;

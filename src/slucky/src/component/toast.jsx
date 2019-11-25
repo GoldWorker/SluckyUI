@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import ReactDOM from 'react-dom';
 
 let toastRef = '';
-export class Toast extends React.Component {
+export default class Toast extends React.Component {
     constructor() {
         super(...arguments);
         this.state = {

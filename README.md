@@ -145,6 +145,24 @@ Step 2
 }
 ```
 
+## 支持按需加载
+
+```
+//.babelrc
+{
+    "presets": [
+        ...
+    ],
+    "plugins": [
+        ["import", {
+            "libraryName": "slucky",
+            "libraryDirectory": "component",
+        }]
+        ...
+    ]
+}
+```
+
 ## Target
 将前端视图与业务逻辑有效解耦，打造出可复用的业务逻辑组件，让开发人员更专注于业务的开发
 

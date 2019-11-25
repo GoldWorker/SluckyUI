@@ -314,7 +314,7 @@
     display: flex;
     overflow: hidden;
 
-    .tab-contrl {
+    &>.tab-contrl {
         height: 100%;
         z-index: 1;
 
@@ -324,12 +324,14 @@
             display: block;
             border-radius: 2px 0 0 2px;
             z-index: 2;
-            transition: background-color 0.3s;
+            transition: border-right 0.3s;
+            border-right: 2px solid transparent;
             cursor: pointer;
         }
 
-        .tab-label-active {
-            background-color: $side_b;
+        &>.tab-label-active {
+            // background-color: $side_b;
+            border-right: 2px solid $theme_color;
         }
     }
 
@@ -379,7 +381,7 @@
     // display: flex;
     overflow: hidden;
 
-    .tab-contrl {
+    &>.tab-contrl {
         height: 100%;
         z-index: 1;
 
@@ -387,15 +389,17 @@
             padding: 10px 16px 8px 16px;
             position: relative;
             display: inline-block;
-            border-radius: 2px 0 0 2px;
+            // border-radius: 2px 0 0 2px;
             z-index: 2;
-            transition: background-color 0.3s;
+            transition: border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
             cursor: pointer;
         }
 
-        .tab-label-active {
-            background-color: $side_b;
+        &>.tab-label-active {
+            // background-color: $side_b;
             color: $theme_color;
+            border-bottom: 2px solid $theme_color;
         }
     }
 

@@ -1,310 +1,123 @@
-'use strict';
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("react"));
+	else if(typeof define === 'function' && define.amd)
+		define(["react"], factory);
+	else {
+		var a = typeof exports === 'object' ? factory(require("react")) : factory(root["react"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(window, function(__WEBPACK_EXTERNAL_MODULE_react__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/component/paging.jsx");
+/******/ })
+/************************************************************************/
+/******/ ({
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
+/***/ "./src/component/paging.jsx":
+/*!**********************************!*\
+  !*** ./src/component/paging.jsx ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar Paging = function (_Component) {\n    _inherits(Paging, _Component);\n\n    function Paging(props) {\n        _classCallCheck(this, Paging);\n\n        var _this = _possibleConstructorReturn(this, (Paging.__proto__ || Object.getPrototypeOf(Paging)).call(this, props));\n\n        _this.start = 1;\n        _this.maxWidth = 5;\n        _this.minWidth = '';\n        _this.end = '';\n        // 分页对象\n\n        _this.state = {\n            pageInfo: {\n                total: _this.props.pageInfo.total || 0,\n                maxToShow: _this.props.pageInfo.maxToShow || 0,\n                currentPage: _this.props.pageInfo.currentPage || 1\n            },\n            viewBox: {\n                width: '', // 可视容器的宽度\n                list: [], // 可视容器列表\n                before: false, // 前后省略号\n                after: false,\n                currentPage: '' // 当前页\n            }\n        };\n        return _this;\n    }\n\n    _createClass(Paging, [{\n        key: 'componentDidMount',\n        value: function componentDidMount() {\n            this.init();\n        }\n    }, {\n        key: 'componentWillReceiveProps',\n        value: function componentWillReceiveProps(nextProps) {\n            var _this2 = this;\n\n            // 在重新render之前更新state不会重新触发生命周期\n            // console.log('componentWillReceiveProps', nextProps, this.props);\n            this.setState({\n                pageInfo: {\n                    total: nextProps.pageInfo.total || 0,\n                    maxToShow: nextProps.pageInfo.maxToShow || 0,\n                    currentPage: nextProps.pageInfo.currentPage || 1\n                },\n                viewBox: {\n                    width: '', // 可视容器的宽度\n                    list: [], // 可视容器列表\n                    before: false, // 前后省略号\n                    after: false,\n                    currentPage: '' // 当前页\n                }\n            }, function () {\n                if (nextProps.pageInfo.currentPage && _this2.state.viewBox) {\n                    _this2.init(function () {\n                        return _this2.handleResizeViewBox(nextProps.pageInfo.currentPage);\n                    });\n                } else {\n                    _this2.init();\n                }\n            });\n        }\n    }, {\n        key: 'init',\n        value: function init(cb) {\n            var pageInfo = this.state.pageInfo;\n\n            this.end = Math.ceil(pageInfo.total / pageInfo.maxToShow);\n            this.end > 0 ? this.end : this.end = 1;\n            // console.log(this.end);\n            this.minWidth = this.end - 2;\n            var currentWidth = this.maxWidth > this.minWidth ? this.minWidth : this.maxWidth;\n\n            this.setState({\n                viewBox: {\n                    width: currentWidth,\n                    list: function (width) {\n                        var list = [];\n                        for (var i = 1; i <= width; i++) {\n                            var k = i;\n                            list.push(++k);\n                        }\n                        // console.log(list);\n                        return list;\n                    }(currentWidth),\n                    before: false,\n                    after: this.maxWidth < this.minWidth,\n                    currentPage: pageInfo.currentPage || 1\n                }\n            }, function () {\n                // console.log('init', this.state.viewBox);\n                cb && cb();\n            });\n        }\n    }, {\n        key: 'handleChangePage',\n        value: function handleChangePage(currentPage) {\n            var isOnAction = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;\n\n            // 保证临界条件\n            var currentPageSelf = parseInt(currentPage);\n            if (currentPageSelf < this.start) {\n                currentPageSelf = this.start;\n            }\n            if (currentPageSelf > this.end) {\n                currentPageSelf = this.end;\n            }\n            this.props.isSingleDataFlow && this.handleResizeViewBox(currentPageSelf);\n            this.props.onAction && this.props.onAction(currentPageSelf);\n        }\n    }, {\n        key: 'handleResizeViewBox',\n        value: function handleResizeViewBox(currentPage) {\n            // 保证临界条件\n            var currentPageSelf = parseInt(currentPage);\n            if (currentPageSelf < this.start) {\n                currentPageSelf = this.start;\n            }\n            if (currentPageSelf > this.end) {\n                currentPageSelf = this.end;\n            }\n            this.handleViewBox(currentPageSelf);\n        }\n    }, {\n        key: 'handleChangePageLeft',\n        value: function handleChangePageLeft() {\n            this.handleChangePage(--this.state.viewBox.currentPage);\n        }\n    }, {\n        key: 'handleChangePageRight',\n        value: function handleChangePageRight() {\n            this.handleChangePage(++this.state.viewBox.currentPage);\n        }\n\n        // 维护viewBox\n\n    }, {\n        key: 'handleViewBox',\n        value: function handleViewBox(currentPage) {\n            // console.log('handleViewBox', this.state);\n            var width = this.state.viewBox.width;\n\n            // 多条件判断\n            if (this.end - 2 >= this.maxWidth) {\n                // 左临界\n                if (currentPage < this.start + Math.floor(width / 2)) {\n                    var list = [];\n                    for (var i = this.start + 1; i < this.start + 1 + width; i++) {\n                        list.push(i);\n                    }\n                    // console.log('l', list);\n                    this.setState({\n                        viewBox: Object.assign(this.state.viewBox, {\n                            list: list,\n                            currentPage: currentPage,\n                            before: false,\n                            after: true\n                        })\n                    }, function () {\n                        // console.log('handleViewBox l', this.state.viewBox)\n                    });\n                }\n                // 右临界\n                if (currentPage > this.end - Math.ceil(width / 2)) {\n                    var _list = [];\n                    for (var _i = this.end - width; _i < this.end; _i++) {\n                        _list.push(_i);\n                    }\n                    // console.log('r', list);\n                    this.setState({\n                        viewBox: Object.assign(this.state.viewBox, {\n                            list: _list,\n                            currentPage: currentPage,\n                            before: true,\n                            after: false\n                        })\n                    }, function () {\n                        // console.log('handleViewBox r', this.state.viewBox)\n                    });\n                }\n                // 通常情况\n                if (currentPage >= this.start + Math.floor(width / 2) && currentPage <= this.end - Math.ceil(width / 2)) {\n                    var _list2 = [];\n                    var _i2 = currentPage - Math.floor(width / 2);\n                    // 重新判断临界条件\n                    if (_i2 < 2) {\n                        _i2 = 2;\n                    }\n                    if (_i2 > this.end - width) {\n                        _i2 = this.end - width;\n                    }\n                    while (width--) {\n                        _list2.push(_i2++);\n                    }\n                    // console.log('n', list);\n                    this.setState({\n                        viewBox: Object.assign(this.state.viewBox, {\n                            list: _list2,\n                            currentPage: currentPage,\n                            before: true,\n                            after: true\n                        })\n                    }, function () {\n                        // console.log('handleViewBox n', this.state.viewBox)\n                    });\n                }\n            } else {\n                this.setState({\n                    viewBox: Object.assign(this.state.viewBox, {\n                        currentPage: currentPage,\n                        before: false,\n                        after: false\n                    })\n                }, function () {\n                    // console.log('handleViewBox', this.state.viewBox)\n                });\n            }\n        }\n    }, {\n        key: 'render',\n        value: function render() {\n            var _this3 = this;\n\n            // console.log(this.start, this.end, this.state.viewBox.currentPage, this.state.viewBox.list);\n            var pageInfo = this.state.pageInfo;\n\n            return _react2.default.createElement(\n                'div',\n                null,\n                _react2.default.createElement(\n                    'div',\n                    { className: ['d-f ac jc-b', this.props.style || 'paging-normal'].join(' ') },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'fs12' },\n                        '\\u5171',\n                        _react2.default.createElement(\n                            'strong',\n                            { className: 'plr4' },\n                            pageInfo.total\n                        ),\n                        '\\u6761\\uFF0C\\u6BCF\\u9875',\n                        _react2.default.createElement(\n                            'strong',\n                            { className: 'plr4' },\n                            pageInfo.maxToShow\n                        ),\n                        '\\u6761'\n                    ),\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'paging-viewbox' },\n                        _react2.default.createElement('span', { className: 'btn-paging arrow-left', onClick: function onClick() {\n                                return _this3.handleChangePageLeft();\n                            } }),\n                        _react2.default.createElement(\n                            'span',\n                            { onClick: function onClick() {\n                                    return _this3.handleChangePage(_this3.start);\n                                }, className: ['btn-paging', this.start === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ') },\n                            this.start\n                        ),\n                        this.state.viewBox.before ? _react2.default.createElement(\n                            'span',\n                            { className: 'mr8' },\n                            '...'\n                        ) : null,\n                        this.state.viewBox.list.map(function (item, i) {\n                            // console.log(item, this.state.viewBox.currentPage);\n                            return _react2.default.createElement(\n                                'span',\n                                { key: i, onClick: function onClick() {\n                                        return _this3.handleChangePage(item);\n                                    }, className: ['btn-paging', item === _this3.state.viewBox.currentPage ? 'btn-active' : ''].join(' ') },\n                                item\n                            );\n                        }),\n                        this.state.viewBox.after ? _react2.default.createElement(\n                            'span',\n                            { className: 'mr8' },\n                            '...'\n                        ) : null,\n                        this.state.viewBox.width >= 0 ? _react2.default.createElement(\n                            'span',\n                            { onClick: function onClick() {\n                                    return _this3.handleChangePage(_this3.end);\n                                }, className: ['btn-paging', this.end === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ') },\n                            this.end\n                        ) : null,\n                        _react2.default.createElement('span', { className: 'btn-paging arrow-right', onClick: function onClick() {\n                                return _this3.handleChangePageRight();\n                            } })\n                    )\n                )\n            );\n        }\n    }]);\n\n    return Paging;\n}(_react.Component);\n\nexports.default = Paging;\n\n//# sourceURL=webpack:///./src/component/paging.jsx?");
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react__;\n\n//# sourceURL=webpack:///external_%22react%22?");
+
+/***/ })
+
+/******/ });
 });
-exports.Paging = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Paging = exports.Paging = function (_Component) {
-    _inherits(Paging, _Component);
-
-    function Paging(props) {
-        _classCallCheck(this, Paging);
-
-        var _this = _possibleConstructorReturn(this, (Paging.__proto__ || Object.getPrototypeOf(Paging)).call(this, props));
-
-        _this.start = 1;
-        _this.maxWidth = 5;
-        _this.minWidth = '';
-        _this.end = '';
-        // 分页对象
-
-        _this.state = {
-            pageInfo: {
-                total: _this.props.pageInfo.total || 0,
-                maxToShow: _this.props.pageInfo.maxToShow || 0,
-                currentPage: _this.props.pageInfo.currentPage || 1
-            },
-            viewBox: {
-                width: '', // 可视容器的宽度
-                list: [], // 可视容器列表
-                before: false, // 前后省略号
-                after: false,
-                currentPage: '' // 当前页
-            }
-        };
-        return _this;
-    }
-
-    _createClass(Paging, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            this.init();
-        }
-    }, {
-        key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps(nextProps) {
-            var _this2 = this;
-
-            // 在重新render之前更新state不会重新触发生命周期
-            // console.log('componentWillReceiveProps', nextProps, this.props)
-            this.setState({
-                pageInfo: {
-                    total: nextProps.pageInfo.total || 0,
-                    maxToShow: nextProps.pageInfo.maxToShow || 0,
-                    currentPage: nextProps.pageInfo.currentPage || 1
-                },
-                viewBox: {
-                    width: '', // 可视容器的宽度
-                    list: [], // 可视容器列表
-                    before: false, // 前后省略号
-                    after: false,
-                    currentPage: '' // 当前页
-                }
-            }, function () {
-                if (nextProps.pageInfo.currentPage && _this2.state.viewBox) {
-                    _this2.init(_this2.handleChangePageSelf(nextProps.pageInfo.currentPage));
-                } else {
-                    _this2.init();
-                }
-            });
-        }
-    }, {
-        key: 'init',
-        value: function init(cb) {
-            var pageInfo = this.state.pageInfo;
-
-            this.end = Math.ceil(pageInfo.total / pageInfo.maxToShow);
-            this.end > 0 ? this.end : this.end = 1;
-            // console.log(this.end);
-            this.minWidth = this.end - 2;
-            var currentWidth = this.maxWidth > this.minWidth ? this.minWidth : this.maxWidth;
-
-            this.setState({
-                viewBox: {
-                    width: currentWidth,
-                    list: function (width) {
-                        var list = [];
-                        for (var i = 1; i <= width; i++) {
-                            var k = i;
-                            list.push(++k);
-                        }
-                        // console.log(list);
-                        return list;
-                    }(currentWidth),
-                    before: false,
-                    after: this.maxWidth < this.minWidth,
-                    currentPage: pageInfo.currentPage || 1
-                }
-            }, function () {
-                // console.log(this.state.viewBox);
-                cb && cb();
-            });
-        }
-    }, {
-        key: 'handleChangePage',
-        value: function handleChangePage(currentPage) {
-            // console.log(currentPage);
-            currentPage = parseInt(currentPage);
-            // 保证临界条件
-            if (currentPage < this.start) currentPage = this.start;
-            if (currentPage > this.end) currentPage = this.end;
-            // console.log('currentPage', currentPage)
-            this.handleViewBox(currentPage);
-            this.props.onAction && this.props.onAction(currentPage);
-        }
-    }, {
-        key: 'handleChangePageSelf',
-        value: function handleChangePageSelf(currentPage) {
-            currentPage = parseInt(currentPage);
-            // 保证临界条件
-            if (currentPage < this.start) currentPage = this.start;
-            if (currentPage > this.end) currentPage = this.end;
-            this.handleViewBox(currentPage);
-        }
-    }, {
-        key: 'handleChangePageLeft',
-        value: function handleChangePageLeft() {
-            this.handleChangePage(--this.state.viewBox.currentPage);
-        }
-    }, {
-        key: 'handleChangePageRight',
-        value: function handleChangePageRight() {
-            this.handleChangePage(++this.state.viewBox.currentPage);
-        }
-
-        // 维护viewBox
-
-    }, {
-        key: 'handleViewBox',
-        value: function handleViewBox(currentPage) {
-            var width = this.state.viewBox.width;
-
-            // 多条件判断
-            if (this.end - 2 >= this.maxWidth) {
-                // 左临界
-                if (currentPage < this.start + Math.floor(width / 2)) {
-                    var list = [];
-                    for (var i = this.start + 1; i < this.start + 1 + width; i++) {
-                        list.push(i);
-                    }
-                    // console.log('l', list);
-                    this.setState({
-                        viewBox: Object.assign(this.state.viewBox, {
-                            list: list,
-                            currentPage: currentPage,
-                            before: false,
-                            after: true
-                        })
-                    }, function () {
-                        // console.log('handleViewBox l', this.state.viewBox)
-                    });
-                }
-                // 右临界
-                if (currentPage > this.end - Math.ceil(width / 2)) {
-                    var _list = [];
-                    for (var _i = this.end - width; _i < this.end; _i++) {
-                        _list.push(_i);
-                    }
-                    // console.log('r', list);
-                    this.setState({
-                        viewBox: Object.assign(this.state.viewBox, {
-                            list: _list,
-                            currentPage: currentPage,
-                            before: true,
-                            after: false
-                        })
-                    }, function () {
-                        // console.log('handleViewBox r', this.state.viewBox)
-                    });
-                }
-                // 通常情况
-                if (currentPage >= this.start + Math.floor(width / 2) && currentPage <= this.end - Math.ceil(width / 2)) {
-                    var _list2 = [];
-                    var _i2 = currentPage - Math.floor(width / 2);
-                    // 重新判断临界条件
-                    if (_i2 < 2) _i2 = 2;
-                    if (_i2 > this.end - width) _i2 = this.end - width;
-                    while (width--) {
-                        _list2.push(_i2++);
-                    }
-                    // console.log('n', list);
-                    this.setState({
-                        viewBox: Object.assign(this.state.viewBox, {
-                            list: _list2,
-                            currentPage: currentPage,
-                            before: true,
-                            after: true
-                        })
-                    }, function () {
-                        // console.log('handleViewBox n', this.state.viewBox)
-                    });
-                }
-            } else {
-                this.setState({
-                    viewBox: Object.assign(this.state.viewBox, {
-                        currentPage: currentPage,
-                        before: false,
-                        after: false
-                    })
-                }, function () {
-                    // console.log('handleViewBox', this.state.viewBox)
-                });
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this3 = this;
-
-            // console.log(this.start, this.end, this.state.viewBox.currentPage, this.state.viewBox.list);
-            var pageInfo = this.state.pageInfo;
-
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                    'div',
-                    { className: ['d-f ac jc-b', this.props.style || 'paging-normal'].join(' ') },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'fs12' },
-                        '\u5171',
-                        _react2.default.createElement(
-                            'strong',
-                            { className: 'plr4' },
-                            pageInfo.total
-                        ),
-                        '\u6761\uFF0C\u6BCF\u9875',
-                        _react2.default.createElement(
-                            'strong',
-                            { className: 'plr4' },
-                            pageInfo.maxToShow
-                        ),
-                        '\u6761'
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'paging-viewbox' },
-                        _react2.default.createElement('span', { className: 'btn-paging arrow-left', onClick: function onClick() {
-                                return _this3.handleChangePageLeft();
-                            } }),
-                        _react2.default.createElement(
-                            'span',
-                            { onClick: function onClick() {
-                                    return _this3.handleChangePage(_this3.start);
-                                }, className: ['btn-paging', this.start === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ') },
-                            this.start
-                        ),
-                        this.state.viewBox.before ? _react2.default.createElement(
-                            'span',
-                            { className: 'mr8' },
-                            '...'
-                        ) : null,
-                        this.state.viewBox.list.map(function (item, i) {
-                            // console.log(item, this.state.viewBox.currentPage);
-                            return _react2.default.createElement(
-                                'span',
-                                { key: i, onClick: function onClick() {
-                                        return _this3.handleChangePage(item);
-                                    }, className: ['btn-paging', item === _this3.state.viewBox.currentPage ? 'btn-active' : ''].join(' ') },
-                                item
-                            );
-                        }),
-                        this.state.viewBox.after ? _react2.default.createElement(
-                            'span',
-                            { className: 'mr8' },
-                            '...'
-                        ) : null,
-                        this.state.viewBox.width >= 0 ? _react2.default.createElement(
-                            'span',
-                            { onClick: function onClick() {
-                                    return _this3.handleChangePage(_this3.end);
-                                }, className: ['btn-paging', this.end === this.state.viewBox.currentPage ? 'btn-active' : ''].join(' ') },
-                            this.end
-                        ) : null,
-                        _react2.default.createElement('span', { className: 'btn-paging arrow-right', onClick: function onClick() {
-                                return _this3.handleChangePageRight();
-                            } })
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Paging;
-}(_react.Component);

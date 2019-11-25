@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Radio extends Component {
+export default class Radio extends Component {
     constructor() {
         super();
         this.id = Math.random().toString(36).substring(2);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input } from './component/input';
+import Input from './component/input';
 
 export default class SecurityDemo extends Component {
     constructor() {
@@ -20,7 +20,7 @@ export default class SecurityDemo extends Component {
 
         // this.refs.xss1.innerHTML = this.getParams('name');
     }
-    
+
     getParams(key) {
         const reg = new RegExp(`(&|^)${key}=([^&]*)($|&)`);
         const res = window.location.search.substr(1).match(reg);

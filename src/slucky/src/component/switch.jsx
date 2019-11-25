@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-export class Switch extends Component {
+export default class Switch extends Component {
     constructor() {
-        super()
+        super();
         this.id = Math.random().toString(36).substring(2);
     }
     render() {
@@ -24,6 +24,6 @@ export class Switch extends Component {
                 </div>
                 <span className='pl8'>{this.props.rightlabel || ''}</span>
             </div>
-        )
+        );
     }
 }

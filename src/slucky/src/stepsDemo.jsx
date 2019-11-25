@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Highlight from 'react-highlight';
-import { Checkbox } from './component/checkbox';
-import { Search } from './component/search';
-import { Steps } from './component/steps';
+import Checkbox from './component/checkbox';
+import Search from './component/search';
+import Steps from './component/steps';
 
 
 export default class StepsDemo extends Component {

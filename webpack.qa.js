@@ -20,6 +20,13 @@ const ENV_CONF = require('./environment/qa.env.ts');
 //构建前删除dist目录 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+    //出口配置
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].[chunkHash].js',
+        chunkFilename: '[name].[chunkHash].js'
+        // publicPath: '/public'
+    },
     //module.rules 加载loaders
     module: {
         rules: [{
@@ -184,3 +191,4 @@ module.exports = {
         new webpack.HashedModuleIdsPlugin()
     ]
 };
+

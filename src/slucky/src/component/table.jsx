@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Table extends Component {
+export default class Table extends Component {
     constructor() {
         super();
         this.checkboxList = [];

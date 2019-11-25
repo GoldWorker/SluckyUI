@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TreeNode from './treeNode';
 
-export class Tree extends Component {
+export default class Tree extends Component {
     constructor(props) {
         super(props);
         this.state = {

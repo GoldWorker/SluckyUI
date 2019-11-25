@@ -6,7 +6,7 @@ const reducers = {};
 
 const addReducer = (reducer, name) => {
     reducers[name] = reducer;
-    console.log(reducers, reducer.name);
+    // console.log(reducers, reducer.name);
 };
 
 const updateReducer = (store) => {

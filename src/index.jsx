@@ -28,7 +28,7 @@ const requireAll = requireContext => requireContext
     .keys()
     .map(requireContext);
 const req = require.context('./icons', false, /\.svg$/);
-console.log('Icons', req.keys().map(req));
+// console.log('Icons', req.keys().map(req));
 requireAll(req);
 
 import __API__ from './config.js';

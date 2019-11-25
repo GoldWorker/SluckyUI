@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 export default class Slidebar extends Component {
     render() {
         return (
@@ -57,6 +57,6 @@ export default class Slidebar extends Component {
                     <div className="mark-b"></div>
                 </div>
             </div>
-        )
+        );
     }
 }

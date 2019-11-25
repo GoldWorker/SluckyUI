@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import ReactMarkdown from 'react-markdown';
 import Highlight from 'react-highlight';
-import { Tab, Details } from './component/tab';
+import Tab from './component/tab';
+import Details from './component/details';
 
 export default class NavDemo extends Component {
     render() {

@@ -9,11 +9,11 @@ import FormDemo from 'slucky/src/formDemo';
 import ColorDemo from 'slucky/src/colorDemo';
 import ImageDemo from 'slucky/src/imageDemo';
 import { TableDemo } from 'slucky/src/tableDemo';
-import { Toast } from 'slucky/src';
+import Toast from 'slucky/src';
 import StepsDemo from 'slucky/src/stepsDemo';
 import TreeDemo from 'slucky/src/treeDemo';
 import SecurityDemo from 'slucky/src/securityDemo';
-import { Tab } from 'slucky/src/component/tab';
+import Tab from 'slucky/src/component/tab';
 
 export default class App extends Component {
     constructor() {

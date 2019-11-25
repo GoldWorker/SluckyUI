@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import ReactMarkdown from 'react-markdown';
 import Highlight from 'react-highlight';
-import { Table, Paging } from './index';
+import Table from './component/table';
+import Paging from './component/paging';
 const tableMd = require('./doc/table.md');
 
 export class TableDemo extends Component {

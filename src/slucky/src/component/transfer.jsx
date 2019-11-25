@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Tree } from '../component/tree';
-import { Checkbox, CheckboxFontIn } from '../component/checkbox';
+import Tree from '../component/tree';
+import Checkbox from '../component/checkbox';
 
-export class Transfer extends Component {
+export default class Transfer extends Component {
     constructor(props) {
         super(props);
         const { data, value } = this.props;

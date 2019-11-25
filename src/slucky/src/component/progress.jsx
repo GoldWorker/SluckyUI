@@ -12,7 +12,7 @@ const handleStatus = (status) => {
             return 'c-theme';
     }
 };
-export class Progress extends Component {
+export default class Progress extends Component {
 
     render() {
         return (

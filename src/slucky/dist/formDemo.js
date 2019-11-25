@@ -1,734 +1,244 @@
-'use strict';
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("./doc/formCheckbox.md"), require("./doc/formInput.md"), require("./doc/formRadio.md"), require("./doc/formSelect.md"), require("./doc/formUpload.md"), require("./doc/formValidator.md"), require("./validatorDemo"), require("react"), require("react-dom/server"), require("react-highlight"), require("react-markdown"));
+	else if(typeof define === 'function' && define.amd)
+		define(["./doc/formCheckbox.md", "./doc/formInput.md", "./doc/formRadio.md", "./doc/formSelect.md", "./doc/formUpload.md", "./doc/formValidator.md", "./validatorDemo", "react", "react-dom/server", "react-highlight", "react-markdown"], factory);
+	else {
+		var a = typeof exports === 'object' ? factory(require("./doc/formCheckbox.md"), require("./doc/formInput.md"), require("./doc/formRadio.md"), require("./doc/formSelect.md"), require("./doc/formUpload.md"), require("./doc/formValidator.md"), require("./validatorDemo"), require("react"), require("react-dom/server"), require("react-highlight"), require("react-markdown")) : factory(root["./doc/formCheckbox.md"], root["./doc/formInput.md"], root["./doc/formRadio.md"], root["./doc/formSelect.md"], root["./doc/formUpload.md"], root["./doc/formValidator.md"], root["./validatorDemo"], root["react"], root["react-dom/server"], root["react-highlight"], root["react-markdown"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(window, function(__WEBPACK_EXTERNAL_MODULE__doc_formCheckbox_md__, __WEBPACK_EXTERNAL_MODULE__doc_formInput_md__, __WEBPACK_EXTERNAL_MODULE__doc_formRadio_md__, __WEBPACK_EXTERNAL_MODULE__doc_formSelect_md__, __WEBPACK_EXTERNAL_MODULE__doc_formUpload_md__, __WEBPACK_EXTERNAL_MODULE__doc_formValidator_md__, __WEBPACK_EXTERNAL_MODULE__validatorDemo__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom_server__, __WEBPACK_EXTERNAL_MODULE_react_highlight__, __WEBPACK_EXTERNAL_MODULE_react_markdown__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/formDemo.jsx");
+/******/ })
+/************************************************************************/
+/******/ ({
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
+/***/ "./doc/formCheckbox.md":
+/*!****************************************!*\
+  !*** external "./doc/formCheckbox.md" ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__doc_formCheckbox_md__;\n\n//# sourceURL=webpack:///external_%22./doc/formCheckbox.md%22?");
+
+/***/ }),
+
+/***/ "./doc/formInput.md":
+/*!*************************************!*\
+  !*** external "./doc/formInput.md" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__doc_formInput_md__;\n\n//# sourceURL=webpack:///external_%22./doc/formInput.md%22?");
+
+/***/ }),
+
+/***/ "./doc/formRadio.md":
+/*!*************************************!*\
+  !*** external "./doc/formRadio.md" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__doc_formRadio_md__;\n\n//# sourceURL=webpack:///external_%22./doc/formRadio.md%22?");
+
+/***/ }),
+
+/***/ "./doc/formSelect.md":
+/*!**************************************!*\
+  !*** external "./doc/formSelect.md" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__doc_formSelect_md__;\n\n//# sourceURL=webpack:///external_%22./doc/formSelect.md%22?");
+
+/***/ }),
+
+/***/ "./doc/formUpload.md":
+/*!**************************************!*\
+  !*** external "./doc/formUpload.md" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__doc_formUpload_md__;\n\n//# sourceURL=webpack:///external_%22./doc/formUpload.md%22?");
+
+/***/ }),
+
+/***/ "./doc/formValidator.md":
+/*!*****************************************!*\
+  !*** external "./doc/formValidator.md" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__doc_formValidator_md__;\n\n//# sourceURL=webpack:///external_%22./doc/formValidator.md%22?");
+
+/***/ }),
+
+/***/ "./images/bg_test.jpg":
+/*!****************************!*\
+  !*** ./images/bg_test.jpg ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"data:image/jpeg;base64,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\"\n\n//# sourceURL=webpack:///./images/bg_test.jpg?");
+
+/***/ }),
+
+/***/ "./src/formDemo.jsx":
+/*!**************************!*\
+  !*** ./src/formDemo.jsx ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n\nvar _server2 = _interopRequireDefault(_server);\n\nvar _reactMarkdown = __webpack_require__(/*! react-markdown */ \"react-markdown\");\n\nvar _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);\n\nvar _reactHighlight = __webpack_require__(/*! react-highlight */ \"react-highlight\");\n\nvar _reactHighlight2 = _interopRequireDefault(_reactHighlight);\n\nvar _validatorDemo = __webpack_require__(/*! ./validatorDemo */ \"./validatorDemo\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar FormDemo = function (_Component) {\n    _inherits(FormDemo, _Component);\n\n    function FormDemo() {\n        _classCallCheck(this, FormDemo);\n\n        return _possibleConstructorReturn(this, (FormDemo.__proto__ || Object.getPrototypeOf(FormDemo)).call(this));\n    }\n\n    _createClass(FormDemo, [{\n        key: 'render',\n        value: function render() {\n            var demoStringTextarea = '``` html' + '\\n<textarea name=\"\" id=\"\" cols=\"50\" rows=\"6\" className=\"textarea\"></textarea>\\n';\n            return _react2.default.createElement(\n                'div',\n                null,\n                _react2.default.createElement(\n                    'p',\n                    { className: 'bor-l b-theme pl8 fs18 mt32' },\n                    '\\u8868\\u5355\\u6821\\u9A8C Validator'\n                ),\n                _react2.default.createElement(_validatorDemo.ValidatorDemo, null),\n                _react2.default.createElement(\n                    'details',\n                    { className: 'pb16 mb16 bor-b b-side-s' },\n                    _react2.default.createElement(\n                        'summary',\n                        { className: 'btn-n pl8 pr64 ptb8' },\n                        '\\u663E\\u793ADemo\\u4EE3\\u7801'\n                    ),\n                    _react2.default.createElement(\n                        _reactHighlight2.default,\n                        { innerHTML: true },\n                        __webpack_require__(/*! ./doc/formValidator.md */ \"./doc/formValidator.md\")\n                    )\n                ),\n                _react2.default.createElement(\n                    'p',\n                    { className: 'bor-l b-theme pl8 fs18' },\n                    '\\u8F93\\u5165\\u6846 Input'\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'd-f ac mb32' },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'w96 s0' },\n                        '\\u8868\\u5355Key\\uFF1A'\n                    ),\n                    _react2.default.createElement(\n                        'div',\n                        null,\n                        _react2.default.createElement('input', {\n                            type: 'text',\n                            className: 'input-normal w384',\n                            maxLength: '100',\n                            placeholder: 'placeholder' }),\n                        _react2.default.createElement(\n                            'div',\n                            { className: 'fs12 c-fail p-a pt2' },\n                            '\\u663E\\u793A\\u9519\\u8BEF\\u63D0\\u793A'\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'd-f ac mb32' },\n                    _react2.default.createElement(\n                        'div',\n                        null,\n                        _react2.default.createElement(\n                            'label',\n                            { htmlFor: '', className: 'pb4 mb0 fs12 d-b' },\n                            '\\u8868\\u5355Key\\uFF1A'\n                        ),\n                        _react2.default.createElement('input', {\n                            type: 'text',\n                            className: 'input-down w384',\n                            maxLength: '100',\n                            placeholder: 'placeholder' }),\n                        _react2.default.createElement(\n                            'div',\n                            { className: 'fs12 c-fail p-a pt2' },\n                            '\\u663E\\u793A\\u9519\\u8BEF\\u63D0\\u793A'\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'd-f ac mb32' },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'input-search-down' },\n                        _react2.default.createElement(\n                            'label',\n                            { htmlFor: '', className: 'pb4 mb0 fs12 d-b' },\n                            '\\u8868\\u5355Key\\uFF1A'\n                        ),\n                        _react2.default.createElement('input', {\n                            type: 'text',\n                            className: 'input-down w384',\n                            placeholder: 'placeholder',\n                            maxLength: '50' }),\n                        _react2.default.createElement(\n                            'div',\n                            { className: 'fs12 c-fail p-a pt2' },\n                            '\\u663E\\u793A\\u9519\\u8BEF\\u63D0\\u793A'\n                        ),\n                        _react2.default.createElement(\n                            'ul',\n                            { className: 'input-option paper bor b-side fs12 p0', scrollbar: 'normal' },\n                            _react2.default.createElement(\n                                'li',\n                                { className: 'p4 bor-b b-side d-f jc-b' },\n                                'Apple'\n                            ),\n                            _react2.default.createElement(\n                                'li',\n                                { className: 'p4 bor-b b-side d-f jc-b' },\n                                'Boy'\n                            ),\n                            _react2.default.createElement(\n                                'li',\n                                { className: 'p4 bor-b b-side d-f jc-b' },\n                                'Cat'\n                            )\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'd-f ac mb32' },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'input-search-normal d-f ac' },\n                        _react2.default.createElement('input', {\n                            type: 'text',\n                            className: 'input-normal w384',\n                            placeholder: 'placeholder' }),\n                        _react2.default.createElement(\n                            'button',\n                            { className: 'fs12 btn-n ptb8 mr2 plr16' },\n                            '\\u641C\\u7D22'\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'details',\n                    { className: 'pb16 mb16 bor-b b-side-s' },\n                    _react2.default.createElement(\n                        'summary',\n                        { className: 'btn-n pl8 pr64 ptb8' },\n                        '\\u663E\\u793ADemo\\u4EE3\\u7801'\n                    ),\n                    _react2.default.createElement(\n                        _reactHighlight2.default,\n                        { innerHTML: true },\n                        __webpack_require__(/*! ./doc/formInput.md */ \"./doc/formInput.md\")\n                    )\n                ),\n                _react2.default.createElement(\n                    'p',\n                    { className: 'bor-l b-theme pl8 fs18' },\n                    '\\u4E0A\\u4F20 Upload'\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'mb32' },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'fileup-container' },\n                        _react2.default.createElement(\n                            'div',\n                            { className: 'fileup' },\n                            _react2.default.createElement(\n                                'label',\n                                { htmlFor: 'input-file', className: 'fileup-in btn ptb4 plr16 c-text-w bg-theme' },\n                                '\\u70B9\\u51FB\\u9009\\u62E9'\n                            ),\n                            _react2.default.createElement('input', { type: 'file', id: 'input-file' })\n                        ),\n                        _react2.default.createElement('img', { src: '', alt: '' })\n                    )\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'mb32' },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'upload-hollow' },\n                        _react2.default.createElement('label', { htmlFor: 'input-file' }),\n                        _react2.default.createElement(\n                            'div',\n                            { className: 'upload-mark d-f ac jc fs24 fd-c' },\n                            _react2.default.createElement(\n                                'span',\n                                null,\n                                '+'\n                            ),\n                            _react2.default.createElement(\n                                'span',\n                                { className: 'fs14' },\n                                '\\u663E\\u793A\\u5EFA\\u8BAE\\u6587\\u6848'\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'p',\n                            { className: 'fs12 c-fail p-a pt2' },\n                            '\\u663E\\u793A\\u9519\\u8BEF\\u63D0\\u793A'\n                        ),\n                        _react2.default.createElement(\n                            'div',\n                            { className: 'fileup-container' },\n                            _react2.default.createElement(\n                                'div',\n                                { className: 'fileup' },\n                                _react2.default.createElement('input', { type: 'file', id: 'input-file', name: 'sdkFile' })\n                            )\n                        ),\n                        _react2.default.createElement('img', { alt: '' })\n                    )\n                ),\n                _react2.default.createElement(\n                    'details',\n                    { className: 'pb16 mb16 bor-b b-side-s' },\n                    _react2.default.createElement(\n                        'summary',\n                        { className: 'btn-n pl8 pr64 ptb8' },\n                        '\\u663E\\u793ADemo\\u4EE3\\u7801'\n                    ),\n                    _react2.default.createElement(\n                        _reactHighlight2.default,\n                        { innerHTML: true },\n                        __webpack_require__(/*! ./doc/formUpload.md */ \"./doc/formUpload.md\")\n                    )\n                ),\n                _react2.default.createElement(\n                    'p',\n                    { className: 'bor-l b-theme pl8 fs18' },\n                    '\\u9009\\u62E9\\u6846 Select'\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'mb32' },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'select-box-normal' },\n                        _react2.default.createElement(\n                            'div',\n                            null,\n                            _react2.default.createElement(\n                                'span',\n                                { className: 'fs10 pb2 c-hint-b' },\n                                'Age'\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'select',\n                            { name: '', id: 'select', className: 'c-icon-b' },\n                            _react2.default.createElement(\n                                'option',\n                                { defaultValue: 'Hour' },\n                                'Hour'\n                            ),\n                            _react2.default.createElement(\n                                'option',\n                                { value: 'Day' },\n                                'Day'\n                            ),\n                            _react2.default.createElement(\n                                'option',\n                                { value: 'Month' },\n                                'Month'\n                            )\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'mb32' },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'select-box-down' },\n                        _react2.default.createElement(\n                            'div',\n                            null,\n                            _react2.default.createElement(\n                                'span',\n                                { className: 'fs10 pb2 c-hint-b' },\n                                'Age'\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'select',\n                            { name: '', id: 'select', className: 'c-icon-b' },\n                            _react2.default.createElement(\n                                'option',\n                                { defaultValue: 'Hour' },\n                                'Hour'\n                            ),\n                            _react2.default.createElement(\n                                'option',\n                                { value: 'Day' },\n                                'Day'\n                            ),\n                            _react2.default.createElement(\n                                'option',\n                                { value: 'Month' },\n                                'Month'\n                            )\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'details',\n                    { className: 'pb16 mb16 bor-b b-side-s' },\n                    _react2.default.createElement(\n                        'summary',\n                        { className: 'btn-n pl8 pr64 ptb8' },\n                        '\\u663E\\u793ADemo\\u4EE3\\u7801'\n                    ),\n                    _react2.default.createElement(\n                        _reactHighlight2.default,\n                        { innerHTML: true },\n                        __webpack_require__(/*! ./doc/formSelect.md */ \"./doc/formSelect.md\")\n                    )\n                ),\n                _react2.default.createElement(\n                    'p',\n                    { className: 'bor-l b-theme pl8 fs18' },\n                    '\\u591A\\u9009\\u6846 Checkbox'\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'mb32' },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'checkbox-box-normalize mr16' },\n                        _react2.default.createElement('input', { id: 'checkbox_normalize_title', type: 'checkbox', name: 'c_n', defaultChecked: true }),\n                        _react2.default.createElement(\n                            'span',\n                            { className: 'checkbox-hook ta-c' },\n                            _react2.default.createElement(\n                                'span',\n                                { className: 'checkbox-hook-in fs12 op0' },\n                                '\\u2713'\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'label',\n                            { htmlFor: 'checkbox_normalize_title', className: 'p-r z10 pl8' },\n                            'SluckyUI\\u662F\\u7EC4\\u4EF6\\u5E93\\u79CD\\u5B50'\n                        )\n                    ),\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'checkbox-box-normalize mr16' },\n                        _react2.default.createElement('input', { id: 'checkbox_normalize_title_1', type: 'checkbox', name: 'c_n' }),\n                        _react2.default.createElement(\n                            'span',\n                            { className: 'checkbox-hook ta-c' },\n                            _react2.default.createElement(\n                                'span',\n                                { className: 'checkbox-hook-in fs12 op0' },\n                                '\\u2713'\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'label',\n                            { htmlFor: 'checkbox_normalize_title_1', className: 'p-r z10 pl8' },\n                            'SluckyUI\\u7684\\u8DE8\\u5E73\\u53F0\\u6027\\u8D28\\u53EF\\u5FEB\\u901F\\u52A0\\u5DE5\\u6210react\\uFF0Cvue\\uFF0Cangular\\u7684\\u7EC4\\u4EF6'\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'mb32 d-f ac' },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'checkbox-box-soild mr16' },\n                        _react2.default.createElement('input', { id: 'checkbox_box_1', type: 'checkbox', name: 'c_n' }),\n                        _react2.default.createElement(\n                            'span',\n                            { className: 'checkbox-hook ta-c' },\n                            _react2.default.createElement('span', { className: 'checkbox-hook-in fs12 op0' })\n                        ),\n                        _react2.default.createElement(\n                            'label',\n                            { htmlFor: 'checkbox_box_1', className: 'p-r z10 pl8' },\n                            'SluckyUI\\u662F\\u7EC4\\u4EF6\\u5E93\\u79CD\\u5B50'\n                        )\n                    ),\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'checkbox-box-soild mr16' },\n                        _react2.default.createElement('input', { id: 'checkbox_box_2', type: 'checkbox', name: 'c_n', defaultChecked: true }),\n                        _react2.default.createElement(\n                            'span',\n                            { className: 'checkbox-hook ta-c' },\n                            _react2.default.createElement('span', { className: 'checkbox-hook-in fs12 op0' })\n                        ),\n                        _react2.default.createElement(\n                            'label',\n                            { htmlFor: 'checkbox_box_2', className: 'p-r z10 pl8' },\n                            'SluckyUI\\u7684\\u8DE8\\u5E73\\u53F0\\u6027\\u8D28\\u53EF\\u5FEB\\u901F\\u52A0\\u5DE5\\u6210react\\uFF0Cvue\\uFF0Cangular\\u7684\\u7EC4\\u4EF6'\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'mb32 d-f ac' },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'checkbox-box-fontstyle d-il mr4' },\n                        _react2.default.createElement('input', {\n                            id: 'push_callback',\n                            value: '',\n                            type: 'checkbox',\n                            name: 'pushSuccessfulCallbackData',\n                            className: 'd-n',\n                            defaultChecked: true\n                        }),\n                        _react2.default.createElement(\n                            'label',\n                            {\n                                htmlFor: 'push_callback',\n                                className: 'checkbox-fontstyle mb0'\n                            },\n                            _react2.default.createElement(\n                                'span',\n                                { className: 'fontstyle-sign' },\n                                '\\u2713'\n                            ),\n                            _react2.default.createElement(\n                                'span',\n                                { className: 'm0' },\n                                'SluckyUI\\u662F\\u7EC4\\u4EF6\\u5E93\\u79CD\\u5B50'\n                            )\n                        )\n                    ),\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'checkbox-box-fontstyle d-il mr4' },\n                        _react2.default.createElement('input', {\n                            id: 'push_callback2',\n                            value: '',\n                            type: 'checkbox',\n                            name: 'pushSuccessfulCallbackData',\n                            className: 'd-n'\n                        }),\n                        _react2.default.createElement(\n                            'label',\n                            {\n                                htmlFor: 'push_callback2',\n                                className: 'checkbox-fontstyle mb0'\n                            },\n                            _react2.default.createElement(\n                                'span',\n                                { className: 'fontstyle-sign' },\n                                '\\u2713'\n                            ),\n                            _react2.default.createElement(\n                                'span',\n                                { className: 'm0' },\n                                'SluckyUI\\u7684\\u8DE8\\u5E73\\u53F0\\u6027\\u8D28\\u53EF\\u5FEB\\u901F\\u52A0\\u5DE5\\u6210react\\uFF0Cvue\\uFF0Cangular\\u7684\\u7EC4\\u4EF6'\n                            )\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'mb32 d-f ac' },\n                    _react2.default.createElement(\n                        'span',\n                        { className: 'pr8' },\n                        'SluckyUI\\u662F\\u7EC4\\u4EF6\\u5E93\\u79CD\\u5B50'\n                    ),\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'switch-box-normalize' },\n                        _react2.default.createElement('label', { htmlFor: 'switch-input', className: 'switch-mark-click' }),\n                        _react2.default.createElement('input', { type: 'checkbox', defaultValue: '1', id: 'switch-input' }),\n                        _react2.default.createElement(\n                            'div',\n                            null,\n                            _react2.default.createElement('i', { className: 'switch-move' }),\n                            _react2.default.createElement('span', { className: 'switch-horizon' })\n                        )\n                    ),\n                    _react2.default.createElement(\n                        'span',\n                        { className: 'pl8' },\n                        'SluckyUI\\u7684\\u8DE8\\u5E73\\u53F0\\u6027\\u8D28\\u53EF\\u5FEB\\u901F\\u52A0\\u5DE5\\u6210react\\uFF0Cvue\\uFF0Cangular\\u7684\\u7EC4\\u4EF6'\n                    )\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'checkbox-box-imgstyle mb32' },\n                    _react2.default.createElement('input', { id: 'c_i', type: 'checkbox', name: 'c_i', className: 'd-n' }),\n                    _react2.default.createElement(\n                        'label',\n                        { htmlFor: 'c_i', className: 'checkbox-imgstyle' },\n                        _react2.default.createElement('img', { src: __webpack_require__(/*! ../images/bg_test.jpg */ \"./images/bg_test.jpg\"), alt: '' }),\n                        _react2.default.createElement(\n                            'p',\n                            { className: 'm0' },\n                            'Title'\n                        ),\n                        _react2.default.createElement(\n                            'div',\n                            { className: 'checkbox-mark d-f ac jc fd-c' },\n                            _react2.default.createElement(\n                                'span',\n                                null,\n                                '\\u2713'\n                            )\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'checkbox-box-papertoggle shadow mb32' },\n                    _react2.default.createElement('input', { id: 'isSelectPackage', type: 'checkbox', className: 'd-n' }),\n                    _react2.default.createElement(\n                        'label',\n                        { htmlFor: 'isSelectPackage', className: 'checkbox-papertoggle d-f' },\n                        _react2.default.createElement(\n                            'div',\n                            { className: 'checkbox-imgbox s0' },\n                            _react2.default.createElement('img', { src: __webpack_require__(/*! ../images/bg_test.jpg */ \"./images/bg_test.jpg\"), alt: '' })\n                        ),\n                        _react2.default.createElement(\n                            'div',\n                            { className: 'pt12 pl16' },\n                            '\\u63CF\\u8FF0Title',\n                            _react2.default.createElement(\n                                'div',\n                                { className: 'pt4 c-hint-b fs14' },\n                                'Breaking news, sport, TV, radio and a whole lot more. The BBC informs, educates and entertains - wherever'\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'div',\n                            { className: 'checkbox-mark d-f ac jc fd-c' },\n                            _react2.default.createElement(\n                                'span',\n                                null,\n                                '\\u2713'\n                            ),\n                            _react2.default.createElement(\n                                'p',\n                                null,\n                                '\\u5DF2\\u9009\\u62E9'\n                            )\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'details',\n                    { className: 'pb16 mb16 bor-b b-side-s' },\n                    _react2.default.createElement(\n                        'summary',\n                        { className: 'btn-n pl8 pr64 ptb8' },\n                        '\\u663E\\u793ADemo\\u4EE3\\u7801'\n                    ),\n                    _react2.default.createElement(\n                        _reactHighlight2.default,\n                        { innerHTML: true },\n                        __webpack_require__(/*! ./doc/formCheckbox.md */ \"./doc/formCheckbox.md\")\n                    )\n                ),\n                _react2.default.createElement(\n                    'p',\n                    { className: 'bor-l b-theme pl8 fs18' },\n                    '\\u5355\\u9009\\u6846 Radio'\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'mb32' },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'radio-box-normalize d-il pr16' },\n                        _react2.default.createElement('input', {\n                            id: 'isCallbackReport1',\n                            type: 'radio',\n                            name: 'managerCallbackReport',\n                            defaultChecked: true,\n                            className: 'd-n' }),\n                        _react2.default.createElement(\n                            'label',\n                            { className: 'm0', htmlFor: 'isCallbackReport1' },\n                            _react2.default.createElement(\n                                'div',\n                                { className: 'radio-out' },\n                                _react2.default.createElement('i', { className: 'radio-in' })\n                            ),\n                            _react2.default.createElement(\n                                'span',\n                                { className: 'pl8' },\n                                'SluckyUI\\u662F\\u7EC4\\u4EF6\\u5E93\\u79CD\\u5B50'\n                            )\n                        )\n                    ),\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'radio-box-normalize d-il pr16' },\n                        _react2.default.createElement('input', {\n                            id: 'isCallbackReport2',\n                            type: 'radio',\n                            name: 'managerCallbackReport',\n                            className: 'd-n' }),\n                        _react2.default.createElement(\n                            'label',\n                            { className: 'm0', htmlFor: 'isCallbackReport2' },\n                            _react2.default.createElement(\n                                'div',\n                                { className: 'radio-out' },\n                                _react2.default.createElement('i', { className: 'radio-in' })\n                            ),\n                            _react2.default.createElement(\n                                'span',\n                                { className: 'pl8' },\n                                'SluckyUI\\u7684\\u8DE8\\u5E73\\u53F0\\u6027\\u8D28\\u53EF\\u5FEB\\u901F\\u52A0\\u5DE5\\u6210react\\uFF0Cvue\\uFF0Cangular\\u7684\\u7EC4\\u4EF6'\n                            )\n                        )\n                    )\n                ),\n                _react2.default.createElement(\n                    'details',\n                    { className: 'pb16 mb16 bor-b b-side-s' },\n                    _react2.default.createElement(\n                        'summary',\n                        { className: 'btn-n pl8 pr64 ptb8' },\n                        '\\u663E\\u793ADemo\\u4EE3\\u7801'\n                    ),\n                    _react2.default.createElement(\n                        _reactHighlight2.default,\n                        { innerHTML: true },\n                        __webpack_require__(/*! ./doc/formRadio.md */ \"./doc/formRadio.md\")\n                    )\n                ),\n                _react2.default.createElement(\n                    'p',\n                    { className: 'bor-l b-theme pl8 fs18' },\n                    '\\u5BCC\\u6587\\u672C\\u6846 Textarea'\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'mb32' },\n                    _react2.default.createElement('textarea', { name: '', id: '', cols: '50', rows: '6', className: 'textarea' })\n                ),\n                _react2.default.createElement(\n                    'details',\n                    { className: 'pb16 mb16 bor-b b-side-s' },\n                    _react2.default.createElement(\n                        'summary',\n                        { className: 'btn-n pl8 pr64 ptb8' },\n                        '\\u663E\\u793ADemo\\u4EE3\\u7801'\n                    ),\n                    _react2.default.createElement(\n                        _reactHighlight2.default,\n                        { innerHTML: true },\n                        _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoStringTextarea }))\n                    )\n                )\n            )\n            // <div>\n            //     <div className=\"d-f ac mb32\">\n            //         <div>\n            //             <label htmlFor=\"\" className=\"pb4 mb0 fs12 d-b\">表单Key：</label>\n            //             <input\n            //                 onChange={(e) => { this.setState({ name: e.target.value }) }}\n            //                 type=\"text\"\n            //                 className=\"input-down w384\"\n            //                 maxLength=\"100\"\n            //                 placeholder=\"placeholder\" />\n            //             <div className=\"fs12 c-fail p-a pt2\">显示错误提示</div>\n            //             {console.log(this.state)}\n            //         </div>\n            //     </div>\n            // </div>\n            ;\n        }\n    }]);\n\n    return FormDemo;\n}(_react.Component);\n\nexports.default = FormDemo;\n\n//# sourceURL=webpack:///./src/formDemo.jsx?");
+
+/***/ }),
+
+/***/ "./validatorDemo":
+/*!**********************************!*\
+  !*** external "./validatorDemo" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE__validatorDemo__;\n\n//# sourceURL=webpack:///external_%22./validatorDemo%22?");
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react__;\n\n//# sourceURL=webpack:///external_%22react%22?");
+
+/***/ }),
+
+/***/ "react-dom/server":
+/*!***********************************!*\
+  !*** external "react-dom/server" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom_server__;\n\n//# sourceURL=webpack:///external_%22react-dom/server%22?");
+
+/***/ }),
+
+/***/ "react-highlight":
+/*!**********************************!*\
+  !*** external "react-highlight" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_highlight__;\n\n//# sourceURL=webpack:///external_%22react-highlight%22?");
+
+/***/ }),
+
+/***/ "react-markdown":
+/*!*********************************!*\
+  !*** external "react-markdown" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_markdown__;\n\n//# sourceURL=webpack:///external_%22react-markdown%22?");
+
+/***/ })
+
+/******/ });
 });
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _server = require('react-dom/server');
-
-var _server2 = _interopRequireDefault(_server);
-
-var _reactMarkdown = require('react-markdown');
-
-var _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);
-
-var _reactHighlight = require('react-highlight');
-
-var _reactHighlight2 = _interopRequireDefault(_reactHighlight);
-
-var _validatorDemo = require('./validatorDemo');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var FormDemo = function (_Component) {
-    _inherits(FormDemo, _Component);
-
-    function FormDemo() {
-        _classCallCheck(this, FormDemo);
-
-        return _possibleConstructorReturn(this, (FormDemo.__proto__ || Object.getPrototypeOf(FormDemo)).call(this));
-    }
-
-    _createClass(FormDemo, [{
-        key: 'render',
-        value: function render() {
-            var demoStringValidator = '``` jsx' + '\nclass ValidatorDemo extends Component {\n    constructor() {\n        super()\n        this.state = {\n            name: \'\',\n            email: \'\',\n            password: \'\'\n        }\n        this.Validator = new Validator()\n        Validator.types.isEmptyTest = {\n            validate(value) {\n                return value !== \'\';\n            },\n            instruction: \'\u4E0D\u4E3A\u7A7A\u81EA\u5B9A\u4E49\u6821\u9A8C\'\n        };\n        this.Validator.config = {\n            name: [\'isEmpty\', \'isEmptyTest\'],\n            email: [\'isEmpty\', \'isEmptyTest\'],\n            password: [\'isEmpty\', \'isInt\', \'isEmptyTest\']\n        };\n    }\n        \n    handelClickSubmit = () => {\n        //isSubmit\u53EA\u68C0\u6D4B\n        if (this.Validator.isSubmit(this.state)) {\n            Toast.add(\'ok\')\n        } else {\n            Toast.add({\n                content: \'vali fail\',\n                status: \'fail\'\n            })\n        }\n        //\u66F4\u65B0\u6821\u9A8C\u4FE1\u606F\n        this.forceUpdate();\n    }\n        \n    render() {\n        return (\n            <div className="bor b-side p32 mtb32">\n                <div className="d-f ac mb24">\n                    <div className="w96 s0">\n                    <label htmlFor="name">Name:</label>\n                    </div>\n                    <Inputs id="name" onChange={(name) => { this.setState({ name }) }} error={() => this.Validator.formatRes(\'name\')} />\n                </div>\n                <div className="d-f ac mb24">\n                    <div className="w96 s0">\n                    <label htmlFor="email">Email:</label>\n                    </div>\n                    <Inputs id="email" onChange={(email) => { this.setState({ email }) }} error={() => this.Validator.formatRes(\'email\')} />\n                </div>\n                <div className="d-f ac mb24">\n                    <div className="w96 s0">\n                    <label htmlFor="password">Password:</label>\n                    </div>\n                    <Inputs id="password" onChange={(password) => { this.setState({ password }) }} error={() => this.Validator.formatRes(\'password\')} />\n                </div>\n                <div className="w384 ta-c">\n                    <button className="btn-n ml8 plr16 ptb8" onClick={this.handelClickSubmit}>\u6821\u9A8C\u8868\u5355</button>\n                </div>\n            </div>\n        )\n    }\n}\n        ';
-            var demoStringInput = '``` html' + '\n\n<div className="d-f ac mb32">\n    <div className="w96 s0">\u8868\u5355Key\uFF1A</div>\n    <div>\n        <input\n            type="text"\n            className="input-normal w384"\n            maxLength="100"\n            placeholder="placeholder" />\n        <div className="fs12 c-fail p-a pt2">\u663E\u793A\u9519\u8BEF\u63D0\u793A</div>\n    </div>\n</div>\n\n<div className="d-f ac mb32">\n    <div>\n        <label htmlFor="" className="pb4 mb0 fs12 d-b">\u8868\u5355Key\uFF1A</label>\n            <input\n                type="text"\n                className="input-down w384"\n                maxLength="100"\n                placeholder="placeholder" />\n        <div className="fs12 c-fail p-a pt2">\u663E\u793A\u9519\u8BEF\u63D0\u793A</div>\n    </div>\n</div>\n\n<div className="d-f ac mb32">\n    <div className="input-search-down">\n        <label htmlFor="" className="pb4 mb0 fs12 d-b">\u8868\u5355Key\uFF1A</label>\n            <input\n                type="text"\n                className="input-down w384"\n                placeholder="placeholder"\n                maxLength="50" />\n            <div className="fs12 c-fail p-a pt2">\u663E\u793A\u9519\u8BEF\u63D0\u793A</div>\n            <ul className="input-option paper bor b-side fs12 p0" scrollbar=\'normal\'>\n                <li className="p4 bor-b b-side d-f jc-b">Apple</li>\n                <li className="p4 bor-b b-side d-f jc-b">Boy</li>\n                <li className="p4 bor-b b-side d-f jc-b">Cat</li>\n            </ul>\n    </div>\n</div>\n\n<div className="d-f ac mb32">\n    <div className="input-search-normal d-f ac">\n        <input\n            type="text"\n            className="input-normal w384"\n            placeholder="placeholder" />\n        <button className="fs12 btn-n ptb8 mr2 plr16">\u641C\u7D22</button>\n    </div>\n</div>\n';
-
-            var demoStringUpload = '``` html' + '\n<div className="mb32">\n    <div className="fileup-container">\n        <div className="fileup">\n            <label htmlFor="input-file" className="fileup-in btn ptb4 plr16 c-text-w bg-theme">\u70B9\u51FB\u9009\u62E9</label>\n            <input type="file" id="input-file" />\n        </div>\n        <img src="" alt="" />\n    </div>\n</div>\n\n<div className="mb32">\n    <div className="upload-hollow">\n        <label htmlFor="input-file"></label>\n        <div className="upload-mark d-f ac jc fs24 fd-c">\n            <span>+</span>\n            <span className="fs14">\u663E\u793A\u5EFA\u8BAE\u6587\u6848</span>\n        </div>\n        <p className="fs12 c-fail p-a pt2">\u663E\u793A\u9519\u8BEF\u63D0\u793A</p>\n        <div className="fileup-container">\n            <div className="fileup">\n                <input type="file" id="input-file" name="sdkFile" />\n                {/* <span className="file-upload-tooltip tooltip-style">\u663E\u793A\u6587\u4EF6\u540D</span> */}\n            </div>\n        </div>\n        <img alt="" />\n    </div>\n</div>\n';
-
-            var demoStringSelect = '``` html' + '\n<div className="mb32">\n    <div className="select-box-normal">\n        <div>\n            <span className="fs10 pb2 c-hint-b">Age</span>\n        </div>\n        <select name="" id="select" className="c-icon-b">\n            <option defaultValue="Hour">Hour</option>\n            <option value="Day">Day</option>\n            <option value="Month">Month</option>\n        </select>\n    </div>\n</div>\n\n<div className="mb32">\n    <div className="select-box-down">\n        <div>\n            <span className="fs10 pb2 c-hint-b">Age</span>\n        </div>\n        <select name="" id="select" className="c-icon-b">\n            <option defaultValue="Hour">Hour</option>\n            <option value="Day">Day</option>\n            <option value="Month">Month</option>\n        </select>\n    </div>\n</div>\n';
-
-            var demoStringCheckbox = '``` html' + '\n<div className="checkbox-box-normalize mr16">\n    <input id="checkbox_normalize_title" type="checkbox" name="c_n" defaultChecked />\n    <span className="checkbox-hook ta-c">\n        <span className="checkbox-hook-in fs12 op0">\u2713</span>\n    </span>\n    <label htmlFor="checkbox_normalize_title" className="p-r z10"></label>\n</div>\n\n<div className="checkbox-box-soild mr16">\n    <input id="checkbox_box_1" type="checkbox" name="c_n" />\n    <span className="checkbox-hook ta-c">\n        <span className="checkbox-hook-in fs12 op0"></span>\n    </span>\n    <label htmlFor="checkbox_box_1" className="p-r z10"></label>\n</div>\n\n<div className="checkbox-box-papertoggle shadow mb32">\n    <input id="isSelectPackage" type="checkbox" className="d-n" />\n    <label htmlFor="isSelectPackage" className="checkbox-papertoggle d-f">\n        <div className="checkbox-imgbox s0">\n            <img src={require("../images/bg_test.jpg")} alt="" />\n        </div>\n        <div className="pt12 pl16">\n            \u63CF\u8FF0Title\n            <div className="pt4 c-hint-b fs14">\n                Breaking news, sport, TV, radio and a whole lot more. The BBC informs, educates and entertains - wherever\n            </div>\n        </div>\n        <div className="checkbox-mark d-f ac jc fd-c">\n            <span>\u2713</span>\n            <p>\u5DF2\u9009\u62E9</p>\n        </div>\n    </label>\n</div>\n\n<div className="checkbox-box-fontstyle d-il mr4">\n    <input\n        id="push_callback"\n        value=""\n        type="checkbox"\n        name="pushSuccessfulCallbackData"\n        className="d-n"\n        defaultChecked\n    />\n    <label\n        htmlFor="push_callback"\n        className="checkbox-fontstyle mb0"\n    >\n        <span className="fontstyle-sign">\u2713</span>\n        <span className="m0">SluckyUI\u662F\u7EC4\u4EF6\u5E93\u79CD\u5B50</span>\n    </label>\n</div>\n<div className="checkbox-box-fontstyle d-il mr4">\n    <input\n        id="push_callback2"\n        value=""\n        type="checkbox"\n        name="pushSuccessfulCallbackData"\n        className="d-n"\n    />\n    <label\n        htmlFor="push_callback2"\n        className="checkbox-fontstyle mb0"\n    >\n        <span className="fontstyle-sign">\u2713</span>\n        <span className="m0">SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6</span>\n    </label>\n</div>\n\n<div className="mb32 d-f ac">\n    <span className=\'pr8\'>SluckyUI\u662F\u7EC4\u4EF6\u5E93\u79CD\u5B50</span>\n    <div className="switch-box-normalize">\n        <label htmlFor="switch-input" className="switch-mark-click"></label>\n        <input type="checkbox" defaultValue="1" id="switch-input" />\n        <div>\n            <i className="switch-move"></i>\n            <span className="switch-horizon"></span>\n        </div>\n    </div>\n    <span className=\'pl8\'>SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6</span>\n</div>\n\n<div className="checkbox-box-imgstyle mb32">\n    <input id="c_i" type="checkbox" name="c_i" className="d-n" />\n    <label htmlFor="c_i" className="checkbox-imgstyle">\n        <img src={require(\'../images/bg_test.jpg\')} alt="" />\n        <p className="m0">Title</p>\n        <div className="checkbox-mark d-f ac jc fd-c"><span>\u2713</span></div>\n    </label>\n</div>\n\n<div className="checkbox-box-papertoggle shadow mb32">\n    <input id="isSelectPackage" type="checkbox" className="d-n" />\n    <label htmlFor="isSelectPackage" className="checkbox-papertoggle d-f">\n        <div className="checkbox-imgbox s0">\n            <img src={require("../images/bg_test.jpg")} alt="" />\n        </div>\n        <div className="pt12 pl16">\n            \u63CF\u8FF0Title\n            <div className="pt4 c-hint-b fs14">\nBreaking news, sport, TV, radio and a whole lot more. The BBC informs, educates and entertains - wherever\n            </div>\n        </div>\n        <div className="checkbox-mark d-f ac jc fd-c">\n            <span>\u2713</span>\n            <p>\u5DF2\u9009\u62E9</p>\n        </div>\n    </label>\n</div>\n';
-
-            var demoStringRadio = '``` html' + '\n<div className="radio-box-normalize d-il pr16">\n    <input\n        id="isCallbackReport1"\n        type="radio"\n        name="managerCallbackReport"\n        defaultChecked\n        className="d-n" />\n    <label className="m0" htmlFor="isCallbackReport1">\n        <div className="radio-out">\n            <i className="radio-in"></i>\n        </div>\n        <span className="pl8">SluckyUI\u662F\u7EC4\u4EF6\u5E93\u79CD\u5B50</span>\n    </label>\n</div>\n\n<div className="radio-box-normalize d-il pr16">\n    <input\n        id="isCallbackReport2"\n        type="radio"\n        name="managerCallbackReport"\n        className="d-n" />\n    <label className="m0" htmlFor="isCallbackReport2">\n        <div className="radio-out">\n            <i className="radio-in"></i>\n        </div>\n        <span className="pl8">SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6</span>\n    </label>\n</div>\n';
-
-            var demoStringTextarea = '``` html' + '\n<textarea name="" id="" cols="50" rows="6" className="textarea"></textarea>\n';
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                    'p',
-                    { className: 'bor-l b-theme pl8 fs18 mt32' },
-                    '\u8868\u5355\u6821\u9A8C Validator'
-                ),
-                _react2.default.createElement(_validatorDemo.ValidatorDemo, null),
-                _react2.default.createElement(
-                    'details',
-                    { className: 'pb16 mb16 bor-b b-side-s' },
-                    _react2.default.createElement(
-                        'summary',
-                        { className: 'btn-n pl8 pr64 ptb8' },
-                        '\u663E\u793ADemo\u4EE3\u7801'
-                    ),
-                    _react2.default.createElement(
-                        _reactHighlight2.default,
-                        { innerHTML: true },
-                        _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoStringValidator }))
-                    )
-                ),
-                _react2.default.createElement(
-                    'p',
-                    { className: 'bor-l b-theme pl8 fs18' },
-                    '\u8F93\u5165\u6846 Input'
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'd-f ac mb32' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'w96 s0' },
-                        '\u8868\u5355Key\uFF1A'
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        null,
-                        _react2.default.createElement('input', {
-                            type: 'text',
-                            className: 'input-normal w384',
-                            maxLength: '100',
-                            placeholder: 'placeholder' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'fs12 c-fail p-a pt2' },
-                            '\u663E\u793A\u9519\u8BEF\u63D0\u793A'
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'd-f ac mb32' },
-                    _react2.default.createElement(
-                        'div',
-                        null,
-                        _react2.default.createElement(
-                            'label',
-                            { htmlFor: '', className: 'pb4 mb0 fs12 d-b' },
-                            '\u8868\u5355Key\uFF1A'
-                        ),
-                        _react2.default.createElement('input', {
-                            type: 'text',
-                            className: 'input-down w384',
-                            maxLength: '100',
-                            placeholder: 'placeholder' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'fs12 c-fail p-a pt2' },
-                            '\u663E\u793A\u9519\u8BEF\u63D0\u793A'
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'd-f ac mb32' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'input-search-down' },
-                        _react2.default.createElement(
-                            'label',
-                            { htmlFor: '', className: 'pb4 mb0 fs12 d-b' },
-                            '\u8868\u5355Key\uFF1A'
-                        ),
-                        _react2.default.createElement('input', {
-                            type: 'text',
-                            className: 'input-down w384',
-                            placeholder: 'placeholder',
-                            maxLength: '50' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'fs12 c-fail p-a pt2' },
-                            '\u663E\u793A\u9519\u8BEF\u63D0\u793A'
-                        ),
-                        _react2.default.createElement(
-                            'ul',
-                            { className: 'input-option paper bor b-side fs12 p0', scrollbar: 'normal' },
-                            _react2.default.createElement(
-                                'li',
-                                { className: 'p4 bor-b b-side d-f jc-b' },
-                                'Apple'
-                            ),
-                            _react2.default.createElement(
-                                'li',
-                                { className: 'p4 bor-b b-side d-f jc-b' },
-                                'Boy'
-                            ),
-                            _react2.default.createElement(
-                                'li',
-                                { className: 'p4 bor-b b-side d-f jc-b' },
-                                'Cat'
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'd-f ac mb32' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'input-search-normal d-f ac' },
-                        _react2.default.createElement('input', {
-                            type: 'text',
-                            className: 'input-normal w384',
-                            placeholder: 'placeholder' }),
-                        _react2.default.createElement(
-                            'button',
-                            { className: 'fs12 btn-n ptb8 mr2 plr16' },
-                            '\u641C\u7D22'
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'details',
-                    { className: 'pb16 mb16 bor-b b-side-s' },
-                    _react2.default.createElement(
-                        'summary',
-                        { className: 'btn-n pl8 pr64 ptb8' },
-                        '\u663E\u793ADemo\u4EE3\u7801'
-                    ),
-                    _react2.default.createElement(
-                        _reactHighlight2.default,
-                        { innerHTML: true },
-                        _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoStringInput }))
-                    )
-                ),
-                _react2.default.createElement(
-                    'p',
-                    { className: 'bor-l b-theme pl8 fs18' },
-                    '\u4E0A\u4F20 Upload'
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mb32' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'fileup-container' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'fileup' },
-                            _react2.default.createElement(
-                                'label',
-                                { htmlFor: 'input-file', className: 'fileup-in btn ptb4 plr16 c-text-w bg-theme' },
-                                '\u70B9\u51FB\u9009\u62E9'
-                            ),
-                            _react2.default.createElement('input', { type: 'file', id: 'input-file' })
-                        ),
-                        _react2.default.createElement('img', { src: '', alt: '' })
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mb32' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'upload-hollow' },
-                        _react2.default.createElement('label', { htmlFor: 'input-file' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'upload-mark d-f ac jc fs24 fd-c' },
-                            _react2.default.createElement(
-                                'span',
-                                null,
-                                '+'
-                            ),
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'fs14' },
-                                '\u663E\u793A\u5EFA\u8BAE\u6587\u6848'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'p',
-                            { className: 'fs12 c-fail p-a pt2' },
-                            '\u663E\u793A\u9519\u8BEF\u63D0\u793A'
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'fileup-container' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'fileup' },
-                                _react2.default.createElement('input', { type: 'file', id: 'input-file', name: 'sdkFile' })
-                            )
-                        ),
-                        _react2.default.createElement('img', { alt: '' })
-                    )
-                ),
-                _react2.default.createElement(
-                    'details',
-                    { className: 'pb16 mb16 bor-b b-side-s' },
-                    _react2.default.createElement(
-                        'summary',
-                        { className: 'btn-n pl8 pr64 ptb8' },
-                        '\u663E\u793ADemo\u4EE3\u7801'
-                    ),
-                    _react2.default.createElement(
-                        _reactHighlight2.default,
-                        { innerHTML: true },
-                        _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoStringUpload }))
-                    )
-                ),
-                _react2.default.createElement(
-                    'p',
-                    { className: 'bor-l b-theme pl8 fs18' },
-                    '\u9009\u62E9\u6846 Select'
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mb32' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'select-box-normal' },
-                        _react2.default.createElement(
-                            'div',
-                            null,
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'fs10 pb2 c-hint-b' },
-                                'Age'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'select',
-                            { name: '', id: 'select', className: 'c-icon-b' },
-                            _react2.default.createElement(
-                                'option',
-                                { defaultValue: 'Hour' },
-                                'Hour'
-                            ),
-                            _react2.default.createElement(
-                                'option',
-                                { value: 'Day' },
-                                'Day'
-                            ),
-                            _react2.default.createElement(
-                                'option',
-                                { value: 'Month' },
-                                'Month'
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mb32' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'select-box-down' },
-                        _react2.default.createElement(
-                            'div',
-                            null,
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'fs10 pb2 c-hint-b' },
-                                'Age'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'select',
-                            { name: '', id: 'select', className: 'c-icon-b' },
-                            _react2.default.createElement(
-                                'option',
-                                { defaultValue: 'Hour' },
-                                'Hour'
-                            ),
-                            _react2.default.createElement(
-                                'option',
-                                { value: 'Day' },
-                                'Day'
-                            ),
-                            _react2.default.createElement(
-                                'option',
-                                { value: 'Month' },
-                                'Month'
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'details',
-                    { className: 'pb16 mb16 bor-b b-side-s' },
-                    _react2.default.createElement(
-                        'summary',
-                        { className: 'btn-n pl8 pr64 ptb8' },
-                        '\u663E\u793ADemo\u4EE3\u7801'
-                    ),
-                    _react2.default.createElement(
-                        _reactHighlight2.default,
-                        { innerHTML: true },
-                        _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoStringSelect }))
-                    )
-                ),
-                _react2.default.createElement(
-                    'p',
-                    { className: 'bor-l b-theme pl8 fs18' },
-                    '\u591A\u9009\u6846 Checkbox'
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mb32' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'checkbox-box-normalize mr16' },
-                        _react2.default.createElement('input', { id: 'checkbox_normalize_title', type: 'checkbox', name: 'c_n', defaultChecked: true }),
-                        _react2.default.createElement(
-                            'span',
-                            { className: 'checkbox-hook ta-c' },
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'checkbox-hook-in fs12 op0' },
-                                '\u2713'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'label',
-                            { htmlFor: 'checkbox_normalize_title', className: 'p-r z10 pl8' },
-                            'SluckyUI\u662F\u7EC4\u4EF6\u5E93\u79CD\u5B50'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'checkbox-box-normalize mr16' },
-                        _react2.default.createElement('input', { id: 'checkbox_normalize_title_1', type: 'checkbox', name: 'c_n' }),
-                        _react2.default.createElement(
-                            'span',
-                            { className: 'checkbox-hook ta-c' },
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'checkbox-hook-in fs12 op0' },
-                                '\u2713'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'label',
-                            { htmlFor: 'checkbox_normalize_title_1', className: 'p-r z10 pl8' },
-                            'SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6'
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mb32 d-f ac' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'checkbox-box-soild mr16' },
-                        _react2.default.createElement('input', { id: 'checkbox_box_1', type: 'checkbox', name: 'c_n' }),
-                        _react2.default.createElement(
-                            'span',
-                            { className: 'checkbox-hook ta-c' },
-                            _react2.default.createElement('span', { className: 'checkbox-hook-in fs12 op0' })
-                        ),
-                        _react2.default.createElement(
-                            'label',
-                            { htmlFor: 'checkbox_box_1', className: 'p-r z10 pl8' },
-                            'SluckyUI\u662F\u7EC4\u4EF6\u5E93\u79CD\u5B50'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'checkbox-box-soild mr16' },
-                        _react2.default.createElement('input', { id: 'checkbox_box_2', type: 'checkbox', name: 'c_n', defaultChecked: true }),
-                        _react2.default.createElement(
-                            'span',
-                            { className: 'checkbox-hook ta-c' },
-                            _react2.default.createElement('span', { className: 'checkbox-hook-in fs12 op0' })
-                        ),
-                        _react2.default.createElement(
-                            'label',
-                            { htmlFor: 'checkbox_box_2', className: 'p-r z10 pl8' },
-                            'SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6'
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mb32 d-f ac' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'checkbox-box-fontstyle d-il mr4' },
-                        _react2.default.createElement('input', {
-                            id: 'push_callback',
-                            value: '',
-                            type: 'checkbox',
-                            name: 'pushSuccessfulCallbackData',
-                            className: 'd-n',
-                            defaultChecked: true
-                        }),
-                        _react2.default.createElement(
-                            'label',
-                            {
-                                htmlFor: 'push_callback',
-                                className: 'checkbox-fontstyle mb0'
-                            },
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'fontstyle-sign' },
-                                '\u2713'
-                            ),
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'm0' },
-                                'SluckyUI\u662F\u7EC4\u4EF6\u5E93\u79CD\u5B50'
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'checkbox-box-fontstyle d-il mr4' },
-                        _react2.default.createElement('input', {
-                            id: 'push_callback2',
-                            value: '',
-                            type: 'checkbox',
-                            name: 'pushSuccessfulCallbackData',
-                            className: 'd-n'
-                        }),
-                        _react2.default.createElement(
-                            'label',
-                            {
-                                htmlFor: 'push_callback2',
-                                className: 'checkbox-fontstyle mb0'
-                            },
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'fontstyle-sign' },
-                                '\u2713'
-                            ),
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'm0' },
-                                'SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6'
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mb32 d-f ac' },
-                    _react2.default.createElement(
-                        'span',
-                        { className: 'pr8' },
-                        'SluckyUI\u662F\u7EC4\u4EF6\u5E93\u79CD\u5B50'
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'switch-box-normalize' },
-                        _react2.default.createElement('label', { htmlFor: 'switch-input', className: 'switch-mark-click' }),
-                        _react2.default.createElement('input', { type: 'checkbox', defaultValue: '1', id: 'switch-input' }),
-                        _react2.default.createElement(
-                            'div',
-                            null,
-                            _react2.default.createElement('i', { className: 'switch-move' }),
-                            _react2.default.createElement('span', { className: 'switch-horizon' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'span',
-                        { className: 'pl8' },
-                        'SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6'
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'checkbox-box-imgstyle mb32' },
-                    _react2.default.createElement('input', { id: 'c_i', type: 'checkbox', name: 'c_i', className: 'd-n' }),
-                    _react2.default.createElement(
-                        'label',
-                        { htmlFor: 'c_i', className: 'checkbox-imgstyle' },
-                        _react2.default.createElement('img', { src: require('../images/bg_test.jpg'), alt: '' }),
-                        _react2.default.createElement(
-                            'p',
-                            { className: 'm0' },
-                            'Title'
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'checkbox-mark d-f ac jc fd-c' },
-                            _react2.default.createElement(
-                                'span',
-                                null,
-                                '\u2713'
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'checkbox-box-papertoggle shadow mb32' },
-                    _react2.default.createElement('input', { id: 'isSelectPackage', type: 'checkbox', className: 'd-n' }),
-                    _react2.default.createElement(
-                        'label',
-                        { htmlFor: 'isSelectPackage', className: 'checkbox-papertoggle d-f' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'checkbox-imgbox s0' },
-                            _react2.default.createElement('img', { src: require("../images/bg_test.jpg"), alt: '' })
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'pt12 pl16' },
-                            '\u63CF\u8FF0Title',
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'pt4 c-hint-b fs14' },
-                                'Breaking news, sport, TV, radio and a whole lot more. The BBC informs, educates and entertains - wherever'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'checkbox-mark d-f ac jc fd-c' },
-                            _react2.default.createElement(
-                                'span',
-                                null,
-                                '\u2713'
-                            ),
-                            _react2.default.createElement(
-                                'p',
-                                null,
-                                '\u5DF2\u9009\u62E9'
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'details',
-                    { className: 'pb16 mb16 bor-b b-side-s' },
-                    _react2.default.createElement(
-                        'summary',
-                        { className: 'btn-n pl8 pr64 ptb8' },
-                        '\u663E\u793ADemo\u4EE3\u7801'
-                    ),
-                    _react2.default.createElement(
-                        _reactHighlight2.default,
-                        { innerHTML: true },
-                        _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoStringCheckbox }))
-                    )
-                ),
-                _react2.default.createElement(
-                    'p',
-                    { className: 'bor-l b-theme pl8 fs18' },
-                    '\u5355\u9009\u6846 Radio'
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mb32' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'radio-box-normalize d-il pr16' },
-                        _react2.default.createElement('input', {
-                            id: 'isCallbackReport1',
-                            type: 'radio',
-                            name: 'managerCallbackReport',
-                            defaultChecked: true,
-                            className: 'd-n' }),
-                        _react2.default.createElement(
-                            'label',
-                            { className: 'm0', htmlFor: 'isCallbackReport1' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'radio-out' },
-                                _react2.default.createElement('i', { className: 'radio-in' })
-                            ),
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'pl8' },
-                                'SluckyUI\u662F\u7EC4\u4EF6\u5E93\u79CD\u5B50'
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'radio-box-normalize d-il pr16' },
-                        _react2.default.createElement('input', {
-                            id: 'isCallbackReport2',
-                            type: 'radio',
-                            name: 'managerCallbackReport',
-                            className: 'd-n' }),
-                        _react2.default.createElement(
-                            'label',
-                            { className: 'm0', htmlFor: 'isCallbackReport2' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'radio-out' },
-                                _react2.default.createElement('i', { className: 'radio-in' })
-                            ),
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'pl8' },
-                                'SluckyUI\u7684\u8DE8\u5E73\u53F0\u6027\u8D28\u53EF\u5FEB\u901F\u52A0\u5DE5\u6210react\uFF0Cvue\uFF0Cangular\u7684\u7EC4\u4EF6'
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'details',
-                    { className: 'pb16 mb16 bor-b b-side-s' },
-                    _react2.default.createElement(
-                        'summary',
-                        { className: 'btn-n pl8 pr64 ptb8' },
-                        '\u663E\u793ADemo\u4EE3\u7801'
-                    ),
-                    _react2.default.createElement(
-                        _reactHighlight2.default,
-                        { innerHTML: true },
-                        _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoStringRadio }))
-                    )
-                ),
-                _react2.default.createElement(
-                    'p',
-                    { className: 'bor-l b-theme pl8 fs18' },
-                    '\u5BCC\u6587\u672C\u6846 Textarea'
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'mb32' },
-                    _react2.default.createElement('textarea', { name: '', id: '', cols: '50', rows: '6', className: 'textarea' })
-                ),
-                _react2.default.createElement(
-                    'details',
-                    { className: 'pb16 mb16 bor-b b-side-s' },
-                    _react2.default.createElement(
-                        'summary',
-                        { className: 'btn-n pl8 pr64 ptb8' },
-                        '\u663E\u793ADemo\u4EE3\u7801'
-                    ),
-                    _react2.default.createElement(
-                        _reactHighlight2.default,
-                        { innerHTML: true },
-                        _server2.default.renderToStaticMarkup(_react2.default.createElement(_reactMarkdown2.default, { source: demoStringTextarea }))
-                    )
-                )
-            )
-            // <div>
-            //     <div className="d-f ac mb32">
-            //         <div>
-            //             <label htmlFor="" className="pb4 mb0 fs12 d-b">表单Key：</label>
-            //             <input
-            //                 onChange={(e) => { this.setState({ name: e.target.value }) }}
-            //                 type="text"
-            //                 className="input-down w384"
-            //                 maxLength="100"
-            //                 placeholder="placeholder" />
-            //             <div className="fs12 c-fail p-a pt2">显示错误提示</div>
-            //             {console.log(this.state)}
-            //         </div>
-            //     </div>
-            // </div>
-            ;
-        }
-    }]);
-
-    return FormDemo;
-}(_react.Component);
-
-exports.default = FormDemo;

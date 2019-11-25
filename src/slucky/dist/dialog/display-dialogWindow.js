@@ -1,161 +1,134 @@
-'use strict';
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("react"), require("react-addons-css-transition-group"));
+	else if(typeof define === 'function' && define.amd)
+		define(["react", "react-addons-css-transition-group"], factory);
+	else {
+		var a = typeof exports === 'object' ? factory(require("react"), require("react-addons-css-transition-group")) : factory(root["react"], root["react-addons-css-transition-group"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(window, function(__WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_addons_css_transition_group__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/dialog/display-dialogWindow.jsx");
+/******/ })
+/************************************************************************/
+/******/ ({
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
+/***/ "./src/dialog/display-dialogWindow.jsx":
+/*!*********************************************!*\
+  !*** ./src/dialog/display-dialogWindow.jsx ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactAddonsCssTransitionGroup = __webpack_require__(/*! react-addons-css-transition-group */ \"react-addons-css-transition-group\");\n\nvar _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\n// 可配置组件\n// const dialog = {\n// \thandleConfirm: handleLogoutClick.bind(this),\n// \tcontent: \"Are you sure logout?\",\n// \tbtnText: \"注销\",\n// \tbtnClassName: \"btn btn-s btn-hollow b-w c-text-w mr8\"\n// }\n\nvar DialogWindow = function (_Component) {\n\t_inherits(DialogWindow, _Component);\n\n\tfunction DialogWindow(props) {\n\t\t_classCallCheck(this, DialogWindow);\n\n\t\tvar _this = _possibleConstructorReturn(this, (DialogWindow.__proto__ || Object.getPrototypeOf(DialogWindow)).call(this, props));\n\n\t\t_this.state = {\n\t\t\tisToggle: false\n\t\t};\n\t\tconsole.log(_this.state);\n\t\treturn _this;\n\t}\n\n\t// 维护组件display状态\n\n\n\t_createClass(DialogWindow, [{\n\t\tkey: 'handleToggleClick',\n\t\tvalue: function handleToggleClick() {\n\t\t\tvar _self = this;\n\t\t\tthis.setState({\n\t\t\t\tisToggle: !_self.state.isToggle\n\t\t\t});\n\t\t}\n\t}, {\n\t\tkey: 'handleConfirmClick',\n\t\tvalue: function handleConfirmClick() {\n\t\t\tvar handleConfirm = this.props.dialog.handleConfirm;\n\n\t\t\tthis.setState({\n\t\t\t\tisToggle: false\n\t\t\t});\n\t\t\thandleConfirm();\n\t\t}\n\t}, {\n\t\tkey: 'render',\n\t\tvalue: function render() {\n\t\t\tvar _props$dialog = this.props.dialog,\n\t\t\t    content = _props$dialog.content,\n\t\t\t    btnText = _props$dialog.btnText,\n\t\t\t    title = _props$dialog.title,\n\t\t\t    btnClassName = _props$dialog.btnClassName;\n\n\t\t\treturn _react2.default.createElement(\n\t\t\t\t'div',\n\t\t\t\t{ className: 'd-il' },\n\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t'button',\n\t\t\t\t\t{ type: 'button', className: btnClassName, onClick: this.handleToggleClick.bind(this) },\n\t\t\t\t\tbtnText\n\t\t\t\t),\n\t\t\t\tthis.state.isToggle ? _react2.default.createElement(\n\t\t\t\t\t_reactAddonsCssTransitionGroup2.default,\n\t\t\t\t\t{\n\t\t\t\t\t\ttransitionName: 'example',\n\t\t\t\t\t\ttransitionAppear: true,\n\t\t\t\t\t\ttransitionAppearTimeout: 500,\n\t\t\t\t\t\ttransitionEnter: false,\n\t\t\t\t\t\ttransitionLeave: false },\n\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t'div',\n\t\t\t\t\t\tnull,\n\t\t\t\t\t\t_react2.default.createElement('div', { className: 'dialog-mark' }),\n\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t{ className: 'dialog-box' },\n\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t_reactAddonsCssTransitionGroup2.default,\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\ttransitionName: 'example',\n\t\t\t\t\t\t\t\t\ttransitionAppear: true,\n\t\t\t\t\t\t\t\t\ttransitionAppearTimeout: 500,\n\t\t\t\t\t\t\t\t\ttransitionEnter: false,\n\t\t\t\t\t\t\t\t\ttransitionLeave: false },\n\t\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t\t\t{ className: 'dialog paper' },\n\t\t\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t\t\t\t{ className: 'dialog-content c-text-b' },\n\t\t\t\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t\t\t\t'p',\n\t\t\t\t\t\t\t\t\t\t\t{ className: 'c-text-b mt0' },\n\t\t\t\t\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t\t\t\t\t'strong',\n\t\t\t\t\t\t\t\t\t\t\t\tnull,\n\t\t\t\t\t\t\t\t\t\t\t\ttitle\n\t\t\t\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t\t\t\tcontent\n\t\t\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t\t\t'div',\n\t\t\t\t\t\t\t\t\t\t{ className: 'ta-c pb8' },\n\t\t\t\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t\t\t\t'button',\n\t\t\t\t\t\t\t\t\t\t\t{ type: 'button', className: 'btn btn-s btn-tp c-blue mr8', onClick: this.handleConfirmClick.bind(this) },\n\t\t\t\t\t\t\t\t\t\t\t'\\u786E\\u8BA4'\n\t\t\t\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t\t\t\t_react2.default.createElement(\n\t\t\t\t\t\t\t\t\t\t\t'button',\n\t\t\t\t\t\t\t\t\t\t\t{ type: 'button', className: 'btn btn-s btn-tp c-blue', onClick: this.handleToggleClick.bind(this) },\n\t\t\t\t\t\t\t\t\t\t\t'\\u5173\\u95ED'\n\t\t\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t)\n\t\t\t\t\t)\n\t\t\t\t) : \"\"\n\t\t\t);\n\t\t}\n\t}]);\n\n\treturn DialogWindow;\n}(_react.Component);\n\nDialogWindow.defaultProps = {\n\tdialog: {\n\t\tcontent: \"Are you sure?\",\n\t\tbtnText: \"TEXT\",\n\t\ttitle: \"警告\",\n\t\tbtnClassName: \"btn btn-s btn-hollow b-w c-text-w mr8\"\n\t}\n};\n\nexports.default = DialogWindow;\n\n//# sourceURL=webpack:///./src/dialog/display-dialogWindow.jsx?");
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react__;\n\n//# sourceURL=webpack:///external_%22react%22?");
+
+/***/ }),
+
+/***/ "react-addons-css-transition-group":
+/*!****************************************************!*\
+  !*** external "react-addons-css-transition-group" ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react_addons_css_transition_group__;\n\n//# sourceURL=webpack:///external_%22react-addons-css-transition-group%22?");
+
+/***/ })
+
+/******/ });
 });
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactAddonsCssTransitionGroup = require('react-addons-css-transition-group');
-
-var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// 可配置组件
-// const dialog = {
-// 	handleConfirm: handleLogoutClick.bind(this),
-// 	content: "Are you sure logout?",
-// 	btnText: "注销",
-// 	btnClassName: "btn btn-s btn-hollow b-w c-text-w mr8"
-// }
-
-var DialogWindow = function (_Component) {
-	_inherits(DialogWindow, _Component);
-
-	function DialogWindow(props) {
-		_classCallCheck(this, DialogWindow);
-
-		var _this = _possibleConstructorReturn(this, (DialogWindow.__proto__ || Object.getPrototypeOf(DialogWindow)).call(this, props));
-
-		_this.state = {
-			isToggle: false
-		};
-		console.log(_this.state);
-		return _this;
-	}
-
-	// 维护组件display状态
-
-
-	_createClass(DialogWindow, [{
-		key: 'handleToggleClick',
-		value: function handleToggleClick() {
-			var _self = this;
-			this.setState({
-				isToggle: !_self.state.isToggle
-			});
-		}
-	}, {
-		key: 'handleConfirmClick',
-		value: function handleConfirmClick() {
-			var handleConfirm = this.props.dialog.handleConfirm;
-
-			this.setState({
-				isToggle: false
-			});
-			handleConfirm();
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			var _props$dialog = this.props.dialog,
-			    content = _props$dialog.content,
-			    btnText = _props$dialog.btnText,
-			    title = _props$dialog.title,
-			    btnClassName = _props$dialog.btnClassName;
-
-			return _react2.default.createElement(
-				'div',
-				{ className: 'd-il' },
-				_react2.default.createElement(
-					'button',
-					{ type: 'button', className: btnClassName, onClick: this.handleToggleClick.bind(this) },
-					btnText
-				),
-				this.state.isToggle ? _react2.default.createElement(
-					_reactAddonsCssTransitionGroup2.default,
-					{
-						transitionName: 'example',
-						transitionAppear: true,
-						transitionAppearTimeout: 500,
-						transitionEnter: false,
-						transitionLeave: false },
-					_react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement('div', { className: 'dialog-mark' }),
-						_react2.default.createElement(
-							'div',
-							{ className: 'dialog-box' },
-							_react2.default.createElement(
-								_reactAddonsCssTransitionGroup2.default,
-								{
-									transitionName: 'example',
-									transitionAppear: true,
-									transitionAppearTimeout: 500,
-									transitionEnter: false,
-									transitionLeave: false },
-								_react2.default.createElement(
-									'div',
-									{ className: 'dialog paper' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'dialog-content c-text-b' },
-										_react2.default.createElement(
-											'p',
-											{ className: 'c-text-b mt0' },
-											_react2.default.createElement(
-												'strong',
-												null,
-												title
-											)
-										),
-										content
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'ta-c pb8' },
-										_react2.default.createElement(
-											'button',
-											{ type: 'button', className: 'btn btn-s btn-tp c-blue mr8', onClick: this.handleConfirmClick.bind(this) },
-											'\u786E\u8BA4'
-										),
-										_react2.default.createElement(
-											'button',
-											{ type: 'button', className: 'btn btn-s btn-tp c-blue', onClick: this.handleToggleClick.bind(this) },
-											'\u5173\u95ED'
-										)
-									)
-								)
-							)
-						)
-					)
-				) : ""
-			);
-		}
-	}]);
-
-	return DialogWindow;
-}(_react.Component);
-
-DialogWindow.defaultProps = {
-	dialog: {
-		content: "Are you sure?",
-		btnText: "TEXT",
-		title: "警告",
-		btnClassName: "btn btn-s btn-hollow b-w c-text-w mr8"
-	}
-};
-
-exports.default = DialogWindow;

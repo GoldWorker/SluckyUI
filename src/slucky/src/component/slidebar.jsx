@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-export class Slidebar extends Component {
+export default class Slidebar extends Component {
     constructor() {
-        super()
+        super();
         this.id = Math.random().toString(36).substring(2);
     }
     render() {
@@ -26,6 +26,6 @@ export class Slidebar extends Component {
                     <div className="fs12 c-fail p-a pt2">{this.props.error && this.props.error()}</div>
                 </div>
             </div>
-        )
+        );
     }
 }

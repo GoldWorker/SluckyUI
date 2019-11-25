@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Text extends Component {
+export default class Text extends Component {
     render() {
         return (
             <div>
@@ -12,7 +12,7 @@ export class Text extends Component {
 
 class Money extends Component {
     toThousands(number) {
-        let num = (number || '').toString(), result = '';
+        let num = (number || 0).toString(), result = '';
         while (num.length > 3) {
             result = ',' + num.slice(-3) + result;
             num = num.slice(0, num.length - 3);
