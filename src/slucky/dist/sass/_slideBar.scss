@@ -1,0 +1,124 @@
+.slidebar {
+    @extend .shadow;
+    @include animate();
+    position: fixed;
+    top: 0;
+    left: -300px;
+    height: 100%;
+    z-index: 49;
+
+    &>.slidebar-tool {
+        // display: block;
+        cursor: pointer;
+        position: relative;
+        transition: left .3s;
+
+        &:hover {
+            background-color: #666;
+            // color: rgba(44, 62, 80, 1) !important;
+        }
+
+        & #slidebar_in {
+            display: none;
+        }
+
+        & #slidebar_out {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transition: left .3s;
+
+            &>svg {
+                padding: 4px;
+                margin: 12px;
+                // border: solid 1px $divider_b;
+            }
+        }
+    }
+}
+
+.slidebar-box-normalize details summary {
+    cursor: pointer;
+    outline: 0 !important;
+}
+
+.slidebar-hover-b a {
+    color: #fff !important;
+}
+
+.slidebar-hover-b a:hover {
+    // color: inherit !important;
+}
+
+.slidebar-box-normalize {
+    & .mark-b {
+        display: none;
+        // opacity: 0;
+    }
+}
+
+.slidebar-box-normalize {
+    &>input[type="checkbox"]:checked+.slidebar {
+        // position: relative;
+        left: 0px !important;
+
+        &>.slidebar-tool {
+            text-align: right;
+            color: #fff;
+
+            & #slidebar_in {
+                display: inline;
+            }
+
+            & #slidebar_out {
+                // display: none;
+                // position: relative;
+                left: -100%;
+            }
+        }
+    }
+
+    &>input[type="checkbox"]:checked+.slidebar+.mark-b {
+        display: block;
+        @include animate_name(slideIn);
+        @include animate_duration(0.6s);
+    }
+}
+
+@media (max-width: 768px) {
+    .slidebar {
+        // display: none;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        // display: block !important;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+        // background-color: blue;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        // display: none !important;
+        opacity: 0;
+        // background-color: blue;
+    }
+}

@@ -1,0 +1,76 @@
+.step-bar {
+    background-color: $steps_bar_bg;
+
+    .step-item {
+        position: relative;
+        text-align: center;
+
+        .sign-box {
+            position: relative;
+        }
+    }
+
+    .step-item+.step-item .sign-box {
+        &:before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            border-style: solid;
+            border-width: 1px;
+            border-color: $input_border_color;
+            width: 100%;
+            height: 0;
+            left: -50%;
+            top: 46%;
+            transition: all .2s;
+        }
+    }
+
+    .step-sign {
+        display: inline-block;
+        position: relative;
+        border-style: solid;
+        border-width: 2px;
+        border-color: $input_border_color;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        line-height: 16px;
+        background-color: $steps_bar_bg;
+        z-index: 1;
+        transition: all .3s;
+
+        .step-sign-in {
+            opacity: 0;
+        }
+    }
+
+    .step-sign-active {
+        color: $theme_color;
+
+        .sign-box {
+            &:before {
+                border-color: $theme_color !important;
+            }
+        }
+
+        .step-sign {
+            border-color: $theme_color;
+        }
+    }
+
+    .step-sign-ed {
+        .step-sign {
+            .step-sign-in {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.step-content {
+    position: absolute;
+    visibility: hidden;
+    z-index: -1;
+    left: -100%;
+}

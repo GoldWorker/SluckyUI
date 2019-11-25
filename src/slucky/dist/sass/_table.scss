@@ -1,0 +1,351 @@
+.btn-toggle {
+    cursor: pointer;
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    line-height: 14px;
+    border: 1px solid #e9e9e9;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: #fff;
+}
+
+.btn-toggle:after {
+    content: '+';
+}
+
+.btn-hidden:after {
+    content: '-' !important;
+}
+
+.table-header {
+    background-color: $table_header_bg;
+    color: $table_header_c;
+    font-size: $table_header_fs;
+}
+
+.table-title {
+    transition: all .3s;
+}
+
+.table-title:hover {
+    // background-color: #eaeaea;
+}
+
+.table-list {
+    transition: all .3s;
+    border-left: 2px transparent solid;
+}
+
+.table-list:nth-child(odd) {
+    background-color: $table_odd_bg;
+}
+
+.table-list span {
+    word-break: break-all;
+}
+
+.table-list:hover {
+    background-color: $table_hover;
+    // border-left: 2px #26a597 solid;
+}
+
+.w80 {
+    width: 80px;
+}
+
+.table-content {
+    /* overflow: auto */
+}
+
+.table-fix {
+    position: sticky;
+    top: 0;
+    z-index: 19;
+}
+
+.slucky-table {
+    position: relative;
+    z-index: 1;
+}
+
+.slucky-table::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 2px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 8px;
+}
+
+.slucky-table::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 2px;
+    /* -webkit-box-shadow: inset 0 0 5px #fafafa; */
+    background: #f4f4f4;
+}
+
+.slucky-table::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    /* -webkit-box-shadow: inset 0 0 5px #fafafa; */
+    border-radius: 2px;
+    background: transparent;
+}
+
+.table-loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .5);
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 19;
+}
+
+
+//normal table-----------------
+
+//
+// Tables
+// --------------------------------------------------
+
+$table-cell-padding: 8px !default;
+//** Padding for cells in `.table-condensed`.
+$table-condensed-cell-padding: 5px !default;
+$line-height-base: 1.428571429 !default; // 20/14
+
+table {
+    background-color: transparent;
+    @extend .table;
+    @extend .table-bordered;
+    @extend .table-striped;
+    @extend .table-hover;
+}
+
+caption {
+    padding-top: $table-cell-padding;
+    padding-bottom: $table-cell-padding;
+    color: $text_b;
+    text-align: left;
+}
+
+th {
+    text-align: left;
+}
+
+
+// Baseline styles
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    // margin-bottom: $line-height-computed;
+
+    // Cells
+    >thead,
+    >tbody,
+    >tfoot {
+        >tr {
+
+            >th,
+            >td {
+                padding: $table-cell-padding;
+                line-height: $line-height-base;
+                vertical-align: top;
+                border-top: 1px solid $divider_b;
+            }
+        }
+    }
+
+    // Bottom align for column headings
+    >thead>tr>th {
+        vertical-align: bottom;
+        border-bottom: 2px solid $divider_b;
+    }
+
+    // Remove top border from thead by default
+    >caption+thead,
+    >colgroup+thead,
+    >thead:first-child {
+        >tr:first-child {
+
+            >th,
+            >td {
+                border-top: 0;
+            }
+        }
+    }
+
+    // Account for multiple tbody instances
+    >tbody+tbody {
+        border-top: 2px solid $divider_b;
+    }
+
+    // Nesting
+    .table {
+        background-color: $text_w;
+    }
+}
+
+
+// Condensed table w/ half padding
+
+.table-condensed {
+
+    >thead,
+    >tbody,
+    >tfoot {
+        >tr {
+
+            >th,
+            >td {
+                padding: $table-condensed-cell-padding;
+            }
+        }
+    }
+}
+
+
+// Bordered version
+//
+// Add borders all around the table and between all the columns.
+
+.table-bordered {
+    border: 1px solid $divider_b;
+
+    >thead,
+    >tbody,
+    >tfoot {
+        >tr {
+
+            >th,
+            >td {
+                border: 1px solid $divider_b;
+            }
+        }
+    }
+
+    >thead>tr {
+
+        >th,
+        >td {
+            border-bottom-width: 2px;
+        }
+    }
+}
+
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+    >tbody>tr:nth-of-type(odd) {
+        background-color: $table_odd_bg;
+    }
+}
+
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+    >tbody>tr:hover {
+        background-color: $table_hover;
+    }
+}
+
+
+// Table cell sizing
+//
+// Reset default table behavior
+
+table col[class*="col-"] {
+    position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+    float: none;
+    display: table-column;
+}
+
+table {
+
+    td,
+    th {
+        &[class*="col-"] {
+            position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+            float: none;
+            display: table-cell;
+        }
+    }
+}
+
+.table-responsive {
+    overflow-x: auto;
+    min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+
+    @media screen and (max-width: 767px) {
+        width: 100%;
+        // margin-bottom: ($line-height-computed * 0.75);
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid $divider_b;
+
+        // Tighten up spacing
+        >.table {
+            margin-bottom: 0;
+
+            // Ensure the content doesn't wrap
+            >thead,
+            >tbody,
+            >tfoot {
+                >tr {
+
+                    >th,
+                    >td {
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+
+        // Special overrides for the bordered tables
+        >.table-bordered {
+            border: 0;
+
+            // Nuke the appropriate borders so that the parent can handle them
+            >thead,
+            >tbody,
+            >tfoot {
+                >tr {
+
+                    >th:first-child,
+                    >td:first-child {
+                        border-left: 0;
+                    }
+
+                    >th:last-child,
+                    >td:last-child {
+                        border-right: 0;
+                    }
+                }
+            }
+
+            // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+            // chances are there will be only one `tr` in a `thead` and that would
+            // remove the border altogether.
+            >tbody,
+            >tfoot {
+                >tr:last-child {
+
+                    >th,
+                    >td {
+                        border-bottom: 0;
+                    }
+                }
+            }
+
+        }
+    }
+}

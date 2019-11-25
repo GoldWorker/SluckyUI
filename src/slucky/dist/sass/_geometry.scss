@@ -1,0 +1,55 @@
+.circle {
+    @include box_sizing();
+    // display: inline-block;
+    border: none;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    overflow: hidden;
+    min-width: 18px;
+    min-height: 18px;
+}
+
+.circle-s {
+    @extend .circle;
+    height: 40px;
+    width: 40px;
+}
+
+.circle-m {
+    @extend .circle;
+    height: 56px;
+    width: 56px;
+}
+
+.circle-l {
+    @extend .circle;
+    height: 112px;
+    width: 112px;
+}
+
+
+/*------------------------------------------------triangle--------------------------------*/
+.tri-mini{
+    border-width: 5px;
+}
+.tri-t,
+.tri-r,
+.tri-b,
+.tri-l{
+    // position: absolute;
+    display: inline-block;
+    border-style: solid;
+}
+.tri-r{
+    border-color: transparent $tri_color transparent transparent;
+}
+.tri-t{
+    border-color: $tri_color transparent transparent transparent;
+}
+.tri-l{
+    border-color: transparent transparent transparent $tri_color;
+}
+.tri-b{
+    border-color: transparent transparent $tri_color transparent;
+}

@@ -1,0 +1,111 @@
+.paging-normal {
+    .btn-paging {
+        cursor: pointer;
+        border-radius: 2px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        min-width: 28px;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        list-style: none;
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid #d9d9d9;
+        background-color: #fff;
+        margin-right: 8px;
+        font-family: Arial;
+        outline: 0;
+        transition: background-color .3s;
+
+        &:hover {
+            background-color: $table_odd_bg;
+        }
+    }
+
+    .btn-active {
+        background-color: $theme_color !important;
+        border-color: $theme_color;
+        color: #fff;
+    }
+}
+
+.paging-aurora {
+    .paging-viewbox {
+        border: 1px solid $divider_b;
+        border-radius: 2px;
+    }
+
+    .btn-paging {
+        display: inline-block;
+        vertical-align: middle;
+        min-width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        transition: background-color .3s;
+        color: $readOnly_c;
+        font-size: 12px;
+        user-select: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $table_odd_bg;
+        }
+    }
+
+    .btn-active {
+        // background-color: $theme_color !important;
+        // color: #fff;
+        border-left: 1px solid #D3D9DB;
+        border-right: 1px solid #D3D9DB;
+        background: #F6F8F9;
+        color: #17212C;
+    }
+
+    .arrow-left:before {
+        min-width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .arrow-right:after {
+        min-width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+}
+
+.arrow-left:before {
+    content: '«';
+    display: inline-block;
+    font-size: 14px;
+    font-size: 8px \9;
+    -webkit-transform: scale(1) rotate(0deg);
+    -ms-transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+    zoom: 1;
+    height: 26px;
+    line-height: 26px;
+    font-family: "iconfont";
+    text-align: center;
+}
+
+.arrow-right:after {
+    content: '»';
+    display: inline-block;
+    font-size: 14px;
+    font-size: 8px \9;
+    -webkit-transform: scale(1) rotate(0deg);
+    -ms-transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+    zoom: 1;
+    height: 26px;
+    line-height: 26px;
+    font-family: "iconfont";
+    text-align: center;
+}
