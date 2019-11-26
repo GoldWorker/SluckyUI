@@ -11,11 +11,11 @@ export default class Tab extends Component {
 }
 
 class Group extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.id = Math.random().toString(36).substring(2);
         this.state = {
-            currentTab: 0
+            currentTab: this.props.tabIndex || 0
         };
     }
     render() {

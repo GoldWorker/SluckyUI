@@ -355,8 +355,8 @@ export default class NavDemo extends Component {
                     </ul>
                 </div>
 
-                <Tab.Group layout="tb">
-                    <Tab label='hello' defaultChecked={true}>123</Tab>
+                <Tab.Group layout="tb" tabIndex={2}>
+                    <Tab label='hello'>123</Tab>
                     <Tab label='123'>qwer</Tab>
                     <Tab label='qwe'>12asdf3</Tab>
                 </Tab.Group>
