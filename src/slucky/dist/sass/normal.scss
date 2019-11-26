@@ -180,6 +180,8 @@ $steps_bar_bg:$table_odd_bg !default;
 
 @import './varConfig.scss';
 @import './mixin/mixin.scss';
+// @import './global.scss';
+@import './reset.scss';
 @import './tab.scss';
 @import './input.scss';
 @import './alertMsg.scss';
