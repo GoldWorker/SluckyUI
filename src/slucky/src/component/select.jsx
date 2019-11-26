@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 export default class Select extends Component {
     constructor(props) {
         super(props);
@@ -24,19 +23,17 @@ export default class Select extends Component {
                 {
                     this.props.labelName ? <label htmlFor={this.id} className="pb4 mb0 fs12 d-b">{this.props.labelName}</label> : null
                 }
-                <div className="p-r">
-                    <input
-                        id={this.id}
-                        type="text"
-                        className="input-normal"
-                        style={{ width: this.props.width || 384 + 'px' }}
-                        placeholder={this.props.placeholder || ''}
-                        onChange={() => { }}
-                        value={this.state.selectedLabel} />
-                    <div className="select-down-icon d-f jc fd-c">
-                        {/* <div className="tri-top mb2"></div> */}
-                        <div className="tri-down"></div>
-                    </div>
+                <input
+                    id={this.id}
+                    type="text"
+                    className="input-normal"
+                    style={{ width: this.props.width || 384 + 'px' }}
+                    placeholder={this.props.placeholder || ''}
+                    // onChange={() => { }}
+                    value={this.state.selectedLabel} />
+                <div className="select-down-icon d-f jc fd-c">
+                    {/* <div className="tri-top mb2"></div> */}
+                    <div className="tri-down"></div>
                 </div>
                 <ul className="select-option paper" scrollbar='normal'>
                     {

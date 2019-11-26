@@ -100,10 +100,12 @@ export class ValidatorDemo extends Component {
                     }, () => console.log(this.state));
                 }}>TEST</button>
 
-                <Input.Number value={this.state.numberValue} onChange={(value) => this.setState({ numberValue: value })} />
+                <Search onSearch={(v) => { console.log(v); }} onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 
                 <Search onSearch={(v) => { console.log(v); }} onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 
+                <Input.Number value={this.state.numberValue} onChange={(value) => this.setState({ numberValue: value })} />
+                
                 <Select defaultValue="选项2" onChange={(v) => { console.log(v); }} option={[{
                     label: '选项1',
                     value: 'v1'
@@ -114,8 +116,6 @@ export class ValidatorDemo extends Component {
                     label: '选项3',
                     value: 'v3'
                 }]} />
-
-                <Search onSearch={(v) => { console.log(v); }} onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 
                 <Radio.Group value={this.state.radioValue} className="pb32" onChange={(e) => { this.handleChangeRadio(e); }} option={[
                     { label: 'Apple', value: 'Apple' },

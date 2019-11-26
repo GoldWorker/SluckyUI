@@ -110,9 +110,9 @@ class InputNumber extends Component {
 
     render() {
         return (
-            <div className="d-f input-number">
+            <div className="d-il input-number p-r">
                 <Input type='number' onChange={(v) => this.handleChange(v)} value={this.props.value} width={this.props.width || 128 + 'px'} />
-                <div className="d-il input-ctrl">
+                <div className="d-il input-ctrl t0 r0 p-a">
                     <div className="ctrl-up" onClick={() => this.handleClickCtrl('UP')}></div>
                     <div className="ctrl-down" onClick={() => this.handleClickCtrl('DOWM')}></div>
                 </div>
