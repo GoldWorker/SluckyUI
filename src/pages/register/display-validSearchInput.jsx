@@ -1,11 +1,11 @@
 import React, {
 	Component
-} from 'react'
+} from 'react';
 
 class validSearchInput extends Component {
 	handleValid(isValid, initial, trigger) {
-		if (isValid || isValid === undefined) return initial
-		else return trigger
+		if (isValid || isValid === undefined) { return initial; }
+		return trigger;
 	}
 	render() {
 		const {
@@ -15,19 +15,21 @@ class validSearchInput extends Component {
 			placeholder,
 			btnText,
 			handleBtnClick
-		} = this.props
+		} = this.props;
 		return (
 			<div className="input">
-		        <label htmlFor={name+"register"} className="fs12 c-grey">{name}</label>
-			    <br/>
-				<div className="search-box-normalize p-r" style={this.handleValid(data.isValid,{'borderColor':'rgba(0, 0, 0, 0.12)'},{'borderColor':'#e74c3c'})}>
-				    <input id={name+"register"} onChange={handleInputChange} type="email" className="input input-normal w288" placeholder={placeholder} maxLength="24" required/>
-				    <button type="button" className="btn-n ptb6 plr16 search-btn" onClick={handleBtnClick}>{btnText}</button>
-				</div>		            
-				<br/>
-			    <span className="input-ps fs12" style={this.handleValid(data.isValid,{'opacity':'0'},{'opacity':'1'})}>{data.message.map((str)=>(str+" "))}</span>
-		    </div>
-		)
+				<label htmlFor={name + 'register'} className="fs12 c-grey">{name}</label>
+				<br />
+				<div className="search-box-normalize p-r" style={this.handleValid(data.isValid, { 'borderColor': 'rgba(0, 0, 0, 0.12)' }, { 'borderColor': '#e74c3c' })}>
+					<input id={name + 'register'} onChange={handleInputChange} type="email" className="input input-normal w288" placeholder={placeholder} maxLength="24" required />
+					<div className="p-a t0 r0">
+						<button type="button" className="btn-n ptb4 plr16 search-btn" onClick={handleBtnClick}>{btnText}</button>
+					</div>
+				</div>
+				<br />
+				<span className="input-ps fs12" style={this.handleValid(data.isValid, { 'opacity': '0' }, { 'opacity': '1' })}>{data.message.map((str) => str + ' ')}</span>
+			</div>
+		);
 	}
 }
 
@@ -35,6 +37,6 @@ validSearchInput.defaultProps = {
 	data: {
 		message: []
 	}
-}
+};
 
-export default validSearchInput
+export default validSearchInput;

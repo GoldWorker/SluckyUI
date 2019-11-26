@@ -178,27 +178,29 @@ $steps_bar_bg:$table_odd_bg !default;
     }
 }
 
-@import './_varConfig';
-@import './mixin/_mixin';
-@import './_tab';
-@import './_input';
-@import './_alertMsg';
-@import './_newBalance';
-@import './_geometry';
-@import './_3dtransform';
-@import './_progress';
-@import './_loading';
-@import './_nav';
-@import './_menu';
-@import './_icon';
-@import './_slideBar';
-@import './comment';
-@import './img';
-@import './toggler';
+@import './varConfig.scss';
+@import './mixin/mixin.scss';
+// @import './global.scss';
+@import './reset.scss';
+@import './tab.scss';
+@import './input.scss';
+@import './alertMsg.scss';
+@import './newBalance.scss';
+@import './geometry.scss';
+@import './3dtransform.scss';
+@import './progress.scss';
+@import './loading.scss';
+@import './nav.scss';
+@import './menu.scss';
+@import './icon.scss';
+@import './slideBar.scss';
+@import './comment.scss';
+@import './img.scss';
+@import './toggler.scss';
 @import './bug.scss';
-@import './table';
-@import './paging';
-@import './step';
+@import './table.scss';
+@import './paging.scss';
+@import './step.scss';
 
 // ----------------------------------基础布局样式----------------------------------------
 $space: 2;
