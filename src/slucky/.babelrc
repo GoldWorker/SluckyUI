@@ -1,6 +1,6 @@
 {
     "presets": [
-        ["env", {
+        ["@babel/preset-env", {
             "targets": {
                 "browsers": [
                     ">0.25%",
@@ -9,19 +9,22 @@
                 ]
             }
         }],
-        "react",
-        // "es2015",
-        "stage-0"
+        "@babel/preset-react",
+        // "@babel/preset-stage-0"
     ],
     "plugins": [
+        "@babel/plugin-proposal-function-bind",
+        "@babel/plugin-proposal-class-properties",
+        // 解决编译中产生的重复的工具函数
         [
-            "transform-runtime",
-            {
-                "helpers": false,
-                "polyfill": false,
-                // "regenerator": true,
-                // "moduleName": "babel-runtime"
-            }
-        ]
+            "@babel/plugin-transform-runtime",
+            // {
+            //     "helpers": false,
+            //     // "polyfill": false,
+            //     // "regenerator": true,
+            //     // "moduleName": "babel-runtime"
+            // }
+        ],
+        "transform-remove-console"
     ]
 }

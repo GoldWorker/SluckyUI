@@ -3,7 +3,7 @@ const common = require('./webpack.common');
 const devConfig = require('./webpack.dev');
 const proConfig = require('./webpack.pro');
 const qaConfig = require('./webpack.qa');
-const testConfig = require('./webpack.test');
+const testConfig = require('./webpack.testdev');
 
 module.exports = function(env, arg) {
     console.log(env, arg.mode);

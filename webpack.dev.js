@@ -45,22 +45,31 @@ module.exports = {
                 path.join(__dirname, 'node_modules/slucky/sass/')
             ]
         }, {
-            test: /.jsx$/, //使用loader的目标文件。这里是.jsx
+            test: /.jsx|.js$/, //使用loader的目标文件。这里是.jsx
             use: {
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                        '@babel/preset-env',
+                        '@babel/preset-react'
+                    ],
+                    plugins: [
+                        '@babel/plugin-proposal-class-properties',
+                        '@babel/plugin-transform-runtime',
+                        '@babel/plugin-syntax-dynamic-import',
+                        'react-hot-loader/babel'
+                    ]
+                }
             },
-            // exclude: /node_modules/
-            include: [
-                path.resolve(__dirname, 'src/'),
-                path.resolve(__dirname, 'node_modules/slucky/')
-            ]
-        }, {
-            test: /\.js$/,
-            use: {
-                loader: 'babel-loader'
-            },
+            // loader: 'babel-loader',
             exclude: /node_modules/
+            // exclude: [
+            //     path.resolve(__dirname, 'src/slucky/'),
+            //     path.resolve(__dirname, 'node_modules/')
+            // ]
             // include: [
+            //     path.resolve(__dirname, 'src'),
+            //     path.resolve(__dirname, 'src/slucky/src/component/'),
             //     path.resolve(__dirname, 'node_modules/slucky/')
             // ]
         }, {

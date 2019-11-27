@@ -7,7 +7,8 @@ module.exports = {
         "node": true,
         "jquery": true,
         "es6": true,
-        "browser": true
+        "browser": true,
+        "jest": true
     },
     "globals": {
         "angular": false
