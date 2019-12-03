@@ -11,7 +11,7 @@ export default class Text extends Component {
 }
 
 class Money extends Component {
-    toThousands(number) {
+    toThousands = (number) => {
         let num = (number || 0).toString(), result = '';
         while (num.length > 3) {
             result = ',' + num.slice(-3) + result;

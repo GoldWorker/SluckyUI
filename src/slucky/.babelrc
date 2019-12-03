@@ -25,6 +25,18 @@
             //     // "moduleName": "babel-runtime"
             // }
         ],
-        "transform-remove-console"
-    ]
+        "transform-es2015-modules-commonjs"
+        // "transform-remove-console"
+    ],
+    "env": {
+        "test": {
+            "presets": [
+                ["@babel/preset-env"],
+                "@babel/preset-react"
+            ],
+            "plugins": [
+                "transform-es2015-modules-commonjs"
+            ]
+        }
+    }
 }

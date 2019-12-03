@@ -7,7 +7,7 @@
         "lib": "lib"
     },
     "scripts": {
-        "test": "jest",
+        "test": "jest --coverage",
         "build_index": "./node_modules/.bin/babel ./index.jsx --out-dir ./",
         "build_src": "./node_modules/.bin/babel ./src --out-dir ./dist",
         "build": "npm run build_index && npm run build_src",
@@ -29,7 +29,11 @@
         "@babel/polyfill": "^7.7.0",
         "@babel/preset-env": "^7.7.4",
         "@babel/runtime": "^7.7.4",
+        "babel-jest": "^24.9.0",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
         "glob": "^7.1.6",
+        "react": "^16.8.4",
+        "react-dom": "^16.8.4",
         "responsive-loader": "^1.2.0",
         "svg-fill-loader": "0.0.8",
         "svg-sprite-loader": "^4.1.6",
@@ -58,7 +62,9 @@
         "babel-preset-stage-0": "^6.24.1",
         "clean-webpack-plugin": "^0.1.19",
         "copy-webpack-plugin": "^5.0.5",
+        "identity-obj-proxy": "^3.0.0",
         "jest": "^24.9.0",
+        "jest-svg-transformer": "^1.0.0",
         "webpack": "^4.41.2",
         "webpack-bundle-analyzer": "^3.6.0",
         "webpack-cli": "^3.3.10"

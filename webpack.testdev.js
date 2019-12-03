@@ -20,6 +20,7 @@ const ENV_CONF = require('./environment/dev.env.ts');
 //构建前删除dist目录 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+    devtool: 'source-map',
     //出口配置
     output: {
         path: path.resolve(__dirname, 'dist'),

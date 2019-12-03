@@ -6,18 +6,20 @@
  * @LastEditors: Please set LastEditors
  */
 const path = require('path');
-const ExtractTextWebapckPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const sassExtract = new ExtractTextWebapckPlugin('./slucky.css');
-const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const Autoprefixer = require('autoprefixer')
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const ENV_CONF = require('./environment/dev.env.ts');
+
+// const ExtractTextWebapckPlugin = require('extract-text-webpack-plugin');
+// const sassExtract = new ExtractTextWebapckPlugin('./slucky.css');
+// const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
+// const Autoprefixer = require('autoprefixer')
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
 //构建前删除dist目录 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+    devtool: 'source-map',
     //出口配置
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -123,18 +125,14 @@ module.exports = {
                 },
                 {
                     loader: 'markdown-loader',
-                    options: {
-                        /* your options here */
-                    }
+                    options: {}
                 }
             ]
         }]
     },
     plugins: [
-        // new CleanWebpackPlugin('dist', {     "exclude": ['.git'] }),//打包前先清空
         new webpack.DefinePlugin({
-            // 源码中所有 process.env 都会被替换为
-            // './environment/dev.env'这个module export出来的东西
+            // 源码中所有 process.env 都会被替换为'./environment/dev.env'这个module export出来的东西
             'process.env': JSON.stringify(ENV_CONF)
         }),
         new MiniCssExtractPlugin({
@@ -148,8 +146,6 @@ module.exports = {
             title: 'slucky',
             minify: false
         }),
-        require('autoprefixer'),
-        // sassExtract,
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin() //用户名替代id,更新组件时在控制台输出组件的路径而不是数字ID，用在开发模式
         // new webpack.HashedModuleIdsPlugin(), // 用在生产模式 new
@@ -178,7 +174,7 @@ module.exports = {
         //             '^/api': ''
         //         },
         //         ignorePath: true,
-        //         changeOrigin: true,
+        //         changeOrigin: true, 
         //         secure: false
         //     }
         // }

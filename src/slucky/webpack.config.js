@@ -99,7 +99,8 @@ module.exports = {
 };
 
 function getFileCollection() {
-    const globPath = './src/**/*.jsx';
+    // https://www.cnblogs.com/waitforyou/p/7044171.html
+    const globPath = './src/**/*.*(jsx|js)';
     // (\/|\\\\) 这种写法是为了兼容 windows和 mac系统目录路径的不同写法
     // const pathDir = './src(\/|\\\\)(.*?)(\/|\\\\)jsx';
     const files = glob.sync(globPath);
