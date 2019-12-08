@@ -25,7 +25,6 @@
             //     // "moduleName": "babel-runtime"
             // }
         ],
-        "transform-es2015-modules-commonjs"
         // "transform-remove-console"
     ],
     "env": {

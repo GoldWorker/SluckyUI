@@ -43,40 +43,40 @@ export default class App extends Component {
 
                     <Tab.Group minHeight='1080px' className='plr64' option={[{
                         label: <span className="btn p-r pb4 regularLineMove">按钮<span className="c-hint-b pl8">Button</span></span>,
-                        content: <ButtonDemo />
+                        content: <div className="pl16"><ButtonDemo /></div>
                     }, {
                         label: <span className="btn p-r pb4 regularLineMove">菜单列表导航栏<span className="c-hint-b pl8">Nav</span></span>,
-                        content: <NavDemo />
+                        content: <div className="pl16"><NavDemo /></div>
                     }, {
                         label: <span className="btn p-r pb4 regularLineMove">加载状态<span className="c-hint-b pl8">Loading</span></span>,
-                        content: <LoadingDemo />
+                        content: <div className="pl16"><LoadingDemo /></div>
                     }, {
                         label: <span className="btn p-r pb4 regularLineMove">弹框<span className="c-hint-b pl8">Popup</span></span>,
-                        content: <PopupDemo />
+                        content: <div className="pl16"><PopupDemo /></div>
                     }, {
                         label: <span className="btn p-r pb4 regularLineMove">3D效果<span className="c-hint-b pl8">Transfrom3D</span></span>,
-                        content: <Transfrom3DDemo />
+                        content: <div className="pl16"><Transfrom3DDemo /></div>
                     }, {
                         label: <span className="btn p-r pb4 regularLineMove">表单<span className="c-hint-b pl8">Form</span></span>,
-                        content: <FormDemo />
+                        content: <div className="pl16"><FormDemo /></div>
                     }, {
                         label: <span className="btn p-r pb4 regularLineMove">颜色标准<span className="c-hint-b pl8">Color</span></span>,
-                        content: <ColorDemo />
+                        content: <div className="pl16"><ColorDemo /></div>
                     }, {
                         label: <span className="btn p-r pb4 regularLineMove">表格&分页<span className="c-hint-b pl8">Table&paging</span></span>,
-                        content: <TableDemo />
+                        content: <div className="pl16"><TableDemo /></div>
                     }, {
                         label: <span className="btn p-r pb4 regularLineMove">图片相关<span className="c-hint-b pl8">Image</span></span>,
-                        content: <ImageDemo />
+                        content: <div className="pl16"><ImageDemo /></div>
                     }, {
                         label: <span className="btn p-r pb4 regularLineMove">步骤管理<span className="c-hint-b pl8">Steps</span></span>,
-                        content: <StepsDemo />
+                        content: <div className="pl16"><StepsDemo /></div>
                     }, {
-                        label: <span className="btn p-r pb4 regularLineMove">操作树&穿梭框<span className="c-hint-b pl8">Steps</span></span>,
-                        content: <TreeDemo />
+                        label: <span className="btn p-r pb4 regularLineMove">操作树&穿梭框<span className="c-hint-b pl8">Tree</span></span>,
+                        content: <div className="pl16"><TreeDemo /></div>
                     }, {
                         label: <span className="btn p-r pb4 regularLineMove">实验区<span className="c-hint-b pl8">Test</span></span>,
-                        content: <SecurityDemo />
+                        content: <div className="pl16"><SecurityDemo /></div>
                     }]} />
                 </div>
 

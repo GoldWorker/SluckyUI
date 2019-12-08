@@ -378,8 +378,8 @@
 
 .tab-box-tb {
     position: relative;
-    // display: flex;
     overflow: hidden;
+    // font-size: 16px;
 
     &>.tab-contrl {
         height: 100%;
@@ -389,7 +389,6 @@
             padding: 10px 16px 8px 16px;
             position: relative;
             display: inline-block;
-            // border-radius: 2px 0 0 2px;
             z-index: 2;
             transition: border-bottom 0.3s;
             border-bottom: 2px solid transparent;
@@ -397,15 +396,16 @@
         }
 
         &>.tab-label-active {
-            // background-color: $side_b;
-            color: $theme_color;
-            border-bottom: 2px solid $theme_color;
+            color: $tab_active_color;
+            border-bottom: 2px solid $tab_active_color;
         }
     }
 
     &>.tab-container {
         border-top-width: 1px;
         border-top-style: solid;
+        border-top-color: $tab_top_color;
+        margin: -1px;
 
         &>input[type="radio"] {
             display: none;
@@ -419,7 +419,6 @@
             position: relative;
             opacity: 1;
             z-index: 1;
-            transition: left .3s ease-out, opacity .3s ease-out, visibility .3s ease-out;
         }
 
         // 上部分
@@ -442,6 +441,16 @@
             visibility: hidden;
             opacity: 0;
             z-index: -1;
+        }
+
+        .transfer-all {
+            transition: left .3s ease-out,
+                opacity .3s ease-out,
+                visibility .3s ease-out;
+        }
+
+        .transfer-simple {
+            transition: opacity .3s ease-out;
         }
     }
 }

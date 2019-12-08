@@ -5,7 +5,8 @@ export default class Select extends Component {
         super(props);
         this.state = {
             selectedValue: '',
-            selectedLabel: this.props.defaultValue || ''
+            selectedLabel: this.props.value || this.props.defaultValue || '',
+            option: this.props.option || []
         };
         this.id = Math.random().toString(36).substring(2);
     }
@@ -16,6 +17,14 @@ export default class Select extends Component {
         }, () => {
             this.props.onChange && this.props.onChange(this.state.selectedValue);
         });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.value != undefined) {
+            this.setState({
+                selectedLabel: nextProps.value
+            });
+        }
     }
 
     render() {

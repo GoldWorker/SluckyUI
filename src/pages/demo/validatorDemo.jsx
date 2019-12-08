@@ -26,7 +26,8 @@ export class ValidatorDemo extends Component {
             testDemoList: [],
             selected: ['Pear'],
             radioValue: 'Pear',
-            numberValue: 1
+            numberValue: 1,
+            selectValue: ''
         };
         this.Validator = new Validator();
         Validator.types.isEmptyTest = {
@@ -115,6 +116,19 @@ export class ValidatorDemo extends Component {
                     value: 'v3'
                 }]} />
 
+                <Select value={this.state.selectValue} onChange={(v) => { console.log(v); }} option={[{
+                    label: '选项1',
+                    value: 'v1'
+                }, {
+                    label: '选项2',
+                    value: 'v2'
+                }, {
+                    label: '选项3',
+                    value: 'v3'
+                }]} />
+
+                <button onClick={() => this.setState({ selectValue: '选项3' })}>click</button>
+
                 <Search onSearch={(v) => { console.log(v); }} onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 
                 <Radio.Group value={this.state.radioValue} className="pb32" onChange={(e) => { this.handleChangeRadio(e); }} option={[
@@ -128,8 +142,15 @@ export class ValidatorDemo extends Component {
                     { label: 'Orange', value: 'Orange' }
                 ]} />
 
-
                 {/* <Checkbox.Group className="pb32" onChange={(selected, res) => { this.handleChangeCheckbox(selected, res); }} option={this.state.testDemoList} /> */}
+
+                <Checkbox
+                    // values={this.state.selected}
+                    // defaultValue={['Pear']}
+                    className="pb32"
+                    onChange={(e) => { console.log(e.target.checked); }}
+                    label="Test"
+                />
 
                 <Checkbox.Group
                     values={this.state.selected}

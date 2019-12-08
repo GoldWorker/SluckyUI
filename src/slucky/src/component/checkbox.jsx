@@ -20,7 +20,7 @@ export default class Checkbox extends Component {
                         type="checkbox"
                         disabled={this.props.disabled}
                         className=""
-                        name={this.props.name}
+                        name={this.props.name || ''}
                         value={this.props.value}
                         defaultChecked={this.props.defaultChecked || false}
                         onChange={(e) => this.handleChange(e)}

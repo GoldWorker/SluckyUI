@@ -48,6 +48,7 @@ $checkbox_default_bg:#F6F8F9 !default;
 $checkbox_default_c: inherit !default;
 $checkbox_focus_bg: $theme_color !default;
 $checkbox_focus_c: inherit !default;
+$select_hover_color:$text_b !default;
 
 // btn
 $hoverWaveColor: $theme_color !default;
@@ -60,10 +61,14 @@ $table_odd_bg: #F6F8F9 !default;
 $table_header_bg: #fff !default;
 $table_header_c: #787E85 !default;
 $table_header_fs: 14px !default;
-$table_hover: #E8EBED;
+$table_hover: #E8EBED !default;
 
 // steps
 $steps_bar_bg:$table_odd_bg !default;
+
+// tab
+$tab_top_color:$side_b !default;
+$tab_active_color:$theme_color !default;
 
 // ---------------------------模板------------------------
 @mixin cicle($size:28px) {
@@ -583,7 +588,8 @@ $space: 2;
 }
 
 .bg-b {
-    background-color: rgba($color:black, $alpha: .8);
+    // background-color: rgba($color:black, $alpha: .8);
+    background-color: #000;
 }
 
 .bg-module {

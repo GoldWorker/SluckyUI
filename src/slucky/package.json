@@ -8,11 +8,12 @@
     },
     "scripts": {
         "test": "jest --coverage",
+        "test:dev": "jest --watch",
         "build_index": "./node_modules/.bin/babel ./index.jsx --out-dir ./",
         "build_src": "./node_modules/.bin/babel ./src --out-dir ./dist",
         "build": "npm run build_index && npm run build_src",
         "pub": "npm run build && npm publish",
-        "t": "webpack --mode development",
+        "testCommand": "webpack --mode development",
         "publishByWebpack": "webpack --mode development && npm publish ./dist"
     },
     "keywords": [
@@ -62,6 +63,7 @@
         "babel-preset-stage-0": "^6.24.1",
         "clean-webpack-plugin": "^0.1.19",
         "copy-webpack-plugin": "^5.0.5",
+        "enzyme-to-json": "^3.4.3",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^24.9.0",
         "jest-svg-transformer": "^1.0.0",

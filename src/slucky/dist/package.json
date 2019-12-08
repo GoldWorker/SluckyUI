@@ -1,6 +1,6 @@
 {
     "name": "slucky",
-    "version": "0.3.26",
+    "version": "0.3.33",
     "description": "sluckyUI component base on react",
     "main": "index.jsx",
     "directories": {
