@@ -13,8 +13,8 @@
         "build_src": "./node_modules/.bin/babel ./src --out-dir ./dist",
         "build": "npm run build_index && npm run build_src",
         "pub": "npm run build && npm publish",
-        "testCommand": "webpack --mode development",
-        "publishByWebpack": "webpack --mode development && npm publish ./dist"
+        "testCommand": "webpack --mode production",
+        "publishByWebpack": "webpack --mode production && npm publish ./dist"
     },
     "keywords": [
         "react",

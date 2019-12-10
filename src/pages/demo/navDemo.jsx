@@ -355,7 +355,7 @@ export default class NavDemo extends Component {
                     </ul>
                 </div>
 
-                <Tab.Group layout="tb" tabIndex={2} cssMode='simple'>
+                <Tab.Group layout="simple" tabIndex={2} cssMode='simple'>
                     <Tab label='hello'>School and transport workers will join police, lawyers and hospital and airport staff in a general walkout.
 
 France's largest nationwide strike in years was agreed by unions unhappy with President Emmanuel Macron's plans for a universal points-based pension system.

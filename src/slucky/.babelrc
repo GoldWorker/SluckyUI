@@ -1,4 +1,15 @@
 {
+    "env": {
+        "test": {
+            "presets": [
+                ["@babel/preset-env"],
+                "@babel/preset-react"
+            ],
+            "plugins": [
+                "transform-es2015-modules-commonjs"
+            ]
+        }
+    },
     "presets": [
         ["@babel/preset-env", {
             "targets": {
@@ -10,7 +21,6 @@
             }
         }],
         "@babel/preset-react",
-        // "@babel/preset-stage-0"
     ],
     "plugins": [
         "@babel/plugin-proposal-function-bind",
@@ -18,24 +28,7 @@
         // 解决编译中产生的重复的工具函数
         [
             "@babel/plugin-transform-runtime",
-            // {
-            //     "helpers": false,
-            //     // "polyfill": false,
-            //     // "regenerator": true,
-            //     // "moduleName": "babel-runtime"
-            // }
         ],
         // "transform-remove-console"
-    ],
-    "env": {
-        "test": {
-            "presets": [
-                ["@babel/preset-env"],
-                "@babel/preset-react"
-            ],
-            "plugins": [
-                "transform-es2015-modules-commonjs"
-            ]
-        }
-    }
+    ]
 }

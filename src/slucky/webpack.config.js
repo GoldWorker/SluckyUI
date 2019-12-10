@@ -5,7 +5,6 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    // devtool: 'source-map',
     entry: getEntryConfig(),
     output: {
         filename: (chunkData) => {
@@ -35,40 +34,12 @@ module.exports = {
         }
     ],
     resolve: {
-        alias: {
-            $: './src/jquery.js'
-        },
         extensions: ['.js', '.css', '.json', '.jsx']
     },
     module: {
         rules: [{
             test: /.jsx|.js$/,
             loader: 'babel-loader',
-            // use: {
-            //     loader: 'babel-loader',
-            //     options: {
-            //         presets: [
-            //             ['@babel/preset-env', {
-            //                 'targets': {
-            //                     'browsers': [
-            //                         '>0.25%',
-            //                         'not ie 11',
-            //                         'not op_mini all'
-            //                     ]
-            //                 }
-            //             }],
-            //             '@babel/preset-react'
-            //         ],
-            //         plugins: [
-            //             '@babel/plugin-proposal-function-bind',
-            //             '@babel/plugin-proposal-class-properties',
-            //             [
-            //                 '@babel/plugin-transform-runtime'
-            //             ],
-            //             'transform-remove-console'
-            //         ]
-            //     }
-            // },
             exclude: /node_modules/
         }, {
             test: /\.(jpg|png|gif|svg|jpeg)$/,

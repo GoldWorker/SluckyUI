@@ -375,7 +375,6 @@
     }
 }
 
-
 .tab-box-tb {
     position: relative;
     overflow: hidden;
@@ -405,7 +404,7 @@
         border-top-width: 1px;
         border-top-style: solid;
         border-top-color: $tab_top_color;
-        margin: -1px;
+        margin-top: -1px;
 
         &>input[type="radio"] {
             display: none;
@@ -452,6 +451,86 @@
         .transfer-simple {
             transition: opacity .3s ease-out;
         }
+    }
+}
+
+.tab-box-simple {
+    position: relative;
+    overflow: hidden;
+
+    &>.tab-contrl {
+        height: 100%;
+        z-index: 1;
+
+        &>label {
+            padding: 10px 16px 8px 16px;
+            position: relative;
+            display: inline-block;
+            z-index: 2;
+            transition: border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        &>.tab-label-active {
+            color: $tab_active_color;
+            border-bottom: 2px solid $tab_active_color;
+        }
+    }
+
+    &>.tab-container {
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-top-color: $tab_top_color;
+        margin-top: -1px;
+
+        &>input[type="radio"] {
+            display: none;
+        }
+
+        // 正常状态
+        &>input[type="radio"]:checked+.tab-content {
+            display: block;
+            position: relative;
+            opacity: 1;
+            z-index: 1;
+            animation: tabSlideIn .3s;
+        }
+
+        // 上部分
+        &>input[type="radio"]:checked+.tab-content~.tab-content {
+            display: none;
+            width: 100%;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        // 下部分
+        &>.tab-content {
+            width: 100%;
+            display: none;
+            background-color: #fff;
+            border-radius: 3px;
+            opacity: 0;
+            z-index: -1;
+        }
+    }
+}
+
+@keyframes tabSlideIn {
+    0% {
+        left: 100%;
+        opacity: 0;
+    }
+
+    50% {
+        left: 20%;
+        opacity: 0.2;
+    }
+
+    100% {
+        left: 0;
+        opacity: 1;
     }
 }
 
