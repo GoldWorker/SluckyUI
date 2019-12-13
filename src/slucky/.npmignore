@@ -12,3 +12,4 @@ CVS
 npm-debug.log
 ./__mocks__
 ./test
+./coverage

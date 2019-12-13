@@ -26,9 +26,7 @@
         "@babel/plugin-proposal-function-bind",
         "@babel/plugin-proposal-class-properties",
         // 解决编译中产生的重复的工具函数
-        [
-            "@babel/plugin-transform-runtime",
-        ],
+        "@babel/plugin-transform-runtime",
         // "transform-remove-console"
     ]
 }

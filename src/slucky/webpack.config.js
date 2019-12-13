@@ -43,17 +43,16 @@ module.exports = {
             exclude: /node_modules/
         }, {
             test: /\.(jpg|png|gif|svg|jpeg)$/,
-            use: [{
-                loader: 'url-loader'
-                // options: {
-                //     limit: true
-                // }
-            }],
+            loader: 'url-loader',
             exclude: /node_modules/
         }]
     },
     plugins: [
-        // new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: true,
+            logLevel: 'info'
+        }),
         new CleanWebpackPlugin('dist', {
             verbose: false,
             watch: true,

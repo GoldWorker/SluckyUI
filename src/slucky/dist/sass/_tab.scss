@@ -492,26 +492,33 @@
         &>input[type="radio"]:checked+.tab-content {
             display: block;
             position: relative;
-            opacity: 1;
+            visibility: visible;
+            // opacity: 1;
             z-index: 1;
-            animation: tabSlideIn .3s;
+            // animation: tabSlideIn .3s;
         }
 
         // 上部分
         &>input[type="radio"]:checked+.tab-content~.tab-content {
-            display: none;
-            width: 100%;
-            opacity: 0;
+            // display: none;
+            // width: 100%;
+            // opacity: 0;
+            position: absolute;
+            top: 0;
+            visibility: hidden;
             z-index: -1;
         }
 
         // 下部分
         &>.tab-content {
-            width: 100%;
-            display: none;
+            // width: 100%;
+            // display: none;
             background-color: #fff;
             border-radius: 3px;
-            opacity: 0;
+            // opacity: 0;
+            position: absolute;
+            top: 0;
+            visibility: hidden;
             z-index: -1;
         }
     }
