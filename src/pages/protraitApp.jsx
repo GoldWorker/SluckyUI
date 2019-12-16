@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Toast } from 'slucky';
-import LrChange from './lrChange';
+import Toast from 'slucky/src/component/toast';
+import LrChange from 'slucky/src/component/lrChange';
 
 const CANVANS_SIZE = 256;
 

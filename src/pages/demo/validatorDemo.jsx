@@ -118,8 +118,6 @@ export class ValidatorDemo extends Component {
                     value: 'v3'
                 }]} />
 
-<<<<<<< HEAD
-=======
                 <Select value={this.state.selectValue} onChange={(v) => { console.log(v); }} option={[{
                     label: '选项1',
                     value: 'v1'
@@ -135,7 +133,6 @@ export class ValidatorDemo extends Component {
 
                 <Search onSearch={(v) => { console.log(v); }} onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 
->>>>>>> dev
                 <Radio.Group value={this.state.radioValue} className="pb32" onChange={(e) => { this.handleChangeRadio(e); }} option={[
                     { label: 'Apple', value: 'Apple' },
                     { label: 'Pear', value: 'Pear' },
