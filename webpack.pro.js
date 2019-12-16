@@ -154,7 +154,11 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env': JSON.stringify(ENV_CONF)
         }),
-        // new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: true,
+            logLevel: 'info'
+        }),
         new DashboardPlugin(),
         new ProgressBarPlugin({
             format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
