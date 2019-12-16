@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Toast from 'slucky/src/component/toast';
-import LrChange from 'slucky/src/component/lrChange';
+import { Toast } from 'slucky';
+import LrChange from './lrChange';
 
 const CANVANS_SIZE = 256;
 
@@ -41,8 +41,15 @@ export default class ProtraitApp extends Component {
             decorationList: imgSourceList
         };
     }
+
     componentDidMount() {
+        const { decorationCurrent } = this.state;
         this.initCanvas();
+        this.handleMakeImage(null, decorationCurrent).then(targetUrl => {
+            this.setState({
+                targetUrl
+            });
+        });
     }
 
     initCanvas() {
@@ -55,6 +62,7 @@ export default class ProtraitApp extends Component {
         const { canvas } = this.refs;
         const context = canvas.getContext('2d');
         const sourceImage = e.target.files[0];
+        const { decorationCurrent } = this.state;
         if (!sourceImage) {
             return false;
         }
@@ -79,23 +87,31 @@ export default class ProtraitApp extends Component {
             context.drawImage(imgObj, 0, 0, CANVANS_SIZE, CANVANS_SIZE);
         }
 
+        const imgUrl = canvas.toDataURL('image/png');
         this.setState({
-            imgUrl: canvas.toDataURL('image/png')
+            imgUrl
+        });
+        this.handleMakeImage(imgUrl, decorationCurrent).then(targetUrl => {
+            this.setState({
+                targetUrl
+            });
         });
     }
 
     handleChangeDecorate(item) {
+        const { imgUrl } = this.state;
         this.setState({
             decorationCurrent: item
         });
+        this.handleMakeImage(imgUrl, item).then(targetUrl => {
+            this.setState({
+                targetUrl
+            });
+        });
     }
 
-    async handleClickSaveImage() {
-        const { imgUrl, decorationCurrent } = this.state;
-        if (!imgUrl) {
-            Toast.warn('请先上传头像');
-            return false;
-        }
+    async handleMakeImage(imgUrl, decorationCurrent) {
+        if (!(imgUrl || decorationCurrent)) { return false; }
 
         const { source, style } = decorationCurrent;
         const { width, height, top, left } = style;
@@ -104,13 +120,18 @@ export default class ProtraitApp extends Component {
 
         const context = canvas.getContext('2d');
 
-        const bgImg = await this.createImage(imgUrl);
-        context.drawImage(bgImg, 0, 0, bgImg.width, bgImg.height);
+        if (imgUrl) {
+            const bgImg = await this.createImage(imgUrl);
+            context.drawImage(bgImg, 0, 0, bgImg.width, bgImg.height);
+        }
 
-        const imgObj = await this.createImage(source);
-        context.drawImage(imgObj, left, top, width, height);
+        if (decorationCurrent) {
+            const imgObj = await this.createImage(source);
+            context.drawImage(imgObj, left, top, width, height);
+        }
 
-        this.downloadImage(canvas.toDataURL('image/png'));
+        const targetUrl = canvas.toDataURL('image/png');
+        return targetUrl;
     }
 
     file2Base64(domFile) {
@@ -139,6 +160,11 @@ export default class ProtraitApp extends Component {
     }
 
     downloadImage(url) {
+        const { imgUrl } = this.state;
+        if (!imgUrl) {
+            Toast.warn('请先上传头像');
+            return false;
+        }
         if (url) {
             const aLink = document.createElement('a');
             const evt = document.createEvent('HTMLEvents');
@@ -161,8 +187,8 @@ export default class ProtraitApp extends Component {
     }
 
     render() {
-        const { decorationList } = this.state;
-        const { source, style } = this.state.decorationCurrent;
+        const { decorationList, targetUrl } = this.state;
+        // const { source, style } = this.state.decorationCurrent;
         return (
             <div className="d-f ac fullscreen bg-title">
                 {/* <img src={require('../images/bg1.jpg')} alt="" className="p-a z-1" style={{ height: '100%', opacity: 0.9 }} /> */}
@@ -173,8 +199,9 @@ export default class ProtraitApp extends Component {
                         onChange={(item) => this.handleChangeDecorate(item)}>
                         {
                             <div className="p-r w256 h256 shadow">
-                                <img src={source} alt="" className="p-a z1" style={this.num2px(style)} />
-                                <img src={this.state.imgUrl} alt="" className="p-a l0 t0" />
+                                {/* <img src={source} alt="" className="p-a z1" style={this.num2px(style)} />
+                                <img src={this.state.imgUrl} alt="" className="p-a l0 t0" /> */}
+                                <img src={targetUrl} alt="" />
                             </div>
                         }
                     </LrChange>
@@ -185,10 +212,10 @@ export default class ProtraitApp extends Component {
                                 <input type="file" id="input_file" ref="upload_file" onChange={(e) => this.handleChangeUpload(e)} />
                             </div>
                         </div>
-                        <button className="btn btn-n plr16 ptb4 ml8" onClick={() => this.handleClickSaveImage()}>保存头像</button>
+                        <button className="btn btn-w plr16 ptb4 ml8" onClick={() => this.downloadImage(targetUrl)}>浏览器/PC端点击下载</button>
                     </div>
-                    <canvas className="d-n" ref="canvas" />
-                    {/* <img src={this.state.imgUrl} alt="" /> */}
+                    <div className="c-hint-b ta-c pt16">微信端制作完成后长按即可保存</div>
+                    <canvas className="w256 h256 shadow d-n" ref="canvas" />
                 </div>
             </div>
         );
