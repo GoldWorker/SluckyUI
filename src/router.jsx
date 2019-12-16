@@ -15,57 +15,9 @@ const Loading = () => {
     </div>;
 };
 
-const HighorderArticle = (store) => {
+const createRouterComponent = (store, loaderFn) => {
     return Loadable({
-        loader: () => import('./pages/article/highorder-article'),
-        loading: Loading,
-        render(loaded, props) {
-            let Component = loaded.default;
-            updateReducer(store);
-            return <Component {...props} />;
-        }
-    });
-};
-
-const HighorderArticlePublish = (store) => {
-    return Loadable({
-        loader: () => import('./pages/articlePublish/highorder-articlePublish'),
-        loading: Loading,
-        render(loaded, props) {
-            let Component = loaded.default;
-            updateReducer(store);
-            return <Component {...props} />;
-        }
-    });
-};
-
-const HighorderArticleDetail = (store) => {
-    return Loadable({
-        loader: () => import('./pages/articleDetail/highorder-articleDetail'),
-        loading: Loading,
-        render(loaded, props) {
-            let Component = loaded.default;
-            updateReducer(store);
-            return <Component {...props} />;
-        }
-    });
-};
-
-const HighorderRegister = (store) => {
-    return Loadable({
-        loader: () => import('./pages/register/highorder-register'),
-        loading: Loading,
-        render(loaded, props) {
-            let Component = loaded.default;
-            updateReducer(store);
-            return <Component {...props} />;
-        }
-    });
-};
-
-const App = (store) => {
-    return Loadable({
-        loader: () => import('./app'),
+        loader: loaderFn,
         loading: Loading,
         render(loaded, props) {
             let Component = loaded.default;
@@ -79,7 +31,7 @@ const RouteWithSubRoutes = (route) => {
     return (
         <Route
             path={route.path}
-            render={props => 
+            render={props =>
                 <route.component {...props} routes={route.routes} />
             }
         />
@@ -87,22 +39,26 @@ const RouteWithSubRoutes = (route) => {
 };
 
 const routes = (store) => {
-    return [{
-        path: '/article',
-        component: HighorderArticleDetail(store)
-    }, {
-        path: '/articlelist',
-        component: HighorderArticle(store)
-    }, {
-        path: '/edit',
-        component: HighorderArticlePublish(store)
-    }, {
-        path: '/register',
-        component: HighorderRegister(store)
-    }, {
-        path: '/',
-        component: App(store)
-    }];
+    return [
+        {
+            path: '/protraitApp',
+            component: createRouterComponent(store, () => import('./pages/protraitApp'))
+        }, {
+            path: '/article',
+            component: createRouterComponent(store, () => import('./pages/articleDetail/highorder-articleDetail'))
+        }, {
+            path: '/articlelist',
+            component: createRouterComponent(store, () => import('./pages/article/highorder-article'))
+        }, {
+            path: '/edit',
+            component: createRouterComponent(store, () => import('./pages/articlePublish/highorder-articlePublish'))
+        }, {
+            path: '/register',
+            component: createRouterComponent(store, () => import('./pages/register/highorder-register'))
+        }, {
+            path: '/',
+            component: createRouterComponent(store, () => import('./app'))
+        }];
 };
 
 const renderRouter = (store) => {

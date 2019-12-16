@@ -1,17 +1,17 @@
 {
     "presets": [
-        ["env", {
-            "targets": {
-                "browsers": [
-                    ">0.25%",
-                    "not ie 11",
-                    "not op_mini all"
-                ]
+        [
+            "@babel/preset-env",
+            {
+                "modules": false,
+                // "targets": {
+                //     "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+                // }
+                // 只包含你所需要的 polyfill
+                "useBuiltIns": "usage",
             }
-        }],
-        "react",
-        // "es2015",
-        "stage-0"
+        ],
+        "@babel/preset-react",
     ],
     "plugins": [
         // ["import", {
@@ -21,16 +21,22 @@
         //     "libraryName": "antd",
         //     "libraryDirectory": "es"
         // }],
-        "react-hot-loader/babel",
-        "syntax-dynamic-import",
-        [
-            "transform-runtime",
-            {
-                "helpers": false,
-                "polyfill": false,
-                "regenerator": true,
-                "moduleName": "babel-runtime"
-            }
-        ],
+        // ["import", { "libraryName": "antd", "libraryDirectory": "lib", "style": "css"}, "ant"]
+        "@babel/plugin-proposal-class-properties",
+        "@babel/transform-runtime",
+        "@babel/plugin-syntax-dynamic-import",
+        "react-hot-loader/babel"
     ]
 }
+// {
+//     "presets": [
+//         "@babel/preset-env",
+//         "@babel/preset-react"
+//     ],
+//     "plugins": [
+//         "@babel/plugin-proposal-class-properties",
+//         "@babel/plugin-transform-runtime",
+//         "@babel/plugin-syntax-dynamic-import",
+//         "react-hot-loader/babel"
+//     ]
+// }

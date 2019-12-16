@@ -355,10 +355,30 @@ export default class NavDemo extends Component {
                     </ul>
                 </div>
 
-                <Tab.Group layout="tb" tabIndex={2}>
-                    <Tab label='hello'>123</Tab>
+                <Tab.Group layout="simple" tabIndex={2} cssMode='simple'>
+                    <Tab label='hello'>School and transport workers will join police, lawyers and hospital and airport staff in a general walkout.
+
+France's largest nationwide strike in years was agreed by unions unhappy with President Emmanuel Macron's plans for a universal points-based pension system.
+
+Authorities have been trying to put in place plans to mediate the disruption.
+
+The industrial action is expected to last beyond Thursday and some trade union leaders have warned they will continue their industrial action until Mr Macron abandons his campaign promise to overhaul the retirement system.
+
+One opinion poll put public support for the strikes at 69%, with backing strongest among 18-34 year-olds.
+
+The Macron administration will hope to avoid a repeat of the country's general strike over pension reforms in 1995, which crippled the transport system for three weeks and drew massive popular support, forcing a government reversal.</Tab>
                     <Tab label='123'>qwer</Tab>
-                    <Tab label='qwe'>12asdf3</Tab>
+                    <Tab label='qwe'>School and transport workers will join police, lawyers and hospital and airport staff in a general walkout.
+
+France's largest nationwide strike in years was agreed by unions unhappy with President Emmanuel Macron's plans for a universal points-based pension system.
+
+Authorities have been trying to put in place plans to mediate the disruption.
+
+The industrial action is expected to last beyond Thursday and some trade union leaders have warned they will continue their industrial action until Mr Macron abandons his campaign promise to overhaul the retirement system.
+
+One opinion poll put public support for the strikes at 69%, with backing strongest among 18-34 year-olds.
+
+The Macron administration will hope to avoid a repeat of the country's general strike over pension reforms in 1995, which crippled the transport system for three weeks and drew massive popular support, forcing a government reversal.</Tab>
                 </Tab.Group>
 
                 <Details summary="test">

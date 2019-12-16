@@ -1,6 +1,17 @@
 {
+    "env": {
+        "test": {
+            "presets": [
+                ["@babel/preset-env"],
+                "@babel/preset-react"
+            ],
+            "plugins": [
+                "transform-es2015-modules-commonjs"
+            ]
+        }
+    },
     "presets": [
-        ["env", {
+        ["@babel/preset-env", {
             "targets": {
                 "browsers": [
                     ">0.25%",
@@ -9,19 +20,13 @@
                 ]
             }
         }],
-        "react",
-        // "es2015",
-        "stage-0"
+        "@babel/preset-react",
     ],
     "plugins": [
-        [
-            "transform-runtime",
-            {
-                "helpers": false,
-                "polyfill": false,
-                // "regenerator": true,
-                // "moduleName": "babel-runtime"
-            }
-        ]
+        "@babel/plugin-proposal-function-bind",
+        "@babel/plugin-proposal-class-properties",
+        // 解决编译中产生的重复的工具函数
+        "@babel/plugin-transform-runtime",
+        // "transform-remove-console"
     ]
 }

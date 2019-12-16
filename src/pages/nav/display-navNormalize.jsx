@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import HighorderLoginInfo from "../login/highorder-loginInfo";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import React, { Component } from 'react';
+import HighorderLoginInfo from '../login/highorder-loginInfo';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 
 class NavNormalize extends Component {
     constructor(props) {
-        super(props)
+        super(props);
     }
     render() {
         const { isLogined } = this.props;
@@ -15,10 +15,11 @@ class NavNormalize extends Component {
                 {isLogined ? <nav><NavLink to="/edit" className="nav-item" activeClassName="nav-item-active">编辑</NavLink></nav> : null}
                 <nav><NavLink to="/articleList" className="nav-item" activeClassName="nav-item-active">文章</NavLink></nav>
                 <nav><NavLink to="/register" className="nav-item" activeClassName="nav-item-active">成为Sluckyer</NavLink></nav>
+                <nav><NavLink to="/protraitApp" className="nav-item" activeClassName="nav-item-active">头像制作</NavLink></nav>
                 <HighorderLoginInfo />
             </div>
-        )
+        );
     }
 }
 
-export default NavNormalize
+export default NavNormalize;

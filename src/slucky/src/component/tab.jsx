@@ -42,7 +42,7 @@ class Group extends Component {
                     }
                 </div>
 
-                <div className="tab-container flex1 b-side pl16" style={{ minHeight: this.props.minHeight }}>
+                <div className="tab-container flex1 b-side" style={{ minHeight: this.props.minHeight }}>
                     {
                         this.props.option && this.props.option.map((item, index) => {
                             return (
@@ -52,7 +52,7 @@ class Group extends Component {
                                         name={this.id}
                                         defaultChecked={(this.props.tabIndex || 0) == index}
                                     />
-                                    <div className="tab-content">
+                                    <div className={['tab-content', this.props.cssMode == 'simple' ? 'transfer-simple' : 'transfer-all'].join(' ')}>
                                         {
                                             item.content
                                         }
@@ -70,7 +70,7 @@ class Group extends Component {
                                         name={this.id}
                                         defaultChecked={(this.props.tabIndex || 0) == index}
                                     />
-                                    <div className="tab-content">
+                                    <div className={['tab-content', this.props.cssMode == 'simple' ? 'transfer-simple' : 'transfer-all'].join(' ')}>
                                         {
                                             React.cloneElement(item, {})
                                         }

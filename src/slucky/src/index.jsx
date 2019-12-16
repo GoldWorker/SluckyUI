@@ -20,7 +20,9 @@ import Tree from './component/tree';
 import Transfer from './component/transfer';
 import Text from './component/text';
 import Details from './component/details';
+import LrChange from './component/lrChange';
 import Validator from './component/validator';
+import Lib from './component/lib';
 
 export {
     Dialog,
@@ -45,5 +47,7 @@ export {
     Tree,
     Transfer,
     Text,
-    Details
+    Details,
+    LrChange,
+    Lib
 };

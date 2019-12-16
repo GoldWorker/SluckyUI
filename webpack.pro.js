@@ -13,6 +13,11 @@ const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // 图表分析
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const Jarvis = require('webpack-jarvis'); //这个插件没鸟用
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const chalk = require('chalk');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+
 // const Autoprefixer = require('autoprefixer')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
@@ -33,9 +38,6 @@ module.exports = {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
             },
-            // {     test: /\.scss$/,     exclude: /node_modules/,     use:
-            // sassExtract.extract({         fallback: 'style-loader',         use:
-            // ['css-loader', 'postcss-loader', 'sass-loader']     }) },
             {
                 test: /\.scss$/,
                 // exclude: /node_modules/,
@@ -49,8 +51,22 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
             }, {
-                test: /.jsx|.js$/, 
-                loader: 'babel-loader',
+                test: /.jsx|.js$/,
+                // loader: 'babel-loader',
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-react'
+                        ],
+                        plugins: [
+                            '@babel/plugin-proposal-class-properties',
+                            '@babel/plugin-transform-runtime',
+                            '@babel/plugin-syntax-dynamic-import'
+                        ]
+                    }
+                },
                 exclude: /node_modules/
             },
             {
@@ -138,7 +154,19 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env': JSON.stringify(ENV_CONF)
         }),
-        new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: true,
+            logLevel: 'info'
+        }),
+        new DashboardPlugin(),
+        new ProgressBarPlugin({
+            format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
+            clear: false
+        }),
+        // new Jarvis({
+        //     port: 1337 // optional: set a port
+        // }),
         new CleanWebpackPlugin('dist', {
             verbose: false,
             watch: true,
@@ -163,7 +191,6 @@ module.exports = {
                 useShortDoctype: true
             }
         }),
-        require('autoprefixer'),
         new UglifyjsWebpackPlugin({
             uglifyOptions: {
                 ie8: false,
@@ -181,8 +208,6 @@ module.exports = {
             sourceMap: false,
             cache: true
         }),
-        // sassExtract,
-        // new webpack.HotModuleReplacementPlugin(),
         new webpack.HashedModuleIdsPlugin()
     ]
 };

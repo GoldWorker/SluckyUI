@@ -5,7 +5,6 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    // devtool: 'source-map',
     entry: getEntryConfig(),
     output: {
         filename: (chunkData) => {
@@ -35,9 +34,6 @@ module.exports = {
         }
     ],
     resolve: {
-        alias: {
-            $: './src/jquery.js'
-        },
         extensions: ['.js', '.css', '.json', '.jsx']
     },
     module: {
@@ -47,17 +43,16 @@ module.exports = {
             exclude: /node_modules/
         }, {
             test: /\.(jpg|png|gif|svg|jpeg)$/,
-            use: [{
-                loader: 'url-loader'
-                // options: {
-                //     limit: true
-                // }
-            }],
+            loader: 'url-loader',
             exclude: /node_modules/
         }]
     },
     plugins: [
-        // new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: true,
+            logLevel: 'info'
+        }),
         new CleanWebpackPlugin('dist', {
             verbose: false,
             watch: true,
@@ -74,7 +69,8 @@ module.exports = {
 };
 
 function getFileCollection() {
-    const globPath = './src/**/*.jsx';
+    // https://www.cnblogs.com/waitforyou/p/7044171.html
+    const globPath = './src/**/*.*(jsx|js)';
     // (\/|\\\\) 这种写法是为了兼容 windows和 mac系统目录路径的不同写法
     // const pathDir = './src(\/|\\\\)(.*?)(\/|\\\\)jsx';
     const files = glob.sync(globPath);
