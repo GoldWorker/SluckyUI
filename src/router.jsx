@@ -41,6 +41,9 @@ const RouteWithSubRoutes = (route) => {
 const routes = (store) => {
     return [
         {
+            path: '/jgui',
+            component: createRouterComponent(store, () => import('./pages/jgui'))
+        }, {
             path: '/protraitApp',
             component: createRouterComponent(store, () => import('./pages/protraitApp'))
         }, {
