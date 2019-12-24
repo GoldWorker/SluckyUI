@@ -105,6 +105,7 @@ module.exports = {
                         // quality: 10
                     }
                 }, {
+                    // https://github.com/tcoopman/image-webpack-loader
                     loader: 'image-webpack-loader',
                     options: {
                         optipng: { // 使用 imagemin-optipng 压缩 png，enable: false 为关闭

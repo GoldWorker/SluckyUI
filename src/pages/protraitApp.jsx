@@ -4,7 +4,7 @@ import Lrchange from 'slucky/src/component/lrChange';
 
 import './protraitApp.scss';
 
-const CANVANS_SIZE = 256;
+const CANVANS_SIZE = 512;
 
 export default class ProtraitApp extends Component {
     constructor() {
@@ -12,74 +12,74 @@ export default class ProtraitApp extends Component {
         const imgSourceList = [{
             source: require('../images/d9.png'),
             style: {
-                width: 128,
-                height: 128,
-                top: `${CANVANS_SIZE - 128}`,
-                left: `${CANVANS_SIZE - 128}`
+                width: CANVANS_SIZE / 2,
+                height: CANVANS_SIZE / 2,
+                top: `${CANVANS_SIZE - CANVANS_SIZE / 2}`,
+                left: `${CANVANS_SIZE - CANVANS_SIZE / 2}`
             }
         }, {
             source: require('../images/d12.png'),
             style: {
-                width: 128,
-                height: 128,
-                top: `${CANVANS_SIZE - 138}`,
+                width: CANVANS_SIZE / 2,
+                height: CANVANS_SIZE / 2,
+                top: `${CANVANS_SIZE - 276}`,
                 left: 0
             }
         }, {
             source: require('../images/d13.png'),
             style: {
-                width: 500,
-                height: 500,
-                top: -110,
-                left: -110
+                width: 1000,
+                height: 1000,
+                top: -220,
+                left: -220
             }
         }, {
             source: require('../images/d14.png'),
             style: {
-                width: 256,
-                height: 256,
+                width: CANVANS_SIZE,
+                height: CANVANS_SIZE,
                 top: 0,
                 left: 0
             }
         }, {
             source: require('../images/d15.png'),
             style: {
-                width: 256,
-                height: 196,
+                width: CANVANS_SIZE,
+                height: 392,
                 top: 0,
                 left: 0
             }
         }, {
             source: require('../images/decoration1.png'),
             style: {
-                width: 96,
-                height: 128,
-                top: `${CANVANS_SIZE - 128}`,
-                left: `${CANVANS_SIZE - 96}`
+                width: 192,
+                height: CANVANS_SIZE / 2,
+                top: `${CANVANS_SIZE - CANVANS_SIZE / 2}`,
+                left: `${CANVANS_SIZE - 192}`
             }
         }, {
             source: require('../images/decoration7.png'),
             style: {
                 width: CANVANS_SIZE,
-                height: 96,
-                top: -8,
+                height: 192,
+                top: -16,
                 left: 0
             }
         }, {
             source: require('../images/decoration5.png'),
             style: {
-                width: 128,
-                height: 120,
-                top: `${CANVANS_SIZE - 120}`,
-                left: `${CANVANS_SIZE - 128}`
+                width: CANVANS_SIZE / 2,
+                height: 240,
+                top: `${CANVANS_SIZE - 240}`,
+                left: `${CANVANS_SIZE - CANVANS_SIZE / 2}`
             }
         }, {
             source: require('../images/d10.png'),
             style: {
-                width: 128,
-                height: 128,
-                top: `${CANVANS_SIZE - 128}`,
-                left: `${CANVANS_SIZE - 128}`
+                width: CANVANS_SIZE / 2,
+                height: CANVANS_SIZE / 2,
+                top: `${CANVANS_SIZE - CANVANS_SIZE / 2}`,
+                left: `${CANVANS_SIZE - CANVANS_SIZE / 2}`
             }
         }, {
             source: '',
@@ -196,7 +196,7 @@ export default class ProtraitApp extends Component {
      * @param {string} imgUrl (进过处理的用户图片url)
      * @param {object} decorationCurrent (饰品对象)
      * @returns imageUrl
-     * @memberof App
+     * @memberof ProtraitApp
      */
     async handleMakeImage(imgUrl, decorationCurrent) {
         if (!(imgUrl || decorationCurrent)) { return ''; }
@@ -232,12 +232,12 @@ export default class ProtraitApp extends Component {
         let rect = {};
         switch (type) {
             case 'rect':
-                rect = this.Rect(-5, -5, CANVANS_SIZE + 10, CANVANS_SIZE + 10);
-                this.drawUsingArc(rect, 40, context);
+                rect = this.Rect(-10, -10, CANVANS_SIZE + 20, CANVANS_SIZE + 20);
+                this.drawUsingArc(rect, 80, context, 40);
                 break;
             case 'circle':
-                rect = this.Rect(-22, -22, 300, 300);
-                this.drawUsingArc(rect, 150, context, 60);
+                rect = this.Rect(-44, -44, 600, 600);
+                this.drawUsingArc(rect, 300, context, 120);
             default:
                 break;
         }
@@ -316,7 +316,7 @@ export default class ProtraitApp extends Component {
                         onChange={(item) => this.handleChangeDecorate(item)}>
                         {
                             <div className="w256 h256 shadow p-r" loader-inline={this.state.loading ? 'circle' : ''}>
-                                <img src={targetUrl} alt="" />
+                                <img className="w256 h256" src={targetUrl} alt="" />
                                 {/* <img src={imgUrl} alt="" /> */}
                             </div>
                         }
