@@ -23,7 +23,31 @@ export default class ProtraitApp extends Component {
                 width: 128,
                 height: 128,
                 top: `${CANVANS_SIZE - 138}`,
-                left: `${CANVANS_SIZE - 118}`
+                left: 0
+            }
+        }, {
+            source: require('../images/d13.png'),
+            style: {
+                width: 500,
+                height: 500,
+                top: -110,
+                left: -110
+            }
+        }, {
+            source: require('../images/d14.png'),
+            style: {
+                width: 256,
+                height: 256,
+                top: 0,
+                left: 0
+            }
+        }, {
+            source: require('../images/d15.png'),
+            style: {
+                width: 256,
+                height: 196,
+                top: 0,
+                left: 0
             }
         }, {
             source: require('../images/decoration1.png'),

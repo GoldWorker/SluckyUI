@@ -111,7 +111,7 @@ module.exports = {
                             enabled: true
                         },
                         pngquant: { // 使用 imagemin-pngquant 压缩 png
-                            quality: [0.35, 0.60],
+                            quality: [0.2, 0.40],
                             speed: 10
                         }
                     }
