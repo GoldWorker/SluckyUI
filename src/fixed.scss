@@ -30,18 +30,26 @@
     // left: 0;
 }
 
-.topdown{
+.topdown {
     animation: topdown 1.6s linear infinite;
 }
 
-@keyframes topdown{
-    0%{
+@keyframes topdown {
+    0% {
         top: -116px;
     }
-    50%{
+
+    50% {
         top: -136px;
     }
-    100%{
+
+    100% {
         top: -116px;
+    }
+}
+
+@media (max-width:768px) {
+    .nav-normal {
+        display: none;
     }
 }

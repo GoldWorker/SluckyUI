@@ -101,12 +101,20 @@ export class ValidatorDemo extends Component {
                     }, () => console.log(this.state));
                 }}>TEST</button>
 
+                <div class="star-rating">
+                    <input type="radio" name="rate" />
+                    <input type="radio" name="rate" />
+                    <input type="radio" name="rate" />
+                    <input type="radio" name="rate" />
+                    <input type="radio" name="rate" />
+                </div>
+
                 <Search onSearch={(v) => { console.log(v); }} onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 
                 <Search onSearch={(v) => { console.log(v); }} onChange={(v) => { console.log(v); }} option={['asdf', '123', 'qwer123', 'zxcvqwe23', '2333hhh']} />
 
                 <Input.Number value={this.state.numberValue} onChange={(value) => this.setState({ numberValue: value })} />
-                
+
                 <Select defaultValue="选项2" onChange={(v) => { console.log(v); }} option={[{
                     label: '选项1',
                     value: 'v1'

@@ -99,10 +99,21 @@ module.exports = {
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        limit: 8192,
+                        limit: 50000 //50k
                         // mimetype: 'image/png',
-                        fallback: 'responsive-loader',
-                        quality: 100
+                        // fallback: 'responsive-loader',
+                        // quality: 10
+                    }
+                }, {
+                    loader: 'image-webpack-loader',
+                    options: {
+                        optipng: { // 使用 imagemin-optipng 压缩 png，enable: false 为关闭
+                            enabled: true
+                        },
+                        pngquant: { // 使用 imagemin-pngquant 压缩 png
+                            quality: [0.35, 0.60],
+                            speed: 10
+                        }
                     }
                 }],
                 include: path.join(__dirname, './src'),

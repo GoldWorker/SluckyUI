@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 // import util from './util';
 import BottomTool from './display-bottomTool';
 export default class dnd extends Component {
@@ -56,10 +56,19 @@ export default class dnd extends Component {
         // });
     }
 
-    handleChangePos(event) {
-        const e = event || window.event;
-
-        if (e.clientX > 0 && e.clientY > 0 && e.target.tagName != 'LI') {
+    handleChangePos(e) {
+        console.log('move', e.clientX, e.clientY, e.target.tagName, e.targetTouches);
+        if (e.targetTouches) {
+            // 移动端
+            const { clientX, clientY } = e.targetTouches[0];
+            this.setState({
+                pos: {
+                    top: clientY - 28,
+                    left: clientX - 28
+                }
+            });
+        } else if(e.clientX > 0 && e.clientY > 0 && e.target.tagName != 'LI') {
+            console.log('move ok');
             this.setState({
                 pos: {
                     top: e.clientY - 28,
@@ -71,7 +80,7 @@ export default class dnd extends Component {
 
     handleComDrag(ev) {
         console.log(ev.target.dataset.name);
-        const {name} = ev.target.dataset;
+        const { name } = ev.target.dataset;
         ev
             .dataTransfer
             .setData('name', name);
@@ -96,9 +105,12 @@ export default class dnd extends Component {
                     draggable='true'
                     className="bg-b p-a drag-menu"
                     style={this.state.pos}
-                    onDrag={(e) => this.handleChangePos(e)}>
+                    onDrag={(e) => this.handleChangePos(e)}
+                    onTouchMove={(e) => this.handleChangePos(e)}
+                >
+
                     <div className="menu-nd">
-                        <div className="drag-menu bg-b p-a">
+                        {/* <div className="drag-menu bg-b p-a">
                             <div className="p-r d-n list-container">
                                 <ul className="list paper">
                                     {conf
@@ -114,8 +126,8 @@ export default class dnd extends Component {
                                         })}
                                 </ul>
                             </div>
-                        </div>
-                        <div className="drag-menu bg-b p-a">
+                        </div> */}
+                        {/* <div className="drag-menu bg-b p-a">
                             <div className="drag-menu bg-b p-a">
                                 <div className="p-r d-n list-container">
                                     <ul className="list paper">
@@ -133,8 +145,8 @@ export default class dnd extends Component {
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div className="drag-menu bg-b p-a">3</div>
+                        </div> */}
+                        {/* <div className="drag-menu bg-b p-a">3</div> */}
                     </div>
                 </div>
                 {/* <div draggable="true" onDragStart={() => this.handleDragStart()}>123</div> */}

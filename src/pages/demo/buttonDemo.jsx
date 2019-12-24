@@ -34,6 +34,8 @@ export default class ButtonDemo extends Component {
                     {/* <button className="tag-hollow ptb6 plr16 mr32 mt16 mb16">SluckyUI</button> */}
                     <button className="tag-text ptb6 plr16 mr32 mt16 mb16">SluckyUI</button>
                     <button className="btn-action ptb6 plr16 mr32 mt16 mb16">SluckyUI</button>
+                    <button className="stereo-btn">SluckyUI</button>
+                    <div class="auto-typing">Do You Want To Know More About CSS Development Skill</div>
                 </div>
                 {/* {console.log(ReactDOMServer.renderToStaticMarkup(<Highlight>{demoString}</Highlight>))} */}
                 {/* 先将md文本解析成html字符串，然后交由highlight去解析 */}

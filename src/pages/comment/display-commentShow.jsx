@@ -17,7 +17,7 @@ class CommentShow extends Component {
 	}
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.items[0]) {
-			// this.refs.storeXSS.innerHTML = nextProps.items[0].comment;
+			this.refs.storeXSS.innerHTML = nextProps.items[0].comment;
 		}
 	}
 	handleDate(date) {

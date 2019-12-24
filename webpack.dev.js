@@ -157,7 +157,7 @@ module.exports = {
         contentBase: path.resolve(__dirname, 'dist'), //开发服务运行时的文件根目录
         host: 'localhost', //主机地址
         // public: 'www.brandf.cn',
-        port: 8081, //端口号
+        port: 8080, //端口号
         // compress: true,//开发服务器是否启动gzip等压缩
         historyApiFallback: true,
         disableHostCheck: true,

@@ -1302,6 +1302,42 @@
     }
 }
 
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+
+    input {
+        width: 16px;
+        height: 16px;
+        appearance: none;
+        cursor: pointer;
+        line-height: 16px;
+        text-align: center;
+        font-size: 16px;
+        transition: all 300ms;
+
+        &::after {
+            // color: #66f;
+            content: "☆";
+            transition: all 300ms;
+        }
+
+        &:hover {
+            transform: scale(1.2);
+        }
+
+        &:checked,
+        &:hover {
+
+            &::after,
+            &~input::after {
+                // color: #f66;
+                content: "★";
+            }
+        }
+    }
+}
+
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
     color: $placeholder_b;
