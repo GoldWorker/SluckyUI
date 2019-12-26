@@ -317,7 +317,6 @@ export default class ProtraitApp extends Component {
                         {
                             <div className="w256 h256 shadow p-r" loader-inline={this.state.loading ? 'circle' : ''}>
                                 <img className="w256 h256" src={targetUrl} alt="" />
-                                {/* <img src={imgUrl} alt="" /> */}
                             </div>
                         }
                     </Lrchange>
@@ -347,7 +346,7 @@ export default class ProtraitApp extends Component {
                         <button className="btn btn-w plr16 ptb4 ml8" onClick={() => this.downloadImage(targetUrl)}>浏览器/PC端点击下载</button>
                     </div>
                     <div className="c-hint-b ta-c pt16">移动端长按图片即可保存</div>
-                    <canvas className="w256 h256 shadow d-n" ref="canvas" />
+                    <canvas width="512" height="512" className="shadow d-n" ref="canvas" />
                 </div>
             </div>
         );

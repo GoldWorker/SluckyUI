@@ -934,9 +934,45 @@ details {
     cursor: pointer;
 }
 
+.stereo-btn {
+    // padding: 10px 20px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-image: linear-gradient($common_blue, #3c9);
+    box-shadow: 0 4px 0 $common_blue;
+    cursor: pointer;
+    text-shadow: 0 2px 2px #ccc;
+    // font-size: 50px;
+    color: #fff;
+    transition: all .3s;
+
+    &:active {
+        box-shadow: 0 2px 0 $common_blue;
+        transform: translate3d(0, 2px, 0);
+    }
+}
+
 .height-limit-screen {
     max-height: 700px;
     overflow-y: scroll;
+}
+
+// 0.5px
+.thin {
+    position: relative;
+
+    &::after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 1px solid;
+        width: 200%;
+        height: 200%;
+        content: "";
+        transform: scale(.5);
+        transform-origin: left top;
+    }
 }
 
 [scrollbar='normal']::-webkit-scrollbar {

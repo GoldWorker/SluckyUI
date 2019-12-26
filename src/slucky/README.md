@@ -13,7 +13,7 @@ SluckyUI's idea is to create a component library where all components are implem
 ## 安装 Install
 
 ```
-npm i slucky
+npm i -S slucky
 ```
 
 ## 怎么使用？ How to use SluckyUI？
@@ -44,8 +44,8 @@ import "slucky/sass/normal.scss";
     [
         "import",
         {
-            "libraryName": "xxxUI",
-            "libraryDirectory": "component",
+            "libraryName": "slucky",
+            "libraryDirectory": "lib/component",
         }
     ],
     // ...

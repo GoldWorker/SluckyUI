@@ -14,7 +14,7 @@ module.exports = {
             return filename;
             // return '[name].js'
         },
-        path: __dirname + '/dist',
+        path: __dirname + '/lib',
         // library: 'slucky',
         libraryTarget: 'umd'
     },
@@ -64,6 +64,9 @@ module.exports = {
         }, {
             from: './src/icons',
             to: './icons'
+        }, {
+            from: './src',
+            to: '../es'
         }])
     ]
 };
