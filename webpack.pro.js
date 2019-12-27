@@ -13,7 +13,7 @@ const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // 图表分析
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const Jarvis = require('webpack-jarvis'); //这个插件没鸟用
+// const Jarvis = require('webpack-jarvis'); //这个插件没鸟用
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const chalk = require('chalk');
 const DashboardPlugin = require('webpack-dashboard/plugin');

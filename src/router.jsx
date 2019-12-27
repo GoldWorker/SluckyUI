@@ -46,7 +46,8 @@ const routes = (store) => {
         }, {
             path: '/protraitApp',
             component: createRouterComponent(store, () => import('./pages/protraitApp'))
-        }, {
+        }, 
+        {
             path: '/article',
             component: createRouterComponent(store, () => import('./pages/articleDetail/highorder-articleDetail'))
         }, {
