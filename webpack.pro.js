@@ -17,6 +17,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const chalk = require('chalk');
 const DashboardPlugin = require('webpack-dashboard/plugin');
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 
 // const Autoprefixer = require('autoprefixer')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -172,6 +173,7 @@ module.exports = {
             logLevel: 'info'
         }),
         new DashboardPlugin(),
+        new DuplicatePackageCheckerPlugin(),
         new ProgressBarPlugin({
             format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
             clear: false
